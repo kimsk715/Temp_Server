@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+.sidebar {
+    min-width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-left: 100px;
+    height: fit-content;
+}
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.sidebar button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border-radius: 4px;
+}
+.sidebar button:hover {
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+}
+.sidebar button span {
+    text-align: center;
+}
+.sidebar button.clicked {
+    font-weight: 900;
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+    border-radius: 4px;
+    /* background-color: #f2f2f2;
+    border-color: #ddd; 
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);  */
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+}
+/* .sidebar .triangle::before {
+    content: "▶";
+    position: relative;
+    left: -50%;
+    top: 30%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    line-height: 1;
+    transition: content 0.3s ease;
+}
+.sidebar .triangle.clicked::before {
+    content: "▼";
+} */
+.sidebar .circle::before {
+    content: "●";
+    position: relative;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    line-height: 1;
+}
+.sidebar .circle.clicked {
+    font-weight: 700;
+    background-color: #f2f2f2;
+}
+.sidebar .circle.clicked::before {
+    content: "■";
+    font-size: 16px;
+}

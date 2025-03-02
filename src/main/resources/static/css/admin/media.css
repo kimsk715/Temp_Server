@@ -1,0 +1,207 @@
+/* 
+  데스크톱 레이아웃 미디어 쿼리
+  1. 기본 레이아웃 구조
+  2. 네비게이션 바
+  3. 사이드바
+  4. 메인 콘텐츠
+  5. 토글 버튼
+*/
+
+@media screen and (min-width: 800px) {
+  /* 레이아웃 기본 구조 */
+  .layout-container {
+    overflow-y: hidden;
+  }
+
+  .layout-container .main-content {
+    display: flex;
+    padding-top: 72px;
+    height: 100%;
+  }
+
+  .layout-container .main-content .contents-container {
+    position: relative;
+    flex: 1;
+    box-shadow: 0 0 0 1px #0000000f;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 상단 네비게이션 */
+  .gnb-container {
+    height: 72px;
+  }
+
+  .logo-wrapper {
+    padding: 0;
+  }
+
+  .logo-btn {
+    background-image: url(../../images/admin/wadiz_logo.svg);
+    width: 190px;
+    height: 21px;
+  }
+
+  .logo-type {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  /* 사이드바 */
+  .sidebar-container {
+    position: relative;
+    transform: none;
+    transition: width 0.2s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 0;
+    width: 0;
+  }
+
+  /* 닫힌 상태일 때 */
+  .sidebar-container:not(.sidebar-expanded) {
+    min-width: 28px;
+  }
+
+  .sidebar-container.sidebar-scroll {
+    height: calc(100vh - 72px);
+    overflow-y: hidden;
+  }
+
+  .sidebar-container.sidebar-expanded {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    width: 240px;
+  }
+
+  .sidebar-container.sidebar-scroll .sidebar-content {
+    padding-bottom: 0;
+  }
+
+  .sidebar-content {
+    overflow: visible;
+  }
+
+  .nav-menu {
+    position: relative;
+  }
+
+  .nav-menu:before {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    left: 16px;
+    z-index: 1;
+    background-color: #0000001a;
+    height: 2px;
+    content: "";
+  }
+
+  .nav-links-menu {
+    height: calc(100vh - 133px);
+  }
+
+  /* 프로젝트 페이지 */
+  .project-container .project-box {
+    height: calc(100vh - 72px);
+    overflow: auto;
+  }
+
+  .project-container .project-presentation {
+    padding: 40px 64px;
+  }
+
+  .project-container .presentation-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .project-container .presentation-desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .project-container .presentation-content {
+    margin-bottom: 0;
+  }
+
+  .presentation-content {
+    margin-top: 120px;
+  }
+
+  /* 프로젝트 레이아웃 */
+  .project-wrapper {
+    margin-top: -80px;
+  }
+
+  .project-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 132px;
+  }
+
+  .project-layout .project-contents {
+    flex: 1;
+    max-width: 850px;
+  }
+
+  /* 상태 배너 */
+  .status-banner {
+    padding: 16px 32px;
+  }
+
+  /* 제출 버튼 영역 */
+  .submit-btn-wrapper {
+    position: relative;
+    box-shadow: none;
+    background-color: #fff;
+  }
+
+  .submit-btn-wrapper .submit-btn {
+    margin: 32px 0;
+    width: 320px;
+    height: 48px;
+  }
+
+  /* 사이드바 토글 버튼 */
+  .layout-container .main-content .sidebar-toggle-btn {
+    display: flex;
+    position: fixed;
+    top: 87px;
+    left: 12px;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.2s;
+    border: 0.75px solid #e9ecef;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px #0000001a;
+    background: #fff;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+  }
+
+  .layout-container .main-content .sidebar-toggle-btn.sidebar-expanded {
+    left: 224px;
+  }
+
+  .layout-container .main-content .sidebar-toggle-btn .toggle-icon {
+    background: url(../../images/admin/arrow2.svg) no-repeat center;
+    background-size: 12px 12px;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+  }
+
+  .layout-container
+    .main-content
+    .sidebar-toggle-btn.sidebar-expanded
+    .toggle-icon {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,240 @@
+/* 공고관리 모달 스타일 */
+
+/* 기본 모달 레이아웃 - 신고관리와 동일 */
+.announce-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+/* .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+} */
+
+.announce-modal .modal-container {
+    /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh; */
+    display: flex; /* 추가: flex 컨테이너로 변경 */
+    flex-direction: column; /* 추가: 세로 방향 정렬 */
+}
+
+/* 모달 헤더 - 신고관리와 동일 */
+/* .announce-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+} */
+
+/* .modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+} */
+
+/* 모달 본문 - 신고관리와 동일 */
+.announce-modal .modal-body {
+    overflow-y: auto; /* 추가: 내용이 넘치면 스크롤 */
+    padding: 20px;
+}
+
+.announce-info h4 {
+    margin-bottom: 4px;
+}
+
+/* 기본 정보 영역 - 신고관리와 동일 */
+/* .info-row {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.info-row .label {
+    width: 100px;
+    font-weight: 600;
+} */
+
+/* 공고 상세내용 영역 */
+.announce-content {
+    margin-top: 30px;
+}
+
+.announce-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* 카테고리 선택 박스와 처리상태 선택 박스 공통 스타일 */
+/* .status-select {
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+  }
+
+.status-select:focus {
+  outline: none;
+  border-color: rgb(0, 221, 109);
+} */
+
+/* 상세 내용 표시 영역 */
+.announce-content .detail-content {
+    margin: 0 0;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    min-height: 100px;
+    max-height: none;
+    /* 위 아래 길이 제한 x */
+    white-space: pre-line;
+    /* 공백, 줄바꿈 인식 */
+    line-height: 1.5;
+    /* 텍스트의 줄 간격을 1.5배 */
+}
+
+/* 이미지 표시 영역 */
+.announce-image {
+    margin-top: 30px;
+}
+
+.announce-image h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.image-view {
+    position: relative;
+    padding: 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.image-view img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    /* 짜그러짐 없이 이미지 비율 유지, 주어진 영역에 자동으로 딱 맞게 끼워 맞추기 */
+}
+
+.image-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.prev-btn,
+.next-btn {
+    padding: 6px 12px;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background: #f8f9fa;
+}
+
+.prev-btn:disabled,
+.next-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* 처리 상태 영역 - 신고관리와 동일 */
+/* .status-selection {
+    margin-top: 30px;
+}
+
+.status-selection h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+} */
+
+/* 관리자 메모 영역 - 신고관리와 동일 */
+/* .admin-memo {
+    margin-top: 30px;
+}
+
+.admin-memo h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+#admin-memo {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    resize: vertical;
+} */
+
+/* 모달 푸터 - 신고관리와 동일 */
+/* .announce-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px;
+  border-top: 1px solid #e9ecef;
+} */
+
+/* .modal-footer button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #fff;
+    border: 1px solid #e9ecef;
+}
+
+.cancel-btn:hover {
+    background: #f8f9fa;
+}
+
+.save-btn {
+    background: rgb(0, 221, 109);
+    border: none;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: rgb(0, 189, 94);
+} */

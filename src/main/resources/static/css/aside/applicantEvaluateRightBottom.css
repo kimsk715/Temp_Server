@@ -1,0 +1,179 @@
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid rgba(200, 200, 200, 0.8);
+}
+.sidebar h1 {
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+.sidebar h2 {
+    font-size: 14px;
+    font-weight: 100;
+}
+.sidebar .input-section {
+    margin-top: 20px;
+}
+.sidebar .img-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.sidebar .img-container .img-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.sidebar .img-container .img-button img {
+    background-color: #f2f2f2;
+    width: 15px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.sidebar .input-section textarea {
+    /* position: relative; */
+    width: 100%;
+    padding: 5px;
+    height: 160px;
+    box-sizing: border-box;
+}
+.sidebar .submit-button button:hover {
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: rgb(255, 255, 255);
+}
+.sidebar .submit-button {
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* 또는 space-around, space-evenly */
+    gap: 10px;
+}
+.sidebar .submit-button button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border-radius: 4px;
+}
+.sidebar .submit-button button.clicked {
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: rgb(255, 255, 255);
+    padding: 0px 16px;
+    border-radius: 4px;
+}
+
+/* 지원자 평가의견 모달창 부분 */
+
+.sidebar-modal-bottom-body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    z-index: 999;
+}
+
+.sidebar-modal {
+    width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.sidebar-modal .modal-header {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.sidebar-modal .close {
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 22px;
+}
+.sidebar-modal .tabs {
+    font-size: 15px;
+    display: flex;
+    margin: 10px 0;
+    border-bottom: 1.5px solid #999;
+}
+.sidebar-modal .tab {
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+.sidebar-modal .tab.active {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
+.sidebar-modal th,
+.sidebar-modal .first,
+.sidebar-modal .second,
+.sidebar-modal .fourth,
+.sidebar-modal .tab {
+    text-align: center;
+}
+.sidebar-modal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+    overflow: hidden;
+}
+.sidebar-modal th,
+.sidebar-modal td {
+    font-size: 12px;
+    padding: 3px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+.sidebar-modal th {
+    height: 30px;
+    text-align: center;
+}
+.sidebar-modal td {
+    height: 50px;
+}
+.sidebar-modal .first {
+    width: 20px;
+}
+.sidebar-modal .second {
+    width: 10px;
+}
+.sidebar-modal .second img {
+    width: 20px;
+}
+.sidebar-modal .third {
+    width: 110px;
+}
+.sidebar-modal .fourth {
+    width: 30px;
+}

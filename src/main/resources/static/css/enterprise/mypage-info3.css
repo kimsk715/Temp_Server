@@ -1,0 +1,4897 @@
+@charset "utf-8"; /* 기업 회원 정보 수정 페이지 */
+/* info.css */
+.companyinfo_modify_wrap h3 {
+    position: relative;
+    margin: 5px 0 8px;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap h3 strong {
+    color: #00c
+}
+
+.companyinfo_modify_wrap h3 img.star_mark {
+    margin-left: 2px;
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap h3 .unexposed {
+    margin-left: 10px;
+    color: #999;
+    font-size: 11px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap h3 span.update_chk {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    width: 85px;
+    height: 15px;
+    color: #888;
+    font-size: 11px;
+    font-weight: normal;
+    *top: 6px
+}
+
+.companyinfo_modify_wrap h3 span.update_chk input {
+    margin-top: -2px;
+    border: 0 none;
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap p.middle_save {
+    margin-top: 7px;
+    text-align: right
+}
+
+.companyinfo_modify_wrap h4 {
+    position: relative;
+    margin: 15px 0 8px;
+    color: #6c81f2;
+    font-size: 12px;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap h4 .unexposed {
+    margin-left: 10px;
+    color: #999;
+    font-size: 11px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap table.company_info_table input, .companyinfo_modify_wrap table.company_info_table input[type="radio"] {
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap table.company_info_table input.big {
+    width: 320px
+}
+
+.companyinfo_modify_wrap table.company_info_table input.big2 {
+    width: 400px
+}
+
+.companyinfo_modify_wrap table.company_info_table th a {
+    color: #5661a1
+}
+
+.companyinfo_modify_wrap table.company_info_table th a.type2 {
+    color: #222
+}
+
+/* WMG-20669 */
+.companyinfo_modify_wrap table.company_info_table th .required {
+    zoom:1;margin-left: -8px;
+    padding-left: 8px;
+    background: url(//www.saraminimage.co.kr/ui/company_info/ico_join_required.png) no-repeat 0 50%
+}
+
+.companyinfo_modify_wrap table.company_info_table th .unexposed {
+    margin-left: 5px;
+    color: #999;
+    font-size: 11px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap table.company_info_table td {
+    color: #444;
+    word-break: break-all
+}
+
+.companyinfo_modify_wrap table.company_info_table td.none_td {
+    padding: 0;
+    height: 35px;
+    border: solid #d8dcf3;
+    border-width: 0 0 1px 0;
+    color: #444;
+    word-break: break-all
+}
+
+.companyinfo_modify_wrap table.company_info_table td.none_td input {
+    position: relative;
+    top: 2px;
+    border: 0 none
+}
+
+.companyinfo_modify_wrap table.company_info_table td.none_td label {
+    color: #888;
+    font-size: 11px
+}
+
+.companyinfo_modify_wrap table.company_info_table td.phone_num input {
+    margin-right: 10px;
+    width: 75px
+}
+
+.companyinfo_modify_wrap table.company_info_table td.phone_num span {
+    position: relative
+}
+
+/* WMG-20669 수정 */
+.companyinfo_modify_wrap table.company_info_table td.company_sns p img {
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap table.company_info_table td.company_sns p.sns {
+    padding: 4px 0
+}
+
+/* WMG-20669 수정 */
+.companyinfo_modify_wrap table.company_info_table td.company_sns p.sns span {
+    display: inline-block;
+    margin-left: 10px;
+    width: 150px
+}
+
+.companyinfo_modify_wrap table.company_info_table td.company_sns p.sns input {
+    margin-left: 10px;
+    width: 344px
+}
+
+.companyinfo_modify_wrap table.company_info_table td.company_sns p.me input {
+    width: 504px
+}
+
+/* //WMG-20669 수정 */
+.companyinfo_modify_wrap table.company_info_table td .btn_system {
+    display: inline-block;
+    overflow: hidden;
+    zoom:1;margin-top: 1px;
+    margin-left: 5px;
+    padding: 0 8px 0 7px;
+    height: 17px;
+    border: 1px solid #bebebe;
+    color: #666;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 19px;
+    vertical-align: middle;
+    background-color: #fdfdfd
+}
+
+.companyinfo_modify_wrap table.company_info_table td p.address_txt {
+    margin-bottom: 5px
+}
+
+.companyinfo_modify_wrap table.company_info_table td .small_txt {
+    margin: 2px 0 -5px;
+    padding-left: 5px;
+    color: #888;
+    font-size: 12px;
+    text-align: left
+}
+
+.companyinfo_modify_wrap table.company_info_table td p.txt_update {
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.companyinfo_modify_wrap table.company_info_table td #company_gb_txt {
+    line-height: 18px
+}
+
+/* WMG-20669 추가 */
+.companyinfo_modify_wrap table.company_info_table.left_th .tit {
+    padding-top: 40px;
+    vertical-align: top
+}
+
+.companyinfo_modify_wrap table.company_info_table td strong {
+    float: left;
+    overflow: hidden;
+    margin-right: 10px;
+    width: 100px;
+    font-weight: normal;
+    color: #0000cc;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.companyinfo_modify_wrap table.company_info_table td .desc {
+    float: left;
+    overflow: hidden;
+    width: 400px;
+    color: #222;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.companyinfo_modify_wrap table.company_info_table td .desc.type2 {
+    color: #929292
+}
+
+/* //WMG-20669 추가 */
+/* WMG-23893 추가 */
+.companyinfo_modify_wrap h2 {
+    position: relative;
+    margin: 40px 0 0;
+    padding: 0 0 16px;
+    color: #000;
+    font-size: 25px;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap h2.non_blank {
+    margin-top: 0
+}
+
+.companyinfo_modify_wrap h2.type2 {
+    margin-top: 30px;
+    font-size: 22px
+}
+
+.companyinfo_modify_wrap h2 .txt_noti {
+    display: block;
+    margin-top: 8px;
+    color: #444;
+    font-size: 14px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap h2 span.required {
+    zoom:1;position: absolute;
+    right: 0;
+    bottom: 8px;
+    margin-left: -8px;
+    padding-left: 8px;
+    color: #444;
+    font-size: 13px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap h2 span.required b {
+    color: #ff3b50
+}
+
+.companyinfo_modify_wrap .tblWrap.none_border {
+    border-top: none
+}
+
+.companyinfo_modify_wrap .line_block {
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+    line-height: 21px
+}
+
+.companyinfo_modify_wrap .inpSel {
+    margin-left: 0
+}
+
+.companyinfo_modify_wrap .line_block input[type=text]:first-child {
+    margin-left: 0
+}
+
+.companyinfo_modify_wrap .line_block .inpTarea+.piece {
+    vertical-align: top
+}
+
+.companyinfo_modify_wrap .line_block.grey {
+    color: #888;
+    font-size: 13px
+}
+
+.companyinfo_modify_wrap .line_block.txt_right {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    line-height: 30px;
+    text-align: right
+}
+
+.companyinfo_modify_wrap .line_block.block_right {
+    display: inline-block;
+    float: right;
+    margin-top: 0
+}
+
+.companyinfo_modify_wrap .line_block .btnSizeS.btn_right {
+    float: right;
+    position: static;
+    margin: 0 0 0 7px
+}
+
+.companyinfo_modify_wrap .line_block .inner_btn:nth-child(2) {
+    position: absolute;
+    right: 41px;
+    bottom: 29px
+}
+
+.companyinfo_modify_wrap .line_block .inner_btn:nth-child(3) {
+    position: absolute;
+    right: 7px;
+    bottom: 29px
+}
+
+.companyinfo_modify_wrap .line_block.desc {
+    padding-right: 128px;
+    line-height: 18px;
+    text-align: right
+}
+
+.companyinfo_modify_wrap .line_block.desc .btnSizeS.btn_right {
+    position: absolute;
+    right: 0;
+    margin-top: -12px
+}
+
+.companyinfo_modify_wrap .line_block .inpFile.btn_right {
+    position: absolute;
+    top: 18px;
+    right: 0
+}
+
+.companyinfo_modify_wrap .line_block .inpFile.btn_right .lbl {
+    min-width: 120px;
+    height: 32px
+}
+
+.companyinfo_modify_wrap .line_block .inpFile.btn_right .lbl>span {
+    border: 1px solid #ddd;
+    color: #222;
+    line-height: 29px;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap .line_block .inpFile.btn_right.type2 {
+    display: inline-block;
+    position: static;
+    margin: 0 0 0 8px;
+    padding: 0
+}
+
+.companyinfo_modify_wrap .line_block .inpFile.btn_right.type2 .lbl {
+    display: inline-block;
+    position: static
+}
+
+.companyinfo_modify_wrap .blank_image_field {
+    display: table;
+    width: 200px;
+    height: 80px
+}
+
+.companyinfo_modify_wrap .blank_image_field:empty, .companyinfo_modify_wrap .blank_image_field.empty {
+    background-color: #f3f4f6
+}
+
+.companyinfo_modify_wrap .blank_image_field span {
+    display: table-cell;
+    width: 200px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap .blank_image_field img {
+    max-width: 200px;
+    max-height: 80px;
+    width: auto;
+    height: auto
+}
+
+.companyinfo_modify_wrap .item_contents {
+    display: inline-block;
+    float: left;
+    width: 745px;
+    min-height: 32px;
+    color: #000;
+    font-size: 14px;
+    line-height: 28px
+}
+
+.companyinfo_modify_wrap .item_contents li {
+    float: left;
+    margin-right: 15px
+}
+
+.companyinfo_modify_wrap .item_contents li:last-child {
+    margin-right: 0
+}
+
+.companyinfo_modify_wrap .item_contents li button {
+    margin-left: 5px;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/pattern/spr_tooltip.png) 0 -36px no-repeat;
+    transform: scale(0.86)
+}
+
+.companyinfo_modify_wrap .image_contents {
+    display: inline-block;
+    width: 848px;
+    color: #222;
+    font-size: 14px;
+    line-height: normal
+}
+
+.companyinfo_modify_wrap .image_contents li {
+    float: left;
+    position: relative;
+    margin-right: 16px;
+    width: 200px
+}
+
+.companyinfo_modify_wrap .image_contents li:last-child {
+    margin-right: 0
+}
+
+/* WMG-33555 */
+.companyinfo_modify_wrap .image_contents li .btn_image_upload {
+    height: 120px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative
+}
+
+.companyinfo_modify_wrap .image_contents li .btn_image_upload span {
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 200px;
+    height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dfe1e5
+}
+
+.companyinfo_modify_wrap .image_contents li .btn_image_upload img {
+    width: auto;
+    height: 100%;
+    max-width: 200px;
+    max-height: 120px
+}
+
+.companyinfo_modify_wrap .image_contents li .btn_image_upload.empty {
+    background: url(//www.saraminimage.co.kr/sri/company/bg/bg_image_empty.png) center center no-repeat
+}
+
+.companyinfo_modify_wrap .image_contents li .btn_image_remove {
+    z-index: 1;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 0 8px 4px;
+    height: 28px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    line-height: normal;
+    background-color: rgba(0,0,0,0.5)
+}
+
+.companyinfo_modify_wrap .image_contents li p {
+    float: left;
+    margin-top: 8px;
+    width: 100%;
+    color: #222;
+    font-size: 14px;
+    line-height: normal;
+    text-align: center
+}
+
+/* WMG-33555 */
+.companyinfo_modify_wrap .comment_txt {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 0 22px 2px;
+    height: 31px;
+    border-radius: 15px;
+    color: #222;
+    font-size: 14px;
+    line-height: 27px;
+    background-color: #f2f6f9
+}
+
+.companyinfo_modify_wrap .comment_txt strong {
+    margin: 0
+}
+
+.companyinfo_modify_wrap .comment_txt.small {
+    margin: 11px 0 6px;
+    padding: 6px 32px 8px;
+    height: auto;
+    font-size: 13px !important;
+    line-height: normal
+}
+
+.companyinfo_modify_wrap .comment_txt.small strong {
+    font-size: 14px
+}
+
+.companyinfo_modify_wrap .line_block.txt_right .comment_txt {
+    margin-bottom: 12px;
+    height: 29px
+}
+
+.companyinfo_modify_wrap .accordion_menu {
+    margin-bottom: 70px
+}
+
+.companyinfo_modify_wrap .accordion_menu li {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+    height: 53px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    line-height: 49px;
+    background: #fafafc
+}
+
+.companyinfo_modify_wrap .accordion_menu li>div:not(.content) {
+    padding: 0 24px 2px;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap .accordion_menu li>div:not(.content):before {
+    float: left;
+    margin-right: 8px;
+    color: #ff6d6a;
+    content: "Q"
+}
+
+.companyinfo_modify_wrap .accordion_menu li:last-child {
+    margin-bottom: 0 !important
+}
+
+.companyinfo_modify_wrap .accordion_menu .content {
+    display: none;
+    padding: 17px 44px 24px;
+    border-top: 1px solid #e7e9ec;
+    color: #222;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 22px;
+    white-space: pre;
+    background: #fff
+}
+
+.companyinfo_modify_wrap .accordion_menu .content:before {
+    display: none
+}
+
+.companyinfo_modify_wrap .accordion_menu li.expand {
+    height: auto !important
+}
+
+.companyinfo_modify_wrap .accordion_menu li.expand .content {
+    display: block
+}
+
+.companyinfo_modify_wrap .accordion_menu li>button {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 53px;
+    border: none;
+    outline: none;
+    font-size: 0;
+    background: url(//www.saraminimage.co.kr/sri/vix/ico/ico_arr_down.png) right 20px center no-repeat;
+    background-size: 14px 8px
+}
+
+.companyinfo_modify_wrap .accordion_menu li.expand>button {
+    background-position: left 20px center;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg)
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 {
+    margin-top: 8px
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 li {
+    margin-bottom: 16px;
+    height: 80px;
+    border: none;
+    border-radius: 0;
+    background: #fff
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 li>div:not(.content) {
+    padding: 0 60px 2px;
+    border: 1px solid #ebebeb;
+    color: #222;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 76px
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 li.expand>div:not(.content) {
+    border: 1px solid #353535
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 li>div:before {
+    display: none
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 .content {
+    padding: 24px 0 0;
+    white-space: normal
+}
+
+.companyinfo_modify_wrap .accordion_menu.type2 li>button {
+    top: 0;
+    height: 80px;
+    background-size: 34px 18px
+}
+
+.companyinfo_modify_wrap .accordion_menu .tblWrap {
+    width: calc(100% - 1px)
+}
+
+.companyinfo_modify_wrap .box_noti.type2 {
+    margin: 16px 0 40px
+}
+
+.companyinfo_modify_wrap .box_noti.type2>ul>li {
+    color: #222;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.companyinfo_modify_wrap .box_noti>ul>li.grey {
+    color: #888
+}
+
+.companyinfo_modify_wrap .box_noti.type3 {
+    margin: 16px 0 0;
+    padding: 0;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap .box_noti.type3>ul>li {
+    font-size: 13px
+}
+
+.companyinfo_modify_wrap .box_noti.type4 {
+    position: relative;
+    margin: 24px 0 16px;
+    padding-left: 216px
+}
+
+.companyinfo_modify_wrap .box_noti.type4 .photo {
+    display: table;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    width: 176px;
+    height: 88px;
+    vertical-align: middle;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap .box_noti.type4 .photo span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap .box_noti.type4 .photo.empty, .companyinfo_modify_wrap .box_noti.type4 .photo:empty {
+    background: #fff url(//www.saraminimage.co.kr/sri/company/ico/ico_empty_image.png) center center no-repeat
+}
+
+.companyinfo_modify_wrap .box_noti.type4 .photo img {
+    max-width: 176px;
+    max-height: 88px
+}
+
+.companyinfo_modify_wrap .box_noti.type4>input[type=text] {
+    margin-top: 8px
+}
+
+.companyinfo_modify_wrap .inner_btn {
+    width: 24px;
+    height: 24px
+}
+
+.companyinfo_modify_wrap .inner_btn.minus {
+    background: url(//www.saraminimage.co.kr/sri/company/btn/btn_table_minus.png) center no-repeat
+}
+
+.companyinfo_modify_wrap .inner_btn.plus {
+    background: url(//www.saraminimage.co.kr/sri/company/btn/btn_table_plus.png) center no-repeat
+}
+
+.companyinfo_modify_wrap .box_noti .desc {
+    padding-top: 10px;
+    font-size: 13px;
+    color: #444
+}
+
+.companyinfo_modify_wrap .box_noti .center_list {
+    margin-top: 16px;
+    text-align: center
+}
+
+.companyinfo_modify_wrap .txt_noti.inline_btn {
+    padding-bottom: 2px;
+    line-height: 26px
+}
+
+.companyinfo_modify_wrap .txt_noti.inline_btn button {
+    float: right
+}
+
+.companyinfo_modify_wrap .txt_noti.inline_btn a {
+    float: none;
+    margin-left: 10px
+}
+
+.companyinfo_modify_wrap .accordion_menu .btn_modify_companyinfo {
+    margin-bottom: 56px
+}
+
+.companyinfo_modify_wrap .disclosure_msg {
+    display: inline-block;
+    position: relative;
+    margin: 16px 0 0;
+    padding: 4px 0 0;
+    width: 100%;
+    color: #ff3b50;
+    font-size: 14px;
+    line-height: 21px
+}
+
+.companyinfo_modify_wrap+.companyinfo_modify_wrap {
+    margin-top: 24px
+}
+
+.companyinfo_modify_wrap+.btn_modify_companyinfo {
+    margin-top: 40px
+}
+
+.companyinfo_modify_wrap tbody th {
+    padding-left: 30px
+}
+
+.companyinfo_modify_wrap tbody th.txtCenter {
+    padding: 13px 15px 15px
+}
+
+.companyinfo_modify_wrap tbody th .required {
+    zoom:1;position: relative;
+    margin-left: -8px;
+    padding-left: 8px
+}
+
+.companyinfo_modify_wrap tbody th .required b {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    color: #ff3b50
+}
+
+.companyinfo_modify_wrap tbody th .toolTipWrap>div {
+    cursor: pointer
+}
+
+.companyinfo_modify_wrap tbody td {
+    position: relative;
+    padding-left: 20px
+}
+
+.companyinfo_modify_wrap tbody td.wrap_phone_number {
+    font-size: 0
+}
+
+.companyinfo_modify_wrap tbody td.wrap_phone_number .piece {
+    display: inline-block;
+    padding: 0 3px 2px;
+    font-size: 14px;
+    line-height: 28px;
+    vertical-align: top
+}
+
+.companyinfo_modify_wrap tbody td.wrap_phone_number .inpSel+input[type=text] {
+    margin-left: 5px
+}
+
+.companyinfo_modify_wrap tbody td.company_division:after {
+    display: inline-block;
+    content: ""
+}
+
+.companyinfo_modify_wrap tbody td.on_logo {
+    padding-top: 15px
+}
+
+.companyinfo_modify_wrap tbody td .btn_right {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -12px
+}
+
+.companyinfo_modify_wrap tbody td .btn_right.second {
+    right: 145px
+}
+
+.companyinfo_modify_wrap tbody td .btn_right::after {
+    display: block;
+    clear: both;
+    content: ""
+}
+
+.companyinfo_modify_wrap tbody td .btnSizeS {
+    min-width: 120px
+}
+
+.companyinfo_modify_wrap tbody td .btnSizeS.btn_right {
+    margin-top: -16px
+}
+
+.companyinfo_modify_wrap tbody td .btnSizeXS {
+    margin-left: 6px
+}
+
+.companyinfo_modify_wrap tbody td .inpChk, .companyinfo_modify_wrap tbody td .inpRdo {
+    margin-left: 20px
+}
+
+.companyinfo_modify_wrap tbody td .inpChk:first-child, .companyinfo_modify_wrap tbody td .inpRdo:first-child {
+    margin-left: 0
+}
+
+.companyinfo_modify_wrap tbody td .right_btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px
+}
+
+.companyinfo_modify_wrap tbody td .right_btn button {
+    margin-top: 8px
+}
+
+.companyinfo_modify_wrap tbody td .right_btn.type2 button {
+    min-width: 194px
+}
+
+.companyinfo_modify_wrap tbody td .piece.grey {
+    color: #888
+}
+
+.companyinfo_modify_wrap tbody td .piece.left {
+    margin-right: 8px
+}
+
+.companyinfo_modify_wrap tbody td .piece.right {
+    margin-left: 7px
+}
+
+.companyinfo_modify_wrap tbody td .small_txt {
+    line-height: 24px
+}
+
+.companyinfo_modify_wrap tbody td.english {
+    font-size: 12px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table {
+    padding: 0
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .render_auto {
+    table-layout: auto
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .piece {
+    float: left;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: normal
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .txt_header {
+    display: block;
+    padding: 13px 15px 15px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap {
+    position: relative;
+    width: 100%;
+    border-top: 0;
+    border-bottom: 1px solid #ebebeb
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap.omission {
+    overflow: hidden;
+    max-height: 327px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap.omission .table_more {
+    position: absolute
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap.omission .table_more:after {
+    transform: none;
+    -ms-transform: none
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap th {
+    padding-left: 16px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap td {
+    line-height: 30px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap .inner_btn.minus {
+    position: absolute;
+    right: -80px;
+    bottom: 17px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap .inner_btn.minus+.inner_btn.plus {
+    position: absolute;
+    right: -40px;
+    bottom: 17px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap .inner_btn:last-child {
+    right: -40px !important
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .tblWrap:last-child {
+    border-bottom: none
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .txt_header+.tblWrap {
+    border-top: 1px solid #ebebeb
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .inpTypo {
+    float: right
+}
+
+.companyinfo_modify_wrap tbody td.inner_table tr:last-child th, .companyinfo_modify_wrap tbody td.inner_table tr:last-child td, .companyinfo_modify_wrap tbody td.inner_table tr.last th, .companyinfo_modify_wrap tbody td.inner_table tr.last td {
+    border-bottom: none
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .inpRdo, .companyinfo_modify_wrap tbody td.inner_table .inpChk {
+    float: left;
+    margin: 0 0 15px 0;
+    width: 100%;
+    line-height: 22px
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .inpRdo.last, .companyinfo_modify_wrap tbody td.inner_table .inpChk.last {
+    margin-bottom: 0
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .inpRdo.half {
+    width: 49%
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .inpRdo.quarter {
+    width: 24%
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .table_more {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 0 2px;
+    width: 100%;
+    height: 46px;
+    border-top: 1px solid #ebebeb;
+    color: #666;
+    font-size: 14px;
+    line-height: 42px;
+    text-align: center;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap tbody td.inner_table .table_more:after {
+    display: inline-block;
+    margin-left: 7px;
+    border-top: 6px solid #666;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    vertical-align: middle;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    content: ""
+}
+
+.companyinfo_modify_wrap tbody td.inner_table.type2 .tblWrap {
+    width: 767px;
+    border-right: 1px solid #ebebeb
+}
+
+.companyinfo_modify_wrap tbody td .disclosure_msg {
+    background-color: #fafbfc;
+    transform: translateY(3px);
+    -ms-transform: translateY(3px)
+}
+
+.companyinfo_modify_wrap tbody td .disclosure_msg:after {
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    right: -15px;
+    bottom: 0;
+    left: -20px;
+    height: 21px;
+    border: 1px solid #fafbfc;
+    border-width: 10px 15px 11px 20px;
+    content: ""
+}
+
+.companyinfo_modify_wrap tbody td .disclosure_msg.type2 {
+    margin: 0;
+    padding: 0 0 2px
+}
+
+.companyinfo_modify_wrap tbody td .disclosure_msg.type2:after {
+    top: -16px;
+    border-width: 16px 15px 14px 20px
+}
+
+.companyinfo_modify_wrap tbody td .tblWrap+.disclosure_msg {
+    padding: 0 0 15px 20px
+}
+
+.companyinfo_modify_wrap tbody td.warning {
+    border-left: 1px solid #ff3b50;
+    border-right: 1px solid #ff3b50
+}
+
+.companyinfo_modify_wrap tbody td.warning:before {
+    z-index: 11;
+    position: absolute;
+    height: 1px;
+    top: -1px;
+    left: 0;
+    right: 0;
+    background-color: #ff3b50;
+    content: ""
+}
+
+.companyinfo_modify_wrap tbody td.warning:after {
+    z-index: 12;
+    position: absolute;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    background-color: #ff3b50;
+    content: ""
+}
+
+.companyinfo_modify_wrap tbody td.warning .warning_message {
+    margin-top: 8px
+}
+
+.companyinfo_modify_wrap tbody td.warning .disclosure_msg {
+    height: auto;
+    line-height: 21px;
+    background-color: transparent;
+    transform: none;
+    -ms-transform: none
+}
+
+.companyinfo_modify_wrap tbody td.warning .disclosure_msg:after {
+    display: none
+}
+
+.companyinfo_modify_wrap tbody td.warning .line_block.txt_right, .companyinfo_modify_wrap tbody td .disclosure_msg+.line_block.txt_right {
+    bottom: 52px
+}
+
+.companyinfo_modify_wrap tbody .border_left {
+    border-left: 1px solid #ebebeb
+}
+
+.companyinfo_modify_wrap tbody .icon_tooltip {
+    display: inline-block;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_sri_input2.png) 0 -300px no-repeat
+}
+
+.companyinfo_modify_wrap .underline_btn {
+    margin-right: 10px;
+    color: #222;
+    font-size: 14px;
+    line-height: 28px;
+    text-decoration: underline
+}
+
+.companyinfo_modify_wrap .underline_btn.type2 {
+    float: right;
+    margin: 34px 0 0;
+    font-size: 15px;
+    line-height: normal
+}
+
+/* //WMG-23893 추가 */
+.companyinfo_modify_wrap td.company_division ul {
+    margin: 5px 0
+}
+
+.companyinfo_modify_wrap td.company_division ul li {
+    display: inline
+}
+
+.companyinfo_modify_wrap td.company_division ul li input {
+    position: relative;
+    top: 2px;
+    *border: 0 none
+}
+
+.companyinfo_modify_wrap td.company_division ul li label {
+    margin-right: 20px
+}
+
+.companyinfo_modify_wrap td.company_division p.txt00 {
+    margin: 5px 0;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap td.company_division p.txt00 a {
+    margin-left: 5px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap td.company_division p.txt01 a {
+    color: #00c;
+    text-decoration: underline
+}
+
+.companyinfo_modify_wrap td.pay_job_intro p input {
+    width: 325px
+}
+
+.companyinfo_modify_wrap td.pay_job_intro p.txt00 {
+    margin-bottom: 8px;
+    color: #888;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.companyinfo_modify_wrap td.pay_job_intro p.txt00 span {
+    margin-left: 5px
+}
+
+.companyinfo_modify_wrap td.pay_job_intro p.txt01 {
+    color: #ff4800;
+    font-size: 14px;
+    line-height: 18px
+}
+
+.companyinfo_modify_wrap td.pay_job_intro p.txt01 span {
+    font-size: 12px
+}
+
+.companyinfo_modify_wrap .modify_layer_wrap {
+    position: relative;
+    z-index: 10
+}
+
+.companyinfo_modify_wrap .modify_layer {
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    width: 630px;
+    border: 2px solid #4e61cc;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap .modify_layer .btns {
+    margin-bottom: 35px;
+    text-align: center
+}
+
+.companyinfo_modify_wrap .modify_layer h3 {
+    position: relative;
+    margin: 0;
+    padding: 10px 17px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #4e61cc
+}
+
+.companyinfo_modify_wrap .modify_layer h3 span {
+    position: absolute;
+    top: 7px;
+    right: 10px
+}
+
+.companyinfo_modify_wrap .modify_layer table {
+    margin: 20px;
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+.companyinfo_modify_wrap .modify_layer table th {
+    padding-left: 20px;
+    height: 37px;
+    border: 1px solid #d8dcf3;
+    color: #5661a1;
+    font-weight: bold;
+    line-height: 20px;
+    background-color: #f4f6fe
+}
+
+.companyinfo_modify_wrap .modify_layer table th .small_txt {
+    margin-left: 4px;
+    font-size: 11px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap .modify_layer table th .required {
+    zoom:1;margin-left: -8px;
+    padding-left: 8px;
+    background: url(//www.saraminimage.co.kr/ui/company_info/ico_join_required.png) no-repeat 0 50%
+}
+
+.companyinfo_modify_wrap .modify_layer table td {
+    padding: 10px 15px;
+    height: 35px;
+    border: 1px solid #d8dcf3;
+    color: #444;
+    word-break: break-all
+}
+
+.companyinfo_modify_wrap .modify_layer table td label {
+    margin-right: 10px
+}
+
+.companyinfo_modify_wrap .modify_layer table td input {
+    position: relative;
+    top: 2px;
+    *top: 0
+}
+
+.companyinfo_modify_wrap .modify_layer table td input[type="radio"] {
+    margin-right: 3px
+}
+
+.companyinfo_modify_wrap .info_modify_layer_wrap {
+    position: relative;
+    z-index: 10
+}
+
+.companyinfo_modify_wrap .info_modify_layer {
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    width: 569px;
+    border: 2px solid #4e61cc;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap .info_modify_layer h3 {
+    position: relative;
+    margin: 0;
+    padding: 10px 17px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #4e61cc
+}
+
+.companyinfo_modify_wrap .info_modify_layer h3 span {
+    position: absolute;
+    top: 7px;
+    right: 10px
+}
+
+.companyinfo_modify_wrap .info_modify_layer .desc_txt {
+    padding: 22px 0 0 20px;
+    line-height: 20px
+}
+
+.companyinfo_modify_wrap .info_modify_layer .desc_txt strong {
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap .info_modify_layer .desc_txt span {
+    display: block;
+    margin-top: 10px
+}
+
+.companyinfo_modify_wrap .info_modify_layer .btns {
+    margin-bottom: 35px;
+    text-align: center
+}
+
+.companyinfo_modify_wrap .info_modify_layer table {
+    margin: 14px 20px 20px;
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+.companyinfo_modify_wrap .info_modify_layer table th {
+    padding-left: 20px;
+    height: 37px;
+    border: 1px solid #d8dcf3;
+    color: #5661a1;
+    font-weight: bold;
+    line-height: 20px;
+    background-color: #f4f6fe
+}
+
+.companyinfo_modify_wrap .info_modify_layer table th .small_txt {
+    margin-left: 4px;
+    font-size: 11px;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap .info_modify_layer table th .required {
+    zoom:1;margin-left: -8px;
+    padding-left: 8px;
+    background: url(//www.saraminimage.co.kr/ui/company_info/ico_join_required.png) no-repeat 0 50%
+}
+
+.companyinfo_modify_wrap .info_modify_layer table td {
+    padding: 10px 15px;
+    height: 35px;
+    border: 1px solid #d8dcf3;
+    color: #444;
+    word-break: break-all
+}
+
+.companyinfo_modify_wrap .info_modify_layer table td label {
+    margin-right: 20px
+}
+
+.companyinfo_modify_wrap .info_modify_layer table td input {
+    position: relative;
+    top: 2px
+}
+
+.companyinfo_modify_wrap .info_modify_layer table td input[type="radio"] {
+    margin-right: 3px
+}
+
+.companyinfo_modify_wrap .info_modify_layer .txt_input {
+    padding-left: 6px;
+    height: 19px;
+    border: 1px solid #e8e8e8;
+    line-height: 19px
+}
+
+.companyinfo_modify_wrap .info_modify_layer .big {
+    width: 262px
+}
+
+.companyinfo_modify_wrap .info_modify_layer .btn_system {
+    margin-left: 10px
+}
+
+.companyinfo_modify_wrap .info_modify_layer table td textarea {
+    overflow: auto;
+    width: 100%;
+    height: 126px;
+    border: 1px solid #e8e8e8
+}
+
+.companyinfo_modify_wrap .sample_layer_wrap {
+    position: relative;
+    z-index: 10
+}
+
+.companyinfo_modify_wrap .sample_layer_wrap h3 {
+    position: relative;
+    margin: 0;
+    padding: 10px 17px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #4e61cc
+}
+
+.companyinfo_modify_wrap .sample_layer_wrap h3 span {
+    position: absolute;
+    top: 7px;
+    right: 10px
+}
+
+.companyinfo_modify_wrap .sample_layer_wrap .img_wrap {
+    padding: 15px 0 0 15px
+}
+
+.companyinfo_modify_wrap .sample_layer_wrap .tip_txt {
+    margin: 15px 0 24px 15px;
+    padding: 3px 0 0 54px;
+    height: 19px;
+    font-weight: bold;
+    font-size: 14px;
+    background: url(//www.saraminimage.co.kr/ui/company_info/bg_ico_tip.png) no-repeat
+}
+
+.companyinfo_modify_wrap .sample_layer_wrap .tip_txt .ico {
+    display: block;
+    position: absolute;
+    top: -999px;
+    left: -999px;
+    width: 0;
+    height: 0
+}
+
+.companyinfo_modify_wrap .sample_layer {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 723px;
+    border: 2px solid #4e61cc;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap .sample_layer2 {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 723px;
+    border: 2px solid #4e61cc;
+    background-color: #fff
+}
+
+.companyinfo_modify_wrap table.left_th {
+    text-align: left
+}
+
+.companyinfo_modify_wrap table.left_th th {
+    padding: 0 20px;
+    text-align: left
+}
+
+.companyinfo_modify_wrap table.left_th td {
+    padding: 14px 20px;
+    border-left: 1px solid #e1e1e1
+}
+
+.companyinfo_modify_wrap table.left_th td .txt {
+    display: block;
+    margin-bottom: 10px
+}
+
+/* WMG-20669 추가 */
+.companyinfo_modify_wrap table.left_th .star_mark {
+    margin-bottom: -2px;
+    margin-left: 5px
+}
+
+.companyinfo_modify_wrap table.center_th {
+    text-align: center
+}
+
+.companyinfo_modify_wrap table.center_th th {
+    border-right: 1px solid #d8dcf3;
+    text-align: center
+}
+
+.companyinfo_modify_wrap table.center_th th.last, .companyinfo_modify_wrap table.center_th th.last2 {
+    border-right: 0 none
+}
+
+.companyinfo_modify_wrap table.center_th td {
+    border-width: 0 1px 1px 0;
+    line-height: 19px
+}
+
+.companyinfo_modify_wrap table.center_th td input {
+    width: 75px
+}
+
+.companyinfo_modify_wrap table.finance td input {
+    width: 120px
+}
+
+.companyinfo_modify_wrap table.finance td {
+    padding: 7px 0 8px;
+    vertical-align: top
+}
+
+.companyinfo_modify_wrap table.center_th td span.unit {
+    margin-left: 6px
+}
+
+.companyinfo_modify_wrap table.center_th td input.big {
+    width: 90%
+}
+
+.companyinfo_modify_wrap table.center_th td span img {
+    *vertical-align: top
+}
+
+.companyinfo_modify_wrap table.center_th td img {
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap table.center_th td.last, .companyinfo_modify_wrap table.center_th td.last2 {
+    border-right: 0 none
+}
+
+.companyinfo_modify_wrap table.center_th td.last input {
+    width: 50%
+}
+
+.companyinfo_modify_wrap table.center_th td.last2 input {
+    width: 40%
+}
+
+.companyinfo_modify_wrap table.center_th td.last input.big {
+    width: 80%
+}
+
+.companyinfo_modify_wrap table.center_th td .btn_num {
+    display: inline-block;
+    zoom:1;margin-left: 15px;
+    width: 42px;
+    text-align: left
+}
+
+.companyinfo_modify_wrap .btn_system {
+    display: inline-block;
+    overflow: hidden;
+    zoom:1;margin-left: 5px;
+    padding: 0 8px 0 7px;
+    height: 17px;
+    border: 1px solid #bebebe;
+    color: #666;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 19px;
+    vertical-align: middle;
+    background-color: #fdfdfd
+}
+
+.companyinfo_modify_wrap .btn_system {
+    zoom:1;height: 19px
+}
+
+.companyinfo_modify_wrap .choice_list {
+    padding: 13px;
+    border: 1px solid #d8dcf3
+}
+
+.companyinfo_modify_wrap .choice_list .list {
+    padding: 10px 0 0 6px;
+    line-height: 24px
+}
+
+.companyinfo_modify_wrap .choice_list .list li strong {
+    margin-right: 4px;
+    color: #6c81f2;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap p.small_sub_tit {
+    position: relative;
+    margin: 5px 0 8px;
+    color: #888;
+    font-size: 11px
+}
+
+.companyinfo_modify_wrap p.small_sub_tit .btn_system {
+    position: absolute;
+    top: -4px;
+    right: 0
+}
+
+.companyinfo_modify_wrap .textarea_wrap {
+    margin-bottom: 10px;
+    padding: 9px;
+    border: 1px solid #e1e1e1
+}
+
+.companyinfo_modify_wrap .textarea_wrap textarea {
+    padding: 5px;
+    width: 100%;
+    height: 126px;
+    border: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    resize: none
+}
+
+.companyinfo_modify_wrap .example_box {
+    margin-top: 10px;
+    padding: 20px 18px;
+    background-color: #f9f9f9
+}
+
+.companyinfo_modify_wrap .example_box p {
+    color: #888;
+    font-size: 11px;
+    line-height: 20px
+}
+
+.companyinfo_modify_wrap .box_noti {
+    margin: 10px 0 0
+}
+
+.companyinfo_modify_wrap .box_noti .list li strong {
+    color: #4876ef;
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap .box_noti .star_mark {
+    margin-top: -3px;
+    width: 13px;
+    height: 13px
+}
+
+.companyinfo_modify_wrap .txt_noti {
+    font-size: 13px;
+    line-height: 20px
+}
+
+.companyinfo_modify_wrap .talk_company_wrap {
+    border: solid #d8dcf3;
+    border-width: 1px 0
+}
+
+.companyinfo_modify_wrap .btn_modify_companyinfo {
+    margin: 40px auto 70px;
+    text-align: center
+}
+
+.companyinfo_modify_wrap .btn_modify_companyinfo button, .companyinfo_modify_wrap .btn_modify_companyinfo a {
+    min-width: 200px
+}
+
+.companyinfo_modify_wrap .btn_modify_companyinfo.type2 button, .companyinfo_modify_wrap .btn_modify_companyinfo.type2 a {
+    min-width: 250px
+}
+
+.companyinfo_modify_wrap input[type=file] {
+    width: 0
+}
+
+.companyinfo_modify_wrap .count_wrap {
+    padding: 24px 0 13px 44px
+}
+
+.companyinfo_modify_wrap .count_wrap p.txt {
+    margin-bottom: 12px
+}
+
+.companyinfo_modify_wrap .count_wrap p.txt .input_wrap {
+    position: relative
+}
+
+.companyinfo_modify_wrap .count_wrap p.txt .input_wrap input {
+    margin-left: 16px
+}
+
+.companyinfo_modify_wrap .count_wrap p.txt .input_wrap label {
+    margin-left: 3px
+}
+
+.companyinfo_modify_wrap .count_wrap .list input {
+    width: 580px;
+    height: 26px;
+    border: 1px solid #5e7af3
+}
+
+.companyinfo_modify_wrap .count_wrap .list li {
+    margin-bottom: 10px
+}
+
+.companyinfo_modify_wrap .count_wrap .list li span {
+    height: 26px;
+    line-height: 26px;
+    vertical-align: top
+}
+
+.companyinfo_modify_wrap .count_wrap .list .rank {
+    margin-right: 5px;
+    color: #6c81f2;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap .count_wrap .list .txt {
+    display: inline-block;
+    padding: 0 10px;
+    width: 515px;
+    height: 26px;
+    border: 1px solid #5e7af3;
+    font-weight: bold;
+    background-color: #f4f6fe
+}
+
+.companyinfo_modify_wrap .count_wrap .list .btn {
+    margin-left: 15px
+}
+
+.companyinfo_modify_wrap .count_wrap .list .btn img {
+    position: relative;
+    top: 5px
+}
+
+.talk_company_wrap .talk_company_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+.talk_company_wrap .talk_company_table tr.blue_bg {
+    background-color: #f4f6fe
+}
+
+.talk_company_wrap .talk_company_table td {
+    padding: 19px 0 18px;
+    color: #444;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.talk_company_wrap .talk_company_table td p {
+    margin: 4px 0 3px
+}
+
+.talk_company_wrap .talk_company_table td.tit p {
+    padding-left: 40px
+}
+
+.talk_company_wrap .talk_company_table td.txt02 {
+    padding-left: 8px
+}
+
+.talk_company_wrap .talk_company_table td input {
+    padding-left: 5px;
+    width: 100%;
+    height: 26px;
+    border: 1px solid #5e7af3;
+    box-sizing: border-box;
+    line-height: 26px
+}
+
+.talk_company_wrap .talk_company_table td .small_input input {
+    float: left;
+    margin: 0 6px 0 0;
+    width: 146px
+}
+
+.talk_company_wrap .talk_company_table td .small_input input.last {
+    margin: 0
+}
+
+.info_modify_pop_wrap {
+    text-align: left
+}
+
+.info_modify_pop {
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+    width: 570px;
+    background-color: #fff
+}
+
+.info_modify_pop h3 {
+    position: relative;
+    margin: 0;
+    padding: 10px 17px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #4e61cc
+}
+
+.info_modify_pop h3 span {
+    display: none;
+    position: absolute;
+    top: 7px;
+    right: 10px
+}
+
+.info_modify_pop .desc_txt {
+    padding: 22px 0 0 20px;
+    line-height: 20px
+}
+
+.info_modify_pop .desc_txt strong {
+    font-weight: bold
+}
+
+.info_modify_pop .desc_txt span {
+    display: block;
+    margin-top: 10px
+}
+
+.info_modify_pop .btns {
+    margin-bottom: 35px;
+    text-align: center
+}
+
+.info_modify_pop table {
+    margin: 14px 20px 20px;
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+.info_modify_pop table th {
+    padding-left: 20px;
+    border: 1px solid #d8dcf3;
+    color: #5661a1;
+    font-weight: bold;
+    line-height: 20px;
+    background-color: #f4f6fe
+}
+
+.info_modify_pop table th .small_txt {
+    font-size: 11px;
+    font-weight: normal
+}
+
+.info_modify_pop table th .required {
+    zoom:1;margin-left: -8px;
+    padding-left: 8px;
+    background: url(//www.saraminimage.co.kr/ui/company_info/ico_join_required.png) no-repeat 0 50%
+}
+
+.info_modify_pop table td {
+    padding: 10px 15px;
+    border: 1px solid #d8dcf3;
+    color: #444;
+    word-break: break-all
+}
+
+.info_modify_pop table td label {
+    margin-right: 20px
+}
+
+.info_modify_pop table td input {
+    position: relative;
+    top: 2px
+}
+
+.info_modify_pop table td input[type="radio"] {
+    margin-right: 3px
+}
+
+.info_modify_pop .txt_input {
+    padding-left: 6px;
+    height: 19px;
+    border: 1px solid #e8e8e8;
+    line-height: 19px
+}
+
+.info_modify_pop .big {
+    width: 262px
+}
+
+.info_modify_pop .btn_system {
+    margin-left: 10px
+}
+
+.info_modify_pop table td textarea {
+    overflow: auto;
+    width: 100%;
+    height: 126px;
+    border: 1px solid #e8e8e8
+}
+
+.companyinfo_modify_wrap .name_tit {
+    position: relative;
+    margin: 5px 0 8px;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.companyinfo_modify_wrap .name_tit strong {
+    color: #00c
+}
+
+.companyinfo_modify_wrap .info_modify_tit {
+    margin-top: 33px
+}
+
+.companyinfo_modify_wrap .year_check_list {
+    display: inline-block;
+    margin-left: 16px
+}
+
+.companyinfo_modify_wrap .year_check_list input {
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap .year_check_list label {
+    margin-left: 5px;
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap .year_check_list:first-child {
+    margin-left: 0
+}
+
+.companyinfo_modify_wrap table.company_info_table td button.btn_system {
+    line-height: 11px
+}
+
+.companyinfo_modify_wrap table.company_info_table td .btn_system.btn_right {
+    margin-left: 0;
+    padding: 0 6px
+}
+
+.companyinfo_modify_wrap table.company_info_table td .btn_system.btn_branch_logo {
+    margin-left: 0
+}
+
+.companyinfo_modify_wrap table.company_info_table th.in_th {
+    padding: 0;
+    height: 47px;
+    border-left: 1px solid #e1e1e1;
+    text-align: center
+}
+
+.companyinfo_modify_wrap table.company_info_table th.in_th .won {
+    font-weight: normal
+}
+
+.companyinfo_modify_wrap table.company_info_table td .txt_line .unit {
+    line-height: 22px;
+    vertical-align: middle
+}
+
+.companyinfo_modify_wrap .choice_list .list {
+    padding-top: 0
+}
+
+.companyinfo_modify_wrap .textarea_list {
+    overflow-y: scroll;
+    padding: 10px 6px;
+    height: 125px;
+    border: 1px solid #e8e8e8
+}
+
+.companyinfo_modify_wrap .textarea_list ul {
+    height: auto
+}
+
+.companyinfo_modify_wrap .textarea_list ul li {
+    padding-bottom: 5px;
+    color: #444;
+    font-size: 13px
+}
+
+.btn_system.btn_right {
+    float: right;
+    margin-left: 0
+}
+
+.bottom_txt {
+    padding: 7px 0 0 0;
+    color: #666;
+    font-size: 11px
+}
+
+.notice_txt {
+    margin-top: 10px;
+    color: #666;
+    font-size: 12px;
+    text-align: right
+}
+
+.notice_txt button.btn_claim {
+    margin: -2px 0 0 6px;
+    padding: 0 13px 2px 13px;
+    height: 23px;
+    border: 1px solid #cecece;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 11px;
+    text-align: center;
+    background: #f6f6f6
+}
+
+.pm_box .btn_num {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    vertical-align: middle
+}
+
+.in_tablebot_txt {
+    padding: 6px 0 0 4px;
+    color: #888;
+    font-size: 12px;
+    text-align: left
+}
+
+.small_txt_red {
+    display: block;
+    margin-top: 5px;
+    color: #b62905;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px
+}
+
+/* WMG-20669 수정 */
+.small_txt_black {
+    display: inline-block;
+    color: #444;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px
+}
+
+/* WMG-20669 추가 */
+/* 이메일/SMS 수신 설정 */
+.wrap_on_off {
+    font-size: 0
+}
+
+.wrap_on_off button {
+    display: inline-block;
+    width: 44px;
+    height: 23px;
+    padding: 0 0 2px 0;
+    border: 1px solid #e4e4e4;
+    background: #f8f8f8;
+    box-sizing: border-box;
+    color: #9c9c9c;
+    font-size: 12px;
+    vertical-align: top
+}
+
+.wrap_on_off .btn_on.active {
+    border-color: #7289f8;
+    background: #7289f8;
+    color: #fff
+}
+
+.wrap_on_off .btn_off.active {
+    border-color: #828282;
+    background: #828282;
+    color: #fff
+}
+
+.wrap_title_setting {
+    position: relative
+}
+
+.wrap_title_setting .title_common {
+    display: inline-block
+}
+
+.wrap_title_setting .info_help {
+    display: inline-block;
+    margin: 12px 0 0 6px;
+    color: #888;
+    font-size: 13px;
+    line-height: 20px
+}
+
+.wrap_title_setting .info_help .toolTip {
+    top: 27px;
+    left: -25px
+}
+
+.wrap_title_setting .info_help .question {
+    margin-top: 10px;
+    color: #666;
+    font-size: 13px
+}
+
+.wrap_title_setting .info_help .question:first-child {
+    margin-top: 0
+}
+
+.wrap_title_setting .info_help .question dt {
+    position: relative;
+    padding-left: 25px;
+    font-weight: bold
+}
+
+.wrap_title_setting .info_help .question dt span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #6d82f3;
+    font-size: 13px
+}
+
+.wrap_title_setting .info_help .question dd {
+    position: relative;
+    margin-top: 3px;
+    padding-left: 25px;
+    font-size: 12px
+}
+
+.wrap_title_setting .info_help .question dd span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    font-weight: bold
+}
+
+.wrap_title_setting .wrap_on_off {
+    position: absolute;
+    bottom: 15px;
+    right: 0
+}
+
+.wrap_content .setting_group {
+}
+
+.wrap_content .setting_group:last-child {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid #e5e6eb
+}
+
+.wrap_content .box_setting {
+    position: relative;
+    margin-top: 30px;
+    padding-top: 23px;
+    border: 1px solid #ededed
+}
+
+.wrap_content .box_setting:first-of-type {
+    margin-top: 0
+}
+
+.wrap_content .btn_setting {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 1px 9px 3px 9px;
+    height: 23px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #888;
+    font-size: 12px;
+    line-height: 19px;
+    vertical-align: top;
+    background: #fff
+}
+
+.wrap_content .btn_setting:after {
+    display: inline-block;
+    margin-left: 8px;
+    width: 4px;
+    height: 7px;
+    background: url(//www.saraminimage.co.kr/ui/layout/person_mypage_2017/ico_resume_manage01.png) no-repeat -1px -241px;
+    opacity: .65;
+    content: ""
+}
+
+.wrap_content .btn_preview:after {
+    margin: 3px 0 0 4px;
+    width: 13px;
+    height: 13px;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_preview.png) no-repeat
+}
+
+.wrap_content .box_setting .wrap_on_off {
+    position: absolute;
+    top: 30px;
+    right: 30px
+}
+
+.wrap_content .box_setting .tit_type {
+    margin: 0 30px;
+    color: #444;
+    font-weight: bold;
+    font-size: 20px
+}
+
+.wrap_content .box_setting .ico_new {
+    display: inline-block;
+    margin: -5px 0 0 3px;
+    width: 14px;
+    height: 14px;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_new03.png) no-repeat
+}
+
+.wrap_content .box_setting .cont_desc {
+    padding: 10px 30px 25px;
+    color: #888;
+    font-size: 14px;
+    line-height: 23px
+}
+
+.wrap_content .box_setting .browser {
+    display: block;
+    padding-top: 5px;
+    color: #7289f8;
+    font-size: 13px
+}
+
+.wrap_content .box_setting .browser:before {
+    display: inline-block;
+    margin-right: 7px;
+    width: 23px;
+    height: 23px;
+    font-size: 14px;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_browsers_23x23_spr.png) no-repeat;
+    content: ""
+}
+
+.wrap_content .box_setting .browser.chrome:before {
+    background-position: 0 0
+}
+
+.wrap_content .box_setting .browser.opera:before {
+    background-position: 0 -30px
+}
+
+.wrap_content .box_setting .browser.safari:before {
+    background-position: 0 -60px
+}
+
+.wrap_content .box_setting .browser.whale:before {
+    background-position: 0 -90px
+}
+
+.wrap_content .box_setting .browser.edge:before {
+    background-position: 0 -120px
+}
+
+.wrap_content .box_setting .browser.firefox:before {
+    background-position: 0 -150px
+}
+
+.wrap_content .box_setting .notification {
+    margin: -10px 30px 30px;
+    color: #666
+}
+
+.wrap_content .box_setting .notification strong {
+    font-weight: bold;
+    line-height: 20px
+}
+
+.wrap_content .box_setting .notification ol {
+    padding: 5px 0 0 5px;
+    line-height: 20px
+}
+
+.wrap_content .box_setting .icon {
+    display: inline-block;
+    height: 12px;
+    margin: 0 4px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_notification.png) 0 0 no-repeat;
+    vertical-align: middle
+}
+
+.wrap_content .box_setting .icon.lock {
+    width: 8px;
+    background-position: 0 0
+}
+
+.wrap_content .box_setting .icon.bell {
+    width: 10px;
+    background-position: 0 -50px
+}
+
+.wrap_content .box_setting .receive_desc {
+    position: relative;
+    background: #f8f8f8
+}
+
+.wrap_content .box_setting .receive_desc .txt_receive {
+    overflow: hidden;
+    padding: 15px 130px 15px 29px;
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.wrap_content .box_setting .receive_desc .txt_receive .count {
+    color: #ff6129
+}
+
+.wrap_content .box_setting .receive_desc .btn_setting {
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    height: 27px;
+    line-height: 23px
+}
+
+.wrap_content .reject_setting_company .box_setting {
+    margin-top: 30px
+}
+
+.lpop_receive_setting {
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin: -152px 0 0 -330px;
+    width: 660px
+}
+
+.lpop_receive_setting .tit_receive {
+    display: block;
+    color: #444;
+    font-size: 22px;
+    line-height: 26px
+}
+
+.lpop_receive_setting .txt_receive {
+    padding-left: 72px;
+    width: 420px;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 16px;
+    line-height: 28px;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_info.png) 0 50% no-repeat
+}
+
+.lpop_receive_setting .txt_receive .day {
+    text-decoration: underline
+}
+
+.lpop_receive_setting .areaBtn button {
+    width: 132px
+}
+
+.lpop_mail_preview {
+    display: none;
+    margin: -300px 0 0 -400px;
+    padding: 0;
+    width: 800px
+}
+
+.lpop_mail_preview .title {
+    padding: 32px 40px 22px;
+    height: 84px;
+    border-bottom: 1px solid #cfcfcf;
+    box-sizing: border-box
+}
+
+.lpop_mail_preview .modalCont {
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 36px 40px 0;
+    height: 516px;
+    box-sizing: border-box;
+    text-align: center
+}
+
+.lpop_mail_preview .modalCont:after {
+    display: block;
+    width: 100%;
+    height: 36px;
+    content: ""
+}
+
+.lpop_mail_preview .modalCont::-webkit-scrollbar {
+    width: 4px;
+    height: 8px
+}
+
+.lpop_mail_preview .modalCont::-webkit-scrollbar-track {
+    background: rgba(210,210,210,0.6)
+}
+
+.lpop_mail_preview .modalCont::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(200,200,200,0.9)
+}
+
+.wrap_reject {
+    text-align: center
+}
+
+.wrap_reject .tit_reject {
+    display: block;
+    padding-top: 37px;
+    color: #444;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 48px
+}
+
+.wrap_reject .tit_reject .emph {
+    color: #4876ef
+}
+
+.wrap_reject .txt_eng {
+    padding-top: 7px;
+    color: #888;
+    font-size: 14px
+}
+
+.wrap_reject .txt_eng em {
+    color: #444
+}
+
+.wrap_reject .box_reject {
+    margin: 100px auto 0;
+    padding: 40px 0;
+    border: 1px solid #ededed
+}
+
+.wrap_reject .txt_eng + .box_reject {
+    margin-top: 66px
+}
+
+.wrap_reject .box_reject .info {
+    margin-left: 75px;
+    padding-left: 60px;
+    color: #666;
+    font-size: 15px;
+    line-height: 28px;
+    text-align: left;
+    background: url(//www.saraminimage.co.kr/sri/common/ico/ico_info.png) 0 50% no-repeat
+}
+
+.wrap_reject .box_reject .info li {
+    padding-left: 10px;
+    background: url(//www.saraminimage.co.kr/ui/mail2017/reject/ico_bul_01.png) no-repeat 0 11px
+}
+
+.wrap_reject .box_reject .info .point {
+    color: #f26b20
+}
+
+.wrap_reject .box_reject .info .link {
+    color: #4876ef;
+    font-weight: bold
+}
+
+.wrap_reject .wrap_btn {
+    padding-top: 40px
+}
+
+.wrap_reject .wrap_btn button {
+    width: 107px
+}
+
+/* 로그인 기록 */
+.login_history {
+    position: relative
+}
+
+.login_history .my_tab_wrap .tabList {
+    display: flex
+}
+
+.login_history .my_tab_wrap .tabList li {
+    width: 50%;
+    flex: 1
+}
+
+.login_history .my_tab_type1 {
+    display: block;
+    clear: both;
+    width: 100%;
+    height: 36px;
+    border-bottom: 1px solid #444;
+    *zoom:1}
+
+.login_history .my_tab_type1::after {
+    display: block;
+    clear: both;
+    content: ""
+}
+
+.login_history .my_tab_type1 .menu {
+    float: left;
+    position: relative;
+    width: 245px;
+    height: 36px
+}
+
+.login_history .my_tab_type1 .menu .link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    border-top: 1px solid #e9e9e9;
+    border-right: 1px solid #e9e9e9;
+    border-bottom: 1px solid #444;
+    border-left: 1px solid #e9e9e9;
+    color: #999;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+    background-color: #f4f5f5;
+    *height: 33px;
+    *border-bottom: 0 none
+}
+
+.login_history .my_tab_type1 .menu .link:hover {
+    color: #999 !important;
+    text-decoration: none !important
+}
+
+.login_history .my_tab_type1 .menu.on .link {
+    left: -1px;
+    z-index: 1;
+    border-top: 1px solid #444;
+    border-right: 1px solid #444;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #444;
+    color: #000;
+    background-color: #fff;
+    *height: 37px;
+    *border-bottom: 0 none
+}
+
+.login_history .my_tab_type1 .menu.on .link:hover {
+    color: #000 !important;
+    text-decoration: none !important
+}
+
+.login_history .my_tab_type1 .menu.num1.on .link {
+    left: 0
+}
+
+.login_history .btn_cut_connect {
+    width: 53px;
+    height: 18px;
+    border: 0 none;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    background: transparent url(//www.saraminimage.co.kr/ui/mypage/person/btn_cut_connect.png) 0 0 no-repeat;
+    cursor: pointer
+}
+
+.login_history .btn_wrap {
+    margin-top: 10px;
+    text-align: right
+}
+
+.login_history .btn_cutall_connect {
+    width: 97px;
+    height: 25px;
+    border: 0 none;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    background: transparent url(//www.saraminimage.co.kr/ui/mypage/person/btn_cutall_connect.png) 0 0 no-repeat;
+    cursor: pointer
+}
+
+.login_history .box_noti {
+    margin: 30px 0
+}
+
+.login_history .box_desc {
+    padding: 13px 20px;
+    border: 1px solid #d8dcf3;
+    color: #666;
+    line-height: 21px;
+    background-color: #f6f8ff
+}
+
+.login_history .box_desc a {
+    color: #5076dd;
+    text-decoration: underline
+}
+
+.login_history .box_desc a:hover {
+    color: #5076dd;
+    text-decoration: underline
+}
+
+.login_history .login_setting {
+    margin: 32px 0
+}
+
+.login_history .login_setting .title {
+    font-size: 25px;
+    color: #222;
+    font-weight: bold;
+    margin-bottom: 24px
+}
+
+.login_history .login_desc {
+    margin: 0 0 10px;
+    color: #444;
+    font-size: 16px;
+    text-align: left
+}
+
+.login_history .login_desc p {
+    display: inline
+}
+
+.login_history table.login_record th {
+    padding: 7px 0;
+    height: 35px;
+    border-top: 1px solid #d8dcf3;
+    border-right: 1px solid #d8dcf3;
+    border-bottom: 1px solid #d8dcf3;
+    color: #5661a1;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+    background: #f4f6fe
+}
+
+.login_history table.login_record td {
+    padding: 7px 0;
+    height: 35px;
+    border-right: 1px solid #d8dcf3;
+    border-bottom: 1px solid #d8dcf3;
+    color: #444;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    background: #fff
+}
+
+.login_history table.login_record .last_border {
+    border-right: 0
+}
+
+.login_history table .back_color td {
+    background-color: #fafafa
+}
+
+.login_history table .point {
+    color: #425bd5
+}
+
+.login_history .pagiNation {
+    margin-top: 30px
+}
+
+.login_history .btn_link {
+    position: absolute;
+    top: -82px;
+    right: 0
+}
+
+/* 비밀번호 변경 시작 */
+.wrap_content.edit_password {
+    font-size: 13px
+}
+
+.txt_warning {
+    color: #f26522
+}
+
+.box_password {
+    margin: 10px 0 30px;
+    padding: 50px;
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    background-color: #fff
+}
+
+.box_password .box_login .wrap_input {
+    display: block;
+    margin: 10px 0 10px 160px
+}
+
+.box_password .box_login .wrap_input label {
+    display: inline-block;
+    width: 120px
+}
+
+.box_password .box_login .wrap_input .inpTypo {
+    width: 200px
+}
+
+.box_password .box_login .wrap_input .txt-guide {
+    padding-left: 10px;
+    color: #c00
+}
+
+.box_password .box_login .txt_guide {
+    margin-top: 20px;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #e5e5e5;
+    text-align: center
+}
+
+.box_password .box_login .wrap_btn {
+    margin-top: 30px;
+    text-align: center
+}
+
+.box_password .box_login .tit_noti {
+    display: block;
+    margin-bottom: 7px;
+    height: 17px;
+    color: #444;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 17px
+}
+
+.saramin_csc {
+    margin-top: 10px
+}
+
+.saramin_csc:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+.saramin_csc .tit_csc {
+    float: left;
+    margin-right: 20px;
+    color: #f26522
+}
+
+.saramin_csc>dl>dt {
+    float: left;
+    padding-right: 5px;
+    font-weight: bold
+}
+
+.saramin_csc>dl>dd {
+    float: left;
+    margin-right: 20px
+}
+
+.saramin_csc>dl>dd>a {
+    text-decoration: underline
+}
+
+/* 구형 UI개선 */
+/* WMG-20669 수정 */
+.companyinfo_modify tbody th.in_th {
+    border-left: 1px solid #e1e1e1;
+    text-align: center
+}
+
+.companyinfo_modify tbody td {
+    position: relative
+}
+
+.companyinfo_modify tbody td .inpRdo {
+    margin-left: 15px
+}
+
+.companyinfo_modify tbody td .inpRdo:first-child {
+    margin-left: 0
+}
+
+.companyinfo_modify tbody td .link_system {
+    margin-left: 5px
+}
+
+.companyinfo_modify tbody td .small_txt {
+    line-height: 24px
+}
+
+.companyinfo_modify tbody .direct_finacial_table_title th {
+    height: 47px
+}
+
+/* //WMG-20669 수정 */
+/* WMG-20669 추가 */
+.companyinfo_modify tbody .template_row td {
+    padding: 22px 20px
+}
+
+.companyinfo_modify tbody td .wrap_template {
+    margin-bottom: 22px
+}
+
+.companyinfo_modify tbody td .inpFile {
+    float: left;
+    margin-right: 50px;
+    width: 498px
+}
+
+.companyinfo_modify tbody td .btn_preview {
+    float: left;
+    margin-top: 9px;
+    font-size: 14px;
+    color: #101010;
+    text-decoration: underline
+}
+
+.companyinfo_modify tbody .inpFile input.inpTypo {
+    width: 390px
+}
+
+.companyinfo_modify tbody td .noti {
+    display: block;
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #808080;
+    clear: both
+}
+
+.companyinfo_modify tbody .template_row .inpRdo.checked .lbl, .companyinfo_modify tbody .template_row .inpRdo input:checked+.lbl {
+    font-weight: bold
+}
+
+.companyinfo_modify tbody .club_row td {
+    padding: 22px 20px
+}
+
+.login_history .companyinfo_modify tbody td:first-child {
+    border-left: 0
+}
+
+/* //WMG-20669 추가 */
+/* WMG-23893 추가 */
+.companyinfo_modal_wrap>form {
+    display: inline
+}
+
+.companyinfo_modal_wrap>.title {
+    margin: 0;
+    padding-bottom: 24px
+}
+
+.companyinfo_modal_wrap .bottom_txt.type2 {
+    padding-top: 0px;
+    font-size: 14px;
+    line-height: 20px
+}
+
+.companyinfo_modal_wrap .bottom_txt.type2 span {
+    display: inline-block;
+    vertical-align: top
+}
+
+.companyinfo_modal_wrap .bottom_txt.type2 p {
+    font-size: 13px
+}
+
+.companyinfo_modal_wrap .btn_list {
+    display: block;
+    padding: 20px 30px;
+    height: 100%
+}
+
+.companyinfo_modal_wrap .btn_list li {
+    margin-bottom: 16px;
+    width: 100%;
+    color: #222;
+    font-size: 14px;
+    line-height: normal
+}
+
+.companyinfo_modal_wrap .btn_list li.show, .companyinfo_modal_wrap .btn_list li.selected, .companyinfo_modal_wrap .btn_list li.show button, .companyinfo_modal_wrap .btn_list li.selected button, .companyinfo_modal_wrap .btn_list li button.select {
+    color: #2365f2
+}
+
+.companyinfo_modal_wrap .btn_list li:last-child {
+    margin-bottom: 0
+}
+
+.companyinfo_modal_wrap .btn_list.half li {
+    float: left;
+    margin-bottom: 5px;
+    width: 50%
+}
+
+.companyinfo_modal_wrap .desc_list {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #eaeaea;
+    color: #222;
+    font-size: 14px;
+    text-align: left
+}
+
+.companyinfo_modal_wrap .desc_list h3 {
+    position: relative;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 48px
+}
+
+.companyinfo_modal_wrap .desc_list h3 span {
+    position: absolute;
+    top: 17px;
+    right: 0;
+    color: #444;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    zoom: 1;margin-left: -8px;
+    padding-left: 8px
+}
+
+.companyinfo_modal_wrap .desc_list h3 span b {
+    color: #ff3b50
+}
+
+.companyinfo_modal_wrap .desc_list .filebox label {
+    padding: 0 0 2px;
+    float: right;
+    width: 90px;
+    border-radius: 5px;
+    background-color: #444
+}
+
+.companyinfo_modal_wrap .desc_list .filebox .upload_file_name, .companyinfo_modal_wrap .desc_list .filebox .upload_file_name:read-only {
+    vertical-align: top;
+    background-color: #fff
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap {
+    width: 520px
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap th, .desc_list.tblWrap td {
+    padding: 8px 0;
+    border-bottom: none;
+    color: #222;
+    background-color: #fff
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap th .required {
+    display: inline-block;
+    position: relative;
+    zoom:1;margin-left: -8px;
+    padding-left: 8px
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap th .required b {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #ff3b50
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap th[rowspan="2"].txtTop.type2 {
+    padding-top: 18px
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap td {
+    font-size: 15px;
+    line-height: 40px
+}
+
+.companyinfo_modal_wrap .desc_list.tblWrap td.txt_long {
+    line-height: normal
+}
+
+.companyinfo_modal_wrap .header_notify+.desc_list {
+    padding-top: 3px
+}
+
+.companyinfo_modal_wrap .comment_txt {
+    display: inline-block;
+    margin: 16px 0 0;
+    padding: 0 27px 2px 32px;
+    height: 31px;
+    border-radius: 15px;
+    color: #222;
+    font-size: 13px;
+    line-height: 27px;
+    background-color: #f2f6f9
+}
+
+.companyinfo_modal_wrap .comment_txt strong {
+    float: left;
+    margin-right: 8px;
+    font-size: 14px
+}
+
+.companyinfo_modal_wrap .header_notify {
+    padding-left: 42px;
+    font-size: 14px;
+    line-height: 21px;
+    background: url(//www.saraminimage.co.kr/sri/company/ico/ico_notification.png) 0 5px no-repeat
+}
+
+.companyinfo_modal_wrap .header_notify p {
+    color: #222
+}
+
+.companyinfo_modal_wrap .header_notify span {
+    display: inline-block;
+    margin-top: 8px;
+    width: 100%;
+    color: #888
+}
+
+.companyinfo_modal_wrap .grey {
+    color: #888
+}
+
+.companyinfo_modal_wrap .image_preview {
+    display: table;
+    margin: 0 0 16px;
+    min-height: 146px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle
+}
+
+.companyinfo_modal_wrap .image_preview span {
+    display: table-cell;
+    min-height: 146px;
+    vertical-align: middle
+}
+
+.companyinfo_modal_wrap .image_preview span.empty, .companyinfo_modal_wrap .image_preview span:empty {
+    background: url(//www.saraminimage.co.kr/sri/company/ico/ico_empty_image.png) center center no-repeat
+}
+
+.companyinfo_modal_wrap .image_preview span img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle
+}
+
+.companyinfo_modal_wrap .inpChk.list {
+    margin-bottom: 9px;
+    margin-left: 0;
+    width: 100%
+}
+
+.companyinfo_modal_wrap .tblScroll {
+    overflow-y: auto;
+    position: relative
+}
+
+.companyinfo_modal_wrap .tblScroll a {
+    position: relative;
+    color: #222;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: normal
+}
+
+.companyinfo_modal_wrap .tblScroll a:after {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #222;
+    content: ""
+}
+
+.companyinfo_modal_wrap .tblScroll a:hover:after {
+    display: inline-block
+}
+
+.companyinfo_modal_wrap .tblScroll::-webkit-scrollbar {
+    width: 4px;
+    height: 8px
+}
+
+.companyinfo_modal_wrap .tblScroll::-webkit-scrollbar-track {
+    background: rgba(210,210,210,0.6)
+}
+
+.companyinfo_modal_wrap .tblScroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(200,200,200,0.9)
+}
+
+.companyinfo_modal_wrap .tblScroll.type2 {
+    margin-top: 24px;
+    padding: 0 32px;
+    border: 1px solid #ddd;
+    border-radius: 6px
+}
+
+.companyinfo_modal_wrap .tblScroll.type2 td {
+    padding: 15px 0;
+    color: #666;
+    font-size: 13px
+}
+
+.companyinfo_modal_wrap .tblScroll.type2 tr:last-child td {
+    border-bottom: none
+}
+
+.companyinfo_modal_wrap .tblBorder {
+    border: 1px solid #ebebeb
+}
+
+.companyinfo_modal_wrap p+.image_preview {
+    margin-top: 24px
+}
+
+.companyinfo_modal_wrap p+.tblScroll {
+    margin-top: 20px
+}
+
+.companyinfo_modal_wrap p+.box_noti {
+    margin-top: 16px
+}
+
+.companyinfo_modal_wrap .tabList.sixth>li {
+    width: 16.66%
+}
+
+.companyinfo_modal_wrap .tabList.sixth>li .inTab {
+    padding: 12px 0px 15px
+}
+
+.companyinfo_modal_wrap .template_list {
+    margin-top: 40px
+}
+
+.companyinfo_modal_wrap .template_list>img {
+    display: none;
+    margin-bottom: 20px;
+    width: 100%
+}
+
+.companyinfo_modal_wrap .template_list>img.show {
+    display: list-item
+}
+
+.companyinfo_modal_wrap .template_list .tabList {
+    margin-bottom: 8px;
+    width: 100%
+}
+
+.companyinfo_modal_wrap .input_list {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center
+}
+
+.companyinfo_modal_wrap .input_list li {
+    margin-bottom: 8px
+}
+
+.companyinfo_modal_wrap .input_list li:last-child {
+    margin-bottom: 25px
+}
+
+.companyinfo_modal_wrap .guide_list {
+    margin-top: 16px;
+    color: #444;
+    font-size: 13px;
+    line-height: 21px
+}
+
+.companyinfo_modal_wrap .wrap_depth_category {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #dfe1e5
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll {
+    float: left;
+    box-sizing: border-box
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll.depth1, .companyinfo_modal_wrap .wrap_depth_category .wrap_scroll.depth2 {
+    overflow-y: auto;
+    width: 25%;
+    height: 230px
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll.depth2 {
+    border-left: 1px solid #dfe1e5
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll.depth_check {
+    overflow-y: auto;
+    width: 50%;
+    height: 230px;
+    border-left: 1px solid #dfe1e5
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll.depth_full {
+    padding: 0 32px;
+    height: 291px
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll::-webkit-scrollbar {
+    width: 4px;
+    height: 8px
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll::-webkit-scrollbar-track {
+    background: rgba(210,210,210,0.6)
+}
+
+.companyinfo_modal_wrap .wrap_depth_category .wrap_scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(200,200,200,0.9)
+}
+
+.companyinfo_modal_wrap .underline_btn {
+    float: right;
+    margin: 34px 0 0;
+    font-size: 15px;
+    line-height: normal
+}
+
+.companyinfo_modal_wrap.modalDrawer .modalBtn button {
+    width: 180px
+}
+
+.companyinfo_modal_wrap.modalWrap .modalBtn button {
+    width: 120px
+}
+
+.companyinfo_modal_wrap ol {
+    margin-bottom: 24px;
+    color: #222;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.companyinfo_tab_list+.companyinfo_modify_wrap {
+    margin-top: 30px
+}
+
+.companyinfo_tab_list+.companyinfo_modify_wrap.type2 {
+    margin-top: 0
+}
+
+.companyinfo_tab_list>li {
+    position: relative;
+    width: 33.3%
+}
+
+.companyinfo_tab_list>li .txt_box {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -63px;
+    padding: 5px 16px 7px;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 12px;
+    line-height: normal;
+    background-color: #4876ef
+}
+
+.companyinfo_tab_list>li .updown {
+    animation: up-and-down 1.2s infinite;
+    -webkit-animation: up-and-down 1.2s infinite
+}
+
+.companyinfo_tab_list_bar {
+    display: inline-block;
+    margin-top: 26px;
+    padding-bottom: 5px
+}
+
+.companyinfo_tab_list_bar:after {
+    display: none
+}
+
+.companyinfo_tab_list_bar>li {
+    height: 75px;
+    border-top: 1px solid #ddd;
+    font-size: 15px
+}
+
+.companyinfo_tab_list_bar>li.select {
+    border-bottom: none;
+    border-top: 1px solid #222
+}
+
+.companyinfo_tab_list_bar>li .inTab {
+    padding: 16px 30px;
+    height: 75px;
+    color: #666;
+    font-size: 15px;
+    line-height: normal
+}
+
+.companyinfo_tab_list_bar>li.select .inTab {
+    color: #000
+}
+
+.companyinfo_tab_list_bar>li .small_txt {
+    display: block;
+    margin-top: 3px;
+    color: #888;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px
+}
+
+.companyinfo_tab_list_bar+.companyinfo_modify {
+    margin-top: 8px
+}
+
+@keyframes up-and-down {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    40% {
+        transform: translate(0, -8px)
+    }
+
+    100% {
+        transform: translate(0, 0)
+    }
+}
+
+/* //WMG-23893 추가 */
+/* 기존 레이어 */
+.popup-wrapper {
+    position: absolute;
+    z-index: 10;
+    color: #444;
+    font-size: 12px;
+    line-height: 20px;
+    background-color: #fff
+}
+
+.popup-wrapper p {
+    padding: 20px;
+    background-color: #fff
+}
+
+.close-popup {
+    position: absolute;
+    top: 8px;
+    right: 10px
+}
+
+.popup-wrapper h1 {
+    padding: 9px 15px 6px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #2250a8
+}
+
+.popup-wrapper .btn {
+    padding: 10px 0 0;
+    border-top: 1px solid #e5e5e5;
+    text-align: center
+}
+
+/* 간편 로그인 관리 */
+.my_logins .simple_login tbody td i {
+    display: inline-block;
+    margin: 0 8px;
+    width: 20px;
+    height: 20px;
+    vertical-align: -4px;
+    background: url(//www.saraminimage.co.kr/ui/social_login/icon_sns_group_20x20_200706.png) 0 0 no-repeat
+}
+
+.my_logins .simple_login .icon_naver {
+    background-position-x: 0
+}
+
+.my_logins .simple_login .icon_facebook {
+    background-position-x: -20px
+}
+
+.my_logins .simple_login .icon_kakao {
+    background-position-x: -40px
+}
+
+.my_logins .simple_login .icon_google {
+    background-position-x: -60px
+}
+
+.my_logins .simple_login .icon_apple {
+    background-position-x: -80px
+}
+
+/* WMG-27420 */
+.modal_talent_receive {
+    margin: -300px 0 0 -584px;
+    width: 1168px
+}
+
+.modal_talent_receive .title {
+    padding-bottom: 23px
+}
+
+.modal_talent_receive .email_receive_toggle {
+    float: right;
+    margin: -46px 46px 0 0;
+    color: #222;
+    font-size: 14px
+}
+
+.modal_talent_receive .email_receive_toggle dt {
+    float: left;
+    line-height: 20px
+}
+
+.modal_talent_receive .email_receive_toggle dd {
+    float: left;
+    margin-left: 10px
+}
+
+.modal_talent_receive .area_scroll {
+    overflow: auto;
+    clear: both;
+    padding: 0 40px;
+    max-height: 408px;
+    border: 1px solid #dfe1e5;
+    box-sizing: border-box;
+    background: #fafbfc
+}
+
+.modal_talent_receive .area_scroll::-webkit-scrollbar {
+    width: 4px
+}
+
+.modal_talent_receive .area_scroll::-webkit-scrollbar-track {
+    background: #d5dce0
+}
+
+.modal_talent_receive .area_scroll::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #a8b3bc
+}
+
+.modal_talent_receive .list_talent_position>li {
+    padding: 24px 0 15px;
+    border-top: 1px solid #eaeaea
+}
+
+.modal_talent_receive .list_talent_position>li:first-child {
+    border-top: none
+}
+
+.modal_talent_receive .list_talent_position>li:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+.modal_talent_receive .list_talent_position .position_name {
+    margin-bottom: 1px;
+    color: #222;
+    font-size: 15px;
+    line-height: 20px
+}
+
+.modal_talent_receive .list_talent_position .area_detail {
+    overflow: hidden;
+    float: left;
+    padding-top: 7px;
+    width: 620px;
+    color: #888;
+    font-size: 14px;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.modal_talent_receive .list_talent_position .area_detail li {
+    display: inline;
+    vertical-align: top
+}
+
+.modal_talent_receive .list_talent_position .area_detail li:not(:first-child):before {
+    display: inline-block;
+    margin: 3px 8px 0 4px;
+    width: 1px;
+    height: 13px;
+    vertical-align: top;
+    background: #888;
+    content: "";
+    opacity: 0.7
+}
+
+.modal_talent_receive .list_talent_position .area_option {
+    float: right
+}
+
+.modal_talent_receive .list_talent_position .email_address label {
+    display: inline-block;
+    margin-top: 4px;
+    vertical-align: top
+}
+
+.modal_talent_receive .list_talent_position .email_address .inpTypo {
+    margin-left: 4px;
+    width: 200px
+}
+
+.modal_talent_receive .list_talent_position .email_receive {
+    margin-left: 20px
+}
+
+.modal_talent_receive .modalBtn .btnSizeL {
+    width: 180px
+}
+
+/* ITIN-1202 */
+.companyinfo_modify_wrap tbody td .btnSizeS.company_number_btn {
+    position: relative;
+    margin-top: 0px;
+    left: 3px;
+    min-width: 80px;
+    border: 1px solid #5487f3;
+    color: #2365f2
+}
+
+.companyinfo_modify_wrap tbody td .btnSizeS.company_number_cancel {
+    margin-left: 5px;
+    min-width: 80px
+}
+
+.companyinfo_modify_wrap tbody td .remain_time {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #ff3b50
+}
+
+/* WMG-33555 */
+.companyinfo_modify_wrap .image_contents li .btn_image_upload p.add {
+    display: inline-block;
+    color: #888;
+    font-size: 16px;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 30px
+}
+
+.companyinfo_modify_wrap .image_contents li .btn_image_upload p.add:after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22 0H18V18H0V22H18V40H22V22H40V18H22V0Z' fill='%23D9D9D9'/%3E%3C/svg%3E") no-repeat
+}
+
+.companyinfo_modify_wrap .image_contents li .name {
+    padding: 0 12px 2px;
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #000
+}
+
+.companyinfo_modify_wrap tbody th .btn_img_guide {
+    text-decoration: underline;
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px
+}
+
+.companyinfo_modify_wrap tbody td .btn_sns_guide {
+    text-decoration: underline;
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px
+}
+
+/* 사람인과 연결된 서비스 */
+.connect_box {
+    padding-top: 48px
+}
+
+.connect_box .tit {
+    color: #222;
+    font-size: 22px;
+    line-height: 29px
+}
+
+.connect_box .txt {
+    margin: 16px 0 33px;
+    color: #444;
+    font-size: 13px;
+    line-height: 22px
+}
+
+.connect_box .service_none .txt {
+    margin: 29px 0 27px
+}
+
+.connect_box table .service_info.active td .service_more:after {
+    transform: rotate(180deg)
+}
+
+.connect_box table .active+.service_detail {
+    display: table-row
+}
+
+.connect_box table .service_detail {
+    display: none
+}
+
+.connect_box table .service_detail td {
+    padding: 0
+}
+
+.connect_box table .service_detail td .detail_box {
+    display: flex;
+    align-items: flex-start;
+    padding: 21px 0 19px 52px;
+    color: #373f57;
+    font-size: 14px;
+    line-height: 20px;
+    background: #f7fafb
+}
+
+.connect_box table .service_detail td .detail_box h5 {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    color: #5c667b
+}
+
+.connect_box table .service_detail td .detail_box h5:before {
+    display: inline-block;
+    margin-right: 6px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #5c667b;
+    content: ''
+}
+
+.connect_box table .service_detail td .detail_box ul li {
+    text-align: left
+}
+
+.connect_box table .service_detail td .detail_box ul li+li {
+    margin-top: 8px
+}
+
+.connect_box table .service_more {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: underline
+}
+
+.connect_box table .service_more:after {
+    margin-left: 8px;
+    width: 15px;
+    height: 8px;
+    background: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23999999' stroke-width='1.5'/%3E%3C/svg%3E%0A") center no-repeat;
+    content: ''
+}
+
+.modalWrap.disconnect_modal {
+    margin: 0;
+    transform: translate(-50%, -50%)
+}
+
+.modalWrap.disconnect_modal .tit {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 30px
+}
+
+.modalWrap.disconnect_modal .txt {
+    margin-top: 24px
+}
+
+.modalWrap.disconnect_modal span {
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top
+}
+
+.modalWrap.disconnect_modal .tit span {
+    max-width: 200px
+}
+
+.modalWrap.disconnect_modal .modalBtn button {
+    width: 120px
+}
+
+/* SEC-797 */
+.companyinfo_modify_wrap tbody td .form_body {
+    display: block;
+    position: relative;
+    line-height: 32px
+}
+
+.companyinfo_modify_wrap tbody td .form_body+.form_body {
+    margin-top: 12px
+}
+
+.companyinfo_modify_wrap tbody td .form_body .input_confirm {
+    display: none
+}
+
+.companyinfo_modify_wrap tbody td .form_body .input_confirm+.input_confirm {
+    margin-top: 8px
+}
+
+.companyinfo_modify_wrap tbody td .form_body .input_confirm input.inpTypo {
+    width: 292px
+}
+
+.companyinfo_modify_wrap tbody td .form_body .input_confirm.department_input input.inpTypo {
+    width: 160px
+}
+
+.companyinfo_modify_wrap tbody td .form_body .input_confirm .btnSizeS {
+    width: 80px;
+    min-width: auto
+}
+
+.companyinfo_modify_wrap tbody td .form_body>button.btnSizeS {
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.companyinfo_modify_wrap tbody td .ipin_guide {
+    display: none;
+    margin-top: 8px;
+    color: #666
+}
+
+.companyinfo_modify_wrap tbody td .ipin_guide>a {
+    color: #4876ef
+}
+
+.companyinfo_modify_wrap tbody td .ipin_guide>a:hover {
+    text-decoration: underline
+}
+
+/* member_invite */
+/* common */
+.wrap_member_invite {
+}
+
+.wrap_member_invite .item_invite:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+.wrap_member_invite .item_invite .item {
+    float: left;
+    margin-right: 20px
+}
+
+.wrap_member_invite .item_invite .item label {
+    display: block;
+    margin-bottom: 5px;
+    color: #222;
+    font-size: 14px;
+    line-height: 18px
+}
+
+.wrap_member_invite .item_invite .item label .required {
+    margin-left: 6px;
+    color: #f00;
+    font-size: 12px;
+    line-height: 18px
+}
+
+.wrap_member_invite .txt_ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.wrap_member_invite .area_btn {
+    margin-top: 24px;
+    text-align: right
+}
+
+.wrap_member_invite .area_noti {
+    margin-top: 80px;
+    padding: 24px 30px;
+    border-radius: 6px;
+    color: #666;
+    font-size: 14px;
+    line-height: 26px;
+    background-color: #fafbfc
+}
+
+.wrap_member_invite .area_noti .master_add {
+    text-decoration: underline;
+}
+
+/* invite_form */
+.wrap_invite_form .area_list_invite {
+    border-bottom: 1px solid #eee
+}
+
+.wrap_invite_form .area_list_invite .item_invite {
+    margin-bottom: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eee
+}
+
+.wrap_invite_form .area_list_invite .item_invite .item input {
+    width: 180px
+}
+
+.wrap_invite_form .area_list_invite .item_invite .item input.inp_mail {
+    width: 440px
+}
+
+.wrap_invite_form .area_list_invite .item_invite .btn_del {
+    margin-top: 24px;
+    width: 100px
+}
+
+.wrap_invite_form .area_btn_send {
+    text-align: center
+}
+
+.wrap_invite_form .area_btn_send .btn_send {
+    margin-top: 20px;
+    width: 240px
+}
+
+/* manage */
+.wrap_manage .box_invite {
+    position: relative;
+    padding: 24px 40px;
+    height: 205px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #f2f6f9
+}
+
+.wrap_manage .box_invite h2 {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px
+}
+
+.wrap_manage .box_invite .item_invite {
+    margin-top: 16px
+}
+
+.wrap_manage .box_invite .item_invite .item {
+    margin-right: 10px
+}
+
+.wrap_manage .box_invite .item_invite .item input {
+    width: 190px
+}
+
+.wrap_manage .box_invite .item_invite .item input.inp_mail {
+    width: 360px
+}
+
+.wrap_manage .box_invite .btn_invite {
+    margin-top: 24px;
+    width: 110px
+}
+
+.wrap_manage .box_invite .txt_link {
+    position: absolute;
+    right: 40px;
+    bottom: 24px;
+    color: #666;
+    font-size: 13px;
+    line-height: 18px;
+    text-decoration: underline
+}
+
+.wrap_manage .box_list_manage {
+    margin-top: 30px
+}
+
+.wrap_manage .box_list_manage .member_top {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 17px
+}
+
+.wrap_manage .box_list_manage .member_top .master_add {
+    margin-left: auto;
+    color: #666;
+    font-size: 13px;
+    line-height: 18px;
+    text-decoration: underline
+}
+
+.wrap_manage .box_list_manage .member_top .txt_invite {
+    margin-left: auto;
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 20px
+}
+
+.wrap_manage .box_list_manage .member_top .invite_link {
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: underline
+}
+
+.wrap_manage .box_list_manage .member_top .member_search {
+    display: flex;
+    align-items: center;
+    margin-left: auto
+}
+
+.wrap_manage .box_list_manage .member_top .member_search select {
+    margin: 0 12px 0 24px;
+    width: 106px
+}
+
+.wrap_manage .box_list_manage .member_top .member_search .item {
+    position: relative;
+    width: 175px
+}
+
+.wrap_manage .box_list_manage .member_top .member_search .item input {
+    width: 100%;
+    padding-right: 40px
+}
+
+.wrap_manage .box_list_manage .member_top .member_search .item button {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 38px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='18' viewBox='0 0 17 18' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.5424 12.3654C13.7923 11.0525 14.56 9.27253 14.56 7.3125C14.56 3.27392 11.3006 0 7.28 0C3.25937 0 0 3.27392 0 7.3125C0 11.3511 3.25937 14.625 7.28 14.625C8.94568 14.625 10.4807 14.0631 11.7074 13.1177L15.1862 16.612L15.9764 17.4057L15.9799 17.4092L16.7719 16.6137L12.8138 12.638L12.5424 12.3654ZM7.28 13.5C3.88181 13.5 1.125 10.7309 1.125 7.3125C1.125 3.89412 3.88181 1.125 7.28 1.125C10.6782 1.125 13.435 3.89412 13.435 7.3125C13.435 10.7309 10.6782 13.5 7.28 13.5Z' fill='%238A919F'/%3E%3C/svg%3E") center no-repeat
+}
+
+.wrap_manage .box_list_manage .total_num {
+    color: #444;
+    font-size: 14px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage a {
+    display: inline-block;
+    width: 100%
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .type_depa {
+    position: relative
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_name {
+    display: inline-block;
+    max-width: 118px;
+    line-height: 20px;
+    box-sizing: border-box
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_id {
+    display: block;
+    margin-top: 4px;
+    color: #666;
+    font-size: 13px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_weit {
+    display: block;
+    color: #2365f2;
+    font-size: 13px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_day {
+    display: block;
+    color: #666;
+    font-size: 13px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_type {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: #666;
+    font-size: 11px;
+    line-height: 15px;
+    vertical-align: top;
+    background-color: #fff
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .standby {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: var(--coral110);
+    font-size: 11px;
+    line-height: 15px;
+    vertical-align: top;
+    background-color: #fff
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .box_empty {
+    padding: 115px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 24px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_master {
+    display: inline-block
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_master .user_name {
+    max-width: calc(120px - 48px)
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .user_department {
+    width: 155px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .department_input {
+    width: 155px;
+    margin: 0 auto;
+    display: none
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .department_input input {
+    margin-bottom: 8px;
+    width: 100%
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .department_input .btn_group {
+    display: flex
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .department_input .btn_group button {
+    width: 100%
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .department_input .btn_group button + button {
+    margin-left: 10px
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage .btn_edit {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url("https://www.saraminimage.co.kr/sri/company/ico/ico_edit.png")
+}
+
+.wrap_manage .box_list_manage .tbl_invite_manage tr:hover .type_depa .btn_edit {
+    display: block
+}
+
+/* activity_log */
+.wrap_activity_log .box_filter {
+    margin-bottom: 10px;
+    text-align: right
+}
+
+.wrap_activity_log .box_filter .inpSel {
+    width: 146px
+}
+
+.wrap_activity_log .box_filter .inpTypo {
+    width: 188px
+}
+
+.wrap_activity_log .box_filter .area_calendar {
+    display: inline-block
+}
+
+.wrap_activity_log .box_filter .area_calendar .inpTypo {
+    width: 135px
+}
+
+.wrap_activity_log .box_filter .ipt_search {
+    display: inline-block;
+    position: relative
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList {
+    display: none;
+    position: absolute;
+    top: 39px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    max-height: 386px;
+    border: solid 1px #d7dce5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 2px 6px 16px 0 rgba(17, 42, 128, 0.08)
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .area_scroll {
+    max-height: 240px;
+    overflow-y: auto;
+    box-sizing: border-box
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .list li {
+    width: 100%;
+    line-height: 22px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .list li>button {
+    padding: 12px 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .list li:first-of-type {
+    margin-top: 4px
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .list li:hover {
+    background-color: #f4f6fa
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .list li .keyword {
+    box-sizing: border-box;
+    color: #5c667b;
+    font-size: 14px;
+    text-align: left
+}
+
+.wrap_activity_log .box_filter .ipt_search .autoCompleteList .list li .keyword.empty {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center
+}
+
+/* modal */
+.modal_user_info {
+    margin: -325px 0 0 -265px;
+    width: 530px;
+    max-height: 650px
+}
+
+.modal_user_info .modalBtn .btn_invite {
+    width: 150px
+}
+
+/* WMG-37936 */
+.wrap_activity_log {
+    position: relative
+}
+
+.wrap_activity_log .btn_privacy_history {
+    position: absolute;
+    right: 0;
+    top: -80px;
+    min-width: 246px
+}
+
+.wrap_connect_history .tabListBar {
+    margin-bottom: 24px
+}
+
+.wrap_connect_history .tabListBar li {
+    width: auto
+}
+
+.wrap_connect_history .box_filter {
+    margin-bottom: 10px;
+}
+
+.wrap_connect_history .box_filter .inpSel {
+    width: 116px
+}
+
+.wrap_connect_history .box_filter .inpTypo {
+    width: 188px
+}
+
+.wrap_connect_history .box_filter .area_calendar {
+    display: inline-block
+}
+
+.wrap_connect_history .box_filter .area_calendar .inpTypo {
+    width: 135px
+}
+
+.wrap_connect_history .box_filter .area_calendar .desc_txt {
+    margin-left: 5px;
+    font-size: 13px;
+    color: #888
+}
+
+.wrap_connect_history .box_filter .btn_download {
+    float: right
+}
+
+.wrap_connect_history .pagination {
+    padding-top: 40px
+}
+
+.connect_history_download {
+    max-width: 600px;
+    transform: translate(-50%,-50%)
+}
+
+.connect_history_download .form_dec {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.connect_history_download .inp_wrap {
+    width: 100%;
+    margin-bottom: 20px
+}
+
+.connect_history_download .inp_wrap.invalid {
+    margin-bottom: 8px
+}
+
+.connect_history_download label {
+    padding-top: 10px;
+    min-width: 123px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #444
+}
+
+.connect_history_download label .required {
+    font-size: 12px;
+    color: #FF3B50
+}
+
+.connect_history_download .MsgTxt {
+    margin-top: 2px;
+    color: #777
+}
+
+.connect_history_download .inpTypo {
+    display: block;
+    width: 100%
+}
+
+.connect_history_download .desc_txt {
+    padding: 16px;
+    font-size: 13px;
+    line-height: 22px;
+    color: #777
+}
+
+.connect_history_download .modalBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.connect_history_download .modalBtn button {
+    width: 120px
+}
+
+.privacy_guide .btn_bottom {
+    margin: 42px 0 0
+}
+
+.privacy_guide .btn_type_more {
+    display: block;
+    margin: 0 auto;
+    padding: 0 12px;
+    width: 232px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: var(--gray100);
+    text-align: center;
+    border: 1px solid var(--gray80);
+    border-radius: 4px;
+    background: var(--white);
+    box-sizing: border-box
+}
+
+.privacy_guide_tab .tabListBar li {
+    width: auto
+}
+
+.privacy_guide_tab .tabListBar li .inTab {
+    padding: 19px 24px 17px
+}
+
+.privacy_guide .nested_tab {
+    position: relative;
+    width: 100%;
+    height: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--gray10)
+}
+
+.privacy_guide .nested_tab li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 89px;
+    height: 100%
+}
+
+.privacy_guide .nested_tab li.select::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--gray100);
+    left: 0;
+    bottom: 0
+}
+
+.privacy_guide .nested_tab li button {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray100)
+}
+
+.privacy_guide .nested_tab_cont {
+    display: none
+}
+
+.privacy_guide .privacy_guide_content {
+    position: relative
+}
+
+.privacy_guide .privacy_guide_content .inr {
+    width: 945px;
+    margin: 0 auto
+}
+
+.privacy_guide .privacy_guide_content .tab_cont {
+    display: none;
+    padding: 50px 0 0
+}
+
+.privacy_guide .privacy_guide_content .cont_tit {
+    padding: 16px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #292e41
+}
+
+.privacy_guide .privacy_guide_content .main_box {
+    margin: 0 0 32px;
+    padding: 20px;
+    background: var(--blue20);
+    border-radius: 8px;
+    word-break: keep-all
+}
+
+.privacy_guide .privacy_guide_content .main_box .tit {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--gray100)
+}
+
+.privacy_guide .privacy_guide_content .main_box p {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--gray100)
+}
+
+.privacy_guide .privacy_guide_content .box {
+    margin: 0 0 20px;
+    padding: 24px;
+    background: var(--gray10);
+    border-radius: 12px
+}
+
+.privacy_guide .privacy_guide_content .box .s_tit {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--gray120)
+}
+
+.privacy_guide .privacy_guide_content .box ol {
+    margin-bottom: 12px;
+    list-style-type: none
+}
+
+.privacy_guide .privacy_guide_content .box ul {
+    margin-bottom: 20px;
+    list-style-type: none
+}
+
+.privacy_guide .privacy_guide_content .box dd:last-child ul {
+    margin-bottom: 0
+}
+
+.privacy_guide .privacy_guide_content .box li {
+    margin-left: 9px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--gray120);
+    text-indent: -9px
+}
+
+.privacy_guide .privacy_guide_content .box p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--gray120)
+}
+
+.privacy_guide .privacy_guide_content .box .space {
+    margin-bottom: 24px
+}
+
+.privacy_guide .privacy_guide_content .box dt {
+    margin-bottom: 8px
+}
+
+.privacy_guide .privacy_guide_content .box dt, .privacy_guide .privacy_guide_content .box dd {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--gray120)
+}
+
+.privacy_guide .privacy_guide_content .box .txt_blue {
+    color: var(--blue90)
+}
+
+.privacy_guide .privacy_guide_content .box .txt_gray {
+    color: var(--gray80)
+}
+
+.privacy_guide .privacy_guide_content .box .txt_underline {
+    text-decoration: underline
+}
+
+.privacy_guide .privacy_guide_content .list_type_circle {
+    padding: 4px 24px 24px
+}
+
+.privacy_guide .privacy_guide_content .list_type_circle li {
+    margin-bottom: 2px;
+    position: relative;
+    padding-left: 10px;
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 20px
+}
+
+.privacy_guide .privacy_guide_content .list_type_circle li::before {
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--gray120);
+    border-radius: 50%;
+    left: 1px;
+    top: 8px
+}
+
+.privacy_guide_table {
+    width: 100%
+}
+
+.privacy_guide_table caption {
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+}
+
+.privacy_guide_table .center {
+    text-align: center
+}
+
+.privacy_guide_table thead th {
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray120);
+    text-align: center;
+    background: var(--gray30);
+    border-left: 1px solid var(--gray40)
+}
+
+.privacy_guide_table thead th:first-child {
+    border-left: 0
+}
+
+.privacy_guide_table tbody th {
+    padding: 13px 10px;
+    background: var(--gray20);
+    border-bottom: 1px solid var(--gray40);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px
+}
+
+.privacy_guide_table tbody td {
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    border-bottom: 1px solid var(--gray40)
+}
+
+.privacy_guide .privacy_guide_news_list .cont_tit {
+    margin: 42px 0 0;
+    padding: 0 0
+}
+
+.privacy_guide_news_list, .privacy_guide .privacy_guide_news_view {
+    position: relative;
+    padding-bottom: 66px;
+    margin-bottom: 40px
+}
+
+.privacy_guide_news_list::after, .privacy_guide_news_view::after, .privacy_guide_vedio_list::after {
+    position: absolute;
+    content: '';
+    width: 1260px;
+    height: 1px;
+    background: var(--gray40);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0
+}
+
+.privacy_guide_news_list .top, .privacy_guide_vedio_list .top {
+    margin: 16px 0 12px
+}
+
+.privacy_guide_news_list .top .num, .privacy_guide_vedio_list .top .num {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--gray100)
+}
+
+.privacy_guide_news_list .news_list {
+    margin: 0 0 54px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 40px 40px
+}
+
+.privacy_guide_news_list .news_list_item {
+    width: 288px
+}
+
+.privacy_guide_news_list .item_img {
+    margin-bottom: 16px;
+    width: 288px;
+    height: 288px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--gray40)
+}
+
+.privacy_guide_news_list .item_img img {
+    width: 100%
+}
+
+.privacy_guide_news_list .item_tit {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--gray120);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.privacy_guide_news_list .item_agency, .privacy_guide_news_list .item_date {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--gray80)
+}
+
+.privacy_guide_news_list .item_agency {
+    margin-bottom: 2px
+}
+
+.privacy_guide_news_view {
+    padding-bottom: 100px
+}
+
+.privacy_guide_news_view .cont_tit {
+    margin: 10px 0 20px;
+    padding: 0 0
+}
+
+.privacy_guide_news_view .news_view_head {
+    border-top: 2px solid var(--gray70);
+    padding: 24px 20px;
+    background: var(--gray10)
+}
+
+.privacy_guide_news_view .news_view_head .tit {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+    color: var(--gray120)
+}
+
+.privacy_guide_news_view .news_view_head .info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 36px
+}
+
+.privacy_guide_news_view .news_view_head .date, .privacy_guide_news_view .news_view_head .num {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--gray80)
+}
+
+.privacy_guide_news_view .news_view_cont {
+    padding: 60px 0 76px;
+    margin: 0 0 24px;
+    border-bottom: 1px solid #D7DCE5;
+}
+
+.privacy_guide_news_view .news_view_cont .swiper_service {
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden
+}
+
+.privacy_guide_news_view .news_view_cont .swiper-slide {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--gray10)
+}
+
+.privacy_guide_news_view .news_view_cont .swiper-slide img {
+    width: 100%
+}
+
+.privacy_guide_news_view .news_view_cont .swiper-button-prev {
+    margin-top: -64px;
+    left: 135px;
+    width: 32px;
+    height: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M22 28L10 16L22 4' stroke='%2367738E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+}
+
+.privacy_guide_news_view .news_view_cont .swiper-button-next {
+    margin-top: -64px;
+    right: 135px;
+    width: 32px;
+    height: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M10 28L22 16L10 4' stroke='%2367738E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+}
+
+.privacy_guide_news_view .news_view_cont .paging {
+    position: static;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.privacy_guide_news_view .news_view_cont .paging span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray100)
+}
+
+.privacy_guide_news_view .news_view_cont .paging .swiper-pagination-current {
+    font-weight: 700
+}
+
+.privacy_guide_news_view .news_view_foot {
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+}
+
+.privacy_guide_news_view .news_view_foot .list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.privacy_guide_news_view .news_view_foot .list strong {
+    min-width: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray100)
+}
+
+.privacy_guide_news_view .news_view_foot .list .tit {
+    width: 100%;
+    font-size: 15px;
+    color: var(--gray120)
+}
+
+.privacy_guide_news_view .news_view_foot .list .date {
+    min-width: 60px;
+    font-size: 14px;
+    color: var(--gray80)
+}
+
+.privacy_guide_news_view .btn_bottom {
+    margin: 56px 0 0;
+    text-align: center
+}
+
+.privacy_guide_news_view .btn_bottom .btn {
+    margin: 0 auto;
+    display: flex;
+    width: 304px;
+    height: 48px;
+    padding: 0 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 24px;
+    border: 1px solid var(--gray80);
+    background: var(--white);
+    font-size: 16px;
+    color: var(--gray100)
+}
+
+.privacy_guide_vedio_list {
+    position: relative;
+    padding-bottom: 66px;
+    margin-bottom: 40px
+}
+
+.privacy_guide .privacy_guide_vedio_list .cont_tit {
+    margin: 42px 0 16px ;
+    padding: 0 0
+}
+
+.privacy_guide_vedio_list .vedio_list {
+    margin: 0 0 55px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px 16px
+}
+
+.privacy_guide_vedio_list .vedio_list_item {
+    width: 304px
+}
+
+.privacy_guide_vedio_list .item_img {
+    margin-bottom: 16px;
+    width: 304px;
+    height: 171px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--gray10)
+}
+
+.privacy_guide_vedio_list .item_img img {
+    width: 100%
+}
+
+.privacy_guide_vedio_list .item_tit {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--gray120);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.privacy_guide_vedio_list .item_agency, .privacy_guide_vedio_list .item_date {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--gray80)
+}
+
+.privacy_guide_vedio_list .item_agency {
+    margin-bottom: 2px
+}
+
+.privacy_guide .box.privacy_portal {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px 40px;
+    box-sizing: border-box
+}
+
+.privacy_guide .privacy_portal .privacy_portal_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 16px;
+    width: 220px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--gray110);
+    font-size: 16px;
+    color: var(--white);
+    box-sizing: border-box
+}
+
+.privacy_guide .privacy_portal .privacy_portal_link::after {
+    display: block;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: url("data:image/svg+xml,%0A%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 12L10 8L6 4' stroke='white' stroke-linecap='round'/%3E%3C/svg%3E%0A") center no-repeat
+}

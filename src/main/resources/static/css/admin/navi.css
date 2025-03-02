@@ -1,0 +1,59 @@
+/* 
+  상단 네비게이션 스타일
+  1. 네비게이션 컨테이너
+  2. 로고 영역
+  3. 타입 표시
+*/
+
+/* 네비게이션 컨테이너 */
+.gnb-container {
+  box-shadow: 0 1px #0a16460f;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 16;
+  background-color: #fff;
+  padding: 0 16px;
+  width: 100%;
+  height: 56px;
+}
+
+/* 네비게이션 콘텐츠 영역 */
+.gnb-content {
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 로고 컨테이너 */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+/* 로고 버튼 */
+.logo-btn {
+  display: block;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  outline: 0;
+  background-image: url(../../images/admin/wadiz_logo.svg);
+  background-size: cover;
+  width: 132px;
+  height: 14px;
+}
+
+/* 로고 타입 텍스트 */
+.logo-type {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-right: 8px;
+  color: #868e96;
+}

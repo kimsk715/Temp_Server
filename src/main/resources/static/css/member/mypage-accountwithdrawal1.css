@@ -1,0 +1,1104 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --blue10: #f5f8ff;
+    --blue20: #f0f4ff;
+    --blue30: #e5ecff;
+    --blue40: #ccdaff;
+    --blue50: #a3bcff;
+    --blue60: #7a9fff;
+    --blue70: #5785ff;
+    --blue80: #4075ff;
+    --blue90: #2d67ff;
+    --blue100: #003fe5;
+    --blue110: #0031b2;
+    --blue120: #002585;
+    --gray10: #f8fafc;
+    --gray20: #f4f6fa;
+    --gray30: #eaedf4;
+    --gray40: #d7dce5;
+    --gray50: #b4c0d3;
+    --gray60: #96a0b5;
+    --gray70: #8491a7;
+    --gray80: #67738e;
+    --gray90: #5c667b;
+    --gray100: #475067;
+    --gray110: #373f57;
+    --gray120: #292e41;
+    --gray130: #151822;
+    --green10: #f3fffd;
+    --green20: #ebfffc;
+    --green30: #defaf6;
+    --green40: #aff4e5;
+    --green50: #7beed8;
+    --green60: #4fe5c7;
+    --green70: #00deb3;
+    --green80: #00d3ab;
+    --green90: #11be9a;
+    --green100: #17a187;
+    --green110: #2a7c6d;
+    --green120: #286258;
+    --greentemp : #00dd64;
+    --coral10: #fffafa;
+    --coral20: #fff5f7;
+    --coral30: #fce6e6;
+    --coral40: #fec5c5;
+    --coral50: #fea4a3;
+    --coral60: #ff837e;
+    --coral70: #ff7a72;
+    --coral80: #ff6d6a;
+    --coral90: #ff5656;
+    --coral100: #eb413f;
+    --coral110: #d63131;
+    --coral120: #b81d1d;
+    --orange10: #fffbf5;
+    --orange20: #fff7eb;
+    --orange30: #ffebcc;
+    --orange40: #ffd699;
+    --orange50: #ffc46b;
+    --orange60: #ffb84d;
+    --orange70: #ffa929;
+    --orange80: #ff9a03;
+    --orange90: #f09000;
+    --orange100: #e08700;
+    --orange110: #b86e00;
+    --orange120: #804d00;
+    --yellow10: #fffbeb;
+    --yellow20: #fff7d6;
+    --yellow30: #fff2b8;
+    --yellow40: #ffe885;
+    --yellow50: #ffe15f;
+    --yellow60: #ffdb3d;
+    --yellow70: #ffd41a;
+    --yellow80: #facb00;
+    --yellow90: #ebbf00;
+    --yellow100: #dbb200;
+    --yellow110: #ad8d00;
+    --yellow120: #755f00;
+    --forestGreen10: #f0fff6;
+    --forestGreen20: #e0ffed;
+    --forestGreen30: #c7ffdd;
+    --forestGreen40: #8affb9;
+    --forestGreen50: #57ff9a;
+    --forestGreen60: #00ff66;
+    --forestGreen70: #00e55c;
+    --forestGreen80: #00cc52;
+    --forestGreen90: #00be4c;
+    --forestGreen100: #00a843;
+    --forestGreen110: #008535;
+    --forestGreen120: #006629;
+    --skyBlue10: #f5fdff;
+    --skyBlue20: #ebfaff;
+    --skyBlue30: #dbf7ff;
+    --skyBlue40: #bdf0ff;
+    --skyBlue50: #99e8ff;
+    --skyBlue60: #70dfff;
+    --skyBlue70: #57d9ff;
+    --skyBlue80: #02c6ff;
+    --skyBlue90: #00b6eb;
+    --skyBlue100: #00a2d1;
+    --skyBlue110: #008ab2;
+    --skyBlue120: #006380;
+    --violet10: #fcfaff;
+    --violet20: #f8f5ff;
+    --violet30: #efe5ff;
+    --violet40: #deccff;
+    --violet50: #cbadff;
+    --violet60: #b185ff;
+    --violet70: #9d66ff;
+    --violet80: #8d4dff;
+    --violet90: #7224ff;
+    --violet100: #5a00fa;
+    --violet110: #4600c2;
+    --violet120: #2e0080;
+
+    /* 지하철 노선 */
+    /* 서울 */
+    --subwayLine101:#0052a4;
+    --subwayLine102:#34a344;
+    --subwayLine103:#ec611b;
+    --subwayLine104:#2995d6;
+    --subwayLine105:#7c38d6;
+    --subwayLine106:#ab4518;
+    --subwayLine107:#5e661f;
+    --subwayLine108:#df1c62;
+    --subwayLine109:#ca9a35;
+    --subwayLine201:#dd9520; /* 수인분당 */
+    --subwayLine1101:#9c1b2c; /* 신분당 */
+    --subwayLine901:#2c96df; /* 공항철도 */
+    --subwayLine301:#6490c7; /* 인천1호선 */
+    --subwayLine302:#ed8b00; /* 인천2호선 */
+    --subwayLine1801:#395697; /* 신림 */
+    --subwayLine1601:#7eb543; /* 서해 */
+    --subwayLine1701:#8b651b; /* 김포골드 */
+    --subwayLine1501:#bcb202; /* 우이신설 */
+    --subwayLine203:#216ceb; /* 경강선 */
+    --subwayLine202:#fe9132; /* 의정부 */
+    --subwayLine1201:#159768; /* 경춘 */
+    --subwayLine1301:#61aa5e; /* 에버라인 */
+    --subwayLine1001:#66af90; /* 경의중앙 */
+    --subwayLine303:#feb700; /* 자기부상 */
+    /* 부산 */
+    --subwayLine401:#ec5430;
+    --subwayLine402:#34a344;
+    --subwayLine403:#b68748;
+    --subwayLine404:#3a66a9;
+    --subwayLine405:#74428f; /* 부산김해 */
+    --subwayLine406:#5d95c8; /* 동해 */
+    /* 대구 */
+    --subwayLine501:#ec5430;
+    --subwayLine502:#34a344;
+    --subwayLine503:#feb700;
+    /* 광주 */
+    --subwayLine601:#34a344;
+    /* 대전 */
+    --subwayLine801:#34a344;
+}
+
+.header-sc {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+@media (max-width: 1080px) {
+    .header-sc {
+        border-bottom: unset;
+    }
+}
+.div-sc1 {
+    position: relative;
+    max-width: 1060px;
+    margin: 0px auto;
+}
+
+.div-sc2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    transition: 0.2s;
+}
+@media (max-width: 1080px) {
+    .div-sc2 {
+        padding: 0px 16px;
+    }
+}
+.div-sc2 .logo-wrap {
+    padding-top: 5px;
+}
+
+.logo-top {
+    display: inline-flex;
+}
+
+.searchbox-top {
+    position: relative;
+}
+@media (max-width: 1080px) {
+    .searchbox-top {
+        display: flex;
+    }
+}
+.searchbox-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: 1060px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+}
+
+.searchbox-inner .search-box {
+    width: 480px;
+    height: 40px;
+    padding: 0px 20px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    border-radius: 100px;
+    border: 1.5px solid rgb(0, 221, 109);
+}
+
+.searchbox-inner .search-box input {
+    width: 100%;
+    padding: 0px 40px 0px 44px;
+    height: 40px;
+    border: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    right: 0px;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.searchbox-inner .search-button {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+}
+
+.searchbox-inner .search-button svg g circle {
+    stroke: rgb(0, 221, 109);
+}
+
+.searchbox-inner .search-button svg g path {
+    stroke: rgb(0, 221, 109);
+}
+
+.searchbox-inner .close-button {
+    display: none;
+}
+.searchbox-hidden {
+    position: absolute;
+    top: 51px;
+    left: 0px;
+    width: 472px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: rgba(20, 20, 20, 0.12) 0px 8px 16px;
+    border-radius: 8px;
+    z-index: 6;
+    padding: 24px;
+    display: none;
+}
+
+.recentsearch {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.recentsearch h4 {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.searchbox-hidden-content {
+    padding: 28px 0px 36px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(153, 153, 153);
+}
+
+.searchbox-onclick {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+/*  ---------------------------------------------- */
+.nav-sc3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+}
+@media (max-width: 1080px) {
+    .nav-sc3 {
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        padding: 0px 16px;
+        border-bottom: 1px solid rgb(228, 228, 228);
+    }
+}
+.header4 {
+    display: flex;
+    margin-left: -20px;
+}
+@media (max-width: 1080px) {
+    .header4 {
+        margin-left: -10px;
+        padding: 0px 20px 0px 0px;
+    }
+}
+.header4>li {
+    position: relative;
+    padding: 0px 20px;
+}
+@media (max-width: 1080px) {
+    .header4 > li {
+        padding: 0px 10px;
+    }
+}
+.header-element5 {
+    font-weight: 400;
+}
+
+.header4>li>a {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 10px 4px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.header-right6 {
+    display: flex;
+    margin-right: -12px;
+    font-size: 14px;
+    line-height: 20px;
+}
+@media (max-width: 1080px) {
+    .header-right6 {
+        display: none;
+    }
+}
+.header-right6 li {
+    position: relative;
+    padding: 0px 12px;
+}
+
+
+.header-right-user7 {
+    padding-top: 1px;
+    height: 42px;
+}
+
+.header-right-menu8 {
+    display: none;
+    position: absolute;
+    width: 175px;
+    right: 0px;
+    border: 1px solid rgb(228, 228, 228);
+    box-sizing: border-box;
+    box-shadow: rgba(20, 20, 20, 0.12) 0px 8px 16px;
+    border-radius: 4px;
+    padding: 8px 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.header-right-user7 button {
+    width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.header-right6 li button {
+    display: inline-block;
+    position: relative;
+    padding: 10px 0px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    text-align: end;
+}
+
+.header-right-user7 svg {
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
+}
+
+.header-right-menu8 ul li {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.header-right-menu8 ul li>a,
+.header-right-menu8 ul li button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0px 8px;
+    font-weight: normal;
+}
+
+.main-sc0 {
+    background-color: rgb(255, 255, 255);
+    padding-top: 120px;
+}
+
+.main-wrapper0 {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1060px;
+    margin: 0px auto;
+    padding: 48px 0px 120px;
+}
+
+.main-content1 {
+    width: 210px;
+    height: 200px;
+}
+
+.main-content1>div {
+    position: fixed;
+    content: "";
+    display: block;
+    width: 210px;
+}
+
+.main-content1>div>h2 {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: rgb(0, 0, 0);
+}
+
+.mypagemenu1 {
+    width: 210px;
+    position: relative;
+}
+
+.mypagemenu2 {
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 24px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 400;
+}
+
+.mypagemenu2-1 {
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 24px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 400;
+    border-top: 1px solid rgb(228, 228, 228);
+    padding-top: 24px;
+}
+.mypagemenu2-2 {
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 24px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 900;
+}
+.mymenu-popuptext {
+    cursor: default;
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(36, 36, 36);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 18px;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    white-space: pre;
+    text-align: left;
+    top: 65px;
+    left: 100px;
+    animation: 3s ease 0s 1 normal forwards running dYtXSc;
+    /* 다른 부분과 비교 참고할 것. */
+    will-change: opacity;
+}
+
+.mypagemenu-wrapper .green {
+    color: rgb(0, 221, 109);
+}
+
+/* ===================== */
+.main-content2 {
+    width: 790px;
+    position: relative;
+}
+
+.main-content2>h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+}
+
+.topbox0 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 116px;
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.topbox-content1 {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+.topbox-content1-1{
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+.topbox-content1>a>dl {
+    color: rgb(0, 0, 0);
+}
+
+.topbox-content1>a>dl>dt {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.topbox-content1>a>dl>dd {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.topbox-content1::after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 1px;
+    background-color: rgb(228, 228, 228);
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    margin-top: -20px;
+}
+
+.topbox-content1-1::after{
+    content: "";
+    display: block;
+    height: 40px;
+    width: 1px;
+    background-color: rgb(228, 228, 228);
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    margin-top: -20px;
+}
+.topbox-content1-1 > a > dl {
+    color: rgb(0, 0, 0);
+}
+.topbox-content1-1 > a > dl > dt {
+    font-size: 16px;
+    line-height: 24px;
+}
+.topbox-content1-1 > a > dl > dd {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
+    color: rgb(0, 217, 89);
+    text-decoration: underline;
+}
+
+.applied-list0 {
+    margin: 48px 0px 0px;
+} 
+
+.applied-list0 > h1 {
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+    border-bottom: 1px solid rgb(34, 34, 34);
+    position: relative;
+}
+
+.applied-list-blank {
+    width: 100%;
+    margin: 20px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    font-weight: 400;
+    font-size: 17px;
+    color: rgb(102, 102, 102);
+}
+
+#withdrawalAgree > header, footer, section, nav, article {
+    display: block;
+}
+
+.cont_withdrawal {
+    padding-top: 20px;
+    width : 100%
+}
+
+   
+
+#withdrawalAgree > h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.cont_withdrawal .txt_title {
+    margin-bottom: 24px;
+    color: var(--gray120);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+.cont_withdrawal .wrap_history {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px 20px 30px;
+    /* width: 100%; */
+    background: var(--gray20);
+    border-radius: 12px;
+}
+
+.cont_withdrawal .desc_history {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.cont_withdrawal .desc_history .txt_name {
+    overflow: hidden;
+    max-width: 194px;
+    display: inline-block;
+    color: var(--greentemp);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+}
+
+#withdrawalAgree > strong,
+#withdrawalAgree > b {
+    font-weight: bold;
+}
+
+.cont_withdrawal .desc_history .txt_default {
+    display: block;
+}
+
+#withdrawalAgree > ol, ul, li {
+    list-style: none;
+}
+
+.cont_withdrawal .list_history {
+    display: flex;
+    gap: 57px;
+}
+
+.cont_withdrawal .list_history li {
+    position: relative;
+    width: 100px;
+}
+
+#withdrwalagree > a {
+    color: #444;
+    text-decoration: none;
+}
+
+.cont_withdrawal .list_history .tit_history {
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.cont_withdrawal .list_history .num_history {
+    overflow: hidden;
+    display: block;
+    margin-top: 8px;
+    color: var(--gray120);
+    font-size: 20px;
+    line-height: 28px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#withdrawalAgree > .hidden, .blind {
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+}
+
+.cont_withdrawal .list_history li:not(:nth-of-type(1)):before {
+    position: absolute;
+    top: 50%;
+    left: -28px;
+    width: 1px;
+    height: 48px;
+    background: var(--gray40);
+    transform: translateY(-50%);
+    content: "";
+}
+
+.cont_withdrawal .list_noti {
+    margin-top: 30px;
+    padding: 30px 40px;
+    border: 1px solid var(--gray40);
+    border-radius: 12px;
+}
+
+.cont_withdrawal .list_noti li {
+    font-size: 14px;
+    line-height: 20px;
+}
+.cont_withdrawal .list_noti li+li {
+    margin-top: 30px;
+}
+.cont_withdrawal .list_noti .tit_noti {
+    display: block;
+    color: var(--gray120);
+}
+
+.cont_withdrawal .list_noti .desc_noti {
+    position: relative;
+    display: block;
+    margin-top: 8px;
+    padding-left: 16px;
+    color: var(--gray100);
+}
+
+.cont_withdrawal .list_noti .desc_noti:before {
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--gray100);
+    content: "";
+}
+
+/* #withdrawalAgree > fieldset, #withdrawalAgree > img {
+    border: 0;
+} */
+
+#withdrawalAgree > legend {
+    color: #000;
+}
+
+.cont_withdrawal .wrap_agree {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.InpBox {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cont_withdrawal :where(.TypoBox, .InpBox) {
+    width: 100%;
+}
+
+.InpBox .Chk {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+#withdrawalAgree > input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+#withdrawalAgree > input, button, textarea, select {
+    line-height: normal;
+}
+
+.tbl_fieldset button, input {
+    vertical-align: middle;
+}
+
+.InpBox .Chk input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#withdrawalAgree > button, label {
+    cursor: pointer;
+}
+
+.InpBox .Chk .Lbl {
+    display: block;
+    position: relative;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.InpBox .Chk .Lbl:before {
+    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    vertical-align: top;
+    background: #fff;
+    content: '';
+}
+
+.InpBox .Chk input:checked~.Lbl:before {
+    border-color: var(--greentemp);
+    background: var(--greentemp);
+}
+
+.InpBox .Chk .Lbl:after {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 5px;
+    border-bottom: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+    border-radius: 1px;
+    transform: rotate(-45deg);
+    content: '';
+}
+
+.InpBox .Chk input:checked~.Lbl:after {
+    display: inline-block;
+    border-color: var(--white);
+}
+
+.cont_withdrawal .wrap_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+[class*="BtnType"] {
+    display: inline-flex;
+    position: relative;
+    border: 1px solid var(--greentemp);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--white);
+    text-align: center;
+    vertical-align: top;
+    background-color: var(--greentemp);
+    justify-content: center;
+    align-items: center;
+}
+
+[class*="BtnType"].SizeL {
+    padding: 10px 15px 12px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+[class*="BtnType"].GrayInvert {
+    border-color: var(--gray70);
+    color: var(--gray100);
+    background: var(--white);
+}
+
+.cont_withdrawal .wrap_buttons .BtnType {
+    width: 170px;
+}
+
+.cont_withdrawal .txt_subtitle {
+    display: block;
+    margin-top: 8px;
+    color: var(--gray100);
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 22px;
+}
+
+.cont_withdrawal .wrap_forms {
+    padding: 50px 0;
+    min-height: 236px;
+    border: 1px solid var(--gray40);
+    border-radius: 12px;
+}
+
+.cont_withdrawal .box_common {
+    width: 528px;
+    margin: 0 auto;
+}
+
+.cont_withdrawal .area_forms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px;
+    width: 528px;
+    min-height: 48px;
+    margin: 0 auto;
+}
+
+.cont_withdrawal .area_forms+.area_forms {
+    margin-top: 20px;
+}
+
+.cont_withdrawal .area_forms.type_password {
+    gap: 36px;
+}
+
+.cont_withdrawal .area_forms dt {
+    width: 85px;
+    color: var(--gray120);
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 48px;
+}
+
+.cont_withdrawal .area_forms.type_password dt {
+    width: 82px;
+}
+
+.cont_withdrawal .area_forms dd {
+    flex: 1;
+}
+
+.cont_withdrawal .area_forms .txt_id {
+    color: var(--gray120);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 48px;
+}
+
+.TypoBox {
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+.TypoBox .Typo {
+    padding: 8px 12px;
+    width: 100%;
+    height: 38px;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    background: none;
+}
+
+.TypoBox .Typo.SizeL {
+    padding: 12px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+.cont_withdrawal :where(.TypoBox, .InpBox) {
+    width: 100%;
+}
+
+.cont_withdrawal .wrap_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+.cont_withdrawal .wrap_buttons .BtnType {
+    width: 170px;
+}
+
+.InpBox select {
+    padding: 0 28px 0 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray100);
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    background: var(--white) url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.5 0H8.5L4.5 5L0.5 0Z' fill='%2367738E'/%3E%3C/svg%3E") no-repeat right 12px top 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.InpBox select:hover {
+    background-color: var(--gray20);
+}
+
+.InpBox.SizeL select {
+    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+
+.cont_withdrawal .area_conts {
+    display: none;
+    margin-top: 30px;
+    padding-top: 30px;
+    color: var(--gray120);
+    font-size: 15px;
+    line-height: 22px;
+    border-top: 1px solid var(--gray40);
+}
+
+.InpBox textarea {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 24px;
+    width: 100%;
+    height: calc(100% - 25px);
+    border: 1px solid var(--gray70);
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--gray120);
+    font-size: 14px;
+    line-height: 21px;
+    vertical-align: top;
+    background-color: var(--white);
+    resize: none;
+}
+
+.cont_withdrawal .area_conts.show {
+    display: block;
+}
+
+.cont_withdrawal .area_conts p+.btn_page {
+    margin-top: 24px;
+}
+
+.cont_withdrawal fieldset{
+    border : none;
+}

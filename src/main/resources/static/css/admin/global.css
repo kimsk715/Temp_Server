@@ -1,0 +1,231 @@
+/* 
+  글로벌 스타일 정의
+  - 폰트 설정
+  - 기본 요소 리셋
+  - 전역 변수
+  - 공통 스타일
+*/
+
+/* 폰트 설정 */
+@font-face {
+  font-family: pretendard;
+  src: url(../../fonts/admin/Pretendard-Medium.subset-Y06xfiVw.woff2);
+}
+
+/* 기본 body 스타일 */
+body {
+  overflow-x: hidden;
+  line-height: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -o-text-size-adjust: none;
+}
+
+/* 폰트 패밀리 공통 적용 */
+html,
+body,
+button,
+input,
+textarea,
+select {
+  color: inherit;
+  font-family: pretendard;
+}
+
+/* 요소 기본값 리셋 */
+address,
+article,
+aside,
+b,
+body,
+a,
+button,
+canvas,
+caption,
+dl,
+dt,
+dd,
+div,
+html,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+var,
+u,
+i,
+center,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+select,
+textarea,
+input {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* body 포인터 이벤트 활성화 */
+.admin-body {
+  pointer-events: auto !important;
+}
+
+/* 루트 변수 설정 */
+:root {
+  --scrollbar-width: 0;
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-right: env(safe-area-inset-right);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --safe-area-inset-left: env(safe-area-inset-left);
+}
+
+/* 박스 사이징 설정 */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* body와 root 요소 스타일 */
+body,
+#root {
+  height: 100%;
+  overflow: auto;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+/* 레이아웃 컨테이너 */
+.layout-container {
+  position: relative;
+}
+
+/* 버튼 기본 스타일 */
+button {
+  background-color: transparent;
+}
+
+/* 버튼과 링크 공통 스타일 */
+a,
+button {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+/* 활성화된 버튼 커서 스타일 */
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+/* 링크 스타일 */
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 블록 레벨 요소 설정 */
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+  display: block;
+}
+
+/* 리스트 스타일 제거 */
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+/* 미디어 요소 최대 너비 설정 */
+video,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 미디어 요소 수직 정렬 */
+iframe,
+img,
+video {
+  vertical-align: top;
+}
+
+/* 미디어 요소 최대 너비 공통 설정 */
+img,
+picture,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* 텍스트 스타일 리셋 */
+address,
+em,
+var {
+  font-weight: inherit;
+  font-style: normal;
+}

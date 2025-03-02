@@ -1,0 +1,1299 @@
+/*!
+*  XEIcon 2.3.0 by @NAVER - http://xpressengine.github.io/XEIcon/ - @XEIcon
+*  License - http://xpressengine.github.io/XEIcon/license.html (Font: SIL OFL 1.1, CSS: MIT License)
+*/
+@font-face {
+    font-family: 'xeicon';
+    src: url(/fonts/main/xeicon.ttf) format("truetype"),url(/fonts/main/xeicon.woff2) format("woff2"),url(/fonts/main/xeicon.woff) format("woff"),url(/fonts/main/xeicon.svg) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url(/fonts/main/PretendardVariable.woff2) format('woff');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+*, :focus {
+    outline: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+* {
+    scroll-margin-top: 100px;
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+:root {
+    --emoji-font-family: "Apple Color Emoji", "Segoe UI Emoji", "NotoColorEmoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+    --page-max-width: 900px;
+    --content-max-width: 708px;
+}
+
+:root {
+    --page-cover-height: 30vh;
+    --page-header-font-size: 40px;
+    --page-content-padding-bottom: 10vh;
+}
+
+body {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+    overflow-x: hidden;
+}
+
+a{
+    background-color: transparent;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+svg:not(:root){
+    overflow: hidden;
+}
+
+i {
+    font-family: 'xeicon' !important;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.css0>div{
+    font-family: 'Pretendard', 'ui-sans-serif', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.goToTopButtonWrapper{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.goToTopButtonWrapper .goToTopButtonContainer{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background: #fff;
+    z-index: 100;
+    cursor: pointer;
+    box-shadow: 0 0 4px 4px #d6d6d6;
+    color: #37352f;
+    font-size: 10px;
+    transition: .3s ease-out;
+    pointer-events: auto;
+}
+
+.goToTopButtonWrapper .goToTopButtonContainer svg{
+    margin-bottom: 2px;
+}
+
+.notionAppInner{
+    color: rgb(55, 53, 47);
+    fill: currentcolor;
+    line-height: 1.5;
+}
+
+.notionFrame{
+    flex-grow: 0;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    z-index: 1;
+}
+
+.upperNav{
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    z-index: 1000000;
+    --color: rgb(10, 216, 10);
+    position: sticky;
+    top: 0;
+}
+
+.notionScroller{
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.navigationWrapper{
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    z-index: 1;
+}
+
+.notionTopbar{
+    position: relative;
+    display: grid;
+    width: 100%;
+    padding: 0px 12px;
+    z-index: 1;
+    transition: background-color 300ms;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 52px;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+
+.topIcon{
+    height: 52px;
+    display: flex;
+    align-items: center;
+    max-height: 100%;
+}
+
+.iconWrapper{
+    white-space: pre-wrap;
+    display: flex;
+    align-items: center;
+    max-height: 100%;
+}
+
+.iconHome{
+    height: 20px;
+}
+
+.navMenus{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.navMenu{
+    display: flex;
+    white-space: pre-wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.navMenu>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 32px);
+    height: 100%;
+    border-radius: 100px;
+}
+
+.navText {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    min-width: 60px;
+    height: 100%;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    white-space: pre-wrap;
+}
+
+.navText:hover {
+    color: rgb(10, 216, 10); /* 마우스 오버 시 글자 색 변경 */
+}
+
+.navText::after {
+    content: "";
+    position: absolute;
+    width: 0%; /* 초기 너비는 0 */
+    bottom: 0px;
+    height: 2px;
+    background-color: currentcolor;
+    left: 50%; /* 가운데 정렬을 위한 위치 */
+    transform: translateX(-50%); /* 정확히 가운데로 정렬 */
+    transition: width 0.5s ease; /* 너비 변화 애니메이션 */
+}
+
+.navText:hover::after {
+    width: 100%; /* 마우스를 올리면 너비가 100%로 확장 */
+}
+
+.navRightSide{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.searchButton{
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin: 0 2px;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+
+[role="button"]:not([tabindex="-1"]) {
+    cursor: pointer;
+}
+
+.styleMenu{
+    position: relative;
+}
+
+.searchIcon{
+    font-size: 20px;
+}
+
+.searchIcon::before{
+    content: "\e97a";
+}
+
+.menuButton{
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 4px;
+    margin: 4px;
+    margin: 0 2px;
+    font-size: 16px;
+}
+
+.searchButton:hover,
+.menuButton:hover{
+    background-color: #ebebeb;
+}
+
+
+.menuIcon{
+    font-size: 20px;
+}
+
+.menuIcon::before{
+    content: "\e94a";
+}
+
+.sectionUpper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.pageCover{
+    display: block;
+    object-fit: cover;
+    border-radius: 0px;
+    width: 100%;
+    height: 30vh;
+    opacity: 1;
+    object-position: center 71.05%;
+}
+
+.navUnderLine{
+    width: 100%;
+    border-bottom: 2px solid #F5F5F5;
+}
+
+:root .width {
+    max-width: 100%;
+    width: var(--page-max-width);
+}
+
+:root .padding {
+    padding-left: calc(96px + env(safe-area-inset-left));
+    padding-right: calc(96px + env(safe-area-inset-right));
+}
+
+.pageIcon{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 78px;
+    width: 78px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: -42px;
+    margin-left: 3px;
+    margin-bottom: 0px;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.pageIcon>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.imgIconWrap{
+    width: 100%;
+    height: 100%;
+    font-size: 78px;
+    line-height: 1.1;
+    margin-left: 0px;
+    color: black;
+}
+
+.imgIconWrap>span{
+    font-family: var(--emoji-font-family);
+    line-height: 1em;
+    white-space: nowrap;
+}
+
+
+
+.lockShapeIcon{
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 50.847457627118644%;
+    background-position-y: 16.94915254237288%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+    width: 100%;
+    height: 100%;
+}
+
+.notification-item:hover{
+    background-color: #ebebeb;
+}
+
+.goToTopButtonContainer{
+    transform: translateY(100px);  /* 아래쪽에 숨겨진 상태 */
+    opacity: 0;
+}
+
+.goToTopButtonContainer.show {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.applyShapeIcon{
+    width: 100%;
+    height: 100%;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 30.508474576271187%;
+    background-position-y: 57.6271186440678%;
+    background-size: 6000% 6000%;
+}
+
+.cashShapeIcon{
+    width: 100%;
+    height: 100%;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 47.45762711864407%;
+    background-position-y: 59.32203389830508%;
+    background-size: 6000% 6000%;
+}
+
+.guitarShapeIcon{
+    width: 100%;
+    height: 100%;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 13.559322033898304%;
+    background-position-y: 10.16949152542373%;
+    background-size: 6000% 6000%;
+}
+
+.notion-text-block{
+    margin-top: 60px;
+    width: 100%;
+    max-width: calc(100vw - 192px);
+    margin-bottom: 1px;
+}
+
+.notion-text-block {
+    color: inherit;
+    fill: inherit;
+}
+
+.css-1g4vl24 {
+    display: flex;
+}
+
+.notion-emoji {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    vertical-align: -0.1em;
+    margin: 0;
+}
+
+.notion-link-token {
+    cursor: pointer;
+    color: inherit;
+    overflow-wrap: break-word;
+    text-decoration: inherit;
+}
+
+.notion-link-token span {
+    border-bottom: 0.05em solid rgba(55, 53, 47, 0.4);
+    opacity: 0.7;
+    transition: border-color .1s ease-in, opacity .1s ease-in;
+}
+
+.notion-link-token span:hover{
+    opacity: 1;
+}
+
+.mailShapeIcon{
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-size: 6000% 6000%;
+    background-position-x: 96.61016949152543%;
+    background-position-y: 54.23728813559322%;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    vertical-align: -0.1em;
+    margin: 0px;
+    margin-top: 3px;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.inquiryInfo{
+    height: 30px;
+    line-height: 200%;
+    width: 100%;
+    max-width: calc(100vw - 192px);
+    margin-top: 1px;
+    margin-bottom: 3px;
+    background-color: rgb(241, 241, 239);
+}
+
+.companyShapeIcon{
+    width: 100%;
+    height: 100%;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 16.94915254237288%;
+    background-position-y: 38.983050847457626%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+}
+
+.cardShapeIcon{
+    width: 100%;
+    height: 100%;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 47.45762711864407%;
+    background-position-y: 64.40677966101694%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+}
+
+.memoShapeIcon{
+    width: 100%;
+    height: 100%;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 49.152542372881356%;
+    background-position-y: 3.389830508474576%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+}
+
+.searchModalLayout{
+    inset: 0px;
+    z-index: 2147483647;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    justify-content: center;
+    pointer-events: auto;
+    background: rgba(15, 15, 15, 0.6);
+}
+
+.searchModalWindow{
+    position: relative;
+    z-index: 100000000;
+    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 5px 10px, rgba(15, 15, 15, 0.2) 0px 15px 40px;
+    border-radius: 3px;
+    background: white;
+    top: 90px;
+    overflow: hidden;
+    width: 75%;
+    max-width: 600px;
+    min-height: 50px;
+    max-height: 80vh;
+}
+
+.notionQuickFindMenu{
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    max-width: calc(-24px + 100vw);
+    height: 100%;
+    max-height: 80vh;
+    min-height: 50px;
+}
+
+.searchModalWindow2{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    min-height: 0px;
+    transform: translateZ(0px);
+    display: flex;
+    flex-flow: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    max-height: 80vh;
+}
+
+.searchSectionDivider{
+    flex: 1 1 0%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalSearchInput{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border: none;
+    padding: 0px 16px;
+    width: 100%;
+    background: transparent;
+    font-size: 18px;
+    line-height: inherit;
+    height: 52px;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    z-index: 1;
+    box-shadow: rgba(55, 53, 47, 0.09) 0px 1px 0px;
+}
+
+.modalSearchContents{
+    width: 100%;
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+}
+
+.modalSearchFooter{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    box-shadow: rgba(55, 53, 47, 0.09) 0px -1px 0px;
+    margin-top: 1px;
+    line-height: 120%;
+    width: 100%;
+    min-height: 28px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(55, 53, 47, 0.4);
+    padding: 0px 14px;
+}
+
+.searchInput{
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    background: none;
+    width: 100%;
+    display: block;
+    resize: none;
+    padding: 0px;
+    min-width: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'pretendard';
+}
+
+.searchInput::placeholder{
+    color: rgba(66, 66, 66, 0.4);
+    font-family: 'pretendard';
+    font-weight: 400;
+    font-size: 18px;
+}
+
+input:focus-visible {
+    outline-offset: 0px;
+}
+
+input:not([type="image" i], [type="range" i], [type="checkbox" i], [type="radio" i]) {
+    overflow-clip-margin: 0px !important;
+    overflow: clip !important;
+}
+
+[placeholder]:empty::before {
+    content: attr(placeholder);
+    min-height: 1em;
+    color: rgb(55, 53, 47);
+    -webkit-text-fill-color: rgba(55, 53, 47, 0.2);
+}
+
+.searchContent{
+    width: 100%;
+    user-select: none;
+    transition: none;
+}
+
+.searchContent:hover{
+    background-color: #ebebeb;
+}
+
+[role="button"]:not([tabindex="-1"]) {
+    cursor: pointer;
+}
+
+.contentTextWrapper{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 120%;
+    width: 100%;
+    user-select: none;
+    min-height: 36px;
+    font-size: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-shadow: rgba(55, 53, 47, 0.06) 0px 1px 0px;
+}
+
+.searchTextIcon{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-left: 14px;
+    margin-top: 1px;
+    align-self: flex-start;
+}
+
+.searchTextContent{
+    margin-left: 8px;
+    margin-right: 14px;
+    min-width: 0px;
+}
+
+.searchTextButton{
+    margin-left: auto;
+    margin-right: 14px;
+    min-width: 0px;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    margin-top: 3px;
+}
+
+.notionRecordIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    flex-shrink: 0;
+}
+
+.modalSearchIcon{
+    height: 15.4px;
+    width: 15.4px;
+    font-size: 15.4px;
+    line-height: 1.1;
+    margin-left: 0px;
+    color: black;
+}
+
+.modalLockIcon{
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 50.847457627118644%;
+    background-position-y: 16.94915254237288%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+}
+
+.searchTextTitle{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba(55, 53, 47, 0.6);
+}
+
+.searchTextDetail{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: rgba(55, 53, 47, 0.4);
+}
+
+/* 검색결과에 검색어가 들어있는 부분 강조 */
+.searchWordEM{
+    font-weight: 500;
+    color: rgb(55, 53, 47);
+    white-space: pre-wrap;
+}
+
+.searchDetailWrapper{
+    display: flex;
+    font-size: 12px;
+    color: rgba(55, 53, 47, 0.4);
+    overflow: hidden;
+    white-space: pre-wrap;
+}
+
+.searchHoverButton{
+    display: block;
+    flex-shrink: 0;
+    backface-visibility: hidden;
+    width: 14px;
+    height: 14px;
+    fill: rgba(55, 53, 47, 0.4);
+    opacity: 0;
+}
+
+.searchContent:hover .searchHoverButton{
+    opacity: 1;
+}
+
+.modalEventIcon{
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png) 11.8644% 18.6441% / 6000% 6000%;
+}
+
+.searchTextMore{
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(55, 53, 47, 0.6);
+    overflow-wrap: break-word;
+}
+
+.modalNoticeIcon{
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png) 49.1525% 42.3729% / 6000% 6000%;
+}
+
+.modalSearchNoResult{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 120%;
+    width: 100%;
+    user-select: none;
+    font-size: 14px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.noResultText{
+    margin-left: 14px;
+    margin-right: 14px;
+    min-width: 0px;
+    flex: 1 1 auto;
+    text-align: center;
+    color: rgba(55, 53, 47, 0.6);
+}
+
+.noResultTitle{
+    margin: 0px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.noResultContext{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+    font-size: 12px;
+}
+
+.noResultText{
+    font-size: 14px;
+    color: rgba(55, 53, 47, 0.4);
+}
+
+.menuShareWindow{
+    width: 240px;
+    padding: 10px 0px;
+    border-radius: 3px;
+    z-index: 100000;
+    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.shareButtonsWrapper{
+    padding: 6px 0px;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+.shareButtonsWrapper:hover{
+    background-color: #cfcfcf;
+}
+
+.shareWindow{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.shareInner{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.shareTitle{
+    margin-bottom: 8px;
+    color: inherit;
+    font-size: 14px;
+}
+
+.shareButtons{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.xi-share-alt:before {
+    content: "\e9e9";
+}
+
+.linkShareButton{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    overflow: hidden;
+    opacity: 0.6;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 4px 2px;
+}
+
+.linkShareButton:hover{
+    opacity: 1;
+}
+
+.ShareButton{
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+}
+
+.shareImg{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    opacity: 0.6;
+    transition: 300ms;
+}
+
+.shareImg:hover{
+    opacity: 1;
+}
+
+.shareButtons > * {
+    margin-right: 8px !important;
+}
+
+#hiddenContents{
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+}
+
+.notionScroller{
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.mainUpper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.mainSort{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.mainContent{
+    flex-shrink: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(55, 53, 47);
+    padding-top: 5px;
+    padding-bottom: var(--page-content-padding-bottom);
+    margin: 0px auto;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Pretendard', ui-sans-serif, '-apple-system', 'BlinkMacSystemFont', "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.pageIcon{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 78px;
+    width: 78px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 96px;
+    margin-left: 3px;
+    margin-bottom: 0px;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.notionPageControls{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: -1px;
+    pointer-events: none;
+    height: 24px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.pageIconWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+    font-size: 78px;
+    line-height: 1.1;
+    color: black;
+}
+
+.pageIconWrapper>span{
+    font-family: var(--emoji-font-family);
+    line-height: 1em;
+    white-space: nowrap;
+}
+
+.pageTitleWrapper{
+    color: rgb(55, 53, 47);
+    font-weight: 700;
+    font-size: var(--page-header-font-size);
+    line-height: 1.2;
+    cursor: text;
+    display: flex;
+    align-items: center;
+    font-family: 'Pretendard', ui-sans-serif, '-apple-system', 'BlinkMacSystemFont', "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.pageTitle{
+    font-weight: 700;
+    font-size: var(--page-header-font-size);
+    margin: 0px;
+    max-width: 100%;
+    width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 3px 2px;
+}
+
+.sortsWrapper{
+    width: 100%;
+    max-width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 0px auto;
+    font-size: 14px;
+}
+
+.sortDivider{
+    display: flex;
+    padding-bottom: 4px;
+}
+
+.sortTitle{
+    display: flex;
+    align-items: center;
+    height: 34px;
+    width: 160px;
+    flex: 0 0 auto;
+    color: rgba(55, 53, 47, 0.6);
+}
+
+.sortType{
+    display: flex;
+    margin-left: 4px;
+    height: 100%;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0px;
+}
+
+.sortTitleWrapper{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0px 6px;
+}
+
+.sortTitleDivider{
+    display: flex;
+    align-items: center;
+    line-height: 120%;
+    font-size: 14px;
+    min-width: 0px;
+}
+
+.sortTitleText{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sortTypeWrapper{
+    user-select: auto;
+    transition: background 20ms ease-in;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    width: 100%;
+    min-height: 34px;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 0px 8px;
+}
+
+.sortTypeBadge{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 8px;
+    padding-bottom: 2px;
+}
+
+.sortBadgeBox{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 0px;
+    height: 18px;
+    border-radius: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 14px;
+    line-height: 120%;
+    color: rgb(76, 35, 55);
+    background: rgb(255, 232, 243);
+    margin: 0px 6px 6px 0px;
+}
+
+.sortBadgeText{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contentTitleSection{
+    position: relative;
+    width: 100%;
+    margin-top: 1.4em;
+    margin-bottom: 1px;
+    font-family: 'Pretendard', ui-sans-serif, '-apple-system', 'BlinkMacSystemFont', "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    max-width: calc(100vw - 192px);
+}
+
+.contentTitleTextWrapper{
+    display: flex;
+    width: 100%;
+    color: inherit;
+    fill: inherit;
+}
+
+.contentTitleText{
+    max-width: 100%;
+    width: 100%;
+    word-break: break-word;
+    padding: 3px 2px;
+    font-weight: 600;
+    font-size: 1.875em;
+    line-height: 1.3;
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.3;
+}
+
+.textDivideBlock{
+    color: inherit;
+    fill: inherit;
+    width: 100%;
+    max-width: calc(100vw - 192px);
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.textContent{
+    color: inherit;
+    fill: inherit;
+    width: 100%;
+    max-width: calc(100vw - 192px);
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.textSpanWrapper{
+    max-width: 100%;
+    width: 100%;
+    word-break: break-word;
+    padding: 3px 2px;
+}
+
+.textBlockWrapper{
+    max-width: 100%;
+    width: 100%;
+    word-break: break-word;
+    padding: 3px 2px;
+}
+
+.textBlockWrapper::before{
+    content: attr(placeholder);
+    min-height: 1em;
+    color: rgb(55, 53, 47);
+    -webkit-text-fill-color: rgba(55, 53, 47, 0.2);
+    display: block;
+}
+
+.textGrayBox{
+    background-color: rgb(241, 241, 239);
+    width: 100%;
+    max-width: calc(100vw - 192px);
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.LinkHover{
+    cursor: pointer;
+    color: inherit;
+    overflow-wrap: break-word;
+    text-decoration: inherit;
+}
+
+.mailIconImg{
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    background-repeat: no-repeat;
+    background: url(https://cdn.lazyrockets.com/_next/static/media/emoji.0d02c5b5.png);
+    background-position-x: 96.61016949152543%;
+    background-position-y: 54.23728813559322%;
+    -webkit-background-size: 6000% 6000%;
+    background-size: 6000% 6000%;
+}
+
+.LinkHover span{
+    transition: border-color .1s ease-in, opacity .1s ease-in;
+}
+
+.LinkHover span:hover{
+    color: black;
+    border-color: black;
+    opacity: 1;
+}

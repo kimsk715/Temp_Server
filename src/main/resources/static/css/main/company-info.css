@@ -1,0 +1,1305 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url(/fonts/main/PretendardVariable.woff2) format('woff');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+* {
+    scrollbar-color: auto;
+    scrollbar-width: auto;
+}
+
+html {
+    display: block;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    text-size-adjust: none;
+    font-synthesis: none !important;
+}
+
+body {
+    display: block;
+    margin: 8px;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 24px;
+    overflow-x: hidden;
+    font-family: 'Pretendard';
+}
+
+html, body, header, nav, aside, main, article, section, footer, h1, h2, h3, h4, ul, ol, li, dl, dt, dd, p, pre, em, address, blockquote, q, form, fieldset, input, textarea, select, button, iframe {
+    margin: 0px;
+    padding: 0px;
+}
+
+input{
+    appearance: none;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    border-radius: 0px;
+    background: none;
+    cursor: pointer;
+}
+
+input, textarea, select, button {
+    border-radius: 0px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+header, nav, aside, main, article, section, footer {
+    display: block;
+}
+
+html, body, header, nav, aside, main, article, section, footer, h1, h2, h3, h4, ul, ol, li, dl, dt, dd, p, pre, em, address, blockquote, q, form, fieldset, input, textarea, select, button, iframe {
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+main{
+    background-color: rgb(255, 255, 255);
+    padding-top: 120px;
+}
+
+img, fieldset, iframe {
+    border: none;
+}
+
+.headerWrapper{
+    position: relative;
+    max-width: 1060px;
+    margin: 0px auto;
+}
+
+.headerUpper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    transition: 0.2s;
+}
+
+.mainNavigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    z-index: 13;
+}
+
+.logoWrap{
+    padding-top: 5px;
+}
+
+.mainSearch{
+    position: relative;
+}
+
+.pageLogo{
+    display: inline-flex;
+}
+
+.mainSearch{
+    position: relative;
+}
+
+.searchWrapper{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: 1060px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+}
+
+.searchBox{
+    width: 480px;
+    height: 40px;
+    padding: 0px 20px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    border-radius: 100px;
+    border: 1.5px solid rgb(0, 221, 109);
+}
+
+.closeButton{
+    display: none;
+}
+
+.searchBox > input {
+    width: 100%;
+    padding: 0px 40px 0px 44px;
+    height: 40px;
+    border: none;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    right: 0px;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.searchBox > input:focus {
+    outline: none;
+}
+
+.searchButton{
+    position: absolute;
+    left: 16px;
+    top: 8px;
+}
+
+.searchButton > svg > g > circle {
+    stroke: rgb(0, 221, 109);
+}
+
+.searchButton > svg > g > path {
+    stroke: rgb(0, 221, 109);
+}
+
+.searchWindow{
+    position: absolute;
+    top: 51px;
+    left: 0;
+    width: 472px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: rgba(20, 20, 20, 0.12) 0px 8px 16px;
+    border-radius: 8px;
+    z-index: 6;
+    padding: 24px;
+    visibility: hidden;
+}
+
+.searchWindowTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.searchWindowTitle > h4{
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.searchWindowContents{
+    padding: 28px 0px 36px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(153, 153, 153);
+}
+
+.leftNavigation{
+    display: flex;
+    margin-left: -20px;
+}
+
+.rightNavigation{
+    display: flex;
+    margin-right: -12px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.leftNavigation > li{
+    position: relative;
+    padding: 0px 20px;
+}
+
+.leftNavigation > li:first-child>a{
+    font-weight: 700;
+}
+
+.leftNavigation:hover a {
+    opacity: 0.5;
+}
+
+.leftNavigation a:hover {
+    opacity: 1;
+}
+
+.navigationMenu{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 10px 4px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.rightNavigation > li {
+    position: relative;
+    padding: 0px 12px;
+}
+
+.loginedMemberButton{
+    padding-top: 1px;
+    height: 42px;
+}
+
+.loginedMemberButton button{
+    width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rightNavigation li button{
+    display: inline-block;
+    position: relative;
+    padding: 10px 0px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    text-align: end;
+}
+
+.rightNavigation li button:hover{
+    color: rgb(34, 34, 34);
+}
+
+.loginedMemberButton svg{
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
+}
+
+.loginedMemberButton:hover svg {
+    transform: rotate(180deg);
+}
+
+.loginedMemberButton svg path{
+    fill: rgb(204, 204, 204);
+}
+
+.loginMemberNav{
+    display: none;
+    position: absolute;
+    width: 175px;
+    right: 0px;
+    border: 1px solid rgb(228, 228, 228);
+    box-sizing: border-box;
+    box-shadow: rgba(20, 20, 20, 0.12) 0px 8px 16px;
+    border-radius: 4px;
+    padding: 8px 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.loginMemberNav ul li:hover{
+    background-color: rgb(244, 244, 244);
+    cursor: pointer;
+}
+
+.loginMemberNav li button:hover{
+    color: rgb(34, 34, 34);
+}
+
+.loginMemberNav ul li{
+    position: relative;
+    padding: 0px 12px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.loginMemberNav ul li > a, .loginMemberNav ul li button{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 0px 8px;
+    font-weight: normal;
+}
+
+footer{
+    background-color: rgb(251, 251, 251);
+    padding: 40px 0px 30px;
+}
+
+.inner{
+    max-width: 1060px;
+    position: relative;
+    margin: 0px auto;
+    padding: 24px 0px 60px;
+    text-align: left;
+}
+
+.inner::after{
+    display: table;
+    table-layout: fixed;
+    clear: both;
+    content: "";
+}
+
+.inner > .logo {
+    position: absolute;
+    left: 0px;
+    top: 27px;
+    width: 42px;
+    height: 22px;
+}
+
+.contents{
+    display: flex;
+    padding-left: 92px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.linksWrap{
+    display: flex;
+    width: 250px;
+}
+
+.info{
+    display: inline-block;
+    width: 718px;
+    color: rgb(102, 102, 102);
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.links>li{
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.links>li>a{
+    display: inline-block;
+    color: rgb(68, 68, 68);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.links>li:nth-child(2n+1){
+    width: 140px;
+}
+
+.blind{
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.info>dd{
+    padding-bottom: 16px;
+}
+
+.snsIcon{
+    margin-top: 14px;
+}
+
+.snsIcon>a>img {
+    margin-right: 8px;
+}
+
+.slickSlider{
+    position: relative;
+    display: block;
+}
+
+.slickList{
+    transform: translateZ(0);
+    overflow: hidden;
+}
+
+.slickTrack{
+    width: 700px;
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+    display: flex;
+}
+
+.slickTrack::before{
+    display: table;
+    content: "";
+}
+
+.sideSlickSlide{
+    display: block;
+    outline: none;
+    width: 100px;
+}
+
+.slickSlideLink{
+    width: 100%;
+    display: inline-block;
+}
+
+.sideSlideImg1{
+    width: 100px;
+    height: 148px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: url("https://cdn.jumpit.co.kr/jumpit/banner/home/programmers_wing.webp") 0% 0% / 100px 148px no-repeat;
+}
+
+.sideSlideImg2{
+    width: 100px;
+    height: 148px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: url("https://cdn.jumpit.co.kr/jumpit/banner/home/komate_launching_wing.webp") 0% 0% / 100px 148px no-repeat;
+}
+
+.sideSlideImg3{
+    width: 100px;
+    height: 148px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: url("https://cdn.jumpit.co.kr/jumpit/personal/main_banner/event_for_develop_banner.png") 0% 0% / 100px 148px no-repeat;
+}
+
+.sideSlideButtonWrapper{
+    display: flex;
+    justify-content: space-around;
+    width: 29px;
+    margin: 0px auto;
+}
+
+.sideSlideButton>span{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: rgb(212, 212, 212);
+}
+
+main.main{
+    background-color: rgb(255, 255, 255);
+    padding-top: 120px;
+}
+
+.mainWrapper{
+    position: relative;
+    max-width: 1060px;
+    margin: 0px auto;
+    padding: 60px 0px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainContent{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    width: 790px;
+}
+
+.sideNavigation{
+    width: 194px;
+    height: calc(100% - 100px);
+    position: absolute;
+    top: 60px;
+    right: calc(50% - 530px);
+}
+
+.compSection{
+    position: relative;
+}
+
+.compSection h1{
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+    font-size: 36px;
+    line-height: 48px;
+}
+
+.compSection .btns{
+    display: flex;
+    gap: 20.5px;
+    position: absolute;
+    top: 13px;
+    right: 0px;
+    width: fit-content; 
+}
+
+.compSection .btns svg{
+    width: 24px;
+    height: 24px;
+}
+
+.jmJicB path {
+    transition: 0.2s;
+}
+
+.jmJicB path:nth-child(2) {
+    opacity: 0;
+}
+
+.compSection .btns li:first-child::after{
+    content: "";
+    position: absolute;
+    left: 34px;
+    top: 4px;
+    width: 1px;
+    height: 16px;
+    background-color: rgb(234, 234, 234);
+}
+
+.compSection h2{
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+.compSection .more{
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 15px;
+    line-height: 22px;
+    text-decoration-line: underline;
+    color: rgb(34, 34, 34);
+    cursor: pointer; 
+}
+
+.compSection .more svg{
+    width: 16px;
+    height: 16px;
+}
+
+.companyWindow{
+    display: flex;
+    gap: 24px;
+    padding: 32px 24px;
+    border-radius: 4px;
+    background-color: rgb(248, 248, 248);
+}
+
+.companyWindow>img{
+    border-radius: 100px;
+    border: 1px solid rgb(228, 228, 228);
+    box-sizing: border-box;
+}
+
+.companyWindow>dl{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.companyWindow>dl>div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 18px;
+}
+
+.companyWindow>dl>div dt{
+    width: 76px;
+    min-width: 76px;
+    color: rgb(102, 102, 102);
+}
+
+.companyWindow>dl>div dd{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: rgb(68, 68, 68);
+    font-weight: 500;
+}
+
+.companyWindow>dl>div dd>strong{
+    font-weight: 500;
+    color: rgb(68, 68, 68);
+}
+
+.companyWindow>dl>div dd>strong>span{
+    margin-left: 2px;
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(102, 102, 102);
+}
+
+dd>.btns{
+    display: block;
+    margin-top: 4px;
+}
+
+.btns>a{
+    display: inline-flex
+;
+    align-items: center;
+    gap: 2px;
+    color: rgb(102, 102, 102);
+}
+
+.addressbtn{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: rgb(102, 102, 102);
+}
+
+.addressbtn>svg{
+    position: relative;
+    top: -1px;
+    width: 16px;
+    height: 16px;
+}
+
+.addressbtn>svg>path{
+    fill: rgb(192, 192, 192);
+}
+
+.addressDeco{
+    padding: 0px 10px;
+    color: rgb(34, 34, 34);
+}
+
+.address>button>span{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: rgb(0, 221, 109);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.copy{
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.copy>path{
+    fill: rgb(0, 221, 109);
+}
+
+.compBtns .addressbtn{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: rgb(102, 102, 102);
+}
+
+.addressbtn svg {
+    position: relative;
+    top: -1px;
+    width: 16px;
+    height: 16px;
+}
+
+.companyWindow>dl>div dd>a{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+    color: rgb(0, 221, 109);
+    text-decoration-line: underline;
+}
+
+.companyWindow>dl>div dd>a>span{
+    max-width: 526px;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.companyWindow>dl>div dd>a>svg{
+    width: 16px;
+    height: 16px;
+}
+
+.companyWindow>dl>div dd>a>svg path{
+    fill: rgb(0, 221, 109);
+}
+
+.companyDetail{
+    position: relative;
+}
+
+.companyDetailText{
+    padding: 0px;
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    line-height: 28px;
+    word-break: break-all;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    font-family: inherit;
+    max-height: 168px;
+    overflow: hidden;
+}
+
+.companyDetailButton{
+    padding: 0px 16px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    height: 48px;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(212, 212, 212);
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 16px;
+}
+
+.gradient{
+    position: absolute;
+    bottom: 64px;
+    width: 100%;
+    height: 32px;
+    background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgb(255, 255, 255) 100%);
+}
+
+.companyImages{
+    position: relative;
+    height: 169px;
+    margin-top: 24px;
+    margin-left: -12px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+}
+
+.companyImages>img{
+    width: 255px;
+    height: 169px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-left: 12px;
+}
+
+.companyImages .moreContentPc{
+    position: absolute;
+    top: 0px;
+    right: 1px;
+    width: calc(35% - 25px);
+    height: 169px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 30px;
+    color: rgb(255, 255, 255);
+}
+
+.modalWrapper .moreImageModal{
+    display: none;
+    align-items: center;
+    position: fixed;
+    padding: 0px 60px 0px 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 11; 
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.moreImageModal .modalCloseButton{
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 400;
+    opacity: unset;
+    z-index: 1;
+}
+
+.moreImageModal .moduleLeftButton{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    left: 0;
+    opacity: unset;
+    width: 50%;
+    height: 100%;
+}
+
+.moreImageModal .moduleRightButton{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    right: 0;
+    opacity: unset;
+    width: 50%;
+    height: 100%;
+    justify-content: end;
+}
+
+.moduleContent{
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    height: 100%;
+    max-height: 100%;
+    text-align: center;
+}
+
+.moduleSlide{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compSection .content{
+    padding: 0px;
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    line-height: 28px;
+    word-break: break-all;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    font-family: inherit;
+}
+
+.compSection .date{
+    position: absolute;
+    top: 2px;
+    left: 109px;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    color: rgb(136, 136, 136);
+}
+
+.compSection .source, .compSection .standard{
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.compSection .info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+}
+
+.compSection .info>span{
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(68, 68, 68);
+}
+
+.compSection .info>strong{
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.employeeGraph{
+    max-width: 790px;
+}
+
+/* 범례 스타일 */
+.graphCompMember {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.graphCompMember li {
+    margin-right: 18px; /* 항목 간의 간격 */
+    display: flex;
+    align-items: center;
+}
+
+.graphCompMember span {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+}
+
+/* '직원 수' 범례는 동그랗게 */
+.graphCompMember li:nth-child(1) span {
+    border-radius: 50%; /* 원 모양 */
+}
+
+/* '입사자 수'와 '퇴사자 수'는 기본 사각형 */
+.graphCompMember li:nth-child(2) span,
+.graphCompMember li:nth-child(3) span {
+    border-radius: 0%; /* 사각형 */
+}
+
+.compSection .source, 
+.compSection .standard{
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.salaryInfo{
+    display: flex;
+    padding: 26px 30px;
+    background-color: rgb(248, 248, 248);
+    gap: 60px;
+    border-radius: 4px;
+}
+
+.salaryInfo li{
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.salaryInfo li>strong{
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.salaryInfo li::after{
+    display: block;
+    position: absolute;
+    top: 38px;
+    right: -30px;
+    margin-top: -26px;
+    width: 1px;
+    height: 40px;
+    background-color: rgb(228, 228, 228);
+    content: "";
+}
+
+.salaryInfo li>div{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.salaryInfo li>div>span{
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.salaryInfo li.reliability{
+    color: rgb(68, 68, 68);
+}
+
+.salaryDetail{
+    margin-top: 10px;
+    color: rgb(136, 136, 136);
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.salaryInfo svg{
+    position: relative;
+    top: -1px;
+}
+
+.salaryInfo li>div>div svg{
+    width: 20px;
+    height: 20px;
+}
+
+.reliabilityBtn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.investmentInfo{
+    display: flex;
+    padding: 26px 30px;
+    background-color: rgb(248, 248, 248);
+    gap: 60px;
+    border-radius: 4px;
+}
+
+.investmentDetail{
+    margin-top: 10px;
+    color: rgb(136, 136, 136);
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.investmentInfo li{
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.investmentInfo li>div{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.investmentInfo li>strong{
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.investmentInfo li::after{
+    display: block;
+    position: absolute;
+    top: 38px;
+    right: -30px;
+    margin-top: -26px;
+    width: 1px;
+    height: 40px;
+    background-color: rgb(228, 228, 228);
+    content: "";
+}
+
+.investmentInfo li>div>span{
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.compSection .num{
+    position: absolute;
+    top: 0px;
+    left: 122px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+    color: rgb(0, 221, 109);
+}
+
+.positionWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.currentPositions{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.compPosition{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(228, 228, 228);
+    position: relative;
+}
+
+.positionLeftDate{
+    display: flex;
+    color: rgb(68, 68, 68);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.dDayLeft{
+    font-weight: 500;
+    color: rgb(68, 68, 68);
+}
+
+.positionIngTitle{
+    flex-grow: 1;
+    color: rgb(0, 0, 0);
+    min-height: 52px;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.skillCategory{
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.positionSkill{
+    color: rgb(153, 153, 153);
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.positionScrap{
+    position: absolute;
+    top: 24px;
+    right: 24px;  
+}
+
+.positionScrap svg{
+    width: 20px;
+    height: 20px;
+}
+
+.positionScrap svg.default > path{
+    fill: rgb(196, 196, 196);
+}
+
+.reliabilityInfo{
+    width: fit-content;
+    min-width: 200px;
+    max-width: 440px;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(228, 228, 228);
+    background-color: rgb(255, 255, 255);
+}
+
+.reliabilityBtn>.layer{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    z-index: 2;
+}
+
+.tipTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tipTop>span{
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.salaryInfo li>div>div svg{
+    width: 20px;
+    height: 20px;
+}
+
+.tipOffButton>svg>path{
+    fill: rgb(0, 0, 0);
+}
+
+.tipMid{
+    margin-top: 8px;
+}
+
+.tipMid>p{
+    font-size: 13px;
+    line-height: 18px;
+    color: rgb(34, 34, 34);
+}
+
+.tipBot{
+    margin-top: 12px;
+}
+
+.tipBot>p{
+    font-size: 13px;
+    line-height: 18px;
+    color: rgb(34, 34, 34); 
+}
+
+.sideNavigation>ul{
+    position: sticky;
+    top: 180px;
+    cursor: pointer;
+}
+
+.sideNavigation>ul li{
+    padding: 10px 16px;
+    color: rgb(136, 136, 136);
+    font-size: 14px;
+    line-height: 20px;
+    border-left: 2px solid rgb(228, 228, 228);
+}
+
+.sideNavigation>ul .active{
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+    border-left-color: rgb(34, 34, 34);
+}

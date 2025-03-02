@@ -1,0 +1,92 @@
+html,
+body,
+header,
+nav,
+aside,
+main,
+article,
+section,
+footer,
+h1,
+h2,
+h3,
+h4,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p,
+pre,
+em,
+address,
+blockquote,
+q,
+form,
+fieldset,
+input,
+textarea,
+select,
+button,
+iframe {
+    margin: 0px;
+    padding: 0px;
+}
+
+header,
+nav,
+aside,
+main,
+article,
+section,
+footer {
+    display: block;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    text-size-adjust: none;
+    font-synthesis: none !important;
+}
+
+body {
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 24px;
+    overflow-x: hidden;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input,
+textarea,
+select,
+button {
+    border-radius: 0px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button {
+    border: none;
+    border-radius: 0px;
+    background: none;
+    cursor: pointer;
+}
+
+input {
+    appearance: none;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

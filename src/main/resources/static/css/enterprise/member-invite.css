@@ -1,0 +1,90 @@
+@font-face {
+    font-family: Jumpit;
+    src: url("/fonts/member/ff840cfebfb63b0c-s.p.woff2");
+
+}
+
+* {
+    font-family: Jumpit;
+}
+
+body {
+    background: white;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.invite-logo {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.question {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.accept-btn {
+    background-color: #00C853;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.accept-btn:hover {
+    background-color: #009f40;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #999;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+
+.help-text a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+    }
+}

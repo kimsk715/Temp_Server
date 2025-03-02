@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/aside/applicantEvaluateRightBottom.css" />
+        <title>지원자 평가</title>
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1>지원자 평가</h1>
+            <div class="img-container">
+                <div class="img-button">
+                    <img src="/images/aside/thumbup.png" />
+                    <span>23</span>
+                </div>
+                <div class="img-button">
+                    <img src="/images/aside/thumbdown.png" />
+                    <span>35</span>
+                </div>
+                <div class="img-button">
+                    <img class="speechBubble" src="/images/aside/speechBubble.png" />
+                    <span>평가</span>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="input-section">
+                    <h2>평가 의견 작성</h2>
+                    <textarea
+                        class="evaluate"
+                        placeholder="평가의견을 입력해주세요
+(최대 100자)"
+                    ></textarea>
+                </div>
+                <div class="submit-button">
+                    <button style="cursor: not-allowed">등록</button>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-modal-bottom-body"></div>
+    </body>
+    <script src="/js/aside/applicantEvaluateRightBottom.js"></script>
+</html>

@@ -1,0 +1,457 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --blue10: #f5f8ff;
+    --blue20: #f0f4ff;
+    --blue30: #e5ecff;
+    --blue40: #ccdaff;
+    --blue50: #a3bcff;
+    --blue60: #7a9fff;
+    --blue70: #5785ff;
+    --blue80: #4075ff;
+    --blue90: #2d67ff;
+    --blue100: #003fe5;
+    --blue110: #0031b2;
+    --blue120: #002585;
+    --gray10: #f8fafc;
+    --gray20: #f4f6fa;
+    --gray30: #eaedf4;
+    --gray40: #d7dce5;
+    --gray50: #b4c0d3;
+    --gray60: #96a0b5;
+    --gray70: #8491a7;
+    --gray80: #67738e;
+    --gray90: #5c667b;
+    --gray100: #475067;
+    --gray110: #373f57;
+    --gray120: #292e41;
+    --gray130: #151822;
+    --green10: #f3fffd;
+    --green20: #ebfffc;
+    --green30: #defaf6;
+    --green40: #aff4e5;
+    --green50: #7beed8;
+    --green60: #4fe5c7;
+    --green70: #00deb3;
+    --green80: #00d3ab;
+    --green90: #11be9a;
+    --green100: #17a187;
+    --green110: #2a7c6d;
+    --green120: #286258;
+    --greentemp: #00dd64;
+    --coral10: #fffafa;
+    --coral20: #fff5f7;
+    --coral30: #fce6e6;
+    --coral40: #fec5c5;
+    --coral50: #fea4a3;
+    --coral60: #ff837e;
+    --coral70: #ff7a72;
+    --coral80: #ff6d6a;
+    --coral90: #ff5656;
+    --coral100: #eb413f;
+    --coral110: #d63131;
+    --coral120: #b81d1d;
+    --orange10: #fffbf5;
+    --orange20: #fff7eb;
+    --orange30: #ffebcc;
+    --orange40: #ffd699;
+    --orange50: #ffc46b;
+    --orange60: #ffb84d;
+    --orange70: #ffa929;
+    --orange80: #ff9a03;
+    --orange90: #f09000;
+    --orange100: #e08700;
+    --orange110: #b86e00;
+    --orange120: #804d00;
+    --yellow10: #fffbeb;
+    --yellow20: #fff7d6;
+    --yellow30: #fff2b8;
+    --yellow40: #ffe885;
+    --yellow50: #ffe15f;
+    --yellow60: #ffdb3d;
+    --yellow70: #ffd41a;
+    --yellow80: #facb00;
+    --yellow90: #ebbf00;
+    --yellow100: #dbb200;
+    --yellow110: #ad8d00;
+    --yellow120: #755f00;
+    --forestGreen10: #f0fff6;
+    --forestGreen20: #e0ffed;
+    --forestGreen30: #c7ffdd;
+    --forestGreen40: #8affb9;
+    --forestGreen50: #57ff9a;
+    --forestGreen60: #00ff66;
+    --forestGreen70: #00e55c;
+    --forestGreen80: #00cc52;
+    --forestGreen90: #00be4c;
+    --forestGreen100: #00a843;
+    --forestGreen110: #008535;
+    --forestGreen120: #006629;
+    --skyBlue10: #f5fdff;
+    --skyBlue20: #ebfaff;
+    --skyBlue30: #dbf7ff;
+    --skyBlue40: #bdf0ff;
+    --skyBlue50: #99e8ff;
+    --skyBlue60: #70dfff;
+    --skyBlue70: #57d9ff;
+    --skyBlue80: #02c6ff;
+    --skyBlue90: #00b6eb;
+    --skyBlue100: #00a2d1;
+    --skyBlue110: #008ab2;
+    --skyBlue120: #006380;
+    --violet10: #fcfaff;
+    --violet20: #f8f5ff;
+    --violet30: #efe5ff;
+    --violet40: #deccff;
+    --violet50: #cbadff;
+    --violet60: #b185ff;
+    --violet70: #9d66ff;
+    --violet80: #8d4dff;
+    --violet90: #7224ff;
+    --violet100: #5a00fa;
+    --violet110: #4600c2;
+    --violet120: #2e0080;
+
+    /* 지하철 노선 */
+    /* 서울 */
+    --subwayLine101: #0052a4;
+    --subwayLine102: #34a344;
+    --subwayLine103: #ec611b;
+    --subwayLine104: #2995d6;
+    --subwayLine105: #7c38d6;
+    --subwayLine106: #ab4518;
+    --subwayLine107: #5e661f;
+    --subwayLine108: #df1c62;
+    --subwayLine109: #ca9a35;
+    --subwayLine201: #dd9520;
+    /* 수인분당 */
+    --subwayLine1101: #9c1b2c;
+    /* 신분당 */
+    --subwayLine901: #2c96df;
+    /* 공항철도 */
+    --subwayLine301: #6490c7;
+    /* 인천1호선 */
+    --subwayLine302: #ed8b00;
+    /* 인천2호선 */
+    --subwayLine1801: #395697;
+    /* 신림 */
+    --subwayLine1601: #7eb543;
+    /* 서해 */
+    --subwayLine1701: #8b651b;
+    /* 김포골드 */
+    --subwayLine1501: #bcb202;
+    /* 우이신설 */
+    --subwayLine203: #216ceb;
+    /* 경강선 */
+    --subwayLine202: #fe9132;
+    /* 의정부 */
+    --subwayLine1201: #159768;
+    /* 경춘 */
+    --subwayLine1301: #61aa5e;
+    /* 에버라인 */
+    --subwayLine1001: #66af90;
+    /* 경의중앙 */
+    --subwayLine303: #feb700;
+    /* 자기부상 */
+    /* 부산 */
+    --subwayLine401: #ec5430;
+    --subwayLine402: #34a344;
+    --subwayLine403: #b68748;
+    --subwayLine404: #3a66a9;
+    --subwayLine405: #74428f;
+    /* 부산김해 */
+    --subwayLine406: #5d95c8;
+    /* 동해 */
+    /* 대구 */
+    --subwayLine501: #ec5430;
+    --subwayLine502: #34a344;
+    --subwayLine503: #feb700;
+    /* 광주 */
+    --subwayLine601: #34a344;
+    /* 대전 */
+    --subwayLine801: #34a344;
+}
+
+@font-face {
+    font-family: Jumpit;
+    src: url("/fonts/member/ff840cfebfb63b0c-s.p.woff2");
+}
+
+* {
+    font-family: Jumpit;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1000px;
+    height: fit-content;
+    margin: 0 30px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.topmenu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.member-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.member-list th,
+.member-list td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.member-list td:first-child {
+    width: 60px;
+}
+
+.member-list td:nth-child(2) {
+    width: 250px;
+    text-align: right;
+}
+
+.member-list td:nth-child(3) {
+    text-align: left;
+}
+
+.member-list td:last-child {
+    text-align: right;
+}
+
+.member-list th {
+    background-color: #f4f4f4;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.btn-role {
+    background-color: var(--greentemp);
+    color: white;
+}
+
+.btn-view {
+    background-color: #888;
+    color: white;
+}
+
+.btn-delete {
+    text-decoration: underline;
+}
+
+.btn-edit {
+    border: 0.5px solid #888;
+    border-radius: 4px;
+}
+
+.pending {
+    color: #888;
+
+    padding: 10px
+}
+
+.pending>span {
+    background: rgb(244, 244, 244);
+}
+
+.sidebar {
+    width: 300px;
+    height: 400px
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#name-display, #phone-display{
+    width : 100%;
+    font-size : 15px;
+    font-weight: 600;
+}
+.hidden {
+    display: none !important;
+}
+
+.footer {
+    margin-top: 100px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+
+.modal.active {
+    display: block;
+    height: fit-content;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-content {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.modal-content label{
+    font-weight: bold;
+}
+.modal-input {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.modal-input>input {
+    height: 40px;
+    width: 400px;
+    margin-right: 50px;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.modal-input>button {
+    border: 1px solid black;
+    height: 40px;
+    border-radius: 5px;
+}
+.added-email{
+    width : 400px;
+}
+.added-email > span {
+    display: inline-block;
+    background: rgb(234, 234, 234);
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.modal-button {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.modal-button div {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+input[type="radio"] {
+    appearance: none;
+    /* 기본 스타일 제거 */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    /* 기본 테두리 색 */
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    border-color: var(--greentemp)
+        /* 선택된 경우 테두리 색 변경 */
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #4ce073;
+    /* 내부 색상 */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.label {
+    font-size: 14px;
+    color: #bbb;
+    /* 기본 텍스트 색상 */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="radio"]:checked+.label {
+    color: #333;
+    /* 선택된 경우 텍스트 색 변경 */
+    font-weight: bold;
+}
+
+.modal-button>label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.modal-footer {
+    display: flex;
+    text-align: right;
+    margin-top: 10px;
+    justify-self: center;
+}
+
+.modal-footer>button {
+    background: black;
+    text-align: center;
+    width : 200px;
+    height : 40px;
+    border-radius: 5px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}

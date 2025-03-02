@@ -1,0 +1,8 @@
+.industry-wrapper{
+    display: flex;
+    gap : 20px
+}
+
+.industry-wrapper button {
+    margin-left: auto;
+}

@@ -1,0 +1,299 @@
+@font-face{
+    font-family: "pretendard";
+    src: url(../static/fonts/main/PretendardVariable.woff2) format("woff");
+    font-weight: 100 900;
+    font-style: normal;
+}
+* {
+    font-family: "pretendard", sans-serif;
+}
+
+*, :after, :before {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x: ;
+    --tw-pan-y: ;
+    --tw-pinch-zoom: ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position: ;
+    --tw-gradient-to-position: ;
+    --tw-ordinal: ;
+    --tw-slashed-zero: ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing: ;
+    --tw-numeric-fraction: ;
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(5, 122, 242, .5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur: ;
+    --tw-brightness: ;
+    --tw-contrast: ;
+    --tw-grayscale: ;
+    --tw-hue-rotate: ;
+    --tw-invert: ;
+    --tw-saturate: ;
+    --tw-sepia: ;
+    --tw-drop-shadow: ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast: ;
+    --tw-backdrop-grayscale: ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert: ;
+    --tw-backdrop-opacity: ;
+    --tw-backdrop-saturate: ;
+    --tw-backdrop-sepia: ;
+    --tw-contain-size: ;
+    --tw-contain-layout: ;
+    --tw-contain-paint: ;
+    --tw-contain-style: ;
+}
+::backdrop {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x: ;
+    --tw-pan-y: ;
+    --tw-pinch-zoom: ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position: ;
+    --tw-gradient-to-position: ;
+    --tw-ordinal: ;
+    --tw-slashed-zero: ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing: ;
+    --tw-numeric-fraction: ;
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(5, 122, 242, .5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur: ;
+    --tw-brightness: ;
+    --tw-contrast: ;
+    --tw-grayscale: ;
+    --tw-hue-rotate: ;
+    --tw-invert: ;
+    --tw-saturate: ;
+    --tw-sepia: ;
+    --tw-drop-shadow: ;
+    --tw-backdrop-blur: ;
+    --tw-backdrop-brightness: ;
+    --tw-backdrop-contrast: ;
+    --tw-backdrop-grayscale: ;
+    --tw-backdrop-hue-rotate: ;
+    --tw-backdrop-invert: ;
+    --tw-backdrop-opacity: ;
+    --tw-backdrop-saturate: ;
+    --tw-backdrop-sepia: ;
+    --tw-contain-size: ;
+    --tw-contain-layout: ;
+    --tw-contain-paint: ;
+    --tw-contain-style: ;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    text-size-adjust: none;
+    font-synthesis: none !important;
+}
+body {
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 24px;
+    overflow-x: hidden;
+}
+.__className_f53396 {
+    font-family: __PretendardFont_f53396, __PretendardFont_Fallback_f53396, -apple-system, system-ui, Apple SD Gothic Neo, Malgun Gothic, Nanum Gothic, sans-serif;
+}
+html, body, header, nav, aside, main, article, section, footer, h1, h2, h3, h4, ul, ol, li, dl, dt, dd, p, pre, em, address, blockquote, q, form, fieldset, input, textarea, select, button, iframe {
+    margin: 0px;
+    padding: 0px;
+}
+header, nav, aside, main, article, section, footer {
+    display: block;
+}
+.htkZDl {
+    background-color: rgb(255, 255, 255);
+    padding-top: 120px;
+}
+.fylZAL {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+.eMNyeP {
+    margin: 0px auto;
+    max-width: 1060px;
+    height: 390px;
+    padding: 120px 0px 160px;
+}
+.fDyidu {
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 130px;
+}
+em, address {
+    font-style: normal;
+}
+.jJVDIY {
+    color: rgb(0, 221, 109);
+}
+.bQeUjs {
+    animation: 0.8s linear 0s infinite normal none running kqktdO;
+    display: inline-block;
+    height: 100px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.hIokHI {
+    background: url(https://cdn.jumpit.co.kr/jumpit/personal/welcome/intro_bg.webp) center center / cover no-repeat;
+    width: 100%;
+    height: 480px;
+    position: relative;
+}
+.hIokHI::before {
+    content: "";
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 40%;
+    height: 100%;
+}
+.hIokHI::before, .hIokHI::after {
+    width: 0px;
+    transition-property: width;
+    transition-duration: 1s;
+}
+.ehBBKl {
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
+.fyYrWM {
+    padding: 240px 0px 260px;
+}
+.dkpXrm {
+    color: rgb(255, 255, 255);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 118px;
+    text-align: center;
+}
+ul, ol {
+    list-style: none;
+}
+.gZMdwD {
+    max-width: 1080px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+}
+.jidIis {
+    overflow: hidden;
+    max-width: 1920px;
+    margin: 0px auto;
+    padding: 140px 0px 188px;
+}
+.jlzKcE {
+    color: rgb(0, 0, 0);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 118px;
+    text-align: center;
+}
+#tempforlogo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3열 배치 */
+    gap: 10px; /* 간격 설정 */
+    justify-items: center; /* 가운데 정렬 */
+}
+
+.logo img {
+    width: 350px; /* 모든 이미지 동일한 너비 */
+    height: 200px; /* 모든 이미지 동일한 높이 */
+    object-fit: contain; /* 비율을 유지하면서 안 잘리게 */
+    padding: 10px;
+    background-color: white; /* 배경 추가 (선택 사항) */
+}
+
+.feature-box {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 필요하면 중앙 정렬 */
+    gap: 20px; /* 간격 조정 */
+    border: 5px solid #e0e0e0b1;
+    border-radius: 10px;
+}
+
+.feature-pic {
+    flex: 1; /* 왼쪽 영역 차지 */
+    display: flex;
+    justify-content: flex-end; /* 이미지 중앙 정렬 */
+    margin: 50px 0;
+    margin-left: 0;
+}
+
+.feature-pic img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.feature_info {
+    flex: 1; /* 오른쪽 영역 차지 */
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: flex-start; /* 왼쪽 정렬 (필요하면 변경 가능) */
+    gap: 10px; /* 각 info 간격 */
+    box-shadow: rgba(221, 221, 221, 0.3) -1px 5px 19px;
+    margin: 50px
+    
+}
+
+.info {
+    font-size: 30px;
+    margin: 50px 0;
+    line-height: 1.5;
+    padding: 50px;
+}
+.feture-container {
+    margin: 50px 0;
+}
+
+.feature-left{
+    margin-top: 50px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature_title{
+    font-size: 40px;
+}

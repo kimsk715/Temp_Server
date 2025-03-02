@@ -1,0 +1,2342 @@
+@charset "utf-8";
+
+/* SRI UI PATTERNS Ver 0.1 */
+/* pattern.css */
+button,
+label {
+    cursor: pointer
+}
+
+/* Typography - UX/UI가이드 완성시 변경 */
+.titTypo {
+    color: #333;
+    font-size: 32px;
+    font-weight: normal
+}
+
+.titTypo2 {
+    color: #333;
+    font-size: 26px;
+    font-weight: normal
+}
+
+.titTypo3 {
+    color: #333;
+    font-size: 20px;
+    font-weight: normal
+}
+
+.titTypo4 {
+    color: #333;
+    font-size: 16px;
+    font-weight: normal
+}
+
+.titTypo5 {
+    color: #333;
+    font-size: 14px;
+    font-weight: normal
+}
+
+.titTypo6 {
+    color: #333;
+    font-size: 12px;
+    font-weight: normal
+}
+
+/* Navigation */
+/* tabmenu */
+.tabListBar:after {
+    display: block;
+    clear: both;
+    position: relative;
+    top: -1px;
+    border-bottom: 1px solid #dbe3e8;
+    box-sizing: border-box;
+    content: ""
+}
+
+.tabListBar>li {
+    float: left;
+    position: relative;
+    width: 20%;
+    height: 60px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 16px;
+    vertical-align: top
+}
+
+.tabListBar>li:after {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 99%;
+    background: none;
+    content: ""
+}
+
+.tabListBar>li .inTab {
+    display: block;
+    position: relative;
+    padding: 19px 30px 17px;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    color: #444;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    text-align: center
+}
+
+.tabListBar>li .inTab:hover,
+.tabListBar>li .inTab:focus {
+    position: relative;
+    z-index: 2
+}
+
+.tabListBar>li.select {
+    position: relative;
+    z-index: 1;
+    border-bottom: 2px solid #2365f2;
+    box-sizing: border-box;
+    font-weight: bold
+}
+
+.tabListBar>li.select .inTab {
+    color: #2365f2
+}
+
+.tabList:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+.tabList>li {
+    float: left;
+    width: 20%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-right: 0;
+    box-sizing: border-box;
+    color: #222;
+    vertical-align: top;
+    background-color: #fff
+}
+
+.tabList>li .inTab {
+    display: block;
+    position: relative;
+    padding: 12px 30px 15px;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center
+}
+
+.tabList>li:first-child {
+    border-radius: 5px 0 0 5px
+}
+
+.tabList>li:last-child {
+    border-right: 1px solid #ddd;
+    border-radius: 0 5px 5px 0
+}
+
+.tabList>li.select {
+    position: relative;
+    z-index: 1;
+    border: 1px solid #2365f2;
+    box-sizing: border-box;
+    color: #2365f2
+}
+
+.tabList>li.select .inTab {
+    color: #2365f2
+}
+
+.tabList>li.select+li {
+    border-left: 0
+}
+
+.tabList>li .inTabTxt {
+    width: 100%
+}
+
+[class*="tabList"] {
+    width: 100%
+}
+
+[class*="tabList"]>li .inTabTxt {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 3px;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap
+}
+
+[class*="tabList"]>li .inTabCount {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 3px;
+    max-width: 45px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+[class*="tabList"]>li .inTab.icoNew:after {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: auto;
+    left: auto;
+    margin: -10px 0 0 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    font-size: 0;
+    background-color: #ff3b50;
+    content: "new"
+}
+
+[class*="tabList"]>li .inTab:disabled,
+[class*="tabList"]>li .inTab.disabled {
+    color: #999
+}
+
+[class*="tabList"]>li .tabCount .inTabTxt {
+    max-width: calc(100% - 45px)
+}
+
+
+/* Form Elements */
+span.inpRdo,
+span.inpChk,
+input.inpTypo,
+.inpFile,
+.inpSel,
+[class*="btnSize"] {
+    vertical-align: middle
+}
+
+/* radio & checkbox */
+span.inpRdo,
+span.inpChk {
+    display: inline-block;
+    position: relative
+}
+
+span.inpRdo>input,
+span.inpChk>input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none
+}
+
+span.inpRdo>.lbl,
+span.inpChk>.lbl {
+    display: inline-block;
+    color: #222;
+    font-size: 15px;
+    line-height: 23px;
+    vertical-align: top
+}
+
+span.inpRdo>.lbl:after,
+span.inpChk>.lbl:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+span.inpRdo>.lbl:before,
+span.inpChk>.lbl:before {
+    float: left;
+    margin: 0 9px 0 0;
+    vertical-align: top;
+    background: url(//www.saraminimage.co.kr/sri/pattern/spr_input_all.png) no-repeat 0 0;
+    content: ""
+}
+
+span.inpRdo>input:checked+.lbl:before,
+span.inpChk>input:checked+.lbl:before {
+    background-position-y: -40px
+}
+
+span.inpRdo>input:disabled+.lbl:before,
+span.inpChk>input:disabled+.lbl:before {
+    background-position-y: -80px
+}
+
+span.inpRdo>input:checked:disabled+.lbl:before,
+span.inpChk>input:checked:disabled+.lbl:before {
+    background-position-y: -120px
+}
+
+span.inpChk.noHilight>input:checked:disabled+.lbl:before {
+    background-position-y: -40px
+}
+
+span.inpRdo.invalid>input+.lbl:before,
+span.inpChk.invalid>input+.lbl:before {
+    background-position-y: -160px
+}
+
+span.inpRdo>input:focus+.lbl:before,
+span.inpChk>input:focus+.lbl:before {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline: 1px dotted invert
+}
+
+span.inpRdo>.lbl.reverse:before,
+span.inpChk>.lbl.reverse:before {
+    float: right;
+    margin: 0 0 0 9px
+}
+
+span[class^="inp"].sizeM>.lbl {
+    font-size: 14px;
+    line-height: 21px
+}
+
+span[class^="inp"].sizeS>.lbl {
+    font-size: 13px;
+    line-height: 21px
+}
+
+span.inpRdo>.lbl.hide,
+span.inpChk>.lbl.hide {
+    visibility: visible;
+    overflow: visible;
+    position: static;
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    font-size: 0
+}
+
+span.inpRdo>.lbl.hide:before,
+span.inpChk>.lbl.hide:before {
+    margin: 0
+}
+
+/* radio */
+.inpRdo input+.lbl:before {
+    width: 26px;
+    height: 26px
+}
+
+.inpRdo.sizeM input+.lbl:before {
+    width: 22px;
+    height: 22px;
+    background-position-x: -40px
+}
+
+.inpRdo.sizeS input+.lbl:before {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    background-position-x: -80px
+}
+
+/* checkbox */
+.inpChk input+.lbl:before {
+    width: 24px;
+    height: 24px;
+    background-position-x: -120px
+}
+
+.inpChk.sizeM input+.lbl:before {
+    margin-top: 1px;
+    width: 20px;
+    height: 20px;
+    background-position-x: -160px
+}
+
+.inpChk.sizeS input+.lbl:before {
+    margin-top: 5px;
+    width: 14px;
+    height: 14px;
+    background-position-x: -200px
+}
+
+/* radio button switch */
+.inpRdoSw {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.inpRdoSw:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+.inpRdoSw .inOption {
+    float: left;
+    position: relative
+}
+
+.inpRdoSw .inOption+.inOption {
+    margin-left: -1px
+}
+
+.inpRdoSw .inOption>input {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none
+}
+
+.inpRdoSw .inOption>.lbl {
+    display: inline-block;
+    padding: 3px 14px 5px;
+    height: 28px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    vertical-align: top;
+    background-color: #fff;
+    cursor: pointer
+}
+
+.inpRdoSw .inOption:nth-child(n + 2):after {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    z-index: 2;
+    width: 2px;
+    height: 100%;
+    content: ""
+}
+
+.inpRdoSw .inOption:first-child>.lbl {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px
+}
+
+.inpRdoSw .inOption:last-child>.lbl {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+
+.inpRdoSw .inOption>input:focus+.lbl {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline: 1px dotted invert
+}
+
+.inpRdoSw .inOption>input:checked+.lbl {
+    position: relative;
+    z-index: 2;
+    border-color: currentColor;
+    color: #2365f2
+}
+
+.inpRdoSw .inOption>input:disabled+.lbl {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef;
+    cursor: default
+}
+
+.inpRdoSw.sizeM .inOption>.lbl {
+    padding-top: 5px;
+    padding-bottom: 7px;
+    height: 32px
+}
+
+.inpRdoSw.sizeL .inOption>.lbl {
+    padding-top: 8px;
+    padding-bottom: 10px;
+    height: 40px;
+    font-size: 15px;
+    line-height: 20px
+}
+
+/* input text */
+input.inpTypo {
+    padding: 0 13px 2px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    line-height: 36px;
+    vertical-align: middle;
+    background-color: #fff
+}
+
+input.inpTypo::-ms-clear {
+    display: none
+}
+
+input.inpTypo:-ms-input-placeholder {
+    color: #888
+}
+
+input.inpTypo::placeholder {
+    color: #888;
+    opacity: 1
+}
+
+input.inpTypo:focus,
+input.inpTypo:hover {
+    border-color: #666
+}
+
+input.inpTypo.sizeL {
+    padding: 0 17px 2px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 46px
+}
+
+input.inpTypo.sizeS {
+    padding: 0 11px 2px;
+    height: 32px;
+    line-height: 28px
+}
+
+input.inpTypo:disabled,
+input.inpTypo:not(.type_calendar):read-only {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef
+}
+
+input.inpTypo[disabled] {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef
+}
+
+input.inpTypo.invalid {
+    border-color: #ff3b50;
+    background-color: #fff9e5
+}
+
+input.inpTypo.type_calendar {
+    padding-right: 40px;
+    width: 135px;
+    color: #444;
+    background: #fff url(//www.saraminimage.co.kr/sri/pattern/ico_calendar_200722.png) no-repeat 100% 50%
+}
+
+input.inpTypo.type_calendar.invalid {
+    border-color: #ff3b50;
+    background-color: #fff9e5
+}
+
+input.inpTypo.type_calendar:disabled {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef
+}
+
+input.inpTypo.type_calendar[disabled] {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef
+}
+
+/* textarea */
+textarea.inpTarea {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 16px 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    line-height: 21px;
+    background-color: #fff;
+    resize: none
+}
+
+textarea.inpTarea:-ms-input-placeholder {
+    color: #888
+}
+
+textarea.inpTarea::placeholder {
+    color: #888;
+    opacity: 1
+}
+
+textarea.inpTarea:focus,
+textarea.inpTarea:hover {
+    border-color: #444
+}
+
+textarea.inpTarea:disabled,
+textarea.inpTarea:read-only {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef
+}
+
+textarea.inpTarea[disabled] {
+    border-color: #ddd;
+    color: #888;
+    background-color: #efefef
+}
+
+textarea.inpTarea.invalid {
+    border-color: #ff3b50;
+    background-color: #fff9e5
+}
+
+/* file */
+.inpFile {
+    position: relative;
+    padding-right: 100px;
+    box-sizing: border-box
+}
+
+.inpFile input.inpTypo:disabled {
+    width: 100%;
+    border-color: #ddd;
+    color: #222;
+    vertical-align: top;
+    background-color: #fff
+}
+
+.inpFile input.inpTypo[disabled] {
+    width: 100%;
+    border-color: #ddd;
+    color: #222;
+    vertical-align: top;
+    background-color: #fff
+}
+
+.inpFile input.upload_hidden {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    filter: alpha(opacity=0)
+}
+
+.inpFile:not(.invalid):hover .inpTypo {
+    border-color: #444
+}
+
+.inpFile .lbl {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.inpFile .lbl>span {
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    line-height: 36px;
+    vertical-align: top;
+    background-color: #444
+}
+
+.inpFile.invalid input.inpTypo:disabled {
+    border-color: #ff3b50;
+    background-color: #fff9e5
+}
+
+.inpFile.invalid input.inpTypo[disabled] {
+    border-color: #ff3b50;
+    background-color: #fff9e5
+}
+
+/* select */
+.inpSel {
+    display: inline-block;
+    border-radius: 5px;
+    vertical-align: middle
+}
+
+.inpSel>select {
+    padding: 6px 33px 9px 12px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: left;
+    vertical-align: top;
+    background: #fff url(//www.saraminimage.co.kr/sri/pattern/bg_select_default.png) no-repeat 100% -6px;
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+
+.inpSel>select:hover {
+    border-color: #444
+}
+
+.inpSel.sizeL>select {
+    padding: 10px 33px 13px 12px;
+    height: 50px;
+    font-size: 15px;
+    background-position-y: 0
+}
+
+.inpSel.sizeS>select {
+    padding-top: 2px;
+    padding-bottom: 4px;
+    height: 32px;
+    line-height: 24px;
+    background-position-y: -10px
+}
+
+.inpSel>select:disabled {
+    color: #888;
+    border-color: #ddd;
+    background-color: #efefef;
+    background-position-y: -56px
+}
+
+.inpSel>select[disabled] {
+    color: #888;
+    border-color: #ddd;
+    background-color: #efefef;
+    background-position-y: -56px
+}
+
+.inpSel>select:disabled:hover {
+    border-color: #ddd
+}
+
+.inpSel.sizeL>select:disabled {
+    background-position-y: -50px
+}
+
+.inpSel.sizeS>select:disabled {
+    background-position-y: -60px
+}
+
+.inpSel select:disabled::-ms-value {
+    color: #888
+}
+
+.inpSel.invalid {
+    background-color: #fff9e5
+}
+
+.inpSel.invalid>select {
+    border-color: #ff3b50;
+    background-color: transparent
+}
+
+/* select bg type */
+.inpSelBg {
+    display: inline-block;
+    height: 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background-color: #dbe3e9
+}
+
+.inpSelBg>select {
+    padding: 11px 40px 13px 20px;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 26px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/bg_select_bg.png) no-repeat 100% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+
+/* select text type */
+.inpSelTxt {
+    padding: 0 18px 0 0;
+    height: 18px;
+    border: none;
+    color: #444;
+    font-size: 14px;
+    line-height: 18px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/bg_select_txt.png) no-repeat 100% 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+
+.inpSelTxt.sizeS {
+    padding: 0 15px 0 0;
+    height: 16px;
+    color: #959595;
+    font-size: 12px;
+    line-height: 16px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/bg_select_txt.png) no-repeat 100% 7px;
+    background-size: 7px auto
+}
+
+/* ie9,10,11 */
+.inpSel>select::-ms-expand,
+select.inpSelTxt::-ms-expand,
+.inpSelBg>select::-ms-expand {
+    opacity: 0
+}
+
+.inpSel>select {
+    padding: 8px 12px 9px\0/
+}
+
+/* ie9 */
+.inpSel.sizeL>select {
+    padding: 12px 12px 14px\0/
+}
+
+/* ie9 */
+.inpSel.sizeS>select {
+    padding: 4px 12px 5px\0/
+}
+
+/* ie9 */
+_:-ms-lang(x),
+.inpSel>select {
+    padding: 9px 12px 10px
+}
+
+/* ie10 */
+_:-ms-lang(x),
+.inpSel.sizeL>select {
+    padding: 13px 12px 15px
+}
+
+/* ie10 */
+_:-ms-lang(x),
+.inpSel.sizeS>select {
+    padding: 5px 12px 6px
+}
+
+/* ie10 */
+_:-ms-fullscreen,
+:root .inpSel>select {
+    padding: 9px 12px 10px
+}
+
+/* ie11 */
+_:-ms-fullscreen,
+:root .inpSel.sizeL>select {
+    padding: 13px 12px 15px
+}
+
+/* ie11 */
+_:-ms-fullscreen,
+:root .inpSel.sizeS>select {
+    padding: 5px 12px 6px
+}
+
+/* ie11 */
+select.inpSelTxt {
+    padding: 0\0/;
+    height: 20px\0/
+}
+
+/* ie9 */
+_:-ms-lang(x),
+select.inpSelTxt {
+    padding: 0;
+    height: 20px\0/
+}
+
+/* ie10 */
+_:-ms-fullscreen,
+:root select.inpSelTxt {
+    padding: 0
+}
+
+/* ie11 */
+select.inpSelTxt.sizeS {
+    padding: 0\0/;
+    height: 18px\0/
+}
+
+/* ie9 */
+_:-ms-lang(x),
+select.inpSelTxt.sizeS {
+    padding: 0;
+    height: 18px\0/
+}
+
+/* ie10 */
+_:-ms-fullscreen,
+:root select.inpSelTxt.sizeS {
+    padding: 0
+}
+
+/* ie11 */
+.inpSelBg>select {
+    padding: 13px 15px 13px 15px\0/
+}
+
+/* ie9 */
+_:-ms-lang(x),
+.inpSelBg>select {
+    padding: 13px 15px 13px 15px
+}
+
+/* ie10 */
+_:-ms-fullscreen,
+:root .inpSelBg>select {
+    padding: 13px 15px 13px 15px
+}
+
+/* ie11 */
+
+/* invalid message */
+em.msgInvalid {
+    display: block;
+    margin-top: 2px;
+    color: #ff3b50;
+    font-size: 13px;
+    line-height: 21px
+}
+
+/* Table */
+.tblWrap {
+    border-top: 1px solid #ebebeb
+}
+
+.tblWrap table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed
+}
+
+.tblWrap th,
+.tblWrap td {
+    margin: 0;
+    padding: 13px 15px 15px;
+    border-bottom: 1px solid #ebebeb;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: #fafbfc
+}
+
+.tblWrap td {
+    color: #222;
+    background: none
+}
+
+.tblWrap tbody tr.visited,
+.tblWrap tbody tr:hover {
+    background-color: #f7fafb
+}
+
+.tblWrap .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.tblWrap .txtCenter {
+    text-align: center
+}
+
+.tblWrap .txtLeft {
+    text-align: left;
+}
+
+
+.tblWrap .txtRight {
+    text-align: right
+}
+
+.tblWrap .txtTop {
+    vertical-align: top
+}
+
+.tblBorder {
+    border-left: none;
+    border-right: 1px solid #ebebeb
+}
+
+.tblBorder th,
+.tblBorder td {
+    border-left: 1px solid #ebebeb
+}
+
+.tblRow th,
+.tblRow td {
+    text-align: left
+}
+
+.tblRow tbody tr.visited,
+.tblRow tbody tr:hover {
+    background: none
+}
+
+.tblSticky {
+    position: relative;
+    width: 100%;
+    background-color: #fff
+}
+
+.tblSticky::-webkit-scrollbar {
+    width: 8px;
+    height: 8px
+}
+
+.tblSticky::-webkit-scrollbar-track {
+    background: rgba(210, 210, 210, 0.6)
+}
+
+.tblSticky::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(200, 200, 200, 0.9)
+}
+
+.tblSticky table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed
+}
+
+.tblSticky th,
+.tblSticky td {
+    margin: 0;
+    padding: 16px 10px;
+    border-top: 1px solid #ebebeb;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: left
+}
+
+.tblSticky td {
+    color: #222
+}
+
+.tblSticky thead th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #e6ecf0
+}
+
+.tblSticky tbody tr:first-child td {
+    border-top: 0
+}
+
+.tblSticky tbody tr:last-child {
+    border-bottom: 1px solid #ebebeb
+}
+
+.tblSticky tbody tr.visited,
+.tblSticky tbody tr:hover {
+    background-color: #f7fafb
+}
+
+.tblSticky .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.tblSticky .txtCenter {
+    text-align: center
+}
+
+.tblSticky .txtRight {
+    text-align: right
+}
+
+.tblSticky .txtTop {
+    vertical-align: top
+}
+
+.tblSticky.horizontalScroll {
+    overflow-x: scroll
+}
+
+.tblSticky.horizontalScroll th {
+    position: static;
+    top: auto
+}
+
+.tblSticky.horizontalScroll .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 100
+}
+
+.tblSticky.horizontalScroll .sticky:nth-child(1) {
+    left: 0
+}
+
+.tblSticky.horizontalScroll thead .sticky {
+    z-index: 110
+}
+
+.tblSticky.horizontalScroll tbody .sticky {
+    background-color: #fff
+}
+
+.tblSticky.horizontalScroll tbody tr.visited .sticky,
+.tblSticky.horizontalScroll tbody tr:hover .sticky {
+    background-color: #f7fafb
+}
+
+/* pagination */
+.pagination {
+    font-size: 15px;
+    text-align: center
+}
+
+.pagination .btnPrev {
+    display: inline-block;
+    width: 25px;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 30px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_page_prev.png) 50% 50% no-repeat
+}
+
+.pagination .btnNext {
+    display: inline-block;
+    width: 25px;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 30px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_page_next.png) 50% 50% no-repeat
+}
+
+.pagination .btnFirst {
+    display: inline-block;
+    width: 25px;
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 30px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_page_prev_more.png) 50% 50% no-repeat
+}
+
+.pagination .btnLast {
+    display: inline-block;
+    width: 25px;
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 30px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_page_next_more.png) 50% 50% no-repeat
+}
+
+.pagination span.page,
+.pagination button.page,
+.pagination a.page {
+    display: inline-block;
+    margin-left: 1px;
+    min-width: 25px;
+    height: 30px;
+    box-sizing: border-box;
+    color: #444;
+    line-height: 30px;
+    vertical-align: middle
+}
+
+.pagination span.page {
+    color: #2365f2;
+    font-size: 15px;
+    font-weight: bold
+}
+
+/* pagination - input */
+.pagination.inpPaging button[class^="btn"],
+.pagination.inpPaging a[class^="btn"] {
+    display: block;
+    float: left;
+    width: 25px;
+    height: 40px;
+    background-repeat: no-repeat
+}
+
+.pagination.inpPaging .btnPrev {
+    margin: 0 16px 0 0
+}
+
+.pagination.inpPaging .btnNext {
+    margin: 0 0 0 16px
+}
+
+.pagination.inpPaging .btnFirst {
+    margin: 0 5px 0 0;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_page_prev_more.png) 50% 50% no-repeat
+}
+
+.pagination.inpPaging .btnLast {
+    margin: 0 0 0 5px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_page_next_more.png) 50% 50% no-repeat
+}
+
+.pagination.inpPaging .inpTypo {
+    float: left;
+    width: 52px;
+    color: #222;
+    font-size: 15px;
+    text-align: center;
+    background-color: #efefef
+}
+
+.pagination.inpPaging .slash {
+    float: left;
+    padding: 9px 13px 0 13px;
+    width: 35px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    vertical-align: top
+}
+
+.pagination.inpPaging strong {
+    float: left;
+    padding: 10px 2px 0 3px;
+    min-width: 24px;
+    color: #666;
+    font-size: 15px;
+    font-weight: normal;
+    vertical-align: top
+}
+
+
+/* Buttons */
+/* button - size */
+.btnSizeXL {
+    display: inline-block;
+    padding: 0 12px 6px;
+    height: 60px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 54px;
+    text-align: center;
+    background-color: #686868
+}
+
+.btnSizeL {
+    display: inline-block;
+    padding: 0 12px 4px;
+    height: 50px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 17px;
+    line-height: 46px;
+    text-align: center;
+    background-color: #686868
+}
+
+.btnSizeM {
+    display: inline-block;
+    padding: 0 12px 4px;
+    height: 40px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    line-height: 36px;
+    text-align: center;
+    background-color: #686868
+}
+
+.btnSizeS {
+    display: inline-block;
+    padding: 0 12px 3px;
+    height: 32px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    line-height: 29px;
+    text-align: center;
+    background-color: #686868
+}
+
+.btnSizeXS {
+    display: inline-block;
+    padding: 0 10px 3px;
+    height: 24px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    background-color: #686868
+}
+
+/* button - color */
+[class*="btnSize"].colorBlack {
+    border: 1px solid #444;
+    color: #fff;
+    background-color: #444
+}
+
+[class*="btnSize"].colorWhite,
+[class*="btnSize"].colorWhite:hover {
+    border: 1px solid #ddd;
+    color: #222;
+    background-color: #fff
+}
+
+[class*="btnSize"].colorBlue {
+    border: 1px solid #2365f2;
+    color: #fff;
+    background-color: #2365f2
+}
+
+[class*="btnSize"].colorBlue.colorInvert {
+    border: 1px solid #5487f3;
+    color: #2365f2;
+    background-color: #fff
+}
+
+[class*="btnSize"].colorGreen {
+    border: 1px solid #19ae90;
+    color: #fff;
+    background-color: #19ae90
+}
+
+[class*="btnSize"].colorGreen.colorInvert {
+    border: 1px solid #19ae90;
+    color: #15a084;
+    background-color: #fff
+}
+
+[class*="btnSize"].colorRed {
+    border: 1px solid #ff3b50;
+    color: #fff;
+    background-color: #ff3b50
+}
+
+[class*="btnSize"].colorRed.colorInvert {
+    border: 1px solid #ff3b50;
+    color: #ff3b50;
+    background-color: #fff
+}
+
+button[class*="btnSize"]:disabled,
+a[class*="btnSize"].disabled {
+    border: 1px solid #ddd;
+    color: #888;
+    background-color: #d9d9d9;
+    cursor: default
+}
+
+/* button - ico */
+button[class*="btnSize"] span[class*="ico"]:before,
+a[class*="btnSize"] span[class*="ico"]:before,
+button[class*="btnSize"] span[class*="reverse"]:after,
+a[class*="btnSize"] span[class*="reverse"]:after {
+    display: inline-block;
+    overflow: hidden;
+    width: 19px;
+    height: 19px;
+    vertical-align: middle;
+    content: ""
+}
+
+button[class*="btnSize"] span[class*="ico"]:before,
+a[class*="btnSize"] span[class*="ico"]:before {
+    margin: -3px 9px 0 0
+}
+
+button[class*="btnSize"] span[class*="reverse"]:before,
+a[class*="btnSize"] span[class*="reverse"]:before {
+    display: none
+}
+
+button[class*="btnSize"] span[class*="reverse"]:after,
+a[class*="btnSize"] span[class*="reverse"]:after {
+    margin: -3px 0 0 9px
+}
+
+/* button - group */
+.btnGroup {
+    display: table;
+    table-layout: fixed
+}
+
+.btnGroup .inBtn {
+    display: table-cell;
+    position: relative
+}
+
+.btnGroup .inBtn>[class*="btnSize"] {
+    width: 100%
+}
+
+.btnGroup .inBtn:not(:first-child)>[class*="btnSize"] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.btnGroup .inBtn:not(:last-child)>[class*="btnSize"] {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.btnGroup .inBtn+.inBtn:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    content: ""
+}
+
+.btnGroup .inBtn+.inBtn [class*="btnSize"] {
+    border-left-color: #fff
+}
+
+.btnGroup .inBtn+.inBtn .colorBlack {}
+
+.btnGroup .inBtn+.inBtn .colorWhite {
+    border-left-color: #ddd
+}
+
+.btnGroup .inBtn+.inBtn .colorBlue {}
+
+.btnGroup .inBtn+.inBtn .colorBlue.colorInvert {
+    border-left-color: #5487f3
+}
+
+.btnGroup .inBtn+.inBtn .colorRed {}
+
+/* scrap button */
+.btnScrap:before {
+    display: inline-block;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_scrap.png) no-repeat;
+    content: ""
+}
+
+.btnScrap.select:before {
+    background-position: 0 100%
+}
+
+
+/* Popup(Layer) */
+/* modal */
+.modalWrap {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1200;
+    padding: 32px 40px 40px;
+    min-width: 500px;
+    max-height: 600px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #222;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15)
+}
+
+.modalWrap .title {
+    padding-bottom: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 29px;
+    text-align: left
+}
+
+.modalWrap .title .txt {
+    padding-left: 9px;
+    color: #888;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+    vertical-align: bottom
+}
+
+.modalWrap .modalCont {
+    font-size: 14px;
+    line-height: 22px
+}
+
+.modalWrap .modalBtn {
+    padding-top: 28px;
+    text-align: center
+}
+
+.modalWrap .btnClose {
+    position: absolute;
+    top: 12px;
+    right: 11px;
+    padding: 10px
+}
+
+.modalWrap .btnClose:after {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_close_modal.png) 0 0 no-repeat;
+    content: ""
+}
+
+.modalWrap .title.line {
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ddd
+}
+
+.modalWrap .modalCont.alertCont {
+    padding: 3px 0 21px;
+    font-size: 18px;
+    text-align: center
+}
+
+.modalWrap.show {
+    display: block
+}
+
+.modalDrawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1200;
+    padding: 64px 0 100px;
+    min-width: 600px;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    background-color: #fff
+}
+
+/* WMG-24252 */
+.modalDrawer .modalTit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding: 15px 40px 0;
+    width: 100%;
+    height: 64px;
+    border-bottom: 1px solid #cfcfcf;
+    box-sizing: border-box;
+    text-align: left
+}
+
+/* WMG-24252 */
+.modalDrawer .modalTit .title {
+    color: #222;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 29px
+}
+
+.modalDrawer .modalTit .title .txt {
+    padding-left: 9px;
+    color: #888;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+    vertical-align: bottom
+}
+
+.modalDrawer .modalCont {
+    overflow-y: auto;
+    padding: 36px 40px 0;
+    height: 100%;
+    box-sizing: border-box
+}
+
+.modalDrawer .modalCont:after {
+    display: block;
+    width: 100%;
+    height: 36px;
+    content: ""
+}
+
+.modalDrawer .modalCont::-webkit-scrollbar {
+    width: 4px;
+    height: 8px
+}
+
+.modalDrawer .modalCont::-webkit-scrollbar-track {
+    background: rgba(210, 210, 210, 0.6)
+}
+
+.modalDrawer .modalCont::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(200, 200, 200, 0.9)
+}
+
+.modalDrawer .modalBtn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 20px;
+    height: 100px;
+    border-top: 1px solid #f1f1f1;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15)
+}
+
+.modalDrawer .btnClose {
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    z-index: 3;
+    padding: 10px
+}
+
+/* WMG-24252 */
+.modalDrawer .btnClose:after {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/btn_close_modal.png) 0 0 no-repeat;
+    content: ""
+}
+
+.modalDrawer.withoutBtn {
+    padding-bottom: 0
+}
+
+.modalDrawer.show {
+    display: block
+}
+
+/* popover/tooltip */
+.toolTipWrap {
+    display: inline-block;
+    position: relative
+}
+
+.toolTipWrap .toolTip {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    padding: 18px 42px 20px 22px;
+    min-width: 33px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15)
+}
+
+.toolTipWrap .toolTip.on {
+    display: block
+}
+
+.toolTipWrap.over .toolTip {
+    padding-right: 22px
+}
+
+.toolTipWrap .toolTip .tail {
+    display: block;
+    position: absolute;
+    width: 9px;
+    height: 15px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/spr_tooltip.png) no-repeat 0 0;
+    content: ""
+}
+
+.toolTipWrap .toolTip .tail_left_top {
+    top: 25px;
+    left: -9px;
+    background-position-y: -21px
+}
+
+.toolTipWrap .toolTip .tail_left_center {
+    top: 50%;
+    left: -9px;
+    margin-top: -7px;
+    background-position-y: -21px
+}
+
+.toolTipWrap .toolTip .tail_left_bottom {
+    bottom: 25px;
+    left: -9px;
+    background-position-y: -21px
+}
+
+.toolTipWrap .toolTip .tail_right_top {
+    top: 25px;
+    right: -9px;
+    background-position: -10px -19px
+}
+
+.toolTipWrap .toolTip .tail_right_center {
+    top: 50%;
+    right: -9px;
+    margin-top: -7px;
+    background-position: -10px -19px
+}
+
+.toolTipWrap .toolTip .tail_right_bottom {
+    right: -9px;
+    bottom: 25px;
+    background-position: -10px -19px
+}
+
+.toolTipWrap .toolTip .tail_top_left {
+    top: -9px;
+    left: 25px;
+    width: 15px;
+    height: 9px
+}
+
+.toolTipWrap .toolTip .tail_top_center {
+    top: -9px;
+    left: 50%;
+    margin-left: -7px;
+    width: 15px;
+    height: 9px
+}
+
+.toolTipWrap .toolTip .tail_top_right {
+    top: -9px;
+    right: 25px;
+    width: 15px;
+    height: 9px
+}
+
+.toolTipWrap .toolTip .tail_bottom_left {
+    bottom: -9px;
+    left: 25px;
+    width: 15px;
+    height: 9px;
+    background-position-y: -10px
+}
+
+.toolTipWrap .toolTip .tail_bottom_center {
+    bottom: -9px;
+    left: 50%;
+    margin-left: -7px;
+    width: 15px;
+    height: 9px;
+    background-position-y: -10px
+}
+
+.toolTipWrap .toolTip .tail_bottom_right {
+    right: 25px;
+    bottom: -9px;
+    width: 15px;
+    height: 9px;
+    background-position-y: -10px
+}
+
+.toolTipWrap .toolTip .toolTipCont {
+    line-height: 21px;
+    text-align: left
+}
+
+.toolTipWrap .toolTip .toolTipCont.txtCenter {
+    text-align: center
+}
+
+.toolTipWrap .toolTip .toolTipCont .title {
+    display: block;
+    margin-bottom: 8px;
+    padding-bottom: 0;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.toolTipWrap .toolTip .btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 13px 13px 10px 10px
+}
+
+.toolTipWrap .toolTip .btnClose:after {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/spr_tooltip.png) 0 -36px no-repeat;
+    content: ""
+}
+
+.toolTipWrap .toolTip.colorBlue {
+    border-color: #2365f2;
+    color: #fff;
+    background-color: #2365f2
+}
+
+.toolTipWrap .toolTip.colorBlue .tail,
+.toolTipWrap .toolTip.colorBlue .btnClose:after {
+    background-image: url(//www.saraminimage.co.kr/sri/pattern/spr_tooltip_blue.png)
+}
+
+.toolTipGuideWrap {
+    position: relative
+}
+
+.toolTipGuideWrap .toolTipGuide {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    padding: 13px 19px 13px 72px;
+    min-width: 180px;
+    border: 1px solid #19ae90;
+    border-radius: 12px;
+    box-sizing: border-box;
+    color: #222;
+    background: #fff url(//www.saraminimage.co.kr/sri/vix/ico/ico_pointer.gif) 13px 13px no-repeat
+}
+
+.toolTipGuideWrap .toolTipGuide.reverse {
+    padding: 13px 72px 13px 19px;
+    background-position: calc(100% - 15px) 13px
+}
+
+.toolTipGuideWrap .toolTipGuide.on {
+    display: block
+}
+
+.toolTipGuideWrap .toolTipGuide .tail {
+    position: absolute;
+    width: 9px;
+    height: 15px;
+    background: url(//www.saraminimage.co.kr/sri/pattern/spr_tooltip_guide.png) no-repeat 0 0
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_left_top {
+    top: 25px;
+    left: -9px;
+    background-position-y: -21px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_left_center {
+    top: 50%;
+    left: -9px;
+    margin-top: -7px;
+    background-position-y: -21px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_left_bottom {
+    bottom: 25px;
+    left: -9px;
+    background-position-y: -21px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_right_top {
+    top: 25px;
+    right: -9px;
+    background-position: -10px -19px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_right_center {
+    top: 50%;
+    right: -9px;
+    margin-top: -7px;
+    background-position: -10px -19px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_right_bottom {
+    right: -9px;
+    bottom: 25px;
+    background-position: -10px -19px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_top_left {
+    top: -9px;
+    left: 27px;
+    width: 15px;
+    height: 9px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_top_center {
+    top: -9px;
+    left: 50%;
+    margin-left: -7px;
+    width: 15px;
+    height: 9px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_top_right {
+    top: -9px;
+    right: 27px;
+    width: 15px;
+    height: 9px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_bottom_left {
+    bottom: -9px;
+    left: 27px;
+    width: 15px;
+    height: 9px;
+    background-position-y: -10px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_bottom_center {
+    bottom: -9px;
+    left: 50%;
+    margin-left: -7px;
+    width: 15px;
+    height: 9px;
+    background-position-y: -10px
+}
+
+.toolTipGuideWrap .toolTipGuide .tail_bottom_right {
+    right: 27px;
+    bottom: -9px;
+    width: 15px;
+    height: 9px;
+    background-position-y: -10px
+}
+
+.toolTipGuideWrap .toolTipGuide .toolTipCont {
+    display: table-cell;
+    padding-bottom: 3px;
+    height: 49px;
+    font-size: 15px;
+    line-height: 23px;
+    vertical-align: middle
+}
+
+/* Graph - vix 기준 모듈작업 */
+.radarChart .line {
+    stroke: #ddd;
+    stroke-width: 1px
+}
+
+.radarChart .line_axis {
+    stroke: #ddd;
+    stroke-width: 1px
+}
+
+.radarChart .label {
+    font-size: 14px;
+    fill: #666
+}
+
+.radarChart .label_score {
+    font-size: 14px;
+    fill: #666
+}
+
+.radarChart .radar_pointer {
+    fill: #fff;
+    stroke: #2365f2
+}
+
+.radarChart .radar_pointer.radar_pointer00 {
+    stroke-width: 2px
+}
+
+.radarChart .radar_pointer.radar_pointer01 {
+    display: none
+}
+
+.radarChart .radar_polygon00 {
+    stroke-width: 1px;
+    stroke: #2365f2;
+    fill: rgba(8, 87, 255, 0.6)
+}
+
+.radarChart .radar_polygon01 {
+    stroke: #283248;
+    fill: transparent;
+    stroke-dasharray: 3
+}
+
+.radarChart .axis.max .label {
+    fill: #222;
+    font-weight: bold
+}
+
+.radarChart .axis.max .label_score {
+    fill: #222;
+    font-weight: bold
+}
+
+.combieChart .label_group .labels {
+    font-size: 14px
+}
+
+.combieChart .bar.field1 {
+    fill: #00d5ab
+}
+
+.combieChart .bar.field2 {
+    fill: #ebeff4;
+    stroke: #aaafb7;
+    stroke-dasharray: 4, 3
+}
+
+.combieChart .group .label.field1 {
+    font-size: 13px;
+    font-weight: bold;
+    fill: #666
+}
+
+.combieChart .group .label.field2 {
+    font-size: 13px;
+    fill: #888;
+}
+
+.combieChart .group.max .field1,
+.combieChart .group.max .label.field1 {
+    fill: #2365f2
+}
+
+.combieChart .xAxis .tick line {
+    display: none
+}
+
+.combieChart .xAxis .tick text {
+    color: #666;
+    font-size: 14px
+}
+
+.combieChart .xAxis .tick.max text {
+    color: #222;
+    font-weight: bold
+}
+
+.combieChart .xAxis .domain {
+    stroke: #666
+}
+
+.combieChart .yAxis line {
+    stroke: #ddd
+}
+
+.combieChart .yAxis text {
+    color: #888;
+    font-size: 13px
+}
+
+.combieChart .yAxis .domain {
+    display: none
+}
+
+.lineChart .dot {
+    cursor: pointer
+}
+
+.lineChart~.tooltip .tooltip_list {
+    padding: 5px 10px 7px 10px;
+    border-radius: 5px;
+    background-color: #404040
+}
+
+.lineChart~.tooltip .tooltip_list .data_title {
+    color: #fff;
+    font-size: 14px;
+    line-height: 18px
+}
+
+.lineChart~.tooltip .tooltip_list .data_value {
+    margin-left: 5px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 18px
+}
+
+.lineChart .yAxis .tick line {
+    stroke: #ddd
+}
+
+.lineChart .yAxis .tick:first-of-type line {
+    stroke: #666
+}
+
+.lineChart .xAxis .tick .tick_txt {
+    font-size: 14px;
+    fill: #666
+}
+
+.lineChart .yAxis .tick .tick_txt {
+    font-size: 13px;
+    fill: #888
+}
+
+.lineChart .domain {
+    display: none
+}
+
+.dounutChart .labelLine {
+    stroke: #d9d9d9
+}
+
+.dounutChart .label,
+.dounutChart .label_score {
+    font-size: 14px;
+    fill: #666
+}
+
+/* datepicker */
+.datepicker {
+    position: absolute;
+    z-index: 9999;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    -webkit-user-select: none;
+    user-select: none
+}
+
+.datepicker:after {
+    display: table;
+    clear: both;
+    content: "";
+    table-layout: fixed
+}
+
+.datepicker .dpWrapBtn {
+    position: relative
+}
+
+.datepicker .dpStatus {
+    display: none;
+    position: relative;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center
+}
+
+.datepicker .dpBtn {
+    display: block;
+    position: absolute;
+    top: 5px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 0;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    background: transparent;
+    cursor: pointer
+}
+
+.datepicker .dpBtn:disabled {
+    cursor: default;
+    opacity: 0.2
+}
+
+.datepicker .dpBtn.prevYear {
+    left: 0
+}
+
+.datepicker .dpBtn.prevMonth {
+    left: 24px
+}
+
+.datepicker .dpBtn.nextMonth {
+    right: 24px
+}
+
+.datepicker .dpBtn.nextYear {
+    right: 0
+}
+
+.datepicker .dpBtn:before,
+.datepicker .dpBtn:after {
+    display: inline-block;
+    color: #222;
+    font-size: 14px;
+    line-height: 24px
+}
+
+.datepicker .dpBtn.prevMonth:after {
+    content: "<"
+}
+
+.datepicker .dpBtn.nextMonth:after {
+    content: ">"
+}
+
+.datepicker .dpBtn.prevYear:after {
+    content: "<<"
+}
+
+.datepicker .dpBtn.nextYear:after {
+    content: ">>"
+}
+
+.datepicker .dpCalendar {
+    display: inline-block;
+    margin-bottom: 10px;
+    box-sizing: border-box
+}
+
+.datepicker .dpHeader {
+    height: 30px;
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center
+}
+
+.datepicker .dpTable table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    table-layout: fixed
+}
+
+.datepicker .dpTable thead th,
+.datepicker .dpTable tbody td {
+    padding: 0;
+    font-weight: normal;
+    text-align: center
+}
+
+.datepicker .dpTable thead th {
+    padding-bottom: 10px;
+    height: 30px;
+    color: #666
+}
+
+.datepicker .dpTable tbody td {
+    height: 32px;
+    color: #222;
+    cursor: pointer
+}
+
+.datepicker .dpTable thead th.sunday,
+.datepicker .dpTable tbody td.sunday {
+    color: #ff3b50
+}
+
+.datepicker .dpTable thead th.saturday,
+.datepicker .dpTable tbody td.saturday {
+    color: #2365f2
+}
+
+.datepicker .dpTable tbody td.today {
+    border-radius: 5px;
+    background-color: #f2f6f9
+}
+
+.datepicker .dpTable tbody td.dpSelected {
+    border-radius: 5px;
+    color: #fff;
+    background-color: #8ab8ff
+}
+
+.datepicker .dpTable tbody td.dpSelected.dpFrom {
+    border-radius: 16px 0 0 16px
+}
+
+.datepicker .dpTable tbody td.dpSelected.dpTo {
+    border-radius: 0 16px 16px 0
+}
+
+.datepicker .dpTable tbody td.dpSelected.dpFrom.dpTo {
+    border-radius: 5px
+}
+
+.datepicker .dpTable tbody td.dpSelection {
+    background-color: #f0f5ff
+}
+
+.datepicker .dpTable tbody td.dpSelectionHover {
+    background-color: #f0f5ff
+}
+
+.datepicker .dpTable tbody td.dpSelected.dpSelectionHover {
+    border-radius: 5px;
+    color: #222
+}
+
+.datepicker .dpTable tbody td.dpHover {
+    border-radius: 5px;
+    color: #fff;
+    background-color: #8ab8ff
+}
+
+.datepicker .dpTable tbody td.dpSelected.dpHover,
+.datepicker .dpTable tbody td.dpFrom.dpTable.dpHover {
+    border-radius: 5px
+}
+
+.datepicker .dpTable tbody td.dpDisabled,
+.datepicker .dpTable tbody td.dpRestricted {
+    cursor: default;
+    opacity: 0.3
+}

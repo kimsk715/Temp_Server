@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+.sidebar {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+.sidebar label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin: 10px 0 10px;
+}
+.sidebar .input-group {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 5px;
+}
+.sidebar input {
+    width: 100%;
+    padding: 8px 30px 8px 8px; /* 체크박스 공간 확보 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.sidebar button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border-radius: 4px;
+}
+.sidebar button:hover {
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+}
+.sidebar .btnsave,
+.sidebar .btnmodi,
+.sidebar .nameedit,
+.sidebar .phoneedit {
+    height: 35px;
+    margin-left: 5px;
+    width: 30%;
+}
+.sidebar .email {
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom : 10px;
+}
+.sidebar .email-info {
+    font-size: 12px;
+    color: #777;
+    margin-top: 3px;
+}
+.sidebar .custom-hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}

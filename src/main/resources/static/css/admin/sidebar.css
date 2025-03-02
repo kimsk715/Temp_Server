@@ -1,0 +1,144 @@
+/* 
+  사이드바 스타일 정의
+  1. 기본 레이아웃
+  2. 메뉴 섹션
+  3. 서브메뉴
+  4. 아이콘
+*/
+
+/* 메인 레이아웃 패딩 */
+.main-content {
+  padding-top: 56px;
+}
+
+/* 사이드바 컨테이너 */
+.sidebar-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  flex-flow: column;
+  transform: translate(-180%);
+  transition: transform 0.2s;
+  z-index: 16;
+  background-color: #fff;
+  width: 324px;
+}
+
+/* 사이드바 콘텐츠 영역 */
+.sidebar-content {
+  padding-bottom: 80px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* 메뉴 섹션 스타일 */
+/* .menu-section:first-of-type,
+.menu-section:nth-of-type(2),
+.menu-section:nth-of-type(3) {
+  border-bottom: 1px solid #f2f4f6;
+} */
+
+.menu-section {
+  padding: 0;
+}
+
+/* 메뉴 아이템 스타일 */
+.menu-item.menu-has-submenu {
+  display: block;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.menu-item {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 16px;
+  width: 100%;
+}
+
+/* 활성화된 메뉴 스타일 */
+.menu-active .menu-label {
+  color: #212529;
+  font-weight: 700;
+}
+
+.menu-item .menu-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  color: #495057;
+  gap: 12px;
+}
+
+.menu-item .menu-label svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 화살표 아이콘 스타일 */
+.menu-item.menu-has-submenu .menu-arrow.menu-open {
+  transform: rotate(180deg);
+}
+
+.menu-item.menu-has-submenu .menu-arrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-top: -8px;
+  color: #adb5bd;
+  width: 16px;
+  height: 16px;
+}
+
+.arrow-icon {
+  display: block;
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+/* 서브메뉴 컨테이너 스타일 */
+.submenu-container.show {
+  height: 270px;
+}
+
+/* 2개 항목을 가진 메뉴 (회원관리, 문의관리) */
+.menu-section:nth-child(2) .submenu-container.show,
+.menu-section:nth-child(3) .submenu-container.show {
+  height: 90px; /* 2개 항목 x 45px */
+}
+
+/* 1개 항목을 가진 메뉴 (공고관리, 신고관리) */
+.menu-section:nth-child(1) .submenu-container.show,
+.menu-section:nth-child(4) .submenu-container.show {
+  height: 45px; /* 1개 항목 x 45px */
+}
+
+.submenu-container {
+  transition: height 0.3s ease-out;
+  height: 0;
+  overflow-y: hidden;
+}
+
+/* 서브메뉴 아이템 스타일 */
+.submenu-container .submenu-item {
+  display: block;
+  background-color: #f9fafb;
+  cursor: pointer;
+  padding: 12px 16px 12px 44px;
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}

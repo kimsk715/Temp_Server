@@ -1,0 +1,299 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.sidebar {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.sidebar button:hover,
+.sidebar .review button:hover {
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+}
+.sidebar .head {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
+.sidebar .badge {
+    display: inline-block;
+    background-color: rgb(230, 241, 253);
+    color: #005588;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 10px;
+}
+.sidebar .head p {
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+}
+.sidebar .class {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    color: #444;
+}
+.sidebar .person {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: -24px;
+}
+.sidebar .person .name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    z-index: 9999;
+}
+.sidebar .person img {
+    width: 70px;
+    margin-left: -20px;
+    cursor: pointer;
+}
+.mail,
+.phone {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.sidebar .phone img {
+    width: 20px;
+    margin-left: 4px;
+    margin-right: 10px;
+}
+.sidebar .mail img {
+    width: 45px;
+    margin-left: -10px;
+}
+.sidebar buttons {
+    margin-top: 16px;
+}
+.sidebar button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border-radius: 4px;
+}
+.sidebar button.clicked {
+    font-weight: 900;
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+    border-radius: 4px;
+}
+.sidebar button.fail,
+.sidebar button.cancel {
+    color: red;
+}
+.sidebar .review .middleText {
+    padding-left: 20px;
+}
+.sidebar .review .highlight-text {
+    color: rgb(0, 221, 109);
+    font-size: 18px;
+    margin-top: 10px;
+}
+.sidebar .review h1 {
+    font-size: 18px;
+    color: #333;
+}
+.sidebar .review p {
+    font-size: 14px;
+    color: #333;
+}
+.sidebar .review .highlight {
+    color: rgb(0, 221, 109);
+    font-weight: bold;
+}
+.sidebar .review .note1 {
+    font-size: 16px;
+    color: #111;
+    margin-top: 10px;
+}
+.sidebar .review .note2 {
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+}
+.sidebar .review .note3 {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+.sidebar .review .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.sidebar .review button {
+    padding: 10px;
+    width: 48%;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border-radius: 4px;
+}
+.sidebar .review button.clicked {
+    font-weight: 900;
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+    border-radius: 4px;
+}
+.sidebar .review .circle::before {
+    content: "●";
+    position: relative;
+    margin-right: 5px;
+    left: 0px;
+    font-size: 10px;
+}
+
+/* 수수료 정산 요청하기 모달창 부분 */
+
+.sidebar-modal-body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    z-index: 999;
+}
+.sidebar-modal {
+    background: white;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.sidebar-modal .modal-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.sidebar-modal .modal-body {
+    font-size: 14px;
+}
+.sidebar-modal .info-box {
+    background: #e8f5e9;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+.sidebar-modal .form-group {
+    margin-bottom: 20px;
+    align-items: center;
+}
+.sidebar-modal .form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+    width: 160px;
+}
+.sidebar-modal .form-group div {
+    margin-left: -35px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.sidebar-modal .form-group input {
+    position: relative;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.sidebar-modal .button-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.sidebar-modal .notice {
+    font-size: 12px;
+    color: #666;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.sidebar-modal .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar-modal button {
+    padding: 10px;
+    width: 48%;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border-radius: 4px;
+}
+.sidebar-modal button:hover {
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+}
+.sidebar-modal button.clicked {
+    font-weight: 900;
+    background: rgb(0, 221, 109);
+    border: 1px solid rgb(0, 221, 109);
+    color: white;
+    border-radius: 4px;
+}
+.sidebar-modal .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.sidebar-modal .form-group {
+    display: flex;
+}

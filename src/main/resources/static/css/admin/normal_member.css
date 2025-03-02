@@ -1,0 +1,143 @@
+/* 일반회원 관리 페이지 스타일 */
+.normal-member-management {
+  padding: 24px;
+}
+
+/* 검색/필터 영역 */
+.normal-member-search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  max-width: 1200px;
+}
+
+/* 검색 영역 - 기본 구조만 정의하고 세부 스타일은 공통 스타일 사용
+.search-box {
+ display: flex;
+ gap: 8px;
+}
+
+.search-input {
+ padding: 8px 12px;
+ border: 1px solid #e9ecef;
+ border-radius: 4px;
+ width: 300px;
+}
+
+.search-btn {
+ padding: 8px 16px;
+ background-color: rgb(0, 221, 109);
+ color: white;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+}
+
+.search-btn:hover {
+ background-color: rgb(0, 200, 98);
+}
+
+.filter-box {
+ display: flex;
+ gap: 8px;
+}
+
+.filter-box select {
+ padding: 8px;
+ border: 1px solid #e9ecef;
+ border-radius: 4px;
+ min-width: 120px;
+} */
+
+/* 테이블 스타일 */
+.normal-member-table-container {
+  max-width: 1200px;
+  margin-bottom: 36px;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.normal-member-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.normal-member-table th,
+.normal-member-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.normal-member-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.normal-member-table td {
+  font-size: 14px;
+}
+
+.normal-member-table tbody tr:hover {
+  background-color: #ddffe5; /* 회원관리용 호버 색상 변경 */
+}
+
+/* 회원 상태 표시 스타일 */
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 활성 상태 */
+.status.active {
+  background-color: #d3f9d8;
+  color: #2b8a3e;
+}
+
+/* 휴면 상태 */
+.status.dormant {
+  background-color: #e9ecef;
+  color: #acb1b8;
+}
+
+/* 정지 상태 */
+.status.suspended {
+  background-color: #ffe3e3;
+  color: #e03131;
+}
+
+/* 탈퇴 상태 */
+.status.withdrawn {
+  background-color: #868e96;
+  color: white;
+}
+
+/* 상세보기 버튼 - 기본 구조만 정의하고 세부 스타일은 공통 스타일 사용
+.detail-btn {
+ padding: 6px 12px;
+ background-color: #495057;
+ color: white;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+ font-size: 12px;
+ transition: background-color 0.3s;
+}
+
+.detail-btn:hover {
+ background-color: #343a40;
+} */
+
+/* 페이지네이션 - 기본 구조만 정의하고 세부 스타일은 공통 스타일 사용 */
+.normal-member-pagination {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}

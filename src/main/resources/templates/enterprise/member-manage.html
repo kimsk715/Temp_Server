@@ -1,0 +1,155 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="개발자 채용이 필요한 순간, 점핏으로 충분합니다">
+    <meta name="naver-site-verification" content="1d04e6a7cdb21de79c6f6d0bff593aeb5fdefd70">
+    <title>기업 서비스 | 마스터 계정</title>
+    <link rel="icon" href="https://cdn.jumpit.co.kr/jumpit/favicon.png">
+    <link rel="stylesheet" href="/css/enterprise/mypage-headerfooter.css">
+    <link rel="stylesheet" href="/css/enterprise/member-manage.css">
+    <link rel="stylesheet" href="/css/aside/administratorAccountRight.css" />
+</head>
+
+<body>
+    <div id="root">
+        <!-- <div id="skipnavigation"><a href="/#content">본문 바로가기</a></div> -->
+
+        <div class="main-wrapper">
+            <div class="container">
+                <div class="topmenu">
+                    <h2>멤버 관리</h2>
+                    <button class="btn btn-role" onclick="openModal()">멤버 초대</button>
+                </div>
+                <table class="member-list">
+                    <!-- <thead>
+                        <tr>
+                            <th>권한</th>
+                            <th>이메일</th>
+                            <th>이름</th>
+                            <th>설정</th>
+                        </tr>
+                    </thead> -->
+                    <tbody>
+                        <tr>
+                            <td><button class="btn btn-view">뷰어</button>
+                            </td>
+                            <td>qwer1234@saramin.co.kr</td>
+                            <td><span>한동석</span></td>
+                            <td><button class="btn btn-edit">권한
+                                    설정</button> <button class="btn btn-delete">삭제</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-role">관리자</button>
+                            </td>
+                            <td>qwer1234@gmail.com</td>
+                            <td><span>김승균</span></td>
+                            <td><button class="btn btn-delete">삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-role">관리자</button>
+                            </td>
+                            <td>qwer1234@saramin.co.kr</td>
+                            <td><span>허세웅</span></td>
+                            <td><button class="btn btn-delete">삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-role">관리자</button>
+                            </td>
+                            <td>qwer1234@naver.com</td>
+                            <td><span>한지수</span></td>
+                            <td><button class="btn btn-delete">삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-role">관리자</button>
+                            </td>
+                            <td>qwer1234@naver.com</td>
+                            <td><span>조승찬</span></td>
+                            <td><button class="btn btn-delete">삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-role">관리자</button>
+                            </td>
+                            <td>qwer1234@naver.com</td>
+                            <td class="pending"><span>가입대기</span></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-role">관리자</button>
+                            </td>
+                            <td>qwer1234@naver.com</td>
+                            <td class="pending"><span>가입대기</span></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="sidebar">
+                <h2>내 계정 정보</h2>
+
+                <label for="name">이름</label>
+                <div class="input-group">
+                    <input type="text" id="name" value="김점핏" />
+                    <div id="name-display" class="hidden"></div>
+                    <button class="btnsave">저장</button>
+                    <button class="nameedit hidden">수정</button>
+                </div>
+                
+
+                <label for="phone">연락처</label>
+                <div class="input-group">
+                    <input type="text" id="phone" value="01012345679" />
+                    <div id="phone-display" class="hidden"></div>
+                    <button class="btnmodi">변경</button>
+                    <button class="phoneedit hidden">수정</button>
+                </div>
+                
+
+                <label>이메일 주소</label>
+                <p class="email">jumpit@jumpit.co.kr</p>
+                <p class="email-info">이메일 변경을 원하시는 경우에는 고객센터로 문의 바랍니다.
+                </p>
+                <hr class="custom-hr" />
+                <button class="password-btn">비밀번호 변경</button>
+            </div>
+        </div>
+
+     <!--footer 자리-->
+    </div>
+    <div id="inviteModal" class="modal">
+        <div class="modal-header">
+            <h2>계정 초대</h2>
+            <button class="close-btn" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-content">
+            <label>초대할 이메일 계정</label>
+            <div class="modal-input">
+                <input type="email" placeholder="  email@example.com">
+                <button class="btn emailregister">등록</button>
+            </div>
+            <div class="added-email">
+                <span>qwer1234@gmail.com 
+                    <button class="remove-email">×</button>
+                </span>
+            </div>
+
+        </div>
+        <div class="modal-button">
+            <label>계정 권한</label>
+            <div>
+                <input type="radio" name="role" checked> 기업 관리자 권한
+                <input type="radio" name="role"> 뷰어 권한
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-role">초대 메일 발송</button>
+        </div>
+    </div>
+
+</body>
+<script src="/js/enterprise/member-manage.js"></script>
+
+</html>

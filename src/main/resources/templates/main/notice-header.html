@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>공지헤더</title>
+    <link rel="stylesheet" href="/css/main/notice-header.css">
+</head>
+<body>
+<!-- 상단 네비 -->
+<!-- 검색 모달창 -->
+<div class="searchModalLayout">
+    <div class="searchModalWindow">
+        <div class="notionQuickFindMenu">
+            <div class="searchModalWindow2">
+                <div class="searchSectionDivider">
+                    <div class="modalSearchInput">
+                        <svg viewBox="0 0 17 17" style="width: 18px; height: 18px; display: block; fill: rgba(55, 53, 47, 0.4); flex-shrink: 0; backface-visibility: hidden; flex-grow: 0; margin-right: 10px;"><path d="M6.78027 13.6729C8.24805 13.6729 9.60156 13.1982 10.709 12.4072L14.875 16.5732C15.0684 16.7666 15.3232 16.8633 15.5957 16.8633C16.167 16.8633 16.5713 16.4238 16.5713 15.8613C16.5713 15.5977 16.4834 15.3516 16.29 15.1582L12.1504 11.0098C13.0205 9.86719 13.5391 8.45215 13.5391 6.91406C13.5391 3.19629 10.498 0.155273 6.78027 0.155273C3.0625 0.155273 0.0214844 3.19629 0.0214844 6.91406C0.0214844 10.6318 3.0625 13.6729 6.78027 13.6729ZM6.78027 12.2139C3.87988 12.2139 1.48047 9.81445 1.48047 6.91406C1.48047 4.01367 3.87988 1.61426 6.78027 1.61426C9.68066 1.61426 12.0801 4.01367 12.0801 6.91406C12.0801 9.81445 9.68066 12.2139 6.78027 12.2139Z"></path></svg>
+                        <input placeholder="공지사항 & 자주 묻는 질문" type="text" class="searchInput" value>
+                    </div>
+                    <!-- 검색어 입력하면 뜨는 창 -->
+                    <div id="hiddenContents" style="display: none;">
+                        <!-- 검색 결과 O -->
+                        <section class="modalSearchContents" >
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalLockIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            점핏
+                                            <span class="searchWordEM">회원</span> 탈퇴하고 싶어요.
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 자주 묻는 질문 FAQ / 자주 묻는 질문 - 기업<span class="searchWordEM">회원</span>
+                                                편 / 질문 리스트를 확인해보세요!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalEventIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [당첨자 발표] 첫 입사지원 이벤트(12월 키보드)
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]  / 공지사항 게시판
+                                            </div>
+
+                                        </div>
+                                        <div class="searchTextMore">
+                                            대한상공회의소 KDT 훈련과정 인증 완료한
+                                            <span class="searchWordEM">회원</span>
+                                            중, 12월에 첫 입사지원 한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalEventIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [당첨자 발표] 첫 입사지원 이벤트(2주차)
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]  / 공지사항 게시판
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            과정 인증 완료한
+                                            <span class="searchWordEM">회원</span>
+                                            중, 11월 2주차(11/08~11/14)에 첫 입사지원 한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalEventIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [당첨자 발표] 첫 입사지원 이벤트(12월 2주차)
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]  / 공지사항 게시판
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            과정 인증 완료한
+                                            <span class="searchWordEM">회원</span>
+                                            중, 12월 2주차(12/06~12/12)에 첫 입사지원 한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalNoticeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            휴면회원 해제 안내
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / 이전 공지
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            r/  )에 로그인하셔서  [마이점핏 > 계정탈퇴] 메뉴에서 언제든지
+                                            <span class="searchWordEM">회원</span>
+                                            탈퇴가 가능합니다.
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalEventIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [당첨자 발표] 첫 입사지원 이벤트(12월 3주차)
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]  / 공지사항 게시판
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            과정 인증 완료한
+                                            <span class="searchWordEM">회원</span>
+                                            중, 12월 3주차(12/13~12/20)에 첫 입사지원 한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalEventIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [당첨자 발표] 첫 입사지원 이벤트(12월 1주차)
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]  / 공지사항 게시판
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            과정 인증 완료한
+                                            <span class="searchWordEM">회원</span>
+                                            중, 12월 1주차(11/29~12/5)에 첫 입사지원 한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <img class="notion-emoji modalEventIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [당첨자 발표] 첫 입사지원 이벤트(11월 키보드)
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]  / 공지사항 게시판
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            대한상공회의소 KDT 훈련과정 인증 완료한
+                                            <span class="searchWordEM">회원</span>
+                                            중, 11월에 첫 입사지원 한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <svg viewBox="0 0 30 30" class="pageEmpty" style="width: 19.8px; height: 19.8px; display: block; fill: rgba(55, 53, 47, 0.8); flex-shrink: 0; backface-visibility: hidden;"><g><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></g></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            [기업] 점핏 면접관 교육 3기 신청
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / 이전 공지
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            <span class="searchWordEM">회원</span>
+                                            이라면 누구나💡 기업 정보 등록은 필수!
+                                            만약,  기존 기업
+                                            <span class="searchWordEM">회원</span>
+                                            이라면? 신규
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="button" tabindex="0" class="searchContent">
+                                <div class="contentTextWrapper">
+                                    <div class="searchTextIcon">
+                                        <div class="notionRecordIcon">
+                                            <div class="modalSearchIcon">
+                                                <svg viewBox="0 0 30 30" class="pageEmpty" style="width: 19.8px; height: 19.8px; display: block; fill: rgba(55, 53, 47, 0.8); flex-shrink: 0; backface-visibility: hidden;"><g><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></g></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextContent">
+                                        <div class="searchTextTitle">
+                                            (이전)첫 입사지원 이벤트
+                                        </div>
+                                        <div class="searchDetailWrapper">
+                                            <div class="searchTextDetail">
+                                                개발자 커리어 점프, 점핏! / 공지사항 / [대한상공회의소]
+                                            </div>
+                                        </div>
+                                        <div class="searchTextMore">
+                                            <span class="searchWordEM">회원</span>
+                                            중, 아래 대한상공회의소 KDT 훈련생 이벤트 페이지의  이벤트 신청하기  버튼을 통해 이동한 페이지에서  신청하기 를 완료한
+                                            <span class="searchWordEM">회원</span>
+                                        </div>
+                                    </div>
+                                    <div class="searchTextButton">
+                                        <svg viewBox="0 0 14 12" class="enter searchHoverButton"><path d="M4.45869 11.0605C4.83955 11.0605 5.09736 10.791 5.09736 10.4219C5.09736 10.2285 5.02119 10.0879 4.904 9.9707L3.41572 8.51758L2.39033 7.65625L3.74384 7.71484H11.0563C12.527 7.71484 13.154 7.05273 13.154 5.59961V2.125C13.154 0.654297 12.527 0.0214844 11.0563 0.0214844H7.80439C7.41181 0.0214844 7.13642 0.314453 7.13642 0.677734C7.13642 1.03516 7.41181 1.32812 7.79853 1.32812H11.027C11.613 1.32812 11.8649 1.58008 11.8649 2.16602V5.55859C11.8649 6.16211 11.613 6.4082 11.027 6.4082H3.74384L2.39033 6.47266L3.41572 5.60547L4.904 4.1582C5.02119 4.04102 5.09736 3.89453 5.09736 3.70117C5.09736 3.33789 4.83955 3.06836 4.45869 3.06836C4.29462 3.06836 4.11298 3.14453 3.98408 3.27344L0.626656 6.57812C0.49189 6.70703 0.421577 6.88281 0.421577 7.06445C0.421577 7.24023 0.49189 7.41602 0.626656 7.54492L3.98408 10.8555C4.11298 10.9844 4.29462 11.0605 4.45869 11.0605Z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- // 검색 결과 O -->
+                        <!-- 검색 결과 X -->
+                        <!-- <section class="modalSearchContents">
+                            <div class="modalSearchNoResult">
+                                <div class="noResultText">
+                                    <h4 class="noResultTitle">결과 없음</h4>
+                                    <div class="noResultContext">
+                                        <div class="noResultText">다른 검색어를 입력해 보세요.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section> -->
+                        <!-- // 검색 결과 X -->
+                        <footer class="modalSearchFooter">
+                            검색 결과&nbsp;<span class="searchWordEM">10</span>
+                            개
+                        </footer>
+                    </div>
+                    <!-- // 검색어 입력하면 뜨는 창 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // 검색 모달창 -->
+<div class="upperNav">
+    <div class="navigationWrapper">
+        <div class="notionTopbar">
+            <div class="topIcon">
+                <a href="" class="iconWrapper"></a>
+                <img
+                        src="https://oopy.lazyrockets.com/api/rest/cdn/image/f6190c63-320b-4330-ab75-9d17d85239e3.png"
+                        class="iconHome"
+                />
+                </a>
+            </div>
+            <div class="navMenus">
+                <div class="navMenu">
+                    <div>
+                        <a href="" class="navText">템프 홈으로</a>
+                    </div>
+                </div>
+                <div class="navMenu">
+                    <div>
+                        <a href="#Notice" class="navText">공지사항</a>
+                    </div>
+                </div>
+                <div class="navMenu">
+                    <div>
+                        <a href="javascript:void(0)" onclick="scrollToBottom()" class="navText">자주 묻는 질문</a>
+                    </div>
+                </div>
+            </div>
+            <div class="navRightSide">
+                <div class="searchButton" role="button">
+                    <i class="searchIcon xi-search"></i>
+                </div>
+                <div class="styleMenu">
+                    <div role="button" class="menuButton">
+                        <i class="xi-ellipsis-h menuIcon"></i>
+                    </div>
+                    <div class="menuShareWindow">
+                        <div class="shareButtonsWrapper">
+                            <div class="shareWindow">
+                                <div class="shareInner">
+                                                                    <span class="shareTitle">
+                                                                        <i class="xi-share-alt" style="margin-right: 6px;"></i>
+                                                                        공유
+                                                                    </span>
+                                    <div class="shareButtons">
+                                        <div class="linkShareButton">
+                                            <svg x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" class="css-157xhr7" style="width: 14px; height: 14px; display: block; fill: rgb(55, 53, 47); flex-shrink: 0; backface-visibility: hidden;"><g><g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)"><path d="M6989.8,4950.3c-281.7-76.6-551.2-202.1-787-361.3c-98-67.4-612.5-560.4-1142.2-1090.2L4096,2531.1h367.5c379.7,0,652.3-42.9,989.1-156.2l196-64.3l633.9,630.8c765.6,759.4,829.9,799.2,1289.2,799.2c260.3,0,309.3-9.2,468.5-88.8c208.2-107.2,382.8-284.8,502.2-514.5c73.4-143.9,82.7-196,85.7-453.2c0-480.8,6.2-471.6-1252.5-1739.4c-591-594.1-1142.2-1126.9-1228-1185.1c-416.5-287.8-995.2-238.8-1353.5,113.3c-113.3,110.2-150,128.6-294,140.8c-217.4,18.4-281.7-18.4-630.8-370.5l-287.8-290.9l113.3-156.2c419.5-569.6,1243.3-934,1990.5-882c462.4,33.7,866.7,174.6,1221.9,431.8c232.7,168.4,2455.9,2397.8,2590.7,2599.9c150.1,220.5,272.6,499.2,342.9,787c95,370.5,73.5,915.6-49,1280c-241.9,719.6-771.7,1246.3-1500.5,1494.4C7951.4,5023.8,7335.9,5042.2,6989.8,4950.3z"></path><path d="M4059.3,1885c-241.9-39.8-578.8-165.4-820.7-309.3c-171.5-101.1-447.1-358.3-1402.5-1307.6C1180.7-381.1,589.7-993.5,522.4-1094.6C347.8-1345.7,207-1667.2,145.7-1952c-79.6-355.2-52.1-897.3,58.2-1228c248-728.8,774.8-1258.6,1494.4-1500.5c364.4-122.5,909.5-143.9,1280-49c315.4,79.6,591,205.1,839.1,382.8c104.1,76.6,612.5,563.4,1136.1,1087.1l949.3,952.3h-367.5c-379.7,0-652.2,42.9-989.1,156.2l-196,64.3l-630.8-624.7c-771.7-762.5-839.1-805.4-1292.3-805.4c-238.8,3.1-315.4,15.3-437.9,73.5c-214.4,104.1-425.7,309.3-526.7,514.5c-82.7,159.2-91.9,208.2-91.9,468.5c0,490-9.2,474.6,1249.4,1739.4C3214.1-126.9,3768.4,405.9,3851,464.1C4267.5,752,4846.3,703,5204.6,350.8c113.3-110.2,150-128.6,294-140.8c217.4-18.4,281.7,18.4,630.8,373.6l287.9,290.9l-125.5,168.4c-238.9,315.4-704.3,630.8-1123.9,762.5C4818.7,1915.6,4414.5,1943.2,4059.3,1885z"></path></g></g></svg>
+                                        </div>
+                                        <a href="" class="faceBook ShareButton">
+                                            <img src="https://cdn.lazyrockets.com/share/facebook-share.png" class="shareImg">
+                                        </a>
+                                        <a href="" class="twitter ShareButton">
+                                            <img src="https://cdn.lazyrockets.com/share/twitter-share.png" class="shareImg">
+                                        </a>
+                                        <a href="" class="linkedin ShareButton">
+                                            <img src="https://cdn.lazyrockets.com/share/linkedin-share.png" class="shareImg">
+                                        </a>
+                                        <a href="" class="pinterest ShareButton">
+                                            <img src="https://cdn.lazyrockets.com/share/pinterest-share.png" class="shareImg">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navUnderLine"></div>
+    </div>
+</div>
+<!-- // 상단 네비 -->
+</body>
+<script src="/js/main/notice-header.js"></script>
+</html>

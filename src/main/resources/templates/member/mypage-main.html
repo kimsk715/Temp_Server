@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 포지션 찾아보기 버튼 = 공고 목록 -->
+<!-- 이력서 완성하러가기 버튼 = 지원서 홈 버튼 -->
+
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="/static/css/member/mypage-main1.css" data-precedence="next" />
+    <link rel="stylesheet" href="/static/css/member/mypage-main2.css" />
+    <link rel="stylesheet" href="/static/css/member/mypage-main3.css" />
+    <title>템프 | 마이페이지</title>
+    <link rel="icon" href="/publishing/static/images/member/favicon.ico" />
+    <meta name="next-size-adjust" />
+    <style data-styled="active" data-styled-version="6.0.7">
+    </style>
+    <style>
+        @font-face {
+            font-family: Jumpit;
+            src: url("/static/fonts/member/ff840cfebfb63b0c-s.p.woff2");
+        }
+
+        * {
+            font-family: Jumpit;
+        }
+    </style>
+</head>
+
+<body class="__className_f53396">
+    <header class="header-sc">
+        <div class="div-sc1">
+            <div class="div-sc2">
+                <div class="logo-wrap">
+                    <a aria-label="점핏" class="logo-top" href="/">
+                        <!-- <img src="/publishing/static/images/member/temp-logo.png"
+                            width="62" height="28" fill="none"
+                            viewBox="0 0 62 28" aria-hidden="true"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="62" height="28" fill="none" viewBox="0 0 62 28"
+                            aria-hidden="true">
+                            <mask id="a" width="62" height="28" x="0" y="0" maskUnits="userSpaceOnUse"
+                                style="mask-type: luminance">
+                                <path fill="#fff" d="M62 0H0v28h62V0Z"></path>
+                            </mask>
+                            <g mask="url(#a)">
+                                <path fill="#000"
+                                    d="m1.58 12.65 2.957 3.274c2.17-1.123 4.173-2.776 5.905-4.769 1.222 1.746 2.894 3.274 4.635 4.334l3.83-3.804c-2.218-1.31-4.2-3.148-5.36-5.331.28-.593.537-.918.764-1.54h4.721l.954-4.361H5.377l-.924 4.36h4.585c-1.42 3.462-3.693 5.863-7.458 7.838Z">
+                                </path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M5.257.304H20.17l-1.019 4.659h-4.738a5.697 5.697 0 0 1-.334.703l-.086.157c-.091.164-.184.33-.28.527 1.15 2.124 3.091 3.92 5.269 5.207l.166.098-4.05 4.022-.1-.06a16.047 16.047 0 0 1-4.57-4.222c-1.713 1.941-3.686 3.556-5.824 4.662l-.102.052-3.162-3.501.17-.09c3.662-1.92 5.894-4.24 7.303-7.555H4.27l.987-4.66Zm.241.298-.86 4.063H9.26l-.084.205c-1.413 3.445-3.666 5.85-7.357 7.823l2.751 3.046c2.112-1.112 4.065-2.732 5.76-4.681l.124-.144.11.156c1.186 1.695 2.803 3.184 4.491 4.231l3.611-3.586c-2.168-1.314-4.103-3.133-5.25-5.292l-.035-.065.032-.068c.112-.236.22-.432.322-.616l.084-.15c.125-.23.242-.46.352-.761l.035-.098h4.706l.89-4.063H5.497Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#000"
+                                    d="M18.1 9.788h3.385l-1.866 7.75h5.354L28.887.448h-5.354L22.287 6.15h-3.383L18.1 9.788Z">
+                                </path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M23.413.298h5.66l-3.981 17.39H19.43l1.866-7.751h-3.382l.87-3.935h3.383L23.413.298Zm.24.298L22.407 6.3h-3.383l-.74 3.34h3.39l-1.865 7.75h5.045L28.7.596h-5.047Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#000"
+                                    d="M.483 27.214h22.564l1.926-9.675H2.584L.483 27.214Zm6.462-6.357 12.21-.012-.382 1.808H6.555l.393-1.796h-.003Z">
+                                </path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M2.464 17.39h22.69l-1.984 9.973H.298l2.166-9.973Zm.24.298L.669 27.065h22.257l1.866-9.377H2.705Zm16.634 3.008-.444 2.106H6.37l.433-1.977.142.031v-.148l12.393-.012Zm-.367.298-11.903.012-.328 1.498h11.912l.319-1.51Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#000"
+                                    d="M47.263 12.132h-2.22l1.281-5.868h-4.74l-1.28 5.868h-2.55l1.282-5.868h-4.62l-1.279 5.868H30.9l-.865 4.144H46.4l.864-4.144Z">
+                                </path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M34.296 6.115h4.925l-1.281 5.868h2.243l1.282-5.868h5.044l-1.281 5.868h2.218l-.926 4.442H29.851l.927-4.442h2.24l1.278-5.868Zm.24.298-1.279 5.868H31.02l-.802 3.846h16.06l.802-3.846h-2.222l1.281-5.868h-4.434l-1.282 5.868H37.57l1.282-5.868h-4.315Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#000" d="M49.725.45H33.617l-.96 4.364H48.76L49.725.45Z"></path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M33.497.3h16.414l-1.032 4.663H32.472L33.497.3Zm.24.299-.894 4.066H48.64l.9-4.066H33.737Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#000"
+                                    d="m45.296 19.079-4.68-1.466c-2.239 3.804-7.139 5.279-12.227 5.746l1.768 4.18c3.484-.406 7.377-1.996 10.498-4.365 2.453 2.121 6.411 3.897 10.045 4.272l2.969-4.301c-3.664-.376-7.05-.727-9.324-2.66.343-.438.659-.906.95-1.403v-.003Z">
+                                </path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="m40.548 17.436 4.897 1.533v.153l-.02.035c-.27.46-.56.895-.874 1.305 1.094.891 2.444 1.43 3.97 1.792 1.577.374 3.33.555 5.163.743l.25.025-3.161 4.581-.088-.009c-3.62-.374-7.554-2.123-10.036-4.228-3.124 2.343-6.998 3.916-10.475 4.32l-.111.013-1.89-4.47.202-.018c5.084-.467 9.914-1.938 12.113-5.673l.06-.102Zm.136.355c-2.275 3.745-7.101 5.213-12.079 5.697l1.645 3.89c3.428-.423 7.247-1.994 10.315-4.322l.096-.073.091.079c2.41 2.084 6.296 3.835 9.876 4.226l2.775-4.02c-1.74-.18-3.424-.362-4.951-.724-1.602-.38-3.042-.958-4.203-1.946l-.11-.092.089-.113c.301-.386.583-.795.845-1.228l-4.39-1.374Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#000" d="m53.183.453-3.475 15.823 5.359-.015L58.537.453h-5.354Z"></path>
+                                <path fill="#000" fill-rule="evenodd"
+                                    d="M53.063.304h5.659L55.187 16.41l-5.66dYtXSc5.015L53.063.304Zm.24.298-3.41 15.524 5.054-.014L58.351.602h-5.048Z"
+                                    clip-rule="evenodd"></path>
+                                <path fill="#5CF636"
+                                    d="M62 24.92a2.682 2.682 0 1 1-5.364-.002A2.682 2.682 0 0 1 62 24.92Z"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="searchbox-top">
+                    <div class="searchbox-inner">
+                        <div class="search-box">
+                            <input autocomplete="off" maxlength="50" placeholder="검색어를 입력해주세요" type="text" value="" />
+                            <button aria-label="검색" class="search-button" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
+                                    <g fill="none" fill-rule="evenodd" stroke="#222" stroke-width="2">
+                                        <circle cx="11.111" cy="11.111" r="7.111" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                        </circle>
+                                        <path d="m20 20-3.867-3.867">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        <button class="close-button">닫기</button>
+                    </div>
+                    <div class="searchbox-hidden">
+                        <div class="recentsearch">
+                            <h4>최근 검색어</h4>
+                        </div>
+                        <div class="searchbox-hidden-content">최근 검색어가
+                            없습니다.<br></div>
+                    </div>
+                    <div class="searchbox-onclick"></div>
+                </div>
+            </div>
+            <nav aria-label="Main navigation" class="nav-sc3">
+                <ul class="header4">
+                    <li>
+                        <a class="header-element5" href="/positions?sort=rsp_rate">개발자
+                            채용</a>
+                    </li>
+                    <li>
+                        <a class="header-element5" href="/resumes">이력서</a>
+                    </li>
+
+                </ul>
+                <ul class="header-right6">
+                    <li>
+                        <div class="header-right-user7">
+                            <button type="button">000님</button><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="none" viewBox="0 0 16 16">
+                                <path fill="#222" fill-rule="evenodd"
+                                    d="M13.472 5.195c.26.26.26.683 0 .943l-5 5a.667.667 0 0 1-.943 0l-5-5a.667.667 0 1 1 .943-.943L8 9.724l4.529-4.529c.26-.26.682-.26.943 0Z"
+                                    clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="header-right-menu8">
+                            <ul>
+                                <li><a href="/publishing/templates/member/mypage-main.html">마이점핏</a>
+                                </li>
+                                <li>
+                                    <button type="button">로그아웃</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-sc0">
+        <div>
+            <div class="main-wrapper0">
+                <div class="main-content1">
+                    <div>
+                        <h2><a href="/templates/member/mypage-main.html">마이템프</a>
+                        </h2>
+                        <div class="mypagemenu-wrapper">
+                            <ul class="mypagemenu1">
+                                <li class="mypagemenu2">
+                                    <a target="_self" href="/templates/member/mypage-applied.html">입사지원
+                                        현황</a>
+                                </li>
+                                <li class="mypagemenu2">
+                                    <a target="_self" href="/templates/member/mypage-scraplist.html">스크랩
+                                        리스트</a>
+                                </li>
+                                <li class="mypagemenu2">
+                                    <a target="_self" href="/templates/member/mypage-payment.html">결제
+                                        관리</a>
+                                </li>
+                                <li class="mypagemenu2-1">
+                                    <a target="_self" href="/templates/member/mypage-accountinfo.html">계정
+                                        정보 설정</a>
+                                </li>
+                                <li class="mypagemenu2">
+                                    <a target="_self" href="/templates/member/mypage-accountwithdrawl.html">계정
+                                        탈퇴</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content2">
+                    <h1>마이템프
+                    </h1>
+                    <ul class="topbox0">
+                        <li class="topbox-content1">
+                            <a href="/publishing/templates/member/mypage-applied.html">
+                                <dl>
+                                    <dt>고민중</dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li class="topbox-content1">
+                            <a href="/publishing/templates/member/mypage-applied.html">
+                                <dl>
+                                    <dt>지원완료</dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li class="topbox-content1">
+                            <a href="/publishing/templates/member/mypage-applied.html">
+                                <dl>
+                                    <dt>서류통과</dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li class="topbox-content1">
+                            <a href="/publishing/templates/member/mypage-applied.html">
+                                <dl>
+                                    <dt>최종합격</dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </a>
+                        </li>
+                        <li class="topbox-content1">
+                            <a href="/publishing/templates/member/mypage-applied.html">
+                                <dl>
+                                    <dt>불합격</dt>
+                                    <dd>0</dd>
+                                </dl>
+                            </a>
+                        </li>
+                    </ul>
+                    <a rel="noreferrer" target="_blank" href="/resumes">
+                        <div class="main-content4">
+                            <span><i></i></span><span></span><span><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                                    height="12" fill="none" viewBox="0 0 12 12">
+                                    <path fill="#222" fill-rule="evenodd"
+                                        d="M4.146 1.896a.5.5 0 0 1 .708 0l3.75 3.75a.5.5 0 0 1 0 .708l-3.75 3.75a.5.5 0 0 1-.708-.708L7.543 6 4.146 2.604a.5.5 0 0 1 0-.708Z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg></span>
+                        </div>
+                    </a><!--$--><!--/$-->
+                    <!-- 여기는 스크랩한 목록이 있을 경우에 -->
+                    <div class="mainpage-scraplist">
+                        <h1>잊지않으셨죠? 스크랩 리스트</h1><a href="/scraps">전체보기</a>
+                    </div>
+                    <div class="mainpage-scrapcontent">
+                        <div class="main-content5-bottom-box">
+                            <a target="_blank"
+                                title="AI Research Scientist (Computer Vision and Bioinformatics)_병역특례/전문연구요원 우대 (2~4년)"
+                                href="/position/42110">
+                                <div class="img-filter">
+                                </div>
+                                <div class="img-box">
+                                    <img alt="아론티어" class="img"
+                                        src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20253515103518656_567_378.webp">
+                                    <div class="d-date">
+                                        <span class="d-date-text">D-11</span>
+                                    </div>
+                                    <div class="counts">
+                                        <div class="position-view-count">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                <g fill="none" fill-rule="evenodd">
+                                                    <path d="M0 0h16v16H0z">
+                                                    </path>
+                                                    <g stroke="#FFF" stroke-linecap="round">
+                                                        <path
+                                                            d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                        </path>
+                                                        <path
+                                                            d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </svg><span></span>
+                                        </div><button aria-pressed="true" type="button" class="scrap-button"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                                viewBox="0 0 24 24">
+                                                <path fill="#00DD6D" fill-rule="evenodd"
+                                                    d="M6.403 20.825a1 1 0 0 1-1.653-.757V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.068a1 1 0 0 1-1.653.757L12 16l-5.597 4.825Z"
+                                                    clip-rule="evenodd">
+                                                </path>
+                                            </svg></button>
+                                    </div>
+                                </div>
+                                <div class="content-text">
+                                    <div class="content-text1">
+                                        <span>아론티어</span>
+                                    </div>
+                                    <h2 class="position_card_info_title">
+                                        AI Research
+                                        Scientist
+                                        (Computer Vision
+                                        and
+                                        Bioinformatics)_병역특례/전문연구요원
+                                        우대 (2~4년)</h2>
+                                    <ul class="content-text2">
+                                        <li>AI/인공지능</li>
+                                        <li>· PyTorch
+                                        </li>
+                                        <li>· Linux</li>
+                                        <li>· GitHub
+                                        </li>
+                                        <li>· Python
+                                        </li>
+                                    </ul>
+                                    <ul class="content-text3">
+                                        <li>경력 0년</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- 화면에 나타날 영역 -->
+                    <!-- 여기부터는 스크랩 리스트가 비어있을 때 -->
+                    <div class="main-content5">
+                        <h2>스크랩한 포지션이
+                            없어요<i>😥</i></h2>
+                        <div class="main-content5-top">
+                            <div>
+                                <p><span>📂</span></p>
+                                <p>스크랩한 포지션이 없어요.</p>
+                                <p>
+                                    관심있는 포지션을 찾아서 스크랩해보세요!
+                                </p>
+                                <button type="button" class="content-button1 content-button2">
+                                    포지션 찾아보기
+                                </button>
+                            </div>
+                        </div>
+                        <h2 class="main-content5-bottom-header">
+                            <span>이번주 인기
+                                포지션</span><a href="/positions?">전체보기</a>
+                        </h2>
+                        <div class="main-content5-bottom">
+                            <div class="main-content5-bottom-box">
+                                <a target="_self" title="Java 백엔드 개발자(경력: 5년~15년)" href="/position/39324">
+                                    <div class="img-filter">
+                                    </div>
+                                    <div class="img-box">
+                                        <img alt="아파트아이" class="img"
+                                            src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20251014101040302_567_378.webp" />
+                                        <div class="d-date">
+                                            <span class="d-date-text">D-7</span>
+                                        </div>
+                                        <div class="counts">
+                                            <div class="position-view-count">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0h16v16H0z">
+                                                        </path>
+                                                        <g stroke="#FFF" stroke-linecap="round">
+                                                            <path
+                                                                d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                            </path>
+                                                            <path
+                                                                d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg><span>539</span>
+                                            </div>
+                                            <button aria-pressed="false" type="button" class="scrap-button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <path fill="#222" fill-rule="evenodd"
+                                                        d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
+                                                        clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-text">
+                                        <div class="content-text1">
+                                            <span>아파트아이</span>
+                                        </div>
+                                        <h2 class="position_card_info_title">
+                                            Java 백엔드 개발자(경력:
+                                            5년~15년)
+                                        </h2>
+                                        <ul class="content-text2">
+                                            <li>Spring</li>
+                                            <li>· JavaScript
+                                            </li>
+                                            <li>· jQuery
+                                            </li>
+                                            <li>· Java</li>
+                                        </ul>
+                                        <ul class="content-text3">
+                                            <li>서울 금천구</li>
+                                            <li>경력 5~15년
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--  -->
+                            <div class="main-content5-bottom-box">
+                                <a target="_self" title="Payment 개발 담당자(JAVA 기반)" href="/position/41047">
+                                    <div class="img-filter">
+                                    </div>
+                                    <div class="img-box">
+                                        <img alt="디어유" class="img"
+                                            src="https://cdn.jumpit.co.kr/lg/images/dabin_3358/20243708143740292_739_503.webp" />
+                                        <div class="d-date">
+                                            <span class="d-date-text">D-5</span>
+                                        </div>
+                                        <div class="counts">
+                                            <div class="position-view-count">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0h16v16H0z">
+                                                        </path>
+                                                        <g stroke="#FFF" stroke-linecap="round">
+                                                            <path
+                                                                d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                            </path>
+                                                            <path
+                                                                d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg><span>663</span>
+                                            </div>
+                                            <button aria-pressed="false" type="button" class="scrap-button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <path fill="#222" fill-rule="evenodd"
+                                                        d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
+                                                        clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-text">
+                                        <div class="content-text1">
+                                            <span>디어유</span>
+                                        </div>
+                                        <h2 class="position_card_info_title">
+                                            Payment 개발
+                                            담당자(JAVA 기반)
+                                        </h2>
+                                        <ul class="content-text2">
+                                            <li>Java</li>
+                                            <li>· REST API
+                                            </li>
+                                            <li>· Spring
+                                                Boot</li>
+                                            <li>· AWS</li>
+                                            <li>· Python
+                                            </li>
+                                            <li>· MySQL</li>
+                                            <li>· NoSql</li>
+                                            <li>· Redis</li>
+                                            <li>·
+                                                Elasticsearch
+                                            </li>
+                                            <li>· Cassandra
+                                            </li>
+                                        </ul>
+                                        <ul class="content-text3">
+                                            <li>서울 강남구</li>
+                                            <li>경력 3~7년</li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--  -->
+                            <div class="main-content5-bottom-box">
+                                <a target="_self" title="Back-End Engineer" href="/position/41440">
+                                    <div class="img-filter">
+                                    </div>
+                                    <div class="img-box">
+                                        <img alt="불마켓랩스(BullMarketLabsCo.Ltd.)" class="img"
+                                            src="https://cdn.jumpit.co.kr/lg/images/210217/20240829110802451_1080_790.webp" />
+                                        <div class="d-date">
+                                            <span class="d-date-text">D-8</span>
+                                        </div>
+                                        <div class="counts">
+                                            <div class="position-view-count">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0h16v16H0z">
+                                                        </path>
+                                                        <g stroke="#FFF" stroke-linecap="round">
+                                                            <path
+                                                                d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                            </path>
+                                                            <path
+                                                                d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg><span>259</span>
+                                            </div>
+                                            <button aria-pressed="false" type="button" class="scrap-button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <path fill="#222" fill-rule="evenodd"
+                                                        d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
+                                                        clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-text">
+                                        <div class="content-text1">
+                                            <span>불마켓랩스(BullMarketLabsCo.Ltd.)</span>
+                                        </div>
+                                        <h2 class="position_card_info_title">
+                                            Back-End
+                                            Engineer
+                                        </h2>
+                                        <ul class="content-text2">
+                                            <li>Kotlin</li>
+                                            <li>· Spring
+                                                Boot</li>
+                                            <li>· Go</li>
+                                            <li>· Python
+                                            </li>
+                                            <li>· Java</li>
+                                            <li>· MySQL</li>
+                                            <li>· Apache
+                                                RocketMQ
+                                            </li>
+                                            <li>· Kubernetes
+                                            </li>
+                                            <li>· Rust</li>
+                                            <li>· Kafka</li>
+                                        </ul>
+                                        <ul class="content-text3">
+                                            <li>서울 강남구</li>
+                                            <li>경력 7~10년
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--  -->
+                            <div class="main-content5-bottom-box">
+                                <a target="_self" title="Java개발자 (Cloud Native) (경력 3년~5년)" href="/position/41480">
+                                    <div class="img-filter">
+                                    </div>
+                                    <div class="img-box">
+                                        <img alt="엠로" class="img"
+                                            src="https://cdn.jumpit.co.kr/lg/images/dabin_3358/20255820135810672_1500_1000.webp" />
+                                        <div class="d-date">
+                                            <span class="d-date-text">D-7</span>
+                                        </div>
+                                        <div class="counts">
+                                            <div class="position-view-count">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0h16v16H0z">
+                                                        </path>
+                                                        <g stroke="#FFF" stroke-linecap="round">
+                                                            <path
+                                                                d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                            </path>
+                                                            <path
+                                                                d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg><span>488</span>
+                                            </div>
+                                            <button aria-pressed="false" type="button" class="scrap-button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <path fill="#222" fill-rule="evenodd"
+                                                        d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
+                                                        clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-text">
+                                        <div class="content-text1">
+                                            <span>엠로</span>
+                                        </div>
+                                        <h2 class="position_card_info_title">
+                                            Java개발자 (Cloud
+                                            Native) (경력
+                                            3년~5년)
+                                        </h2>
+                                        <ul class="content-text2">
+                                            <li>AWS</li>
+                                            <li>· AZURE</li>
+                                            <li>· Java</li>
+                                            <li>· JavaScript
+                                            </li>
+                                            <li>· Oracle
+                                            </li>
+                                        </ul>
+                                        <ul class="content-text3">
+                                            <li>서울 영등포구</li>
+                                            <li>경력 3~5년</li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--  -->
+                            <div class="main-content5-bottom-box">
+                                <a target="_self" title="Game Programmer 경력 채용" href="/position/41539">
+                                    <div class="img-filter">
+                                    </div>
+                                    <div class="img-box">
+                                        <img alt="퍼즐원스튜디오" class="img"
+                                            src="https://cdn.jumpit.co.kr/lg/images/support_5470/20214418134424796_1652_1232.webp" />
+                                        <div class="d-date">
+                                            <span class="d-date-text">D-8</span>
+                                        </div>
+                                        <div class="counts">
+                                            <div class="position-view-count">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0h16v16H0z">
+                                                        </path>
+                                                        <g stroke="#FFF" stroke-linecap="round">
+                                                            <path
+                                                                d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                            </path>
+                                                            <path
+                                                                d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg><span>272</span>
+                                            </div>
+                                            <button aria-pressed="false" type="button" class="scrap-button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <path fill="#222" fill-rule="evenodd"
+                                                        d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
+                                                        clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-text">
+                                        <div class="content-text1">
+                                            <span>퍼즐원스튜디오</span>
+                                        </div>
+                                        <h2 class="position_card_info_title">
+                                            Game Programmer
+                                            경력 채용
+                                        </h2>
+                                        <ul class="content-text2">
+                                            <li>Unity</li>
+                                            <li>· iOS</li>
+                                            <li>· Android OS
+                                            </li>
+                                            <li>· Google
+                                                Drive</li>
+                                            <li>· Slack</li>
+                                            <li>· Jenkins
+                                            </li>
+                                            <li>· Git</li>
+                                            <li>· C#</li>
+                                        </ul>
+                                        <ul class="content-text3">
+                                            <li>경기 성남시</li>
+                                            <li>경력 5~10년
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--  -->
+                            <div class="main-content5-bottom-box">
+                                <a target="_self" title="백엔드 엔지니어(3년 이상)" href="/position/41618">
+                                    <div class="img-filter">
+                                    </div>
+                                    <div class="img-box">
+                                        <img alt="레플리" class="img"
+                                            src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20252915102949724_567_378.webp" />
+                                        <div class="d-date">
+                                            <span class="d-date-text">D-12</span>
+                                        </div>
+                                        <div class="counts">
+                                            <div class="position-view-count">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                                    <g fill="none" fill-rule="evenodd">
+                                                        <path d="M0 0h16v16H0z">
+                                                        </path>
+                                                        <g stroke="#FFF" stroke-linecap="round">
+                                                            <path
+                                                                d="M8 10c.86 0 1.556-.672 1.556-1.5S8.859 7 8 7c-.86 0-1.556.672-1.556 1.5S7.141 10 8 10z">
+                                                            </path>
+                                                            <path
+                                                                d="M15 8.5c-1.469 2.243-4.108 4.5-7 4.5-2.892 0-5.531-2.257-7-4.5C2.788 6.369 4.882 4 8 4s5.212 2.369 7 4.5z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </svg><span>372</span>
+                                            </div>
+                                            <button aria-pressed="false" type="button" class="scrap-button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    fill="none" viewBox="0 0 24 24">
+                                                    <path fill="#222" fill-rule="evenodd"
+                                                        d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
+                                                        clip-rule="evenodd">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="content-text">
+                                        <div class="content-text1">
+                                            <span>레플리</span>
+                                        </div>
+                                        <h2 class="position_card_info_title">
+                                            백엔드 엔지니어(3년 이상)
+                                        </h2>
+                                        <ul class="content-text2">
+                                            <li>Kotlin</li>
+                                            <li>· Spring
+                                            </li>
+                                            <li>· Golang
+                                            </li>
+                                        </ul>
+                                        <ul class="content-text3">
+                                            <li>서울 종로구</li>
+                                            <li>경력 3~10년
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 화면에 나타날 영역 -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="modal"></div>
+    <!-- <script src="/_next/static/chunks/webpack-e00980e9ec739c33.js" async=""></script>
+    <script>
+        (self.__next_f = self.__next_f || []).push([0]);
+        self.__next_f.push([2, null]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '1:HL["/_next/static/media/ff840cfebfb63b0c-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]\n2:HL["/_next/static/css/cad931bac97f5ecb.css","style"]\n0:"$L3"\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '4:I[33728,[],""]\n6:I[29928,[],""]\n7:I[24210,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\n8:I[1138,["6394","static',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\n9:I[70823,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/55',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '26-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '3:[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cad931bac97f5ecb.css","precedence":"next","crossOrigin":"$undefined"}]],["$","$L4",null,{"buildId":"dCwh5V_20LakbHArMcuQy","assetPrefix":"","initialCanonicalUrl":"/myjumpit","initialTree":["",{"children":["(main)",{"children":["myjumpit",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],"initialHead":[false,"$L5"],"globalErrorComponent":"$6","children":[null,["$","html",null,{"lang":"ko","children":[["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{"children":"$La"}]]}],null]}]]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '5:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"점핏 | 마이페이지"}],["$","meta","2",{"name":"description","content":"개발자 맞춤 이력서와 채용 공고, 취업·이직 꿀팁 콘텐츠 확인하고 점핏으로 FIT하게 취업하자!"}],["$","meta","3",{"name":"keywords","content":"개발자 채용,이력서,이력서양식,스타트업 채용,대기업 채용,취업,구인,구직,면접제안,기업정보,커리어,커리어개발,기업정보,채용정보"}],["$","meta","4",{"name":"viewport","content":"width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"}],["$","meta","5",{"name":"naver-site-verification","content":"b0e5d9e30ab4abe67694a4472741b130e5833906"}],["$","link","6",{"rel":"icon","href":"/favicon.ico"}],["$","meta","7",{"name":"next-size-adjust"}]]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'b:I[7019,["6394","static/chunks/6394-782c5889429c5852.js","1396","static/chunks/1396-14d93c165c0c55b0.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","1527","static/chunks/1527-600699e62b81c450.js","6548","static/chunks/6548-127b7943b33fe3fd.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","8528","static/chunks/8528-c1d2ea7caa70441b.js","6691","static/chunks/6691-dfc5ace00217b43e.js","630","static/chunks/630-f4c0982151fb6384.js","5866","static/chunks/5866-9975f1843c8655f6.js","3164","static/chunks/3164-5b5385fe3103e55c.js","3807","static/chunks/3807-d3ba823e15f6cab5.js","1931","static/chunks/app/page-03b0154981d5674e.js"],"Hydrate"]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'c:I[47738,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\nd:I[19290,["6394","static/chunks/6394-782c5889429c5852.js"',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            ',"5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\ne:I[38869,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","s',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'tatic/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\nf:I[3462,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunk',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            's/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\n10:I[66012,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\n11:I[83818,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],""]\n12:I[56954,[],""]\n13:I[86340,["6394","static/chunks/6394-782c5889429c5852.js","6340","static/chunks/6340-869fcd011d2d7429.js","7601","static/chunks/app/error-7b994f86a1197aef.js"],""]\n14:I[7264,[],""]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '16:I[20947,["6394","static/chunks/6394-782c5889429c5852.js","1396","static/chunks/1396-14d93c165c0c55b0.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","1527","static/chunks/1527-600699e62b81c450.js","6548","static/chunks/6548-127b7943b33fe3fd.js","8528","static/chunks/8528-c1d2ea7caa70441b.js","3164","static/chunks/3164-5b5385fe3103e55c.js","3807","static/chunks/3807-d3ba823e15f6cab5.js","4095","static/chunks/app/(main)/layout-546fee3e9e2585ae.js"],""]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '18:I[62654,["6394","static/chunks/6394-782c5889429c5852.js","1396","static/chunks/1396-14d93c165c0c55b0.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","1527","static/chunks/1527-600699e62b81c450.js","6548","static/chunks/6548-127b7943b33fe3fd.js","2999","static/chunks/2999-1126533e5f047c0f.js","2373","static/chunks/2373-62da5f649e4019d0.js","630","static/chunks/630-f4c0982151fb6384.js","1909","static/chunks/1909-746177f92ca6c0a3.js","2960","static/chunks/2960-051011134866df68.js","8647","static/chunks/app/(main)/myjumpit/page-438cf6bc3f692a3b.js"],""]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '19:I[74283,["6394","static/chunks/6394-782c5889429c5852.js","1396","static/chunks/1396-14d93c165c0c55b0.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","1527","static/chunks/1527-600699e62b81c450.js","6548","static/chunks/6548-127b7943b33fe3fd.js","2999","static/chunks/2999-1126533e5f047c0f.js","2373","static/chunks/2373-62da5f649e4019d0.js","630","static/chunks/630-f4c0982151fb6384.js","1909","static/chunks/1909-746177f92ca6c0a3.js","2960","static/chunks/2960-051011134866df68.js","8647","static/chunks/app/(main)/myjumpit/page-438cf6bc3f692a3b.js"],""]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '1a:I[57021,["6394","static/chunks/6394-782c5889429c5852.js","5526","static/chunks/5526-48949280dbc9d3fa.js","8285","static/chunks/8285-67151ff55d513e44.js","9222","static/chunks/9222-0b87edff29c22664.js","3198","static/chunks/3198-d5e30da27a8b69a1.js","9903","static/chunks/9903-e4aec8f8082baf1a.js","9536","static/chunks/9536-17c5180b41a54dae.js","5812","static/chunks/5812-2e7efb9d8229a50d.js","3185","static/chunks/app/layout-bae7e4122ffb501d.js"],"ReactQueryDevtools"]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            'a:["$","$Lb",null,{"state":{"mutations":[],"queries":[{"state":{"data":{"integratedId":"kimsk715","integratedMemberId":"21360012","username":"김승균","email":"kimsk715@gmail.com","trainingStudentVerified":false,"integrated":true},"dataUpdateCount":1,"dataUpdatedAt":1737886602247,"error":null,"errorUpdateCount":0,"errorUpdatedAt":0,"fetchFailureCount":0,"fetchFailureReason":null,"fetchMeta":null,"isInvalidated":false,"status":"success","fetchStatus":"idle"},"queryKey":["auth","verifyStatus","VERIFY_STATUS"],"queryHash":"[\\"auth\\",\\"verifyStatus\\",\\"VERIFY_STATUS\\"]"},{"state":{"data":false,"dataUpdateCount":1,"dataUpdatedAt":1737886602322,"error":null,"errorUpdateCount":0,"errorUpdatedAt":0,"fetchFailureCount":0,"fetchFailureReason":null,"fetchMeta":null,"isInvalidated":false,"status":"success","fetchStatus":"idle"},"queryKey":["event","firstApplyPay",""],"queryHash":"[\\"event\\",\\"firstApplyPay\\",\\"\\"]"},{"state":{"data":{"valid":true,"integrated":true,"blockedSession":false,"pcRedirectUrl":"","moRedirectUrl":"","needUrlEncode":false,"needAlert":false,"alertMessage":""},"dataUpdateCount":1,"dataUpdatedAt":1737886602323,"error":null,"errorUpdateCount":0,"errorUpdatedAt":0,"fetchFailureCount":0,"fetchFailureReason":null,"fetchMeta":null,"isInvalidated":false,"status":"success","fetchStatus":"idle"},"queryKey":["auth","sessionCheck","SESSION_CHECK"],"queryHash":"[\\"auth\\",\\"sessionCheck\\",\\"SESSION_CHECK\\"]"}]},"children":["$","$Lc",null,{"children":["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"children":["$","$L10",null,{"children":["$","body",null,{"className":"__className_f53396","children":["$","$L11",null,{"children":[["$","$L12",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"error":"$13","errorStyles":[],"template":["$","$L14",null,{}],"templateStyles":"$undefined","notFound":"$L15","notFoundStyles":[],"childProp":{"current":[null,["$","$L16",null,{"children":["$","$L12",null,{"parallelRouterKey":"children","segmentPath":["children","(main)","children"],"loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","template":["$","$L14",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$","$L12",null,{"parallelRouterKey":"children","segmentPath":["children","(main)","children","myjumpit","children"],"loading":"$undefined","loadingStyles":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","template":["$","$L14",null,{}],"templateStyles":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","childProp":{"current":["$L17",["$","$L18",null,{"children":["$","$L19",null,{}]}],null],"segment":"__PAGE__"},"styles":[]}],"segment":"myjumpit"},"styles":[]}]}],null],"segment":"(main)"},"styles":[]}],["$","div",null,{"id":"modal"}],["$","$L1a",null,{"initialIsOpen":false}]]}]}]}]}]}]}]}]}]\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([
+            1,
+            '15:E{"digest":"NEXT_REDIRECT;replace;/;false"}\n',
+        ]);
+    </script>
+    <script>
+        self.__next_f.push([1, "17:null\n"]);
+    </script>
+    <script src="https://dynamic.criteo.com/js/ld/ld.js?a=116898" async="true" id="criteo"
+        data-nscript="afterInteractive"></script>
+    <script id="airBridge" data-nscript="afterInteractive">
+        (function (a_, i_, r_, _b, _r, _i, _d, _g, _e) {
+            if (!a_[_b]) {
+                var n = function () {
+                    var c = i_.createElement(r_);
+                    c.onerror = function () {
+                        g.queue
+                            .filter(function (a) {
+                                return 0 <= _d.indexOf(a[0]);
+                            })
+                            .forEach(function (a) {
+                                a = a[1];
+                                a = a[a.length - 1];
+                                "function" === typeof a &&
+                                    a(
+                                        "error occur when load airbridge"
+                                    );
+                            });
+                    };
+                    c.async = 1;
+                    c.src = _r;
+                    "complete" === i_.readyState
+                        ? i_.head.appendChild(c)
+                        : a_.addEventListener("load", function h() {
+                            a_.removeEventListener("load", h);
+                            i_.head.appendChild(c);
+                        });
+                },
+                    g = {
+                        queue: [],
+                        get isSDKEnabled() {
+                            return !1;
+                        },
+                    };
+                _i.concat(_d).forEach(function (c) {
+                    var a = c.split("."),
+                        h = a.pop();
+                    a.reduce(function (p, q) {
+                        return (p[q] = p[q] || {});
+                    }, g)[h] = function () {
+                        g.queue.push([c, arguments]);
+                    };
+                });
+                a_[_b] = g;
+                0 < _g
+                    ? ((_b = new (a_.XDomainRequest ||
+                        a_.XMLHttpRequest)()),
+                        (_i = function () { }),
+                        _b.open("GET", _r),
+                        (_b.timeout = _g),
+                        (_b.onload = function () {
+                            n();
+                        }),
+                        (_b.onerror = _i),
+                        (_b.onprogress = _i),
+                        (_b.ontimeout = _i),
+                        _b.send())
+                    : n();
+            }
+        })(
+            window,
+            document,
+            "script",
+            "airbridge",
+            "//static.airbridge.io/sdk/latest/airbridge.min.js",
+            "init startTracking fetchResource setBanner setDownload setDownloads openDeeplink setDeeplinks sendWeb setUserAgent setUserAlias addUserAlias setMobileAppData setUserId setUserEmail setUserPhone setUserAttributes clearUser setDeviceAlias removeDeviceAlias clearDeviceAlias setDeviceIFV setDeviceIFA setDeviceGAID events.send events.signIn events.signUp events.signOut events.purchased events.addedToCart events.productDetailsViewEvent events.homeViewEvent events.productListViewEvent events.searchResultViewEvent".split(
+                " "
+            ),
+            ["events.wait", "createTouchpoint"],
+            0
+        );
+        window.airbridge.init({
+            app: "jumpit",
+            webToken: "cab14464d48a4840b04d50d3b73d456b",
+            useProtectedAttributionWindow: true,
+            utmParsing: true,
+            cookieWindow: 1,
+        });
+    </script>
+    <script id="facebook-pixel" data-nscript="afterInteractive">
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod
+                    ? n.callMethod.apply(n, arguments)
+                    : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "1681723895361933");
+    </script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-HLK7K0XF15" id="google-analytics"
+        data-nscript="afterInteractive"></script>
+    <script id="google-analytics-data" data-nscript="afterInteractive">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-HLK7K0XF15");
+    </script>
+    <script id="google-tag-manager" data-nscript="afterInteractive">
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                "gtm.start": new Date().getTime(),
+                event: "gtm.js",
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-K2J5HLX");
+    </script>
+    <script src="https://t1.daumcdn.net/kas/static/kp.js" id="kakao-pixel" data-nscript="afterInteractive"></script>
+    <script src="https://cdn.megadata.co.kr/dist/prod/v2/mtm.js?adverId=jumpit&amp;device=B" id="mobon"
+        data-nscript="afterInteractive"></script>
+    <next-route-announcer style="position: absolute"></next-route-announcer><iframe allow="join-ad-interest-group"
+        data-tagging-id="G-HLK7K0XF15" data-load-time="1737886601268" height="0" width="0"
+        src="https://td.doubleclick.net/td/ga/rul?tid=G-HLK7K0XF15&amp;gacid=1029725707.1732531337&amp;gtm=45je51n0v877665575za200&amp;dma=0&amp;gcd=13l3l3l3l1l1&amp;npa=0&amp;pscdl=noapi&amp;aip=1&amp;fledge=1&amp;frm=0&amp;tag_exp=102067555~102067808~102081485~102123608&amp;z=1490588846"
+        style="display: none; visibility: hidden"></iframe> -->
+</body>
+<script src="/static/js/member/mypage-all.js"></script>
+
+</html>
