@@ -16,10 +16,9 @@ public class MemberDTO {
     private String memberPhone;
     private String memberRecentLogin;
     private String memberEmail;
-    private String memberPassword;
     private String memberProfilePath;
     private String memberClass;
-    private String memberPoint;
+    private int memberPoint;
     private String memberStatus;
     private String createdDate;
     private String updatedDate;
@@ -31,7 +30,6 @@ public class MemberDTO {
         memberVO.setMemberPhone(memberPhone);
         memberVO.setMemberRecentLogin(memberRecentLogin);
         memberVO.setMemberEmail(memberEmail);
-        memberVO.setMemberPassword(memberPassword);
         memberVO.setMemberProfilePath(memberProfilePath);
         memberVO.setMemberClass(memberClass);
         memberVO.setMemberPoint(memberPoint);

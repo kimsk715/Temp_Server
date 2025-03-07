@@ -13,4 +13,31 @@
     <select id="selectById" resultType="companyDTO">
         SELECT * FROM TBL_COMPANY WHERE ID = #{id}
     </select>
+    <select id="selectAllAdmin" resultType="companyMemberAdminListDTO">
+        SELECT M.ID, C.COMPANY_NAME, C.COMPANY_BUSINESS_NUMBER, M.MEMBER_NAME, M.MEMBER_EMAIL, M.MEMBER_REGISTER_DATE, M.MEMBER_RECENT_LOGIN, M.MEMBER_STATUS
+        FROM TBL_COMPANY_MEMBER CM
+                 JOIN TBL_MEMBER M
+                      ON CM.ID = M.ID
+                 JOIN TBL_COMPANY C
+                      ON C.ID = CM.COMPANY_ID
+        WHERE M.MEMBER_CLASS='기업'
+    </select>
+
+    <select id="selectMemberInfoAdmin" resultType="companyMemberInfoAdminDTO">
+        SELECT M.ID, C.ID AS COMPANY_ID, C.COMPANY_NAME, C.COMPANY_BUSINESS_NUMBER, C.COMPANY_ESTABLISHMENT, C.COMPANY_EMPLOYEE, C.COMPANY_ADDRESS, C.COMPANY_LOGO_PATH, C.COMPANY_URL, C.COMPANY_CERTIFICATE_PATH, C.COMPANY_INTRODUCE, C.COMPANY_WELFARE, C.COMPANY_CULTURE, C.COMPANY_CEO
+             ,CM.COMPANY_MEMBER_DEPARTMENT, CM.COMPANY_MEMBER_POSITION, M.MEMBER_RECENT_LOGIN, M.MEMBER_REGISTER_DATE, M.MEMBER_NAME, M.MEMBER_PHONE, M.MEMBER_EMAIL, M.MEMBER_STATUS
+        FROM TBL_COMPANY C
+                 JOIN TBL_COMPANY_MEMBER CM
+                      ON CM.COMPANY_ID = C.ID
+                 JOIN TBL_MEMBER M
+                      ON M.ID = CM.ID
+        WHERE M.ID = #{id} AND M.MEMBER_CLASS='기업'
+    </select>
+
+    <update id="update">
+        UPDATE TBL_MEMBER
+        SET MEMBER_STATUS = #{memberStatus}
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

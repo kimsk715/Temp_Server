@@ -205,18 +205,21 @@
                 <!-- 메인 컨텐츠 목록 시작 -->
                 <div class="mainContentsWrapper">
                     <div class="mainContentsList">
-                        <div class="mainContentCard">
-                            <a href="">
+                        <div class="mainContentCard" th:each="mainProgramListDTO : ${mainProgramListDTOS}">
+<!--                            <a th:href="|/program/detail/${mainProgramListDTO.id}|">-->
                                 <div class="imgBox">
                                     <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20251014101040302_567_378.webp"
+                                        th:src="${mainProgramListDTO.programThumbnailPath}"
                                         class="img"
                                     />
                                     <div class="imgDdayBadge">
-                                        <span class="dayLeft">D-4</span>
+                                        <span class="dayLeft" th:text="|D-${mainProgramListDTO.dDay}|"></span>
                                     </div>
                                     <div class="count">
-                                        <button class="scrapButton">
+                                        <button type="button" class="scrapButton"
+                                                th:id="|button-${mainProgramListDTO.id}|"
+                                                th:aria-pressed="${mainProgramListDTO.scrapStatus}"
+                                                th:attr="onclick=|toggleScrap(${mainProgramListDTO.id})|, aria-pressed=${isScrapped}">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -225,7 +228,7 @@
                                                 viewBox="0 0 24 24"
                                             >
                                                 <path
-                                                    fill="#222"
+                                                    fill="#000000"
                                                     fill-rule="evenodd"
                                                     d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
                                                     clip-rule="evenodd"
@@ -236,10 +239,9 @@
                                 </div>
                                 <div class="contentText">
                                     <div class="companyName">
-                                        <span>아파트아이</span>
+                                        <span th:text="${mainProgramListDTO.CompanyName}"></span>
                                     </div>
-                                    <h2 class="positionCardTitle">
-                                        Java 백엔드 개발자(경력: 5년~15년)
+                                    <h2 class="positionCardTitle" th:text="${mainProgramListDTO.ProgramName}">
                                     </h2>
                                     <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
                                     <ul class="requiredSkill">
@@ -253,7 +255,7 @@
                                         <li>경력 5~15년</li>
                                     </ul>
                                 </div>
-                            </a>
+<!--                            </a>-->
                         </div>
                         <div class="mainContentCard">
                             <a href="">

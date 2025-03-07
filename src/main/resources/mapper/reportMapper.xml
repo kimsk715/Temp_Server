@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.temp.mapper.ReportMapper">
+    <select id="selectReportListDtoByMemberId" resultType="reportListDTO">
+        SELECT MEMBER_ID, REPORT_TYPE, REPORT_STATUS, CREATED_DATE FROM TBL_REPORT
+        WHERE MEMBER_ID = #{id}
+    </select>
+
+    <select id="selectCompanyReportDTOByCompanyId" resultType="companyReportDTO">
+        SELECT CM.COMPANY_ID, R.REPORT_DATE, R.REPORT_TYPE, R.REPORT_STATUS
+        FROM TBL_REPORT R
+        JOIN TBL_COMPANY_MEMBER CM
+        ON R.MEMBER_ID = CM.MEMBER_ID
+    </select>
+</mapper>

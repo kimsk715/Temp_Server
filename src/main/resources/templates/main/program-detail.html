@@ -19,13 +19,13 @@
         <!-- // 헤더 끝 -->
         <!-- 메인 시작 -->
         <main>
-            <div class="mainWrapper">
+            <div class="mainWrapper" th:object="${programInfo}">
                 <!-- 메인 정보 시작 -->
                 <section class="mainContent">
                     <div class="contentTitle">
-                        <h1>레진코믹스 백엔드 개발자</h1>
+                        <h1 th:text="*{programName}"></h1>
                         <a href="" class="name">
-                            <span>레진엔터테인먼트</span>
+                            <span th:text="*{companyName}"></span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="12"

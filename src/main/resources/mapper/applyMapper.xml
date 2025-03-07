@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.temp.mapper.ApplyMapper">
+    <select id="selectApplyListDtoByMemberId" resultType="applyListDTO">
+        SELECT PC.PROGRAM_NAME, PC.COMPANY_NAME, A.CREATED_DATE, A.APPLY_MEMBER_STATUS, A.MEMBER_ID
+        FROM TBL_APPLY A
+                 JOIN
+             (
+                 SELECT P.PROGRAM_NAME, C.COMPANY_NAME, P.ID FROM TBL_PROGRAM P
+                                                                      JOIN TBL_COMPANY C
+                                                                           ON C.ID = P.COMPANY_ID
+             ) PC
+             ON PC.ID = A.PROGRAM_ID
+
+        WHERE A.MEMBER_ID = #{id}
+    </select>
+
+    <select id="selectCompanyProgramDTOByCompanyId" resultType="companyProgramDTO">
+         SELECT ID, PROGRAM_NAME, CREATED_DATE, PROGRAM_END_DATE, PROGRAM_EXPIRED
+         FROM TBL_PROGRAM
+         WHERE COMPANY_ID = #{companyId}
+    </select>
+
+    <select id="selectAll" resultType="programListDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, P.PROGRAM_STATUS
+        FROM TBL_PROGRAM P
+        JOIN TBL_COMPANY C
+        ON P.COMPANY_ID = C.ID
+    </select>
+
+    <select id="selectProgramInfoDTOById" resultType="ProgramInfoDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, P.PROGRAM_STATUS, P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT, P.PROGRAM_THUMBNAIL_PATH
+        FROM TBL_PROGRAM P
+                 JOIN TBL_COMPANY C
+                      ON P.COMPANY_ID = C.ID
+        WHERE P.ID = #{id}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_PROGRAM
+        SET PROGRAM_STATUS = #{programStatus}
+        WHERE ID = #{id}
+    </update>
+
+    <!-- 이 위는 모두 관리자용 기능. -->
+<!-- 일반회원용 프로그램 전체 목록 조회 -->
+    <select id="selectAllMain" resultType="mainProgramListDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) DDAY
+        FROM TBL_PROGRAM P
+                 JOIN TBL_COMPANY C
+                      ON P.COMPANY_ID = C.ID
+    </select>
+
+<!--카테고리로 프로그램 검색-->
+    <select id="selectAllByCategoryCId" resultType="mainProgramListDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID
+        FROM TBL_PROGRAM P
+                 JOIN TBL_COMPANY C
+                      ON P.COMPANY_ID = C.ID
+        WHERE P.CATEGORY_C_ID = #{categoryCId}
+    </select>
+
+    <select id="selectMainProgramInfoDTOById" resultType="mainProgramInfoDTO">
+        SELECT P.ID, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, CC.CATEGORY_C_NAME,
+               P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT,
+               C.COMPANY_NAME, P.CATEGORY_C_ID, C.COMPANY_ESTABLISHMENT, C.COMPANY_ADDRESS,
+               C.COMPANY_LOGO_PATH, C.COMPANY_WELFARE, C.COMPANY_CULTURE, C.COMPANY_INTRODUCE
+        FROM TBL_PROGRAM P
+                 JOIN TBL_COMPANY C
+                      ON P.COMPANY_ID = C.ID
+                            JOIN TBL_CATEGORY_C CC
+                                ON P.CATEGORY_C_ID = CC.ID
+                                        WHERE P.ID = #{id}
+    </select>
+
+
+</mapper>

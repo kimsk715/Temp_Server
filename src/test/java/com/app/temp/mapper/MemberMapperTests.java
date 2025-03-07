@@ -23,7 +23,6 @@ public class MemberMapperTests {
         memberVO.setMemberName("test");
         memberVO.setMemberPhone("1234567890");
         memberVO.setMemberEmail("test@test.com");
-        memberVO.setMemberPassword("123456");
         memberVO.setMemberProfilePath("test.jpg");
         memberVO.setMemberClass("test");
 
@@ -35,10 +34,9 @@ public class MemberMapperTests {
     public void testSelect() {
         MemberVO memberVO = new MemberVO();
 
-        memberVO.setMemberEmail("test@test.com");
-        memberVO.setMemberPassword("123456");
+        memberVO.setMemberEmail("test1@gmail.com");
 
-        Optional<MemberVO> foundMember = memberMapper.selectByEmailAndPassword(memberVO);
+        Optional<MemberVO> foundMember = memberMapper.selectByEmail(memberVO);
 //        member 조회에 성공하면
         foundMember.ifPresentOrElse(
                 member ->  {log.info("로그인 성공: " + member);},
@@ -56,10 +54,9 @@ public class MemberMapperTests {
         MemberVO memberVO = new MemberVO();
 
         memberVO.setMemberEmail("test@test.com");
-        memberVO.setMemberPassword("123456");
 
         // 로그인 정보 조회 (이메일과 비밀번호로)
-        Optional<MemberVO> foundMember = memberMapper.selectByEmailAndPassword(memberVO);
+        Optional<MemberVO> foundMember = memberMapper.selectByEmail(memberVO);
 
         if (foundMember.isPresent()) {
             // 로그인 성공 시 해당 회원의 ID를 memberVO에 설정
