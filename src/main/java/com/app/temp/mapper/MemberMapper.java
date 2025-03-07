@@ -23,7 +23,7 @@ public interface MemberMapper {
     public Optional<MemberDTO> selectByMemberEmail(String memberEmail);
 //    개인회원 기업회원으로 전환
     public void updateMemberClass(Long id);
-    //    회원 최근 로그인시간 갱신
+//    회원 최근 로그인시간 갱신
     public void updateMemberRecentLogin(Long id);
 //  관리자 페이지에서 개인회원 목록 조회
     public List<MemberAdminListDTO> selectAllAdmin();
@@ -31,5 +31,13 @@ public interface MemberMapper {
     public MemberInfoAdminDTO selectMemberInfoAdmin(Long id);
 //  관리자 페이지에서 회원 상태 변경(활성, 휴면, 정지 등...)
     public void update(MemberVO memberVO);
+//  마이페이지 조회하기
+    public MemberVO selectByIdForInfo(Long id);
+//   회원탈퇴
+    public void memberDelete(Long id);
+//   마이페이지 수정
+    public void updateMember(MemberVO memberVO);
+//   로그인
+    public Optional<MemberVO> selectByMemberEmailAndMemberPassword(MemberVO memberVO);
 
 }

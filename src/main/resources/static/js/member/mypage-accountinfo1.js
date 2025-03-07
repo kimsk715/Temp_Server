@@ -2,6 +2,8 @@ const nameCheckButton = document.getElementById("btnName");
 const nameEditButton = nameCheckButton.previousElementSibling;
 const nameCancelButton = nameCheckButton.nextElementSibling;
 const nameField = nameCheckButton.parentElement.parentElement;
+const nameValue = document.getElementById("view-name");
+const closeInputTag = document.getElementById("profile-cancel")
 
 nameEditButton.addEventListener("click", () => {
     console.log(nameEditButton.classList[0]);
@@ -17,7 +19,16 @@ nameEditButton.addEventListener("click", () => {
     nameCheckButton.nextElementSibling.removeAttribute("disabled");
     nameCheckButton.previousElementSibling.setAttribute("disabled", "true");
 });
+//  수정하기 버튼누르면 수정 인풋란 오픈
+const profileEditBtn = document.getElementById("profile-edit");
+profileEditBtn.addEventListener('click',()=>{
+    nameEditButton.click();
+    birthEditButton.click();
+    birthEditButton.click();
+})
+
 nameCheckButton.addEventListener("click", () => {
+    console.log("+++++++++++++++++++++++++");
     const firstDiv = nameField.firstElementChild;
     const secondDiv = firstDiv.nextElementSibling;
     firstDiv.classList.remove("inactive");

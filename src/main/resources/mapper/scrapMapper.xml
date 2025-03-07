@@ -15,4 +15,16 @@
         DELETE FROM TBL_SCRAP
         WHERE MEMBER_ID = #{memberId} AND PROGRAM_ID = #{programId}
     </delete>
+    <!--    특정 유저가 스크랩한 목록 조회-->
+    <select id="selectScraps" resultType="scrapDTO">
+        SELECT s.MEMBER_ID, s.PROGRAM_ID, p.PROGRAM_NAME, p.PROGRAM_PRICE, p.PROGRAM_END_DATE, p.PROGRAM_DETAIL, p.PROGRAM_EXPIRED,
+        FROM TBL_SCRAP s JOIN TBL_PROGRAM p
+                              ON s.PROGRAM_ID = p.ID
+        WHERE s.MEMBER_ID = #{id}
+    </select>
+    <!--    스크랩 추가-->
+    <insert id="insertScrap">
+        INSERT INTO TBL_SCRAP (ID, MEMBER_ID, PROGRAM_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES (SEQ_SCRAP.NEXTVAL, #{memberId}, #{programId}, SYSDATE, SYSDATE)
+    </insert>
 </mapper>
