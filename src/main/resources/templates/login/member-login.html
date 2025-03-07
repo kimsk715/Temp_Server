@@ -445,24 +445,27 @@
                           <p class="tit">소셜 계정으로 간편 로그인</p>
                         </div>
                         <ul class="social_login">
-                          <li class="login_kakao">
+                          <a href="https://kauth.kakao.com/oauth/authorize?client_id=87bef4c36fab14d5714ce773bdd6f030&redirect_uri=
+http://localhost:10000/kakao/login?type=personal&response_type=code">
+                            <li class="login_kakao">
                             <span class="wrap_icon">
                               <svg
-                                viewBox="0 0 40 40"
-                                fill="#000"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="LoginFormAndSocialBottons_kakaoIcon__1o__T"
-                                width="25"
+                                      viewBox="0 0 40 40"
+                                      fill="#000"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="LoginFormAndSocialBottons_kakaoIcon__1o__T"
+                                      width="25"
                               >
                                 <path
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M19.9667 5.00132C11.2667 5.00132 4.16666 10.6013 4.16666 17.6013C4.16666 22.0013 7.06666 25.9013 11.3667 28.2013L10.1667 34.4013L16.9667 29.9013L19.9667 30.1013C28.6667 30.1013 35.7667 24.5013 35.7667 17.5013C35.7667 10.5013 28.6667 4.90132 19.9667 5.00132Z"
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M19.9667 5.00132C11.2667 5.00132 4.16666 10.6013 4.16666 17.6013C4.16666 22.0013 7.06666 25.9013 11.3667 28.2013L10.1667 34.4013L16.9667 29.9013L19.9667 30.1013C28.6667 30.1013 35.7667 24.5013 35.7667 17.5013C35.7667 10.5013 28.6667 4.90132 19.9667 5.00132Z"
                                 ></path>
                               </svg>
                               카카오로 시작하기
                             </span>
-                          </li>
+                            </li>
+                          </a>
                         </ul>
                       </div>
                     </div>
@@ -558,28 +561,34 @@
                         </div>
                         <ul class="social_login">
                           <li class="login_kakao">
-                            <span class="wrap_icon">
+                            <a href="https://kauth.kakao.com/oauth/authorize?client_id=87bef4c36fab14d5714ce773bdd6f030&redirect_uri=
+http://localhost:10000/kakao/login?type=company&response_type=code">
+                              <span class="wrap_icon">
                               <svg
-                                viewBox="0 0 40 40"
-                                fill="#000"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="LoginFormAndSocialBottons_kakaoIcon__1o__T"
-                                width="25"
+                                      viewBox="0 0 40 40"
+                                      fill="#000"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="LoginFormAndSocialBottons_kakaoIcon__1o__T"
+                                      width="25"
                               >
                                 <path
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                  d="M19.9667 5.00132C11.2667 5.00132 4.16666 10.6013 4.16666 17.6013C4.16666 22.0013 7.06666 25.9013 11.3667 28.2013L10.1667 34.4013L16.9667 29.9013L19.9667 30.1013C28.6667 30.1013 35.7667 24.5013 35.7667 17.5013C35.7667 10.5013 28.6667 4.90132 19.9667 5.00132Z"
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M19.9667 5.00132C11.2667 5.00132 4.16666 10.6013 4.16666 17.6013C4.16666 22.0013 7.06666 25.9013 11.3667 28.2013L10.1667 34.4013L16.9667 29.9013L19.9667 30.1013C28.6667 30.1013 35.7667 24.5013 35.7667 17.5013C35.7667 10.5013 28.6667 4.90132 19.9667 5.00132Z"
                                 ></path>
                               </svg>
                               카카오로 시작하기
                             </span>
+                            </a>
                           </li>
                         </ul>
                       </div>
                     </div>
                   </form>
                 </div>
+              </div>
+              <div class="adminLoginButtonWrapper" style="position: absolute; flex: none; right: 19%; bottom: 12%;">
+                <a href="/member/admin-login" class="BtnType BlueInvert SizeL" style="width: 300px">관리자로 로그인</a>
               </div>
             </div>
           </div>
@@ -601,4 +610,19 @@
     </footer>
   </body>
   <script src="/js/login/member-login.js"></script>
+  <script>
+<!--  개인회원이 기업로그인, 기업회원이 개인로그인 시도했을 때 뜨는 창  -->
+    window.onload = function() {
+      // window.location.search는 현재 url의 쿼리 스트링을 가져옴
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has("error")) {
+        if (urlParams.get("error") === "company_member") {
+          alert("기업회원입니다. 기업회원 로그인 페이지를 이용해주세요.");
+        } else if (urlParams.get("error") === "personal_member") {
+          alert("개인회원입니다. 개인회원 로그인 페이지를 이용해주세요.");
+        }
+      }
+    };
+  </script>
+
 </html>

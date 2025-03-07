@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.temp.mapper.CompanyMemberMapper">
+    <insert id="insertCompanyMemberAdmin">
+        INSERT INTO TBL_COMPANY_MEMBER (ID, COMPANY_ID, COMPANY_MEMBER_AUTHORITY, COMPANY_MEMBER_DEPARTMENT)
+        VALUES (#{id}, #{companyId}, 'ADMIN', #{companyMemberDepartment})
+    </insert>
+    <insert id="insertInvitedCompanyMember">
+        INSERT INTO TBL_COMPANY_MEMBER (ID, COMPANY_ID, COMPANY_MEMBER_POSITION, COMPANY_MEMBER_AUTHORITY, COMPANY_MEMBER_DEPARTMENT)
+        VALUES (#{id}, #{companyId}, #{companyMemberPosition}, #{companyMemberAuthority}, #{companyMemberDepartment})
+    </insert>
+    <select id="selectBymemberEmail" resultType="companyMemberDTO">
+        SELECT C.*, M.MEMBER_NAME, M.MEMBER_EMAIL, M.MEMBER_PHONE, M.MEMBER_STATUS, M.MEMBER_CLASS
+        FROM TBL_MEMBER M
+        JOIN TBL_COMPANY_MEMBER C ON C.ID = M.ID
+        WHERE M.MEMBER_EMAIL = #{memberEmail}
+    </select>
+</mapper>

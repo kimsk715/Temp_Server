@@ -3,6 +3,7 @@ package com.app.temp.controller.member.login;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,4 +17,10 @@ public class LoginController {
         log.info("로그인 페이지 들어옴");
         return "/login/member-login";
     }
+
+    @GetMapping(value = "admin-login")
+    public String admin () {
+        return "/login/admin-login";
+    }
+
 }
