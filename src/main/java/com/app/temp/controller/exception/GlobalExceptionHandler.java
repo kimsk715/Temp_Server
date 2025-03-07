@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice(basePackages = "com.app.temp.controller.member")
 @Slf4j
 public class GlobalExceptionHandler {
-    @ExceptionHandler(MypageSelectException.class)
-    protected String handleMypageSelectException(MypageSelectException e){
+    @ExceptionHandler(MypageSelectExcpetion.class)
+    protected String handleMypageSelectException(MypageSelectExcpetion e){
         log.error(e.getMessage());
         return "error/404";
     }
