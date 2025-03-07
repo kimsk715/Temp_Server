@@ -22,4 +22,5 @@ public class MemberVO {
     private String memberStatus;
     private String createdDate;
     private String updatedDate;
+    private String memberBirth;
 }

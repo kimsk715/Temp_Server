@@ -32,348 +32,328 @@
 
 <body class="__className_f53396" style="">
 
-    <main class="main-sc0">
-        <div>
-            <div class="main-wrapper0">
-                <div class="main-content1">
-                    <div>
-                        <h2><a href="/publishing/templates/member/mypage-main.html">마이템프</a>
-                        </h2>
-                        <div class="mypagemenu-wrapper">
-                            <ul class="mypagemenu1">
-                                <li class="mypagemenu2">
-                                    <a target="_self" href="/publishing/templates/member/mypage-applied.html">입사지원
-                                        현황</a>
-                                </li>
-                                <li class="mypagemenu2">
-                                    <a target="_self" href="/publishing/templates/member/mypage-scraplist.html">스크랩
-                                        리스트</a>
-                                </li>
-                                <li class="mypagemenu2">
-                                    <a target="_self" href="/publishing/templates/member/mypage-payment.html">결제
-                                        관리</a>
-                                </li>
-                                <li class="mypagemenu2-1">
-                                    <a target="_self" href="/publishing/templates/member/mypage-accountinfo.html">계정
-                                        정보 설정</a>
-                                </li>
-                                <li class="mypagemenu2">
-                                    <a target="_self"
-                                        href="/publishing/templates/member/mypage-accountwithdrawl.html">계정
-                                        탈퇴</a>
-                                </li>
-                            </ul>
-                        </div>
+<main class="main-sc0">
+    <div>
+        <div class="main-wrapper0">
+            <div class="main-content1">
+                <div>
+                    <h2><a href="/publishing/templates/member/mypage-main.html">마이템프</a>
+                    </h2>
+                    <div class="mypagemenu-wrapper">
+                        <ul class="mypagemenu1">
+                            <li class="mypagemenu2">
+                                <a target="_self" href="/publishing/templates/member/mypage-applied.html">입사지원
+                                    현황</a>
+                            </li>
+                            <li class="mypagemenu2">
+                                <a target="_self" href="/publishing/templates/member/mypage-scraplist.html">스크랩
+                                    리스트</a>
+                            </li>
+                            <li class="mypagemenu2">
+                                <a target="_self" href="/publishing/templates/member/mypage-payment.html">결제
+                                    관리</a>
+                            </li>
+                            <li class="mypagemenu2-1">
+                                <a target="_self" href="/publishing/templates/member/mypage-accountinfo.html">계정
+                                    정보 설정</a>
+                            </li>
+                            <li class="mypagemenu2">
+                                <a target="_self"
+                                   href="/publishing/templates/member/mypage-accountwithdrawl.html">계정
+                                    탈퇴</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="main-content2">
-                    <ul class="applied-list0">
-                        <h1>
-                            <div>
-                                계정 정보 수정</div>
-                        </h1>
-                        <div class="applied-list-blank">
-                            <form name="frm" id="editPersonForm" method="post" data-gtm-form-interact-id="1">
-                                <input type="hidden" name="mem_idx" value="21381658">
-                                <input type="hidden" name="channel" value="" id="channel"><input type="hidden"
-                                    name="sms_confirm_complete" value="" id="sms_confirm_complete"><input type="hidden"
-                                    name="mail_confirm_complete" value="" id="mail_confirm_complete"><input
-                                    type="hidden" name="seq" value="seq1738566190" id="seq"><input type="hidden"
-                                    name="ci_confirm" value="y" id="ci_confirm"><input type="hidden" name="open_email"
-                                    value="y" id="open_email"><input type="hidden" name="open_tel" value="y"
-                                    id="open_tel"><input type="hidden" name="open_cell" value="y" id="open_cell"><input
-                                    type="hidden" name="sms_corp_charge" value="n" id="sms_corp_charge"><input
-                                    type="hidden" name="fit_masking_fl" value="n" id="fit_masking_fl"><input
-                                    type="hidden" name="charge_type" value="" id="charge_type"><input type="hidden"
-                                    name="old_address" value="" id="old_address"><input type="hidden" name="old_zipcode"
-                                    value="" id="old_zipcode"><input type="hidden" name="old_address_details" value=""
-                                    id="old_address_details"><input type="hidden" name="new_address" value=""
-                                    id="new_address"><input type="hidden" name="new_zipcode" value=""
-                                    id="new_zipcode"><input type="hidden" name="new_address_details" value=""
-                                    id="new_address_details"><input type="hidden" name="new_address_extra" value=""
-                                    id="new_address_extra"><input type="hidden" name="address_sido" value=""
-                                    id="address_sido"><input type="hidden" name="address_sigungu" value=""
-                                    id="address_sigungu"><input type="hidden" name="x_coordinate" value=""
-                                    id="x_coordinate"><input type="hidden" name="y_coordinate" value=""
-                                    id="y_coordinate"><input type="hidden" name="zip_use_type" value="J"
-                                    id="zip_use_type"><input type="hidden" name="zipcode" value="" id="zipcode"><input
-                                    type="hidden" name="regResumeCnt" value="0" id="regResumeCnt"><input type="hidden"
-                                    name="smsConfirm" value="1" id="smsConfirm"><input type="hidden" name="updateType"
-                                    value="" id="updateType">
-                                <input type="hidden" name="overseas" value="n">
-
-                                <div class="person-update-sidearea">
-                                    <div class="photo-wrap">
-                                        <label for="attach"><span class="photo"
-                                                id="myhome-profile-photo"></span></label>
-                                        <span class="photo-border"></span>
-                                        <button type="button" class="btn-photo" aria-label="프로필 편집/삭제"
+            </div>
+            <div class="main-content2" th:object="${member}">
+                <ul class="applied-list0">
+                    <h1>
+                        <div>
+                            계정 정보 수정</div>
+                    </h1>
+                    <div class="applied-list-blank">
+                        <form action="/mypage/account-update" method="post">
+                            <button type="submit" id="profile-submit">저장</button>
+                            <button type="button" id="profile-edit">수정하기</button>
+                            <button type="button" id="profile-cancel">취소</button>
+                            <div class="person-update-sidearea">
+                                <div class="photo-wrap">
+                                    <label for="attach"><span class="photo"
+                                                              id="myhome-profile-photo"></span></label>
+                                    <span class="photo-border"></span>
+                                    <button type="button" class="btn-photo" aria-label="프로필 편집/삭제"
                                             aria-haspopup="menu"></button>
-                                        <div class="photo-edit-btn" style="">
-                                            <button type="button" id="btnPhotoEdit">프로필 편집</button>
-                                            <button type="button" id="btnPhotoDelete">프로필 삭제</button>
-                                        </div>
+                                    <div class="photo-edit-btn" style="">
+                                        <button type="button" id="btnPhotoEdit">프로필 편집</button>
+                                        <button type="button" id="btnPhotoDelete">프로필 삭제</button>
                                     </div>
-                                    <input type="file" id="attach" style="display: none" />
                                 </div>
-                                <div class="update-main person-update-main">
-                                    <div class="field-wrap">
-                                        <h2 class="field-legend">기본정보</h2>
-                                        <table class="field-table">
-                                            <tbody>
-                                                <tr class="field">
-                                                    <th scope="row">이름</th>
-                                                    <td class="check">
-                                                        <div class="field-body">
+                                <input type="file" id="attach" style="display: none" />
+                            </div>
+                            <div class="update-main person-update-main">
+                                <div class="field-wrap" >
+                                    <h2 class="field-legend">기본정보</h2>
+                                    <table class="field-table">
+                                        <tbody>
+                                        <tr class="field">
+                                            <th scope="row">이름</th>
+                                            <td class="check">
+                                                <div class="field-body">
                                                             <span class="empty" id="view-name-empty"
-                                                                style="display:none">이름을 입력해주세요.</span>
-                                                            <b id="view-name">김승균</b>
-                                                            (peumyora)
-                                                        </div>
-                                                        <div class="field-body inactive">
-                                                            <div class="TypoBox">
-                                                                <input type="text" name="change-name" id="change-name"
-                                                                    class="Typo" placeholder="이름을 입력해주세요"
-                                                                    style="width: 186px;" value="김승균"
-                                                                    data-gtm-form-interact-field-id="2">
-                                                                <input type="hidden" id="org-change-name" value="김승균">
-                                                            </div>
-                                                        </div>
-                                                        <div class="field-btn">
-                                                            <button type="button"
-                                                                class="BtnType SizeS btn_modify">수정</button>
-                                                            <button type="button" id="btnName"
-                                                                class="BtnType SizeS btn-confirm"
-                                                                disabled="">확인</button>
-                                                            <button type="button"
-                                                                class="BtnType SizeS btn-modify-cancel"
-                                                                disabled="">취소</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr class="field">
-                                                    <th scope="row">생년월일</th>
-                                                    <td>
-                                                        <div class="field-body">
-                                                            <b id="view-birthDay" style="display:">
-                                                                1998년 2월 24일</b>
-                                                            <span class="empty" id="view-birthDay-empty"
-                                                                style="display:none">
+                                                                  style="display:none">이름을 입력해주세요.</span>
+                                                    <b id="view-name" th:text="*{memberName}"></b>
+
+                                                </div>
+                                                <div class="field-body inactive">
+                                                    <div class="TypoBox">
+                                                        <input type="text" name="change-name" id="change-name"
+                                                               class="Typo"  placeholder="이름을 입력해주세요"
+                                                               style="width: 186px;" value=""
+                                                               data-gtm-form-interact-field-id="2">
+                                                        <input type="hidden" id="org-change-name" value="김승균">
+                                                    </div>
+                                                </div>
+                                                <div class="field-btn">
+                                                    <button
+                                                            class="BtnType SizeS btn_modify">수정</button>
+                                                    <button  id="btnName"
+                                                             class="BtnType SizeS btn-confirm"
+                                                             disabled="">확인</button>
+                                                    <button type="button"
+                                                            class="BtnType SizeS btn-modify-cancel"
+                                                            disabled="">취소</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="field">
+                                            <th scope="row">생년월일</th>
+                                            <td>
+                                                <div class="field-body">
+                                                    <b id="view-birthDay" style="display:" th:text="*{memberBirth}">
+                                                    </b>
+                                                    <span class="empty" id="view-birthDay-empty"
+                                                          style="display:none">
                                                                 생년월일을 입력해주세요.</span>
+                                                </div>
+                                                <div class="field-body inactive">
+                                                    <div class="input-group">
+                                                        <div class="TypoBox">
+                                                            <label class="blind" for="select-year">연도</label>
+                                                            <input type="text" name="select-year"
+                                                                   id="select-year" maxlength="4" class="Typo"
+                                                                   placeholder="YYYY" style="width: 64px"
+                                                                   value="1998">
                                                         </div>
-                                                        <div class="field-body inactive">
-                                                            <div class="input-group">
-                                                                <div class="TypoBox">
-                                                                    <label class="blind" for="select-year">연도</label>
-                                                                    <input type="text" name="select-year"
-                                                                        id="select-year" maxlength="4" class="Typo"
-                                                                        placeholder="YYYY" style="width: 64px"
-                                                                        value="1998">
-                                                                </div>
-                                                                <div class="TypoBox">
-                                                                    <label class="blind" for="select-month">월</label>
-                                                                    <input type="text" name="select-month"
-                                                                        id="select-month" maxlength="2" class="Typo"
-                                                                        placeholder="MM" style="width: 52px" value="2">
-                                                                </div>
-                                                                <div class="TypoBox">
-                                                                    <label class="blind" for="select-day">일</label>
-                                                                    <input type="text" name="select-day" id="select-day"
-                                                                        maxlength="2" class="Typo" placeholder="DD"
-                                                                        style="width: 52px" value="24">
-                                                                </div>
-                                                                <input type="hidden" id="org-select-year" value="1998">
-                                                                <input type="hidden" id="org-select-month" value="2">
-                                                                <input type="hidden" id="org-select-day" value="24">
-                                                            </div>
+                                                        <div class="TypoBox">
+                                                            <label class="blind" for="select-month">월</label>
+                                                            <input type="text" name="select-month"
+                                                                   id="select-month" maxlength="2" class="Typo"
+                                                                   placeholder="MM" style="width: 52px" value="2">
                                                         </div>
-                                                        <div class="field-btn">
-                                                            <button type="button" class="BtnType SizeS btn-modify"
-                                                                data-type="birthday">수정</button>
-                                                            <button type="button" id="btnBirthDay"
-                                                                class="BtnType SizeS btn-confirm"
-                                                                disabled="">확인</button>
-                                                            <button type="button"
-                                                                class="BtnType SizeS btn-modify-cancel"
-                                                                disabled="">취소</button>
+                                                        <div class="TypoBox">
+                                                            <label class="blind" for="select-day">일</label>
+                                                            <input type="text" name="select-day" id="select-day"
+                                                                   maxlength="2" class="Typo" placeholder="DD"
+                                                                   style="width: 52px" value="24">
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="field-wrap">
-                                        <h2 class="field-legend">연락처 정보</h2>
-                                        <table class="field-table">
-                                            <tbody>
-                                                <tr class="field">
-                                                    <th scope="row">휴대폰</th>
-                                                    <td>
-                                                        <div class="field-body" id="privacy">
+                                                        <input type="hidden" id="org-select-year" value="1998">
+                                                        <input type="hidden" id="org-select-month" value="2">
+                                                        <input type="hidden" id="org-select-day" value="24">
+                                                    </div>
+                                                </div>
+                                                <div class="field-btn">
+                                                    <button type="button" class="BtnType SizeS btn-modify"
+                                                            data-type="birthday">수정</button>
+                                                    <button type="button" id="btnBirthDay"
+                                                            class="BtnType SizeS btn-confirm"
+                                                            disabled="">확인</button>
+                                                    <button type="button"
+                                                            class="BtnType SizeS btn-modify-cancel"
+                                                            disabled="">취소</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="field-wrap" th:object="${member}">
+                                    <h2 class="field-legend">연락처 정보</h2>
+                                    <table class="field-table">
+                                        <tbody>
+                                        <tr class="field">
+                                            <th scope="row">휴대폰</th>
+                                            <td>
+                                                <div class="field-body" id="privacy">
                                                             <span id="view-cell-empty" class="empty"
-                                                                style="display:none">휴대폰 번호를 입력해주세요.</span>
-                                                            <span id="view-cell-overseas"
-                                                                class="person-view-overseascell" style="display:none">해외
+                                                                  style="display:none">휴대폰 번호를 입력해주세요.</span>
+                                                    <span id="view-cell-overseas"
+                                                          class="person-view-overseascell" style="display:none">해외
                                                                 거주자입니다</span>
-                                                            <b id="view-cell" style="display:">010****9777</b>
-                                                            <span id="smsCert" class="badge badge-verified">인증</span>
-                                                        </div>
-                                                        <div class="field-btn">
-                                                            <button type="button" id="btnSms"
-                                                                class="BtnType SizeS btn-modify btn-identify-verify">수정</button>
-                                                            <button type="button" id="btnCell"
-                                                                class="BtnType SizeS btn-confirm"
-                                                                disabled="">확인</button>
-                                                            <button type="button" id="btnCellCancel"
-                                                                class="-btnCertCancel BtnType SizeS btn-modify-cancel"
-                                                                disabled="">취소</button>
-                                                        </div>
-                                                        <div class="field-body inactive" id="cell-edit">
+                                                    <b aria-readonly="true" id="view-cell" style="display:" th:text="*{memberPhone}"></b>
+                                                    <span id="smsCert" class="badge badge-verified">인증</span>
+                                                </div>
+                                                <!--                                                        <div class="field-btn">-->
+                                                <!--                                                            <button type="button" id="btnSms"-->
+                                                <!--                                                                class="BtnType SizeS btn-modify btn-identify-verify">수정</button>-->
+                                                <!--                                                            <button type="button" id="btnCell"-->
+                                                <!--                                                                class="BtnType SizeS btn-confirm"-->
+                                                <!--                                                                disabled="">확인</button>-->
+                                                <!--                                                            <button type="button" id="btnCellCancel"-->
+                                                <!--                                                                class="-btnCertCancel BtnType SizeS btn-modify-cancel"-->
+                                                <!--                                                                disabled="">취소</button>-->
+                                                <!--                                                        </div>-->
+                                                <div class="field-body inactive" id="cell-edit">
                                                             <span class="TypoBox type-button" id="privacy-masking">
                                                                 <input type="text" name="masking-cell" id="masking-cell"
-                                                                    class="Typo" value="" maxlength="30"
-                                                                    placeholder="현재 휴대폰번호를 입력해주세요"
-                                                                    data-fill-active="btnCertCell"
-                                                                    data-fill-active-prevent="oversea">
+                                                                       class="Typo" value="" maxlength="30"
+                                                                       placeholder="현재 휴대폰번호를 입력해주세요"
+                                                                       data-fill-active="btnCertCell"
+                                                                       data-fill-active-prevent="oversea">
                                                                 <button type="button" id="btnMaskingCell"
-                                                                    class="BtnType SizeS colorBlue btn-verify">
+                                                                        class="BtnType SizeS colorBlue btn-verify">
                                                                     확인
                                                                 </button>
                                                             </span>
-                                                            <span class="TypoBox type-button privacy-edit"
-                                                                id="privacy-edit">
+                                                    <span class="TypoBox type-button privacy-edit"
+                                                          id="privacy-edit">
                                                                 <input type="text" name="cell" id="cell" class="Typo"
-                                                                    value="" maxlength="30"
-                                                                    placeholder="변경할 휴대폰번호를 입력해주세요"
-                                                                    data-fill-active="btnCertCell"
-                                                                    data-fill-active-prevent="oversea">
+                                                                       value="" maxlength="30"
+                                                                       placeholder="변경할 휴대폰번호를 입력해주세요"
+                                                                       data-fill-active="btnCertCell"
+                                                                       data-fill-active-prevent="oversea">
                                                                 <button type="button" id="btnCertCell"
-                                                                    class="BtnType SizeS colorBlue btn-verify">
+                                                                        class="BtnType SizeS colorBlue btn-verify">
                                                                     인증요청
                                                                 </button>
                                                             </span>
-                                                            <div class="field-sub checkboxgroup inactive"
-                                                                id="living-overseas">
-                                                                <div class="InpBox">
+                                                    <div class="field-sub checkboxgroup inactive"
+                                                         id="living-overseas">
+                                                        <div class="InpBox">
                                                                     <span class="Chk">
                                                                         <input type="checkbox" name="living-overseas-fl"
-                                                                            id="oversea" value="0">
+                                                                               id="oversea" value="0">
                                                                         <label class="Lbl" for="oversea">해외거주</label>
                                                                     </span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="field-sub field-verify inactive"
-                                                                id="person-field-verify">
+                                                        </div>
+                                                    </div>
+                                                    <div class="field-sub field-verify inactive"
+                                                         id="person-field-verify">
                                                                 <span class="type-button TypoBox">
                                                                     <input type="text" name="smsCertNum" id="smsCertNum"
-                                                                        class="Typo" placeholder="인증번호를 입력해주세요">
+                                                                           class="Typo" placeholder="인증번호를 입력해주세요">
                                                                     <button type="button" id="btnCertConfirmSms"
-                                                                        disabled=""
-                                                                        class="BtnType SizeS colorBlue btn-confirm">확인</button>
+                                                                            disabled=""
+                                                                            class="BtnType SizeS colorBlue btn-confirm">확인</button>
                                                                 </span>
-                                                                <span class="remain-time">남은시간 <span
-                                                                        id="remain-time-sms">2:00</span></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="field-body ipin-guide privacy-guide inactive"
-                                                            id="privacy-guide">
-                                                            <svg class="icon-exclam">
-                                                                <use xlink:href="#svg_my_29"><svg id="svg_my_29"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="currentColor"
-                                                                            d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm0 1.5c-4.694 0-8.5 3.806-8.5 8.5s3.806 8.5 8.5 8.5 8.5-3.806 8.5-8.5-3.806-8.5-8.5-8.5zM10 9c.513 0 .936.386.993.883L11 10v4.5c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L9 14.5V10c0-.552.448-1 1-1zm0-4c.69 0 1.25.56 1.25 1.25S10.69 7.5 10 7.5s-1.25-.56-1.25-1.25S9.31 5 10 5z"
-                                                                            transform="translate(-1133 -2449) translate(448 2449) translate(685) translate(2 2)">
-                                                                        </path>
-                                                                    </svg>
-                                                                </use>
-                                                            </svg>
-                                                            현재 휴대폰번호가 기억나지 않는다면 <a href="javascript:void(0)"
-                                                                class="ipin-link" id="pass-cert">본인명의 인증</a> 후 수정할 수
-                                                            있습니다.
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                        <span class="remain-time">남은시간 <span
+                                                                id="remain-time-sms">2:00</span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="field-body ipin-guide privacy-guide inactive"
+                                                     id="privacy-guide">
+                                                    <svg class="icon-exclam">
+                                                        <use xlink:href="#svg_my_29"><svg id="svg_my_29"
+                                                                                          viewBox="0 0 24 24">
+                                                            <path fill="currentColor"
+                                                                  d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm0 1.5c-4.694 0-8.5 3.806-8.5 8.5s3.806 8.5 8.5 8.5 8.5-3.806 8.5-8.5-3.806-8.5-8.5-8.5zM10 9c.513 0 .936.386.993.883L11 10v4.5c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L9 14.5V10c0-.552.448-1 1-1zm0-4c.69 0 1.25.56 1.25 1.25S10.69 7.5 10 7.5s-1.25-.56-1.25-1.25S9.31 5 10 5z"
+                                                                  transform="translate(-1133 -2449) translate(448 2449) translate(685) translate(2 2)">
+                                                            </path>
+                                                        </svg>
+                                                        </use>
+                                                    </svg>
+                                                    현재 휴대폰번호가 기억나지 않는다면 <a href="javascript:void(0)"
+                                                                           class="ipin-link" id="pass-cert">본인명의 인증</a> 후 수정할 수
+                                                    있습니다.
+                                                </div>
+                                            </td>
+                                        </tr>
 
-                                                <tr class="field">
-                                                    <th scope="row">이메일</th>
-                                                    <td>
-                                                        <div class="field-body" id="person-email-form">
-                                                            <b id="view-mail" class="view-mail">kim*****@gmail.com</b>
-                                                            <span id="mailCert" class="badge">미인증</span>
-                                                        </div>
-                                                        <div class="field-btn">
-                                                            <button type="button" id="btnEmail"
-                                                                class="BtnType SizeS btn-modify">수정</button>
-                                                            <button type="button"
-                                                                class="BtnType SizeS btn-confirm btn-confirm inactive"
-                                                                disabled="">확인</button>
-                                                            <button type="button" id="btnEmailCancel"
-                                                                class="-btnCertCancel BtnType SizeS btn-modify-cancel -btn-modify-cancel"
-                                                                disabled="disabled">취소</button>
-                                                        </div>
-                                                        <div class="field-body field-edit inactive" id="edit-email">
-                                                            <span class="TypoBox type-button" id="person-masking-email">
-                                                                <input type="text" name="masking-email"
-                                                                    id="masking-email" class="Typo" value=""
-                                                                    maxlength="30" placeholder="현재 이메일을 입력해주세요"
-                                                                    data-fill-active="btnCertCell"
-                                                                    data-fill-active-prevent="oversea">
-                                                                <button type="button"
-                                                                    class="BtnType SizeS colorBlue btn-verify"
-                                                                    id="btnMaskingEmail">확인</button>
-                                                            </span>
-                                                            <span class="TypoBox type-button" id="person-email">
-                                                                <input type="text" name="email" id="email" class="Typo"
-                                                                    placeholder="변경할 이메일을 입력해주세요"
-                                                                    data-fill-active="btnCertEmail">
-                                                                <button type="button" id="btnCertEmail"
-                                                                    class="BtnType SizeS colorBlue btn-verify">인증요청</button>
-                                                            </span>
-                                                            <div class="field-sub field-verify inactive"
-                                                                id="mail-cert-num">
-                                                                <span class="TypoBox type-button">
-                                                                    <input type="text" name="mailCertNum"
-                                                                        id="mailCertNum" class="Typo"
-                                                                        placeholder="인증번호를 입력해주세요">
-                                                                    <button type="button" id="btnCertConfirmMail"
-                                                                        disabled=""
-                                                                        class="BtnType SizeS colorBlue btn-confirm">확인</button>
-                                                                </span>
-                                                                <span class="remain-time" style="color: red;">남은시간 <span
-                                                                        id="remain-time-mail"
-                                                                        style="color: red;"></span></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ipin-guide privacy-guide inactive"
-                                                            id="privacy-guide-email">
-                                                            <!-- <svg class="icon-exclam"><use xlink:href="#svg_my_29"><svg id="svg_my_29" viewBox="0 0 24 24">
-                                                                <path fill="currentColor" d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm0 1.5c-4.694 0-8.5 3.806-8.5 8.5s3.806 8.5 8.5 8.5 8.5-3.806 8.5-8.5-3.806-8.5-8.5-8.5zM10 9c.513 0 .936.386.993.883L11 10v4.5c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L9 14.5V10c0-.552.448-1 1-1zm0-4c.69 0 1.25.56 1.25 1.25S10.69 7.5 10 7.5s-1.25-.56-1.25-1.25S9.31 5 10 5z" transform="translate(-1133 -2449) translate(448 2449) translate(685) translate(2 2)"></path>
-                                                            </svg>
-                                                        </use></svg> -->
-                                                            현재 이메일이 기억나지 않는다면 <a href="javascript:void(0)"
-                                                                class="ipin-link" id="pass-cert-email">본인명의 인증</a> 후 수정할
-                                                            수 있습니다.
-                                                        </div>
+                                        <tr class="field">
+                                            <th scope="row">이메일</th>
+                                            <td>
+                                                <div class="field-body" id="person-email-form">
+                                                    <b aria-readonly="true" id="view-mail" class="view-mail" th:text="*{memberEmail}"></b>
+                                                    <span id="mailCert" class="badge">미인증</span>
+                                                </div>
+                                                <!--                                                        <div class="field-btn">-->
+                                                <!--                                                            <button type="button" id="btnEmail"-->
+                                                <!--                                                                class="BtnType SizeS btn-modify">수정</button>-->
+                                                <!--                                                            <button type="button"-->
+                                                <!--                                                                class="BtnType SizeS btn-confirm btn-confirm inactive"-->
+                                                <!--                                                                disabled="">확인</button>-->
+                                                <!--                                                            <button type="button" id="btnEmailCancel"-->
+                                                <!--                                                                class="-btnCertCancel BtnType SizeS btn-modify-cancel -btn-modify-cancel"-->
+                                                <!--                                                                disabled="disabled">취소</button>-->
+                                                <!--                                                        </div>-->
+                                                <!--                                                        <div class="field-body field-edit inactive" id="edit-email">-->
+                                                <!--                                                            <span class="TypoBox type-button" id="person-masking-email">-->
+                                                <!--                                                                <input type="text" name="masking-email"-->
+                                                <!--                                                                    id="masking-email" class="Typo" value=""-->
+                                                <!--                                                                    maxlength="30" placeholder="현재 이메일을 입력해주세요"-->
+                                                <!--                                                                    data-fill-active="btnCertCell"-->
+                                                <!--                                                                    data-fill-active-prevent="oversea">-->
+                                                <!--                                                                <button type="button"-->
+                                                <!--                                                                    class="BtnType SizeS colorBlue btn-verify"-->
+                                                <!--                                                                    id="btnMaskingEmail">확인</button>-->
+                                                <!--                                                            </span>-->
+                                                <!--                                                            <span class="TypoBox type-button" id="person-email">-->
+                                                <!--                                                                <input type="text" name="email" id="email" class="Typo"-->
+                                                <!--                                                                    placeholder="변경할 이메일을 입력해주세요"-->
+                                                <!--                                                                    data-fill-active="btnCertEmail">-->
+                                                <!--                                                                <button type="button" id="btnCertEmail"-->
+                                                <!--                                                                    class="BtnType SizeS colorBlue btn-verify">인증요청</button>-->
+                                                <!--                                                            </span>-->
+                                                <!--                                                            <div class="field-sub field-verify inactive"-->
+                                                <!--                                                                id="mail-cert-num">-->
+                                                <!--                                                                <span class="TypoBox type-button">-->
+                                                <!--                                                                    <input type="text" name="mailCertNum"-->
+                                                <!--                                                                        id="mailCertNum" class="Typo"-->
+                                                <!--                                                                        placeholder="인증번호를 입력해주세요">-->
+                                                <!--                                                                    <button type="button" id="btnCertConfirmMail"-->
+                                                <!--                                                                        disabled=""-->
+                                                <!--                                                                        class="BtnType SizeS colorBlue btn-confirm">확인</button>-->
+                                                <!--                                                                </span>-->
+                                                <!--                                                                <span class="remain-time" style="color: red;">남은시간 <span-->
+                                                <!--                                                                        id="remain-time-mail"-->
+                                                <!--                                                                        style="color: red;"></span></span>-->
+                                                <!--                                                            </div>-->
+                                                <!--                                                        </div>-->
+                                                <div class="ipin-guide privacy-guide inactive"
+                                                     id="privacy-guide-email">
+                                                    <!-- <svg class="icon-exclam"><use xlink:href="#svg_my_29"><svg id="svg_my_29" viewBox="0 0 24 24">
+                                                        <path fill="currentColor" d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm0 1.5c-4.694 0-8.5 3.806-8.5 8.5s3.806 8.5 8.5 8.5 8.5-3.806 8.5-8.5-3.806-8.5-8.5-8.5zM10 9c.513 0 .936.386.993.883L11 10v4.5c0 .552-.448 1-1 1-.513 0-.936-.386-.993-.883L9 14.5V10c0-.552.448-1 1-1zm0-4c.69 0 1.25.56 1.25 1.25S10.69 7.5 10 7.5s-1.25-.56-1.25-1.25S9.31 5 10 5z" transform="translate(-1133 -2449) translate(448 2449) translate(685) translate(2 2)"></path>
+                                                    </svg>
+                                                </use></svg> -->
+                                                    현재 이메일이 기억나지 않는다면 <a href="javascript:void(0)"
+                                                                         class="ipin-link" id="pass-cert-email">본인명의 인증</a> 후 수정할
+                                                    수 있습니다.
+                                                </div>
 
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="wrap-btn-withdraw">
-                                        <a href="/zf_user/persons/person-out" class="btn-withdraw">회원 탈퇴</a>
-                                    </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </form>
-                        </div>
-                    </ul>
-                </div>
+
+                                <div class="wrap-btn-withdraw">
+                                    <a href="/zf_user/persons/person-out" class="btn-withdraw">회원 탈퇴</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </ul>
             </div>
         </div>
-    </main>
-    <div id="modal"></div>
+    </div>
+</main>
+<div id="modal"></div>
 </body>
+
+<script th:inline="javascript">
+    const member = [[${member}]];
+    console.log(member)
+</script>
 <script src="/js/member/mypage-all.js"></script>
 <script src="/js/member/mypage-accountinfo1.js"></script>
 

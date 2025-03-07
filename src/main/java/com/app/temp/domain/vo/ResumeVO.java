@@ -18,6 +18,4 @@ public class ResumeVO {
     private Long memberId;
     private String createdDate;
     private String updatedDate;
-
-
 }

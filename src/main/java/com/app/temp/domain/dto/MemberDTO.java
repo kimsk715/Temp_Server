@@ -22,6 +22,7 @@ public class MemberDTO {
     private String memberStatus;
     private String createdDate;
     private String updatedDate;
+    private String memberBirth;
 
     public MemberVO toVO(){
         MemberVO memberVO = new MemberVO();
@@ -36,6 +37,7 @@ public class MemberDTO {
         memberVO.setMemberStatus(memberStatus);
         memberVO.setCreatedDate(createdDate);
         memberVO.setUpdatedDate(updatedDate);
+        memberVO.setMemberBirth(memberBirth);
 
         return memberVO;
     }

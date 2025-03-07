@@ -7,4 +7,32 @@
         FROM TBL_RESUME
         WHERE MEMBER_ID = #{memberId}
     </select>
+    <!--    특정 유저 이력서들 조회-->
+    <select id="resumeAllselect" resultType="resumeDTO">
+        SELECT RESUME_TITLE, RESUME_INTRODUCE, RESUME_PROFILE_PHOTO
+        FROM TBL_RESUME
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+    <!--    이력서 수정-->
+    <update id="resumeUpdate">
+        UPDATE TBL_RESUME
+        SET RESUME_INTRODUCE=#{resumeTitle}, RESUME_PROFILE_PHOTO=#{resumeProfilePhoto}, RESUME_INTRODUCE=#{resumeIntroduce}, UPDATED_DATE=SYSDATE
+    </update>
+    <select id="selectByMemberId" resultType="memberResumeDTO">
+        SELECT MEMBER_ID, RESUME_TITLE, RESUME_INTRODUCE
+        FROM TBL_RESUME
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+    <!--   페이지에 들어가는 딸깍 이력서 -->
+    <insert id="resumeInsertForPage">
+        INSERT INTO TBL_RESUME (ID, RESUME_NAME, RESUME_EMAIL, RESUME_BIRTH, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
+        SELECT SEQ_RESUME.NEXTVAL, MEMBER_NAME, MEMBER_EMAIL, MEMBER_BIRTH, m.ID , SYSDATE, SYSDATE
+        FROM TBL_MEMBER m WHERE m.ID = #{memberId}
+    </insert>
+    <!--    쿼리 수정해야할 전체적인 이력서등록-->
+    <!--    <insert id="resumeInsert">-->
+    <!--        INSERT INTO TBL_RESUME (ID, RESUME_NAME, RESUME_EMAIL, RESUME_BIRTH, MEMBER_ID, CREATED_DATE, UPDATED_DATE)-->
+    <!--        SELECT SEQ_RESUME.NEXTVAL, MEMBER_NAME, MEMBER_EMAIL, MEMBER_BIRTH, m.ID , SYSDATE, SYSDATE-->
+    <!--        FROM TBL_MEMBER m WHERE m.ID = #{id}-->
+    <!--    </insert>-->
 </mapper>

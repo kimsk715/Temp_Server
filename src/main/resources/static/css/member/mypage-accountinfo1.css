@@ -1175,3 +1175,21 @@ svg:not(:root) {
     overflow-clip-margin: content-box;
     overflow: hidden;
 }
+#profile-submit {
+    border: solid 1px var(--gray80);
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+#profile-edit {
+    border: solid 1px var(--gray80);
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+#profile-cancel {
+    border: solid 1px var(--gray80);
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 8px 16px;
+}
