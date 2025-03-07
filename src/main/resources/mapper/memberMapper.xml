@@ -10,12 +10,12 @@
         VALUES(#{id}, #{memberName}, #{memberEmail}, #{memberProfilePath})
     </insert>
     <select id="selectById" resultType="memberVO">
-        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
         FROM TBL_MEMBER WHERE ID = #{id}
     </select>
-    <select id="selectByEmailAndPassword" resultType="memberVO">
-        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
-        FROM TBL_MEMBER WHERE MEMBER_EMAIL=#{memberEmail} AND MEMBER_PASSWORD=#{memberPassword}
+    <select id="selectByEmail" resultType="memberVO">
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
+        FROM TBL_MEMBER WHERE MEMBER_EMAIL=#{memberEmail}
     </select>
     <update id="updateMemberRecentLogin">
         UPDATE TBL_MEMBER
@@ -28,8 +28,26 @@
         WHERE ID = #{id}
     </update>
     <select id="selectByMemberEmail" resultType="memberDTO">
-        SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME, CREATED_DATE, UPDATED_DATE
+        SELECT ID, MEMBER_EMAIL, MEMBER_NAME, CREATED_DATE, UPDATED_DATE
         FROM TBL_MEMBER
         WHERE MEMBER_EMAIL = #{memberEmail}
     </select>
+    <select id="selectAllAdmin" resultType="memberAdminListDTO">
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_REGISTER_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS
+        FROM TBL_MEMBER
+    </select>
+
+
+    <select id="selectMemberInfoAdmin" resultType="memberInfoAdminDTO">
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_REGISTER_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PROFILE_PATH
+        FROM TBL_MEMBER
+        WHERE ID = #{id}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_MEMBER
+        SET MEMBER_STATUS = #{memberStatus}
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

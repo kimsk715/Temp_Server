@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.temp.mapper.CompanyInquiryMapper">
+    <insert id="insertCompanyInquiry">
+        INSERT INTO TBL_COMPANY_INQUIRY(ID, COMPANY_INQUIRY_TYPE, COMPANY_INQUIRY_DETAIL, COMPANY_INQUIRY_STATUS, MEMBER_ID)
+        VALUES(SEQ_COMPANY_INQUIRY.NEXTVAL, #{companyInquiryType}, #{companyInquiryDetail}, #{companyInquiryStatus}, #{memberId})
+    </insert>
+
+    <select id="selectAllAdmin" resultType="companyInquiryListDTO">
+        SELECT CI.ID, COMPANY_INQUIRY_TYPE, C.COMPANY_NAME,  M.MEMBER_NAME, CI.CREATED_DATE, COMPANY_INQUIRY_STATUS
+        FROM TBL_COMPANY_INQUIRY CI
+        JOIN TBL_COMPANY_MEMBER CM
+        ON CI.MEMBER_ID = CM.MEMBER_ID
+        JOIN TBL_MEMBER M
+        ON CM.MEMBER_ID = M.ID
+        JOIN TBL_COMPANY C
+        ON CM.COMPANY_ID = C.ID
+        </select>
+    
+    <select id="selectInquiryById" resultType="companyInquiryInfoDTO">
+        SELECT CI.ID, COMPANY_INQUIRY_TYPE, C.COMPANY_NAME,  M.MEMBER_NAME, CI.CREATED_DATE, COMPANY_INQUIRY_STATUS, COMPANY_INQUIRY_DETAIL
+        FROM TBL_COMPANY_INQUIRY CI
+                 JOIN TBL_COMPANY_MEMBER CM
+                      ON CI.MEMBER_ID = CM.MEMBER_ID
+                 JOIN TBL_MEMBER M
+                      ON CM.MEMBER_ID = M.ID
+                 JOIN TBL_COMPANY C
+                      ON CM.COMPANY_ID = C.ID
+        WHERE CI.ID = #{id}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_COMPANY_INQUIRY
+        SET COMPANY_INQUIRY_STATUS = #{companyInquiryStatus}, UPDATED_DATE = SYSDATE
+        WHERE ID = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.temp.mapper.ImageMapper">
+    <select id="selectByCompanyId" resultType="companyImageDTO">
+        SELECT ID, COMPANY_IMAGE_PATH, COMPANY_ID
+        FROM TBL_COMPANY_IMAGE
+        WHERE COMPANY_ID = #{companyId}
+    </select>
+</mapper>

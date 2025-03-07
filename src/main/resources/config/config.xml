@@ -11,5 +11,32 @@
         <typeAlias type="com.app.temp.domain.dto.CompanyDTO" alias="companyDTO"/>
         <typeAlias type="com.app.temp.domain.vo.CompanyMemberVO" alias="companyMemberVO"/>
         <typeAlias type="com.app.temp.domain.dto.CompanyMemberDTO" alias="companyMemberDTO"/>
+
+        <typeAlias type="com.app.temp.domain.dto.MemberAdminListDTO" alias="memberAdminListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.MemberInfoAdminDTO" alias="memberInfoAdminDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ApplyListDTO" alias="applyListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ReportListDTO" alias="reportListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyMemberAdminListDTO" alias="companyMemberAdminListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyMemberInfoAdminDTO" alias="companyMemberInfoAdminDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyProgramDTO" alias="companyProgramDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyReportDTO" alias="companyReportDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ProgramInfoDTO" alias="programInfoDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyInquiryListDTO" alias="companyInquiryListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.NoticeListDTO" alias="noticeListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.NoticeInfoDto" alias="noticeInfoDto"/>
+        <typeAlias type="com.app.temp.domain.dto.MemberInquiryDTO" alias="memberInquiryDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.MemberInquiryInfoDTO" alias="memberInquiryInfoDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.InquiryAnswerDTO" alias="inquiryAnswerDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyInquiryListDTO" alias="companyInquiryListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyInquiryAnswerDTO" alias="companyInquiryAnswerDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyInquiryInfoDTO" alias="companyInquiryInfoDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ProgramListDTO" alias="programListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.MainProgramListDTO" alias="mainProgramListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ScrapDTO" alias="scrapDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.MainProgramInfoDTO" alias="mainProgramInfoDTO"/>
+        <typeAlias type="com.app.temp.domain.vo.CompanyCategoryVO" alias="companyCategoryVO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyImageDTO" alias="companyImageDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.MemberResumeDTO" alias="memberResumeDTO"/>
+
     </typeAliases>
 </configuration>

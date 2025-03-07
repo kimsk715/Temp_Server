@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.temp.mapper.CompanyInquiryAnswerMapper">
+    <insert id="insert">
+        INSERT INTO TBL_COMPANY_INQUIRY_ANSWER(ID, INQUIRY_ANSWER_TITLE, INQUIRY_ANSWER_DETAIL, COMPANY_INQUIRY_ID)
+        VALUES(SEQ_INQUIRY_ANSWER.NEXTVAL, #{inquiryAnswerTitle}, #{inquiryAnswerDetail}, #{companyInquiryId})
+    </insert>
+</mapper>

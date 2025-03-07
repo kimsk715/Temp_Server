@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.temp.mapper.ScrapMapper">
+<select id="selectOne" resultType="scrapDTO">
+    SELECT * FROM TBL_SCRAP
+    WHERE MEMBER_ID = #{memberId} AND PROGRAM_ID = #{programId}
+</select>
+    <insert id="insert">
+        INSERT INTO TBL_SCRAP(ID, MEMBER_ID, PROGRAM_ID)
+        VALUES(SEQ_SCRAP.NEXTVAL, #{memberId}, #{programId})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM TBL_SCRAP
+        WHERE MEMBER_ID = #{memberId} AND PROGRAM_ID = #{programId}
+    </delete>
+</mapper>

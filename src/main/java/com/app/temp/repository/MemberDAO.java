@@ -1,6 +1,7 @@
 package com.app.temp.repository;
 
 import com.app.temp.domain.dto.MemberDTO;
+import com.app.temp.domain.dto.MemberInfoAdminDTO;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +31,10 @@ public class MemberDAO {
 //    회원 최근 로그인시간 갱신
     public void updateMemberRecentLogin(Long id){
         memberMapper.updateMemberRecentLogin(id);
+    }
+
+//  아이디로 회원 정보 조회
+    public MemberInfoAdminDTO findMemberInfoAdmin(Long id) {
+        return memberMapper.selectMemberInfoAdmin(id);
     }
 }
