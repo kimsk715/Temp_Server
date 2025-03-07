@@ -1,5 +1,5 @@
-// const idLabel = document.querySelector("#id-label");
-// const txt_tool = document.querySelector(".txt_tool");
+const idLabel = document.querySelector("#id-label");
+const txt_tool = document.querySelector(".txt_tool");
 
 txt_tool.addEventListener("focus", (e) => {
   console.log("IN");

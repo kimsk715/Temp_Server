@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.temp.mapper.TimeMapper">
-
+<mapper namespace="com.app.temp.mapper.MemberMapper">
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="long">
+            SELECT SEQ_MEMBER.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_MEMBER
+        (ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PROFILE_PATH)
+        VALUES(#{id}, #{memberName}, #{memberEmail}, #{memberProfilePath})
+    </insert>
+    <select id="selectById" resultType="memberVO">
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
+        FROM TBL_MEMBER WHERE ID = #{id}
+    </select>
+    <select id="selectByEmailAndPassword" resultType="memberVO">
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
+        FROM TBL_MEMBER WHERE MEMBER_EMAIL=#{memberEmail} AND MEMBER_PASSWORD=#{memberPassword}
+    </select>
+    <update id="updateMemberRecentLogin">
+        UPDATE TBL_MEMBER
+        SET MEMBER_RECENT_LOGIN = SYSDATE
+        WHERE ID = #{id}
+    </update>
+    <update id="updateMemberClass">
+        UPDATE TBL_MEMBER
+        SET MEMBER_CLASS = '기업'
+        WHERE ID = #{id}
+    </update>
+    <select id="selectByMemberEmail" resultType="memberDTO">
+        SELECT ID, MEMBER_EMAIL, MEMBER_PASSWORD, MEMBER_NAME, CREATED_DATE, UPDATED_DATE
+        FROM TBL_MEMBER
+        WHERE MEMBER_EMAIL = #{memberEmail}
+    </select>
 </mapper>

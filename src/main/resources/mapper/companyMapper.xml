@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.temp.mapper.CompanyMapper">
+    <insert id="insert">
+        INSERT INTO TBL_COMPANY (ID, COMPANY_BUSINESS_NUMBER, COMPANY_CERTIFICATE_PATH, COMPANY_NAME,
+                                 COMPANY_CEO, COMPANY_MAIN_ADDRESS, COMPANY_SUB_ADDRESS)
+        VALUES (SEQ_COMPANY.NEXTVAL, #{companyBusinessNumber}, 'N/A', #{companyName},
+                #{companyCEO}, #{companyMainAddress}, #{companySubAddress})
+    </insert>
+    <select id="selectByCompanyBusinessNumber" resultType="companyDTO">
+        SELECT * FROM TBL_COMPANY WHERE COMPANY_BUSINESS_NUMBER = #{companyBusinessNumber}
+    </select>
+    <select id="selectById" resultType="companyDTO">
+        SELECT * FROM TBL_COMPANY WHERE ID = #{id}
+    </select>
+</mapper>

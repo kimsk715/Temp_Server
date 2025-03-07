@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.temp.mapper.AdminMapper">
+    <insert id="insertAdmin">
+        INSERT INTO TBL_ADMIN
+        (ID, ADMIN_ID, ADMIN_PASSWORD) VALUES (SEQ_ADMIN.NEXTVAL, #{adminId}, #{adminPassword})
+    </insert>
+    <select id="selectByAdminIdAndPassword" resultType="com.app.temp.domain.vo.AdminVO">
+        SELECT * FROM TBL_ADMIN
+        WHERE ADMIN_ID = #{adminId} AND ADMIN_PASSWORD = #{adminPassword}
+    </select>
+</mapper>

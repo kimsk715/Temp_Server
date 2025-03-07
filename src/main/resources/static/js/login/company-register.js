@@ -16,7 +16,7 @@ integratedNUM.addEventListener("input", () => {
     value = value.slice(0, 3) + "-" + value.slice(3);
   } else if (value.length > 5) {
     value =
-      value.slice(0, 3) + "-" + value.slice(3, 5) + "-" + value.slice(5, 10);
+        value.slice(0, 3) + "-" + value.slice(3, 5) + "-" + value.slice(5, 10);
   }
 
   // 필드 값 업데이트
@@ -49,7 +49,7 @@ integratedNUM.addEventListener("blur", () => {
     integratedMSG.style.display = "block";
     integratedMSG.style.color = "blue";
     integratedMSG.innerText =
-      "사업자등록번호 확인완료, 기업인증에 사업자등록증명원 첨부해주세요.";
+        "사업자등록번호 확인완료, 기업인증에 사업자등록증명원 첨부해주세요.";
   }
 });
 
@@ -172,7 +172,7 @@ input.addEventListener("change", (e) => {
 // 다음에 할게요 누르면 발생하는 이벤트
 const nextTbtn = document.querySelector("#next_certification_check");
 const corp_wrap = document.querySelector(
-  "#normal_corp_code_certification_notice"
+    "#normal_corp_code_certification_notice"
 );
 const subCorp_wrap = document.querySelector("#next_certification_msg");
 
@@ -206,66 +206,66 @@ checkall.addEventListener("change", function () {
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", function () {
     const checkedCheckbox =
-      document.querySelectorAll(".itembtn:checked").length;
+        document.querySelectorAll(".itembtn:checked").length;
     checkall.checked = checkedCheckbox === checkboxes.length; // 전부 체크되면 전체 체크
   });
 });
 
-// 판독 이후, 아이디 이벤트들
-const idMsg = document.querySelector("#id");
-const idbox = document.querySelector(".idbox");
+// // 판독 이후, 아이디 이벤트들
+// const idMsg = document.querySelector("#id");
+// const idbox = document.querySelector(".idbox");
+//
+// const idcheckmsgbx = document.querySelector("#idCheckMsg1");
+// const idcheckmsg = document.querySelector("#idFocusMsg");
+//
+// idMsg.addEventListener("focus", () => {
+//   idcheckmsgbx.innerText = "4 ~ 20자의 영문, 숫자와 특수문자 '_'만 사용가능.";
+//   idcheckmsgbx.style.display = "block";
+//   idcheckmsgbx.style.color = "gray";
+//   idcheckmsgbx.style.fontSize = "14px";
+//   idbox.style.borderColor = "gray";
+// });
+//
+// // 아이디칸 블러됫을때 이벤트
+// idMsg.addEventListener("blur", () => {
+//   if (idMsg.value === "") {
+//     //
+//     idcheckmsgbx.style.fontSize = "12px";
+//     idbox.style.borderColor = "red";
+//     idcheckmsgbx.style.display = "block";
+//     idcheckmsgbx.style.color = "red";
+//     idcheckmsgbx.innerText =
+//       "4 ~ 20자의 영문, 숫자와 특수문자 '_'만 사용해주세요.";
+//   }
+//   // 만약 아아디 공통이 없다면
+//   else if (idMsg.value.length <= 20 || idMsg.value.length >= 4) {
+//     idbox.style.borderColor = "red";
+//     idcheckmsgbx.style.display = "block";
+//     idcheckmsgbx.style.color = "red";
+//   }
+// });
 
-const idcheckmsgbx = document.querySelector("#idCheckMsg1");
-const idcheckmsg = document.querySelector("#idFocusMsg");
-
-idMsg.addEventListener("focus", () => {
-  idcheckmsgbx.innerText = "4 ~ 20자의 영문, 숫자와 특수문자 '_'만 사용가능.";
-  idcheckmsgbx.style.display = "block";
-  idcheckmsgbx.style.color = "gray";
-  idcheckmsgbx.style.fontSize = "14px";
-  idbox.style.borderColor = "gray";
-});
-
-// 아이디칸 블러됫을때 이벤트
-idMsg.addEventListener("blur", () => {
-  if (idMsg.value === "") {
-    //
-    idcheckmsgbx.style.fontSize = "12px";
-    idbox.style.borderColor = "red";
-    idcheckmsgbx.style.display = "block";
-    idcheckmsgbx.style.color = "red";
-    idcheckmsgbx.innerText =
-      "4 ~ 20자의 영문, 숫자와 특수문자 '_'만 사용해주세요.";
-  }
-  // 만약 아아디 공통이 없다면
-  else if (idMsg.value.length <= 20 || idMsg.value.length >= 4) {
-    idbox.style.borderColor = "red";
-    idcheckmsgbx.style.display = "block";
-    idcheckmsgbx.style.color = "red";
-  }
-});
-
-// 비밀번호 눌럿을때 이벤트들
-
-const passwordImsg = document.querySelector("#password1FocusMsg");
-const passwordbinput = document.querySelector("#password1");
-const passwordbox = document.querySelector(".pass_box");
-const passwordeye = document.querySelector("#masking_password");
-
-passwordbinput.addEventListener("focus", () => {
-  if (passwordbinput.value.length === 0) {
-    passwordImsg.style.display = "block";
-    passwordbox.style.borderColor = "gray";
-    passwordImsg.style.color = "gray";
-    passwordImsg.innerText =
-      "8~16자리 영문 대소문자, 숫자, 특수문자 중 3가지 이상 조합으로 만들어주세요.";
-  } else if (passwordImsg.value !== "") {
-    passwordbox.style.borderColor = "red";
-    passwordImsg.style.color = "red";
-    passwordImsg.innerText =
-      "3자리 이상 연속되는 영문, 숫자, 특수문자는 비밀번호로 사용할 수 없습니다.";
-  }
-});
+// // 비밀번호 눌럿을때 이벤트들
+//
+// const passwordImsg = document.querySelector("#password1FocusMsg");
+// const passwordbinput = document.querySelector("#password1");
+// const passwordbox = document.querySelector(".pass_box");
+// const passwordeye = document.querySelector("#masking_password");
+//
+// passwordbinput.addEventListener("focus", () => {
+//   if (passwordbinput.value.length === 0) {
+//     passwordImsg.style.display = "block";
+//     passwordbox.style.borderColor = "gray";
+//     passwordImsg.style.color = "gray";
+//     passwordImsg.innerText =
+//       "8~16자리 영문 대소문자, 숫자, 특수문자 중 3가지 이상 조합으로 만들어주세요.";
+//   } else if (passwordImsg.value !== "") {
+//     passwordbox.style.borderColor = "red";
+//     passwordImsg.style.color = "red";
+//     passwordImsg.innerText =
+//       "3자리 이상 연속되는 영문, 숫자, 특수문자는 비밀번호로 사용할 수 없습니다.";
+//   }
+// });
 
 const phoneBtn = document.querySelector("#identify_phone");
 const hiddenEmail = document.querySelector("#phoneTOemail");
@@ -327,17 +327,17 @@ hemailInput.addEventListener("focus", () => {
   //
 });
 
-// 이메일에 @ 없으면 오류가뜸
-hemailInput.addEventListener("blur", () => {
-  if (!hemailInput.value.includes("@")) {
-    hemailMSG.style.display = "block";
-    hiddenEmailbox.style.borderColor = "red";
-    //
-  } else if (hemailInput.value.includes("@")) {
-    hemailMSG.style.display = "none";
-    hiddenEmailbox.style.borderColor = "gray";
-  }
-});
+// // 이메일에 @ 없으면 오류가뜸
+// hemailInput.addEventListener("blur", () => {
+//   if (!hemailInput.value.includes("@")) {
+//     hemailMSG.style.display = "block";
+//     hiddenEmailbox.style.borderColor = "red";
+//     //
+//   } else if (hemailInput.value.includes("@")) {
+//     hemailMSG.style.display = "none";
+//     hiddenEmailbox.style.borderColor = "gray";
+//   }
+// });
 
 const address_main = document.querySelector("#address_main");
 const address_sub = document.querySelector("#address_sebu");
@@ -361,7 +361,7 @@ address_main.addEventListener("click", () => {
 
         if (data.buildingName !== "" && data.apartment === "Y") {
           extraAddr +=
-            extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
+              extraAddr !== "" ? ", " + data.buildingName : data.buildingName;
         }
 
         if (extraAddr !== "") {
@@ -397,4 +397,31 @@ register.addEventListener("click", () => {
     alert("약관에 동의해주세요.");
   }
 });
+
+// 회원가입을 눌렀지만 안 됐을때 alert창 띄우기
+window.onload = function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const error = urlParams.get('error');
+
+  if (error) {
+    let errorMessage = '';
+
+    switch (error) {
+      case 'businessNumber':
+        errorMessage = '사업자등록번호가 이미 존재합니다.';
+        break;
+      case 'memberNotFound':
+        errorMessage = '회원 정보를 찾을 수 없습니다.';
+        break;
+      case 'true':
+        errorMessage = '등록에 실패했습니다. 다시 시도해주세요.';
+        break;
+      default:
+        errorMessage = '알 수 없는 오류가 발생했습니다. 다시 시도해주세요.';
+        break;
+    }
+
+    alert(errorMessage);  // alert 창 띄우기
+  }
+}
 
