@@ -71,31 +71,23 @@
                 <div class="main-content2">
                     <h1>입사지원 현황</h1>
                     <ul class="topbox0">
-                        <li class="topbox-content1" id="writing"><a>
-                                <dl>
-                                    <dt>고민중</dt>
-                                    <dd>1</dd>
-                                </dl>
-                            </a></li>
-                        <li class="topbox-content1-1" id="applied"><a>
+                        <li class="topbox-content1-1" id="apply">
+
+                            <a class="apply-status support" href="지원완료">
                                 <dl>
                                     <dt>지원완료</dt>
                                     <dd>0</dd>
                                 </dl>
                             </a></li>
-                        <li class="topbox-content1" id="passed"><a>
-                                <dl>
-                                    <dt>서류통과</dt>
-                                    <dd>0</dd>
-                                </dl>
-                            </a></li>
-                        <li class="topbox-content1" id="hired"><a>
+                        <li class="topbox-content1" id="hired">
+                            <a class="apply-status pass" href="최종합격">
                                 <dl>
                                     <dt>최종합격</dt>
                                     <dd>0</dd>
                                 </dl>
                             </a></li>
-                        <li class="topbox-content1" id="rejected"><a>
+                        <li class="topbox-content1" id="rejected">
+                            <a class="apply-status fail" href="불합격">
                                 <dl>
                                     <dt>불합격</dt>
                                     <dd>0</dd>
@@ -105,15 +97,14 @@
                     <ul class="applied-list0 writing-list hidden">
                         <h1>
                             <div>고민중 총 1건</div>
-
                         </h1>
-                        <li class="contentlist">
+                        <li class="contentlist" th:each="application : ${applicationDTOList}">
                             <div class="applied_item">
                                 <div class="applied_item_field"><a rel="noreferrer" target="_blank"
                                         href="/position/42110">
                                         <dl>
                                             <dt>
-                                                <div>아론티어</div><span class="datespan">D-3</span>
+                                                <div th></div><span class="datespan">D-3</span>
                                             </dt>
                                             <dd class="applications_main_title">
                                                 <span>AI Research
@@ -134,7 +125,7 @@
                             </div>
                         </li>
                     </ul>
-                    <ul class="applied-list0 applied-list">
+                    <ul class="applied-list0 applied-list" id="appliedList-wrap">
                         <h1>
                             <div>지원완료 총 0건</div>
                             <div>
@@ -199,6 +190,7 @@
                         <div class="applied-list-blank">
                             지원정보가 없습니다</div>
                     </ul>
+
                     <ul class="applied-list0 passed-list hidden">
                         <h1>
                             <div>서류통과 총 0건</div>
@@ -232,5 +224,7 @@
 </body>
 <script src="/js/member/mypage-all.js"></script>
 <script src="/js/member/mypage-applied.js"></script>
-
+<script src="/js/member/mypage-applied-service.js"></script>
+<script src="/js/member/mypage-applied-layout.js"></script>
+<script src="/js/member/mypage-applied-event.js"></script>
 </html>

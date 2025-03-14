@@ -3,6 +3,7 @@ package com.app.temp.service;
 import com.app.temp.domain.dto.MemberDTO;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.repository.MemberDAO;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,8 +27,13 @@ public class MemberService {
     }
 
 
-    // 로그인하면 회원 최근 로그인 시간 갱신
+//     로그인하면 회원 최근 로그인 시간 갱신
     public void updateMemberRecentLogin(Long id){
         memberDAO.updateMemberRecentLogin(id);
+    }
+
+//    회원 탈퇴
+    public void memberDelete(Long id){
+        memberDAO.deleteMember(id);
     }
 }

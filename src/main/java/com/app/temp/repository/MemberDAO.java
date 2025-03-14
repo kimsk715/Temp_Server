@@ -14,11 +14,11 @@ import java.util.Optional;
 public class MemberDAO {
     private final MemberMapper memberMapper;
 
-//        추가
+//    추가
     public void save(MemberVO memberVO){
         memberMapper.insert(memberVO);
     }
-//        조회(이메일)
+//    조회(이메일)
     public Optional<MemberDTO> findByMemberEmail(String memberEmail){
         return memberMapper.selectByMemberEmail(memberEmail);
     }
@@ -43,4 +43,9 @@ public class MemberDAO {
     public void setMember(MemberVO memberVO) {
         memberMapper.updateMember(memberVO);
     }
+//  회원 탈퇴
+    public void deleteMember(Long id) {
+        memberMapper.memberDelete(id);
+    }
 }
+

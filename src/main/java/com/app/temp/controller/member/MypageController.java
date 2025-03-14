@@ -1,19 +1,27 @@
 package com.app.temp.controller.member;
 
+import com.app.temp.controller.exception.StatusNotFoundException;
+import com.app.temp.domain.dto.ApplicationDTO;
+import com.app.temp.domain.dto.ApplyDTO;
+import com.app.temp.domain.dto.MypageDTO;
+import com.app.temp.domain.dto.Pagination;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.controller.exception.MypageSelectExcpetion;
 import com.app.temp.exception.NotFoundError;
 import com.app.temp.mapper.MemberMapper;
+import com.app.temp.repository.MemberDAO;
+import com.app.temp.service.ApplyService;
 import com.app.temp.service.MypageService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,27 +32,78 @@ public class MypageController {
     private final MemberMapper memberMapper;
     private final HttpSession session;
     private final MypageService mypageService;
+    private final MemberDAO memberDAO;
+    private final ApplyService applyService;
+    private final ApplyDTO applyDTO;
 
 
-    //    마이페이지 조회
+    //     마이페이지 조회
     @GetMapping("account-info")
     public String accountInfo(Model model) {
-//        MemberVO member = (MemberVO) session.getAttribute("member");
-        Long id = 2L;
-        Optional<MemberVO> member = mypageService.accountInfoSelect(id);
+        MemberVO member = (MemberVO) session.getAttribute("member");
 
-        log.info(member.toString());
 
-        MemberVO memberVO = member.orElseThrow(()-> new MypageSelectExcpetion("값을 가져오지못함"));
+        Optional<MemberVO> foundMember = memberDAO.findById(member.getId());
 
-        model.addAttribute("member", memberVO);
+        model.addAttribute("member", foundMember.orElseThrow(()-> new MypageSelectExcpetion("찾지못함")));
 
         return "/member/account-info";
     }
-    //    마이페이지 수정
-    @PostMapping("account-update")
-    public void accountUpdate(MemberVO memberVO) {
-        MemberVO member = new MemberVO();
-        mypageService.accountInfoUpdate(member);
+
+
+//    마이페이지 수정
+    @PostMapping ("account-update")
+    public String accountUpdate(@ModelAttribute MemberVO member, HttpSession session) {
+        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+
+        log.info(member.toString());
+
+        sessionMember.setMemberName(member.getMemberName());
+
+        mypageService.accountInfoUpdate(sessionMember, session);
+        log.info(sessionMember.toString());
+
+        return "redirect:/mypage/account-info";
+    }
+
+
+//     마이페이지 스크랩 리스트 조회
+    @GetMapping("account-main")
+    public String accountMain(Model model, HttpSession session) {
+    //    세션에서 회원 정보 가져오기
+        MemberVO member = (MemberVO) session.getAttribute("member");
+        log.info("이건 로그인정보 = {}", member.toString());
+    //    가져온 정보가 없다면 메인페이지로
+        if (member == null) {
+            return "redirect:/";
+        }
+    //    마이페이지 스크랩 리스트 조회
+        List<MypageDTO> scrapList = mypageService.mypageDTOList(member.getId(), session);
+        log.info("scrapList 스크랩 리스트 = {}", scrapList);
+    //    조회된 데이터를 모델에 추가
+        model.addAttribute("scrapList", scrapList);
+        
+    //    account-main 으로 이동
+        return "/member/account-main";
+    }
+
+
+
+//    지원 LIST를 REST로
+    @GetMapping("account-applied")
+    public String gotoApplied() {
+        return "/member/account-applied";
+    }
+
+//
+    @PostMapping("account-applis")
+    @ResponseBody
+    public List<ApplicationDTO> getList( @RequestBody Pagination pagination,  String applyMemberStatus) {
+        MemberVO member = (MemberVO) session.getAttribute("member");
+
+        List<ApplicationDTO> applicationDTOList = applyService.selelctApllyById(member.getId(), pagination, applyMemberStatus);
+        log.info(applicationDTOList.toString());
+        log.info(applyMemberStatus);
+        return applyService.selelctApllyById(member.getId(), pagination, applyMemberStatus);
     }
 }

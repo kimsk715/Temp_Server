@@ -3,9 +3,11 @@ package com.app.temp.repository;
 import com.app.temp.domain.vo.AdminVO;
 import com.app.temp.mapper.AdminMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+
 
 @Repository
 @RequiredArgsConstructor

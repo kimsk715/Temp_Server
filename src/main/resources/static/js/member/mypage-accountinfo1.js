@@ -1,3 +1,32 @@
+const InputTagCloseBtn = document.getElementById("profile-cancel");
+const InputClostTags = document.querySelectorAll(".btn-modify-cancel");
+
+
+InputTagCloseBtn.addEventListener('click', (e) =>{
+    InputClostTags.forEach((e) =>{
+        e.click()
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const nameCheckButton = document.getElementById("btnName");
 const nameEditButton = nameCheckButton.previousElementSibling;
 const nameCancelButton = nameCheckButton.nextElementSibling;
@@ -19,13 +48,48 @@ nameEditButton.addEventListener("click", () => {
     nameCheckButton.nextElementSibling.removeAttribute("disabled");
     nameCheckButton.previousElementSibling.setAttribute("disabled", "true");
 });
+
+
+
 //  수정하기 버튼누르면 수정 인풋란 오픈
 const profileEditBtn = document.getElementById("profile-edit");
+const profileSubmitBtn = document.getElementById("profile-submit");
+
+// 이름 input Tag
+const changeName = document.getElementById("change-name");
+// 생년월일 input Tag 생년월일으 ㄹ과연 바꿀까?;;;
+// const changeBirth = document.getElementById("")
+
+// 수정하기 누르면 취소가 생기고 input tag가 열림
+InputTagCloseBtn.style.display = "none";
+profileSubmitBtn.style.display = "none";
+
 profileEditBtn.addEventListener('click',()=>{
-    nameEditButton.click();
-    birthEditButton.click();
-    birthEditButton.click();
+    if(InputTagCloseBtn.style.display === "none") {
+        InputTagCloseBtn.style.display = "";
+        nameEditButton.click();
+    }
 })
+// 취소누르면 원상복구
+InputTagCloseBtn.addEventListener('click',()=>{
+    InputTagCloseBtn.style.display="none";
+    profileSubmitBtn.style.display="none";
+})
+
+// 만약 InputTagCloseBtn이 화면에 보이고 있을 때만 실행
+
+    changeName.addEventListener("input", () => {
+        // 입력란의 내용이 비어 있지 않으면 저장 버튼 표시
+        if (changeName.value.trim() !== "") {
+            profileSubmitBtn.style.display = "inline-block"; // 버튼을 보이게
+        } else {
+            profileSubmitBtn.style.display = "none";
+        }
+    });
+
+
+
+
 
 nameCheckButton.addEventListener("click", () => {
     console.log("+++++++++++++++++++++++++");

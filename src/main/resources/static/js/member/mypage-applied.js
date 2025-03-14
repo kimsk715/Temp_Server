@@ -8,21 +8,21 @@ const hiredButton = document.getElementById("hired");
 const rejectedButton = document.getElementById("rejected");
 const lists = document.querySelectorAll("ul.topbox0 li");
 
-writingButton.addEventListener("click", () => {
-    mainContentArea.forEach((list) => {
-        if (list.classList.contains("writing-list")) {
-            list.classList.remove("hidden");
-            lists.forEach((li) => {
-                li.classList.remove("topbox-content1-1");
-                li.classList.add("topbox-content1");
-            });
-            writingButton.classList.add("topbox-content1-1");
-            writingButton.classList.remove("topbox-content1");
-        } else {
-            list.classList.add("hidden");
-        }
-    });
-});
+// writingButton.addEventListener("click", () => {
+//     mainContentArea.forEach((list) => {
+//         if (list.classList.contains("writing-list")) {
+//             list.classList.remove("hidden");
+//             lists.forEach((li) => {
+//                 li.classList.remove("topbox-content1-1");
+//                 li.classList.add("topbox-content1");
+//             });
+//             writingButton.classList.add("topbox-content1-1");
+//             writingButton.classList.remove("topbox-content1");
+//         } else {
+//             list.classList.add("hidden");
+//         }
+//     });
+// });
 
 appliedButton.addEventListener("click", () => {
     mainContentArea.forEach((list) => {
@@ -40,21 +40,21 @@ appliedButton.addEventListener("click", () => {
     });
 });
 
-passedButton.addEventListener("click", () => {
-    mainContentArea.forEach((list) => {
-        if (list.classList.contains("passed-list")) {
-            list.classList.remove("hidden");
-            lists.forEach((li) => {
-                li.classList.remove("topbox-content1-1");
-                li.classList.add("topbox-content1");
-            });
-            passedButton.classList.add("topbox-content1-1");
-            passedButton.classList.remove("topbox-content1");
-        } else {
-            list.classList.add("hidden");
-        }
-    });
-});
+// passedButton.addEventListener("click", () => {
+//     mainContentArea.forEach((list) => {
+//         if (list.classList.contains("passed-list")) {
+//             list.classList.remove("hidden");
+//             lists.forEach((li) => {
+//                 li.classList.remove("topbox-content1-1");
+//                 li.classList.add("topbox-content1");
+//             });
+//             passedButton.classList.add("topbox-content1-1");
+//             passedButton.classList.remove("topbox-content1");
+//         } else {
+//             list.classList.add("hidden");
+//         }
+//     });
+// });
 
 hiredButton.addEventListener("click", () => {
     mainContentArea.forEach((list) => {
@@ -114,7 +114,7 @@ const optCanceled = document.getElementById("CANCELED");
 const optSpan = document.querySelector("button.btn-text > span");
 appliedChoice.forEach((choice) => {
     choice.addEventListener("click", () => {
-        console.log(choice.innerText);
+        // console.log(choice.innerText);
         switch (choice.innerText) {
             case "전체":
                 optSpan.innerText = "전체";
@@ -134,7 +134,7 @@ appliedChoice.forEach((choice) => {
 });
 
 document.addEventListener("click", function (e) {
-    console.log(e.target);
+    // console.log(e.target);
     if (filterButtonArea.contains(e.target)) {
         if (filterButton.getAttribute("aria-expanded") == "false") {
             filterButton.setAttribute("aria-expanded", "true");

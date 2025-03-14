@@ -32,28 +32,28 @@
             <div class="main-wrapper0">
                 <div class="main-content1">
                     <div>
-                        <h2><a href="/templates/member/account-main.html">마이템프</a>
+                        <h2><a href="/mypage/account-main">마이템프</a>
                         </h2>
                         <div class="mypagemenu-wrapper">
                             <ul class="mypagemenu1">
                                 <li class="mypagemenu2">
-                                    <a target="_self" href="/templates/member/account-applied.html">입사지원
+                                    <a target="_self" href="/mypage/account-applied">입사지원
                                         현황</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self" href="/templates/member/account-scraplist.html">스크랩
+                                    <a target="_self" href="/mypage/account-scraplist">스크랩
                                         리스트</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self" href="/templates/member/account-payment.html">결제
+                                    <a target="_self" href="/member/account-payment">결제
                                         관리</a>
                                 </li>
                                 <li class="mypagemenu2-1">
-                                    <a target="_self" href="/templates/member/account-info.html">계정
+                                    <a target="_self" href="/mypage/account-info">계정
                                         정보 설정</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self" href="/templates/member/account-withdrawl.html">계정
+                                    <a target="_self" href="/member/account-withdrawl">계정
                                         탈퇴</a>
                                 </li>
 
@@ -61,36 +61,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-content2">
+                <div class="main-content2" >
                     <h1>마이템프
                     </h1>
                     <ul class="topbox0">
                         <li class="topbox-content1">
-                            <a href="/publishing/templates/member/mypage-applied.html">
-                                <dl>
-                                    <dt>고민중</dt>
-                                    <dd>0</dd>
-                                </dl>
-                            </a>
-                        </li>
-                        <li class="topbox-content1">
-                            <a href="/publishing/templates/member/mypage-applied.html">
+                            <a href="/mypage/mypage-applied">
                                 <dl>
                                     <dt>지원완료</dt>
                                     <dd>0</dd>
                                 </dl>
                             </a>
                         </li>
+
                         <li class="topbox-content1">
-                            <a href="/publishing/templates/member/mypage-applied.html">
-                                <dl>
-                                    <dt>서류통과</dt>
-                                    <dd>0</dd>
-                                </dl>
-                            </a>
-                        </li>
-                        <li class="topbox-content1">
-                            <a href="/publishing/templates/member/mypage-applied.html">
+                            <a href="/mypage/mypage-applied">
                                 <dl>
                                     <dt>최종합격</dt>
                                     <dd>0</dd>
@@ -98,7 +83,7 @@
                             </a>
                         </li>
                         <li class="topbox-content1">
-                            <a href="/publishing/templates/member/mypage-applied.html">
+                            <a href="/mypage/mypage-applied">
                                 <dl>
                                     <dt>불합격</dt>
                                     <dd>0</dd>
@@ -121,8 +106,8 @@
                     <div class="mainpage-scraplist">
                         <h1>잊지않으셨죠? 스크랩 리스트</h1><a href="/scraps">전체보기</a>
                     </div>
-                    <div class="mainpage-scrapcontent">
-                        <div class="main-content5-bottom-box">
+                    <div class="mainpage-scrapcontent" >
+                        <div class="main-content5-bottom-box" th:each="scrap : ${scrapList}">
                             <a target="_blank"
                                 title="AI Research Scientist (Computer Vision and Bioinformatics)_병역특례/전문연구요원 우대 (2~4년)"
                                 href="/position/42110">
@@ -131,8 +116,8 @@
                                 <div class="img-box">
                                     <img alt="아론티어" class="img"
                                         src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20253515103518656_567_378.webp">
-                                    <div class="d-date">
-                                        <span class="d-date-text">D-11</span>
+                                    <div class="d-date" >
+                                        <span class="d-date-text" th:text="*{scrap.programEndDate}"></span>
                                     </div>
                                     <div class="counts">
                                         <div class="position-view-count">
@@ -162,15 +147,10 @@
                                 </div>
                                 <div class="content-text">
                                     <div class="content-text1">
-                                        <span>아론티어</span>
+                                        <span th:text="*{scrap.companyName}"></span>
                                     </div>
-                                    <h2 class="position_card_info_title">
-                                        AI Research
-                                        Scientist
-                                        (Computer Vision
-                                        and
-                                        Bioinformatics)_병역특례/전문연구요원
-                                        우대 (2~4년)</h2>
+                                    <h2 class="position_card_info_title" th:text="*{scrap.programName}">
+                                        </h2>
                                     <ul class="content-text2">
                                         <li>AI/인공지능</li>
                                         <li>· PyTorch
@@ -187,10 +167,11 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                        </div>
+
                     <!-- 화면에 나타날 영역 -->
                     <!-- 여기부터는 스크랩 리스트가 비어있을 때 -->
-                    <div class="main-content5">
+                    <div class="main-content5" th:each="scrap : ${scrapList}">
                         <h2>스크랩한 포지션이
                             없어요<i>😥</i></h2>
                         <div class="main-content5-top">
@@ -218,7 +199,7 @@
                                         <img alt="아파트아이" class="img"
                                             src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20251014101040302_567_378.webp" />
                                         <div class="d-date">
-                                            <span class="d-date-text">D-7</span>
+                                            <span class="d-date-text"></span>
                                         </div>
                                         <div class="counts">
                                             <div class="position-view-count">
@@ -279,7 +260,7 @@
                                     </div>
                                     <div class="img-box">
                                         <img alt="디어유" class="img"
-                                            src="https://cdn.jumpit.co.kr/lg/images/dabin_3358/20243708143740292_739_503.webp" />
+                                            th:src="*{scrap.programThumbnailPath}" />
                                         <div class="d-date">
                                             <span class="d-date-text">D-5</span>
                                         </div>

@@ -73,6 +73,46 @@
                                 ON P.CATEGORY_C_ID = CC.ID
                                         WHERE P.ID = #{id}
     </select>
+<!--    마이페이지 지원한 리스트 -->
+    <select id="selectApplicationById" resultType="applyDTO">
+    SELECT PROGRAM_NAME, programEndDate, COMPANY_NAME
+    FROM
+        (
+            SELECT ROWNUM R, PROGRAM_NAME, programEndDate, COMPANY_NAME
+            FROM
+                (
+                    SELECT P.PROGRAM_NAME,
+                           CEIL(PROGRAM_END_DATE - SYSDATE) AS programEndDate,
+                           C.COMPANY_NAME,
+                           A.APPLY_MEMBER_STATUS
+                    FROM TBL_COMPANY C
+                    JOIN TBL_PROGRAM P
+                    ON C.ID = P.COMPANY_ID
+                    JOIN TBL_APPLY A
+                    ON A.PROGRAM_ID = P.ID
+                    AND
+                    A.MEMBER_ID = #{id} AND
+                    A.APPLY_MEMBER_STATUS = #{applyMemberStatus}
+                    ORDER BY A.ID DESC
+                )
+            <![CDATA[
+            WHERE ROWNUM <= #{pagination.endRow}
+                ]]>
+        )
+     <![CDATA[
+    WHERE R >= #{pagination.startRow}
+    ]]>
+    </select>
 
+    <select id="selectApplicationCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM TBL_MEMBER M JOIN TBL_APPLY A
+        ON M.ID = A.MEMBER_ID AND A.MEMBER_ID = #{id}
+    </select>
+    <select id="selectApplicationMemberStatus" resultType="applyDTO">
+        SELECT APPLY_MEMBER_STATUS
+        FROM TBL_APPLY
+        WHERE MEMBER_ID = #{id}
+    </select>
 
 </mapper>

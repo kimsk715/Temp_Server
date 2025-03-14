@@ -49,7 +49,7 @@ public class ScrapService {
         Optional<ScrapDTO> scrapDTO = scrapMapper.selectOne(scrapVO);
         if(scrapDTO.isPresent()) {
             scrapMapper.delete(scrapDTO.orElseThrow().toScrapVO());
-//            log.info("삭제됨");
+
         }
         else {
             ScrapDTO newScrapDTO = new ScrapDTO();

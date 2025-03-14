@@ -33,13 +33,13 @@
         WHERE MEMBER_EMAIL = #{memberEmail}
     </select>
     <select id="selectAllAdmin" resultType="memberAdminListDTO">
-        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_REGISTER_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_RECENT_LOGIN, MEMBER_STATUS
         FROM TBL_MEMBER
     </select>
 
 
     <select id="selectMemberInfoAdmin" resultType="memberInfoAdminDTO">
-        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_REGISTER_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PROFILE_PATH
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PROFILE_PATH
         FROM TBL_MEMBER
         WHERE ID = #{id}
     </select>
@@ -50,29 +50,21 @@
         WHERE ID = #{id}
     </update>
     <!--    마이페이지 정보조회-->
-    <select id="selectMyPageInfo" resultType="memberVO">
+    <select id="selectByIdForInfo" resultType="memberVO">
         SELECT MEMBER_EMAIL, MEMBER_PHONE, MEMBER_STATUS, ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_PASSWORD, MEMBER_BIRTH, MEMBER_RECENT_LOGIN, MEMBER_EMAIL, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, UPDATED_DATE
         FROM TBL_MEMBER m
         WHERE m.ID = #{id}
     </select>
     <!--    마이페이지 수정-->
-    <update id="updateMember">
+    <update id="updateMember" >
         UPDATE TBL_MEMBER
-        SET
-            MEMBER_NAME = #{memberName},
-            MEMBER_EMAIL = #{memberEmail},
-            MEMBER_PHONE = #{memberPhone},
-            MEMBER_BIRTH = #{memberBirth}
+        SET MEMBER_NAME = #{memberName}
         WHERE ID = #{id}
     </update>
-    <!--    로그인-->
-    <select id="selectByMemberEmailAndMemberPassword" resultType="memberVO">
-        SELECT ID, MEMBER_EMAIL, MEMBER_PHONE, MEMBER_STATUS, ID,
-               MEMBER_NAME, MEMBER_PHONE, MEMBER_PASSWORD, MEMBER_BIRTH,
-               MEMBER_RECENT_LOGIN, MEMBER_EMAIL, MEMBER_PROFILE_PATH,
-               MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
-        FROM TBL_MEMBER
-        WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD =#{memberPassword}
-    </select>
+<!--    회원 탈퇴-->
+    <delete id="memberDelete">
+        DELETE FROM TBL_MEMBER WHERE ID = #{id}
+    </delete>
+
 
 </mapper>

@@ -40,4 +40,6 @@ public interface MemberMapper {
 //   로그인
     public Optional<MemberVO> selectByMemberEmailAndMemberPassword(MemberVO memberVO);
 
+
+
 }
