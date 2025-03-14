@@ -51,18 +51,20 @@ public class KakaoController {
             if (!foundMember.isPresent()) {
                 // 개인회원이 없다면 TBL_MEMBER에 등록
                 memberService.join(memberDTO);  // 개인회원 가입
+
+                foundMember = Optional.of(memberService.getMember(memberDTO.getMemberEmail()).orElseThrow(() -> new LoginFailException("회원 정보 조회 실패")));
             }
 
-            MemberDTO existingMember = foundMember.orElseThrow(() -> new RuntimeException("회원 정보 조회 실패"));
+            MemberDTO existingMember = foundMember.get();
 
             // 최근 로그인 시간 업데이트
             memberService.updateMemberRecentLogin(existingMember.getId());
 
             // 세션에 member 정보 저장
-            session.setAttribute("member", memberDTO);
+            session.setAttribute("member", existingMember.toVO());
             log.info("Set session attribute: member = {}", session.getAttribute("member"));
 
-            return "redirect:/"; // 홈으로 리디렉션
+            return "redirect:/mypage/account-info"; // 홈으로 리디렉션
         }
 
         // 기업회원 로그인 처리

@@ -27,4 +27,23 @@
         INSERT INTO TBL_SCRAP (ID, MEMBER_ID, PROGRAM_ID, CREATED_DATE, UPDATED_DATE)
         VALUES (SEQ_SCRAP.NEXTVAL, #{memberId}, #{programId}, SYSDATE, SYSDATE)
     </insert>
+    <!--    마이페이지 스크랩 리스트 조회-->
+    <select id="selectMemberScrabByMemberId" resultType="mypageDTO">
+        SELECT CP.PROGRAM_NAME, CP.programEndDate, CP.PROGRAM_THUMBNAIL_PATH, CP.COMPANY_NAME
+        FROM TBL_SCRAP S
+                 JOIN
+             (
+                 SELECT
+                     COMPANY_NAME,
+                     PROGRAM_THUMBNAIL_PATH,
+                     PROGRAM_END_DATE,
+                     PROGRAM_NAME,
+                     CEIL(PROGRAM_END_DATE - SYSDATE) AS programEndDate,
+                     P.ID
+                 FROM TBL_COMPANY C
+                          JOIN TBL_PROGRAM P
+                               ON C.ID = P.COMPANY_ID
+             ) CP
+             ON S.PROGRAM_ID = CP.ID AND MEMBER_ID = ${id}
+    </select>
 </mapper>

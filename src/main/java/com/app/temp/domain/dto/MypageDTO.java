@@ -6,19 +6,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Getter
-@Setter
+@Getter @Setter
+@NoArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
-public class ApplyListDTO {
+public class MypageDTO {
     @EqualsAndHashCode.Include
-    private Long memberId;
+    private List<ScrapDTO> scrapDTOList;
     private String companyName;
     private String programName;
-    private String applyMemberStatus;
-    private String createdDate; //apply 것 이용.
-    private Pagination pagination;
-    private List<ApplyDTO> applyList;
-
+    private String programThumbnailPath;
+    private String programEndDate;
 }

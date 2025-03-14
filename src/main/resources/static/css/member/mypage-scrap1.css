@@ -681,3 +681,10 @@
 .content-text3 li:nth-of-type(2n)::before {
     content: "· ";
 }
+.scrap-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: calc(100% + 20px);
+    margin: 0 0 0 -10px;
+}

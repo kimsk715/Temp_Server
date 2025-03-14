@@ -37,43 +37,43 @@
         <div class="main-wrapper0">
             <div class="main-content1">
                 <div>
-                    <h2><a href="/publishing/templates/member/mypage-main.html">마이템프</a>
+                    <h2><a href="/mypage/account-main">마이템프</a>
                     </h2>
                     <div class="mypagemenu-wrapper">
                         <ul class="mypagemenu1">
                             <li class="mypagemenu2">
-                                <a target="_self" href="/publishing/templates/member/mypage-applied.html">입사지원
+                                <a target="_self" href="/mypage/account-applied">입사지원
                                     현황</a>
                             </li>
                             <li class="mypagemenu2">
-                                <a target="_self" href="/publishing/templates/member/mypage-scraplist.html">스크랩
+                                <a target="_self" href="/member/mypage-scraplist.html">스크랩
                                     리스트</a>
                             </li>
                             <li class="mypagemenu2">
-                                <a target="_self" href="/publishing/templates/member/mypage-payment.html">결제
+                                <a target="_self" href="/member/mypage-payment.html">결제
                                     관리</a>
                             </li>
                             <li class="mypagemenu2-1">
-                                <a target="_self" href="/publishing/templates/member/mypage-accountinfo.html">계정
+                                <a target="_self" href="/member/mypage-accountinfo.html">계정
                                     정보 설정</a>
                             </li>
                             <li class="mypagemenu2">
                                 <a target="_self"
-                                   href="/publishing/templates/member/mypage-accountwithdrawl.html">계정
+                                   href="/member/mypage-accountwithdrawl.html">계정
                                     탈퇴</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="main-content2" th:object="${member}">
+            <div class="main-content2" >
                 <ul class="applied-list0">
                     <h1>
                         <div>
                             계정 정보 수정</div>
                     </h1>
                     <div class="applied-list-blank">
-                        <form action="/mypage/account-update" method="post">
+                        <form  method="post" th:action="@{/mypage/account-update}" th:object="${member}">
                             <button type="submit" id="profile-submit">저장</button>
                             <button type="button" id="profile-edit">수정하기</button>
                             <button type="button" id="profile-cancel">취소</button>
@@ -107,22 +107,23 @@
                                                 </div>
                                                 <div class="field-body inactive">
                                                     <div class="TypoBox">
-                                                        <input type="text" name="change-name" id="change-name"
+                                                        <input type="text" name="memberName" id="change-name"
                                                                class="Typo"  placeholder="이름을 입력해주세요"
                                                                style="width: 186px;" value=""
-                                                               data-gtm-form-interact-field-id="2">
+                                                               data-gtm-form-interact-field-id="2"
+                                                        th:field="*{memberName}">
                                                         <input type="hidden" id="org-change-name" value="김승균">
                                                     </div>
                                                 </div>
                                                 <div class="field-btn">
                                                     <button
-                                                            class="BtnType SizeS btn_modify">수정</button>
+                                                            class="BtnType SizeS btn_modify" style="opacity: 0; visibility: hidden; position: absolute;">수정</button>
                                                     <button  id="btnName"
                                                              class="BtnType SizeS btn-confirm"
-                                                             disabled="">확인</button>
+                                                             disabled="" style="opacity: 0; visibility: hidden; position: absolute;">확인</button>
                                                     <button type="button"
                                                             class="BtnType SizeS btn-modify-cancel"
-                                                            disabled="">취소</button>
+                                                            disabled="" style="opacity: 0; visibility: hidden; position: absolute;">취소</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -164,20 +165,20 @@
                                                 </div>
                                                 <div class="field-btn">
                                                     <button type="button" class="BtnType SizeS btn-modify"
-                                                            data-type="birthday">수정</button>
+                                                            data-type="birthday" style="opacity: 0; visibility: hidden; position: absolute;" >수정</button>
                                                     <button type="button" id="btnBirthDay"
                                                             class="BtnType SizeS btn-confirm"
-                                                            disabled="">확인</button>
+                                                            disabled="" style="opacity: 0; visibility: hidden; position: absolute;">확인</button>
                                                     <button type="button"
                                                             class="BtnType SizeS btn-modify-cancel"
-                                                            disabled="">취소</button>
+                                                            disabled="" style="opacity: 0; visibility: hidden; position: absolute;">취소</button>
                                                 </div>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="field-wrap" th:object="${member}">
+                                <div class="field-wrap" >
                                     <h2 class="field-legend">연락처 정보</h2>
                                     <table class="field-table">
                                         <tbody>
@@ -190,7 +191,7 @@
                                                     <span id="view-cell-overseas"
                                                           class="person-view-overseascell" style="display:none">해외
                                                                 거주자입니다</span>
-                                                    <b aria-readonly="true" id="view-cell" style="display:" th:text="*{memberPhone}"></b>
+                                                    <b aria-readonly="true" id="view-cell"  th:text="*{memberPhone}"></b>
                                                     <span id="smsCert" class="badge badge-verified">인증</span>
                                                 </div>
                                                 <!--                                                        <div class="field-btn">-->
@@ -337,7 +338,7 @@
                                 </div>
 
                                 <div class="wrap-btn-withdraw">
-                                    <a href="/zf_user/persons/person-out" class="btn-withdraw">회원 탈퇴</a>
+                                    <a href="/member/account-withdrawal" class="btn-withdraw">회원 탈퇴</a>
                                 </div>
                             </div>
                         </form>

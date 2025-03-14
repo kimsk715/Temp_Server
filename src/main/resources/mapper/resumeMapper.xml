@@ -18,11 +18,6 @@
         UPDATE TBL_RESUME
         SET RESUME_INTRODUCE=#{resumeTitle}, RESUME_PROFILE_PHOTO=#{resumeProfilePhoto}, RESUME_INTRODUCE=#{resumeIntroduce}, UPDATED_DATE=SYSDATE
     </update>
-    <select id="selectByMemberId" resultType="memberResumeDTO">
-        SELECT MEMBER_ID, RESUME_TITLE, RESUME_INTRODUCE
-        FROM TBL_RESUME
-        WHERE MEMBER_ID = #{memberId}
-    </select>
     <!--   페이지에 들어가는 딸깍 이력서 -->
     <insert id="resumeInsertForPage">
         INSERT INTO TBL_RESUME (ID, RESUME_NAME, RESUME_EMAIL, RESUME_BIRTH, MEMBER_ID, CREATED_DATE, UPDATED_DATE)

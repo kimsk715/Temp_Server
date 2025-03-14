@@ -37,6 +37,9 @@
         <typeAlias type="com.app.temp.domain.vo.CompanyCategoryVO" alias="companyCategoryVO"/>
         <typeAlias type="com.app.temp.domain.dto.CompanyImageDTO" alias="companyImageDTO"/>
         <typeAlias type="com.app.temp.domain.dto.MemberResumeDTO" alias="memberResumeDTO"/>
-
+        <typeAlias type="com.app.temp.domain.dto.ResumeDTO" alias="resumeDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.MypageDTO" alias="mypageDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ApplicationDTO" alias="applicationDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ApplyDTO" alias="applyDTO"/>
     </typeAliases>
 </configuration>
