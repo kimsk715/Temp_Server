@@ -8,26 +8,25 @@
         WHERE MEMBER_ID = #{memberId}
     </select>
     <!--    특정 유저 이력서들 조회-->
-    <select id="resumeAllselect" resultType="resumeDTO">
-        SELECT RESUME_TITLE, RESUME_INTRODUCE, RESUME_PROFILE_PHOTO
-        FROM TBL_RESUME
-        WHERE MEMBER_ID = #{memberId}
+    <select id="selectAllMemberResume" resultType="resumeDTO">
+        SELECT RESUME_TITLE, RESUME_INTRODUCE, MEMBER_NAME, TO_CHAR(R.CREATED_DATE, 'YYYY.MM.DD') AS CREATED_DATE, MEMBER_ID, R.ID, RESUME_PROFILE_PHOTO, MEMBER_EMAIL, MEMBER_PHONE, R.UPDATED_DATE
+        FROM TBL_MEMBER M join TBL_RESUME R
+        ON M.ID = R.MEMBER_ID
+        WHERE R.MEMBER_ID = #{memberId}
     </select>
     <!--    이력서 수정-->
     <update id="resumeUpdate">
         UPDATE TBL_RESUME
         SET RESUME_INTRODUCE=#{resumeTitle}, RESUME_PROFILE_PHOTO=#{resumeProfilePhoto}, RESUME_INTRODUCE=#{resumeIntroduce}, UPDATED_DATE=SYSDATE
     </update>
-    <!--   페이지에 들어가는 딸깍 이력서 -->
-    <insert id="resumeInsertForPage">
-        INSERT INTO TBL_RESUME (ID, RESUME_NAME, RESUME_EMAIL, RESUME_BIRTH, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
-        SELECT SEQ_RESUME.NEXTVAL, MEMBER_NAME, MEMBER_EMAIL, MEMBER_BIRTH, m.ID , SYSDATE, SYSDATE
-        FROM TBL_MEMBER m WHERE m.ID = #{memberId}
+<!--    이력서 추가-->
+    <insert id="insertResume">
+        INSERT INTO TBL_RESUME (ID, RESUME_TITLE, MEMBER_ID)
+        VALUES (SEQ_RESUME.NEXTVAL, #{memberName}, #{id})
     </insert>
-    <!--    쿼리 수정해야할 전체적인 이력서등록-->
-    <!--    <insert id="resumeInsert">-->
-    <!--        INSERT INTO TBL_RESUME (ID, RESUME_NAME, RESUME_EMAIL, RESUME_BIRTH, MEMBER_ID, CREATED_DATE, UPDATED_DATE)-->
-    <!--        SELECT SEQ_RESUME.NEXTVAL, MEMBER_NAME, MEMBER_EMAIL, MEMBER_BIRTH, m.ID , SYSDATE, SYSDATE-->
-    <!--        FROM TBL_MEMBER m WHERE m.ID = #{id}-->
-    <!--    </insert>-->
+<!--    이력서 삭제-->
+    <delete id="deleteResume">
+        DELETE FROM TBL_RESUME
+        WHERE ID = #{id}
+    </delete>
 </mapper>

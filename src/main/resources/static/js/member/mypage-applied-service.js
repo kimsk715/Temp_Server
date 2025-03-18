@@ -1,7 +1,7 @@
 const mypageAppliedService = (()=>{
     // 1
     // 추가
-    // 비동기 함수,, reply는 파라미터를 받아서 처리함, reply는 서버로 전송할 데이터다!!!
+    // 비동기 함수,, applyMemberStatus는 파라미터를 받아서 처리함, reply는 서버로 전송할 데이터다!!!
     const apply = async (applyMemberStatus) => {
 
         // 2

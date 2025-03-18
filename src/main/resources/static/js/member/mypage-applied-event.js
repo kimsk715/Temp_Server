@@ -21,12 +21,8 @@ applyStatus.forEach((status) => {
 
         if (validStatuses.includes(applyMemberStatus)) {
             await mypageAppliedService.apply(applyMemberStatus);
-            await mypageAppliedService.getList(applyMemberStatus, appliedLayout.showlist)
-            ;
-
+            await mypageAppliedService.getList(applyMemberStatus, appliedLayout.showlist);
         }
-
     })
-
 })
 

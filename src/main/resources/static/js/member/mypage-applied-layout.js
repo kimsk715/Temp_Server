@@ -1,6 +1,7 @@
 const appliedLayout = (() => {
     const showlist = async (applyList, page = 1) => {
         const tbody = document.getElementById("appliedList-wrap");
+
         let text = '';
         console.log(applyList);
         applyList.forEach((list) => {

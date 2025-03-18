@@ -12,4 +12,14 @@ public class GlobalExceptionHandler {
         log.error(e.getMessage());
         return "error/404";
     }
+    @ExceptionHandler(StatusNotFoundException.class)
+    protected String handleStatusNotFoundException(StatusNotFoundException e){
+        log.error(e.getMessage());
+        return "error/404";
+    }
+    @ExceptionHandler(UploadException.class)
+    protected String handleUploadException(UploadException e){
+        log.error(e.getMessage());
+        return "error/404";
+    }
 }
