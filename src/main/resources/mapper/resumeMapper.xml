@@ -3,7 +3,7 @@
 
 <mapper namespace="com.app.temp.mapper.ResumeMapper">
     <select id="selectByMemberId" resultType="memberResumeDTO">
-        SELECT MEMBER_ID, RESUME_TITLE, RESUME_INTRODUCE
+        SELECT ID, MEMBER_ID, RESUME_TITLE, RESUME_INTRODUCE, TO_CHAR(CREATED_DATE,'YYYY-MM-DD') CREATED_DATE, RESUME_PROFILE_PHOTO
         FROM TBL_RESUME
         WHERE MEMBER_ID = #{memberId}
     </select>

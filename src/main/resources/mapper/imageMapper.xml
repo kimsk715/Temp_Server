@@ -7,4 +7,10 @@
         FROM TBL_COMPANY_IMAGE
         WHERE COMPANY_ID = #{companyId}
     </select>
+
+    <select id="imageCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM TBL_COMPANY_IMAGE
+        WHERE COMPANY_ID = ${companyId}
+    </select>
 </mapper>

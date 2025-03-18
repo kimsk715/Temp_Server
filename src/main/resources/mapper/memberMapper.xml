@@ -10,11 +10,11 @@
         VALUES(#{id}, #{memberName}, #{memberEmail}, #{memberProfilePath})
     </insert>
     <select id="selectById" resultType="memberVO">
-        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
         FROM TBL_MEMBER WHERE ID = #{id}
     </select>
     <select id="selectByEmail" resultType="memberVO">
-        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_BIRTH ,MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
         FROM TBL_MEMBER WHERE MEMBER_EMAIL=#{memberEmail}
     </select>
     <update id="updateMemberRecentLogin">
@@ -28,18 +28,46 @@
         WHERE ID = #{id}
     </update>
     <select id="selectByMemberEmail" resultType="memberDTO">
-        SELECT ID, MEMBER_EMAIL, MEMBER_NAME, CREATED_DATE, UPDATED_DATE
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, TO_CHAR(MEMBER_BIRTH, 'YYYY') AS MEMBER_BIRTH ,MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE
         FROM TBL_MEMBER
         WHERE MEMBER_EMAIL = #{memberEmail}
     </select>
+    <select id="selectByMemberId" resultType="memberDTO">
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, CREATED_DATE, UPDATED_DATE        FROM TBL_MEMBER WHERE ID = #{id}
+    </select>
+    <!-- 관리자용 -->
     <select id="selectAllAdmin" resultType="memberAdminListDTO">
-        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_RECENT_LOGIN, MEMBER_STATUS
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE, TO_CHAR(MEMBER_RECENT_LOGIN, 'YYYY-MM-DD') AS MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PHONE, MEMBER_PROFILE_PATH
+        FROM (
+        SELECT ID, ROWNUM R, MEMBER_NAME, MEMBER_EMAIL, CREATED_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PHONE, MEMBER_PROFILE_PATH
+        FROM
+        (
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, CREATED_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PHONE, MEMBER_PROFILE_PATH
         FROM TBL_MEMBER
+        WHERE ID IS NOT NULL
+        <if test="status != 'all' and status != null">
+            AND MEMBER_STATUS = #{status}
+        </if>
+        <if test="memberKeyword != null">
+            AND MEMBER_NAME LIKE '%' || #{memberKeyword} || '%'
+        </if>
+        <if test="date != 0 and date != 1">
+            AND CEIL(SYSDATE - TO_DATE(MEMBER_RECENT_LOGIN)) <![CDATA[ <= #{date}]]>
+        </if>
+        ORDER BY ID DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= ${endRow}
+        ]]>
+        )
+        <![CDATA[
+        WHERE R >= ${startRow}
+        ]]>
     </select>
 
 
-    <select id="selectMemberInfoAdmin" resultType="memberInfoAdminDTO">
-        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL,  MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PROFILE_PATH
+    <select id="selectMemberInfoAdmin" resultType="memberAdminListDTO">
+        SELECT ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_EMAIL, TO_CHAR(MEMBER_RECENT_LOGIN, 'YYYY-MM-DD') AS MEMBER_RECENT_LOGIN, MEMBER_STATUS, MEMBER_PROFILE_PATH, TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE
         FROM TBL_MEMBER
         WHERE ID = #{id}
     </select>
@@ -49,9 +77,27 @@
         SET MEMBER_STATUS = #{memberStatus}
         WHERE ID = #{id}
     </update>
+
+    <select id="countAll" resultType="_int">
+        SELECT COUNT(*)
+        FROM (
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, CREATED_DATE, MEMBER_RECENT_LOGIN, MEMBER_STATUS
+        FROM TBL_MEMBER
+        WHERE ID IS NOT NULL
+        <if test="status != 'all' and status != null">
+            AND MEMBER_STATUS = #{status}
+        </if>
+        <if test="memberKeyword != null">
+            AND MEMBER_NAME LIKE '%' || #{memberKeyword} || '%'
+        </if>
+        <if test="date != 0 and date != 1">
+            AND CEIL(SYSDATE - TO_DATE(MEMBER_RECENT_LOGIN)) <![CDATA[ <= #{date}]]>
+        </if>
+        )
+    </select>
     <!--    마이페이지 정보조회-->
     <select id="selectByIdForInfo" resultType="memberVO">
-        SELECT MEMBER_EMAIL, MEMBER_PHONE, MEMBER_STATUS, ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_PASSWORD, MEMBER_BIRTH, MEMBER_RECENT_LOGIN, MEMBER_EMAIL, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, UPDATED_DATE
+        SELECT MEMBER_EMAIL, MEMBER_PHONE, MEMBER_STATUS, ID, MEMBER_NAME, MEMBER_PHONE, MEMBER_BIRTH, MEMBER_RECENT_LOGIN, MEMBER_EMAIL, MEMBER_PROFILE_PATH, MEMBER_CLASS, MEMBER_POINT, MEMBER_STATUS, UPDATED_DATE
         FROM TBL_MEMBER m
         WHERE m.ID = #{id}
     </select>

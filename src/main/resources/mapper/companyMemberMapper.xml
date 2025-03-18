@@ -9,10 +9,86 @@
         INSERT INTO TBL_COMPANY_MEMBER (ID, COMPANY_ID, COMPANY_MEMBER_POSITION, COMPANY_MEMBER_AUTHORITY, COMPANY_MEMBER_DEPARTMENT)
         VALUES (#{id}, #{companyId}, #{companyMemberPosition}, #{companyMemberAuthority}, #{companyMemberDepartment})
     </insert>
-    <select id="selectBymemberEmail" resultType="companyMemberDTO">
+    <select id="selectByMemberEmail" resultType="companyMemberDTO">
         SELECT C.*, M.MEMBER_NAME, M.MEMBER_EMAIL, M.MEMBER_PHONE, M.MEMBER_STATUS, M.MEMBER_CLASS
         FROM TBL_MEMBER M
-        JOIN TBL_COMPANY_MEMBER C ON C.ID = M.ID
+                 JOIN TBL_COMPANY_MEMBER C ON C.ID = M.ID
         WHERE M.MEMBER_EMAIL = #{memberEmail}
+
+    </select>
+
+    <select id="countAllCompanyMember" resultType="_int">
+        SELECT COUNT(*) AS TOTAL
+        FROM
+        (
+        SELECT *
+        FROM TBL_COMPANY_MEMBER CM
+        JOIN TBL_MEMBER M
+        ON CM.ID = M.ID
+        WHERE CM.ID IS NOT NULL
+        <if test="status != 'all' and status != null">
+            AND M.MEMBER_STATUS = #{status}
+        </if>
+        <if test="keyword != null">
+            AND MEMBER_NAME LIKE '%' || #{keyword} || '%'
+        </if>
+        <if test="date != 0 and date != 1">
+            AND CEIL(SYSDATE - TO_DATE(M.MEMBER_RECENT_LOGIN)) <![CDATA[ <= #{date}]]>
+        </if>)
+
+    </select>
+
+    <select id="selectAllAdmin" resultType="companyMemberInfoAdminDTO">
+        SELECT ID, COMPANY_NAME, COMPANY_CERTIFICATE_PATH, COMPANY_CULTURE, TO_CHAR(COMPANY_ESTABLISHMENT, 'YYYY-MM-DD') AS COMPANY_ESTABLISHMENT, COMPANY_EMPLOYEE, COMPANY_CEO,
+        COMPANYID, COMPANY_INTRODUCE, COMPANY_LOGO_PATH, COMPANY_MAIN_ADDRESS, COMPANY_MEMBER_DEPARTMENT, COMPANY_MEMBER_POSITION,
+        COMPANY_URL, COMPANY_WELFARE, MEMBER_PHONE, COMPANY_BUSINESS_NUMBER, MEMBER_NAME, MEMBER_EMAIL, TO_CHAR(MEMBER_RECENT_LOGIN, 'YYYY-MM-DD') AS MEMBER_RECENT_LOGIN , MEMBER_STATUS, TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE
+        FROM
+        (
+        SELECT
+        ID, ROWNUM R, COMPANY_NAME, COMPANY_CERTIFICATE_PATH, COMPANY_CULTURE, COMPANY_ESTABLISHMENT, COMPANY_EMPLOYEE, COMPANY_CEO,
+        COMPANYID, COMPANY_INTRODUCE, COMPANY_LOGO_PATH, COMPANY_MAIN_ADDRESS, COMPANY_MEMBER_DEPARTMENT, COMPANY_MEMBER_POSITION,
+        COMPANY_URL, COMPANY_WELFARE, MEMBER_PHONE, COMPANY_BUSINESS_NUMBER, MEMBER_NAME, MEMBER_EMAIL, MEMBER_RECENT_LOGIN, MEMBER_STATUS, CREATED_DATE
+        FROM
+        (
+        SELECT M.ID, C.COMPANY_NAME,  COMPANY_CERTIFICATE_PATH, COMPANY_CULTURE, COMPANY_ESTABLISHMENT, COMPANY_EMPLOYEE, COMPANY_CEO,
+        C.ID AS COMPANYID , COMPANY_INTRODUCE, COMPANY_LOGO_PATH, COMPANY_MAIN_ADDRESS, COMPANY_MEMBER_DEPARTMENT, COMPANY_MEMBER_POSITION,
+        COMPANY_URL, COMPANY_WELFARE, MEMBER_PHONE, C.COMPANY_BUSINESS_NUMBER, M.MEMBER_NAME, M.MEMBER_EMAIL, M.MEMBER_RECENT_LOGIN, M.MEMBER_STATUS, M.CREATED_DATE
+        FROM TBL_MEMBER M
+        JOIN TBL_COMPANY_MEMBER CM
+        ON CM.ID = M.ID
+        JOIN TBL_COMPANY C
+        ON C.ID = CM.COMPANY_ID
+        WHERE MEMBER_CLASS='기업'
+        <if test="status != 'all' and status != null">
+            AND M.MEMBER_STATUS = #{status}
+        </if>
+        <if test="keyword != null">
+            AND MEMBER_NAME LIKE '%' || #{keyword} || '%'
+        </if>
+        <if test="date != 0 and date != 1">
+            AND CEIL(SYSDATE - TO_DATE(M.MEMBER_RECENT_LOGIN)) <![CDATA[ <= #{date}]]>
+        </if>
+        ORDER BY M.ID DESC
+
+        )
+        <![CDATA[
+        WHERE ROWNUM <= ${endRow}
+        ]]>
+        )
+        <![CDATA[
+        WHERE R >= ${startRow}
+        ]]>
+    </select>
+
+    <select id="selectById" resultType="companyMemberInfoAdminDTO">
+        SELECT M.ID, C.COMPANY_NAME,  COMPANY_CERTIFICATE_PATH, COMPANY_CULTURE, COMPANY_ESTABLISHMENT, COMPANY_EMPLOYEE, COMPANY_CEO,
+               C.ID AS COMPANYID , COMPANY_INTRODUCE, COMPANY_LOGO_PATH, COMPANY_MAIN_ADDRESS, COMPANY_MEMBER_DEPARTMENT, COMPANY_MEMBER_POSITION,
+               COMPANY_URL, COMPANY_WELFARE, MEMBER_PHONE, C.COMPANY_BUSINESS_NUMBER, M.MEMBER_NAME, M.MEMBER_EMAIL, M.MEMBER_RECENT_LOGIN, M.MEMBER_STATUS, M.CREATED_DATE
+        FROM TBL_MEMBER M
+                 JOIN TBL_COMPANY_MEMBER CM
+                      ON CM.ID = M.ID
+                 JOIN TBL_COMPANY C
+                      ON C.ID = CM.COMPANY_ID
+        WHERE MEMBER_CLASS='기업' AND M.ID = #{id}
     </select>
 </mapper>

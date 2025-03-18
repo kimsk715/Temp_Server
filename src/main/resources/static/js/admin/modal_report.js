@@ -20,25 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 모달 열기와 동시에 배경 스크롤 방지
   // 모달창 오픈시 화면 지터링을 방지하기 위한 스크롤 제어 포함
-  function openModal(modal) {
-    console.log("신고관리 모달 열기 시도:", modal);
-    if (modal) {
-      modal.style.display = "block"; // 모달 표시
-      document.body.style.overflow = "hidden"; // 배경 스크롤 방지
-      console.log("신고관리 모달 열기 성공");
-    }
-  }
+
 
   // 모달 닫기와 동시에 배경 스크롤 복원
   // 모달 닫을 때 원래 스크롤 상태로 복구하여 자연스러운 화면 전환 제공
-  function closeModal(modal) {
-    console.log("신고관리 모달 닫기 시도:", modal);
-    if (modal) {
-      modal.style.display = "none"; // 모달 숨김
-      document.body.style.overflow = ""; // 배경 스크롤 복원
-      console.log("신고관리 모달 닫기 성공");
-    }
-  }
+
 
   // DOM 요소 참조 영역
   // ----------------------------------------------------
@@ -48,9 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const reportDetailBtns = document.querySelectorAll(
     ".report-table .detail-btn"
   ); // 목록의 모든 상세보기 버튼
-  const reportCloseBtn = document.querySelector(".report-modal .close-btn"); // 모달 우측 상단 X버튼
-  const reportCancelBtn = document.querySelector(".report-modal .cancel-btn"); // 모달 하단 취소 버튼
-  const reportSaveBtn = document.querySelector(".report-modal .save-btn"); // 모달 하단 저장 버튼
+
 
   // 필수 DOM 요소 존재 검증
   // 모달 동작에 핵심적인 요소들이 존재하지 않으면 초기화 중단
@@ -73,7 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("신고 상세정보 조회 시작");
         });
       });
-
+      const reportCloseBtn = document.querySelector(".report-modal .close-btn"); // 모달 우측 상단 X버튼
+      const reportCancelBtn = document.querySelector(".report-modal .cancel-btn"); // 모달 하단 취소 버튼
+      const reportSaveBtn = document.querySelector(".report-modal .save-btn"); // 모달 하단 저장 버튼
       // 닫기(X) 버튼 이벤트 설정
       // 모달 우측 상단 X 버튼 클릭시 모달 닫기
       if (reportCloseBtn) {

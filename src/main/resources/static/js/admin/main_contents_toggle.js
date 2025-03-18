@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     personalInquiry: document.querySelector(".personal-inquiry-management"), // 개인문의 관리 페이지
     companyInquiry: document.querySelector(".company-inquiry-management"), // 기업문의 관리 페이지
     report: document.querySelector(".report-management"), // 신고관리 페이지
+    notice : document.querySelector(".notice-management")
   };
 
   // 로고 버튼 요소 - 홈으로 돌아가는 기능을 담당
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     personalInquiry: document.querySelectorAll(".personal-inquiry-link"), // 개인문의 관련 모든 링크
     companyInquiry: document.querySelectorAll(".company-inquiry-link"), // 기업문의 관련 모든 링크
     report: document.querySelectorAll(".report-link"), // 신고목록 관련 모든 링크
+    notice : document.querySelectorAll(".notice-link")
   };
 
   /**
@@ -124,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 2. 각 페이지 링크들에 이벤트 연결
     Object.entries(pageLinks).forEach(([pageKey, pageValue]) => {
-      // pageValue는 querySelectorAll()에 의해 반환된 NodeList이므로 forEach로 각 요소에 접근
+      // pageValue 는 querySelectorAll()에 의해 반환된 NodeList이므로 forEach로 각 요소에 접근
       pageValue.forEach((pageValue) => {
         pageValue.addEventListener("click", (e) => {
           e.preventDefault(); // 기본 링크 동작 방지

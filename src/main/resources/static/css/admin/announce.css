@@ -84,25 +84,25 @@
 }
 
 /* 상태 표시 스타일 */
-/* .status {
+ .status {
     display: inline-block;
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: 500;
-} */
+}
 
 /* 승인대기 상태 */
-/* .status.pending {
+ .status.pending {
     background-color: #fff9db;
     color: #fab005;
-} */
+}
 
 /* 보류 상태 */
-/* .status.hold {
+ .status.hold {
     background-color: #e9ecef;
     color: #495057;
-} */
+}
 
 /* 승인 상태 */
 .status.approved {
@@ -117,7 +117,7 @@
 }
 
 /* 상세보기 버튼 */
-/* .detail-btn {
+ .detail-btn {
     padding: 6px 12px;
     background-color: #495057;
     color: white;
@@ -130,7 +130,7 @@
 
 .detail-btn:hover {
     background-color: #343a40;
-} */
+}
 
 /* 페이지네이션 */
 .announce-pagination {
@@ -141,41 +141,41 @@
   margin-top: 24px;
 }
 
-/* .page-btn {
+ .page-btn {
     padding: 8px 12px;
     border: 1px solid #e9ecef;
     background-color: white;
     border-radius: 4px;
     cursor: pointer;
     min-width: 36px;
-} */
+}
 
-/* 일반 버튼 호버 효과 */
-/* .page-btn:hover:not(.active) {
+ /*일반 버튼 호버 효과 */
+ .page-btn:hover:not(.active) {
     background-color: #dee2e6;
     border-color: #dee2e6;
-} */
+}
 
-/* 활성화된 버튼 기본 스타일 */
-/* .page-btn.active {
+ /*활성화된 버튼 기본 스타일 */
+ .page-btn.active {
     background-color: rgb(0, 221, 109);
     color: white;
     border-color: rgb(0, 221, 109);
-} */
+}
 
-/* 활성화된 버튼 호버 효과 */
-/* .page-btn.active:hover {
+ /*활성화된 버튼 호버 효과 */
+ .page-btn.active:hover {
     background-color: rgb(0, 200, 98);
     border-color: rgb(0, 200, 98);
     color: white;
 }
 
-.page-numbers {
-    display: flex;
-} */
+/*.page-numbers {*/
+/*    display: flex;*/
+/*} */
 
-/* 이전/다음 버튼 */
-/* .page-btn.prev,
+ /*이전/다음 버튼 */
+ .page-btn.prev,
 .page-btn.next {
     padding: 8px 16px;
-} */
+}

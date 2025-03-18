@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface ResumeMapper {
 
-
+    public ArrayList<MemberResumeDTO> selectByMemberId(Long memberId);
     //유저 이력서들 조회
     public List<ResumeDTO> selectAllMemberResume(long id);
 

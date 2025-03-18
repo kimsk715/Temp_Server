@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 필터 초기화 함수
     function initializeFilters() {
-        reportStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
-        reportDateFilter.value = "week"; // 기간 필터 '1주일'로 초기화
-        reportSearchInput.value = ""; // 검색어 입력창 비우기
+        inquiryStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
+        inquiryDateFilter.value = "week"; // 기간 필터 '1주일'로 초기화
+        inquirySearchInput.value = ""; // 검색어 입력창 비우기
         console.log("신고관리 필터 초기화 완료");
     }
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ----------------------------------------------------
 
     // 상태 필터 변경 이벤트
-    reportStatusFilter.addEventListener("change", function () {
+    inquiryStatusFilter.addEventListener("change", function () {
         const selectedStatus = this.value;
         // 선택된 상태값에 따른 한글 상태 매핑
         console.log(
@@ -64,19 +64,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 기간 필터 변경 이벤트
-    reportDateFilter.addEventListener("change", function () {
+    inquiryDateFilter.addEventListener("change", function () {
         const selectedDate = this.value;
         console.log("신고관리 기간 필터:", selectedDate);
     });
 
     // 검색 버튼 클릭 이벤트
-    reportSearchBtn.addEventListener("click", function () {
-        const searchText = reportSearchInput.value.trim();
+    inquirySearchBtn.addEventListener("click", function () {
+        const searchText = inquirySearchInput.value.trim();
         reportSearch(searchText);
     });
 
     // 검색어 입력창 엔터키 이벤트
-    reportSearchInput.addEventListener("keypress", function (e) {
+    inquirySearchInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
             const searchText = this.value.trim();
             reportSearch(searchText);

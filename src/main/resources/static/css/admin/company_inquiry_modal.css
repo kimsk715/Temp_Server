@@ -19,7 +19,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 50% 투명도의 검은 배경 */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -500 ;/* 50% 투명도의 검은 배경 */
 }
 
 .modal-container {
@@ -32,6 +33,7 @@
     width: 90%;
     max-width: 600px; /* 최대 너비 제한 */
     max-height: 90vh; /* 뷰포트 높이의 90%로 제한 */
+    z-index : 1;
 }
 
 /* 

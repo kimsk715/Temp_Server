@@ -8,9 +8,9 @@
     </select>
 
     <select id="selectCompanyReportDTOByCompanyId" resultType="companyReportDTO">
-        SELECT CM.COMPANY_ID, R.REPORT_DATE, R.REPORT_TYPE, R.REPORT_STATUS
+        SELECT CM.COMPANY_ID, R.CREATED_DATE, R.REPORT_TYPE, R.REPORT_STATUS
         FROM TBL_REPORT R
-        JOIN TBL_COMPANY_MEMBER CM
-        ON R.MEMBER_ID = CM.ID
+                 JOIN TBL_COMPANY_MEMBER CM
+                      ON R.MEMBER_ID = CM.ID
     </select>
 </mapper>
