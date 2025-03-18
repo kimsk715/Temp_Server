@@ -18,6 +18,12 @@ spring:
           auth: true
           starttls:
             enable: true
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 40MB
+      max-file-size: 10MB
+      file-size-threshold: 100MB
 
 mybatis:
     config-location: classpath:/config/config.xml
