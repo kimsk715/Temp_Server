@@ -7,6 +7,7 @@ import com.app.temp.domain.dto.MemberDTO;
 import com.app.temp.service.CompanyMemberService;
 import com.app.temp.service.KakaoService;
 import com.app.temp.service.MemberService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -52,7 +54,9 @@ public class KakaoController {
                 // 개인회원이 없다면 TBL_MEMBER에 등록
                 memberService.join(memberDTO);  // 개인회원 가입
 
-                foundMember = Optional.of(memberService.getMember(memberDTO.getMemberEmail()).orElseThrow(() -> new LoginFailException("회원 정보 조회 실패")));
+                // 회원 가입 후, DB에서 해당 회원 정보를 다시 조회
+                foundMember = Optional.of(memberService.getMember(memberDTO.getMemberEmail())
+                        .orElseThrow(() -> new RuntimeException("회원 정보 조회 실패")));
             }
 
             MemberDTO existingMember = foundMember.get();
@@ -64,7 +68,7 @@ public class KakaoController {
             session.setAttribute("member", existingMember.toVO());
             log.info("Set session attribute: member = {}", session.getAttribute("member"));
 
-            return "redirect:/mypage/account-info"; // 홈으로 리디렉션
+            return "redirect:/"; // 홈으로 리디렉션
         }
 
         // 기업회원 로그인 처리
@@ -98,10 +102,17 @@ public class KakaoController {
             log.info("Set session attribute: company = {}", session.getAttribute("company"));
 
             // 이미 가입된 기업회원이면 기업회원 마이페이지로 이동
-            return "redirect:/enterprise/main-page"; // 기업 마이페이지
+            return "redirect:/enterprise/member-manage"; // 기업 마이페이지
         }
 
         // type이 personal이나 company가 아닐 경우
         return "redirect:/"; // 기본 리디렉션
     }
+    //    카카오 로그아웃
+    @GetMapping("/kakao/logout")
+    public void kakaoLogout(HttpServletResponse response) throws IOException {
+        String logoutURL = kakaoService.getKakaoLogoutURL();
+        memberService.logout(session);
+        response.sendRedirect(logoutURL);
     }
+}

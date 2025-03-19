@@ -22,10 +22,10 @@ public class Pagination {
     private int realEnd;
     private boolean prev, next;
 
-    private String order;
-
-    private String[] categories;
-    private String keyword;
+    private String keyword = "";
+    private String reportStatus = "";
+    private String createdDateStart = "";
+    private String createdDateEnd = "";
 
     public void create(int total) {
         this.rowCount = 10;

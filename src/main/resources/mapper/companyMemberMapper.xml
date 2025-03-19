@@ -3,7 +3,7 @@
 <mapper namespace="com.app.temp.mapper.CompanyMemberMapper">
     <insert id="insertCompanyMemberAdmin">
         INSERT INTO TBL_COMPANY_MEMBER (ID, COMPANY_ID, COMPANY_MEMBER_AUTHORITY, COMPANY_MEMBER_DEPARTMENT)
-        VALUES (#{id}, #{companyId}, 'ADMIN', #{companyMemberDepartment})
+        VALUES (#{id}, #{companyId}, '관리자', #{companyMemberDepartment})
     </insert>
     <insert id="insertInvitedCompanyMember">
         INSERT INTO TBL_COMPANY_MEMBER (ID, COMPANY_ID, COMPANY_MEMBER_POSITION, COMPANY_MEMBER_AUTHORITY, COMPANY_MEMBER_DEPARTMENT)
@@ -14,7 +14,6 @@
         FROM TBL_MEMBER M
                  JOIN TBL_COMPANY_MEMBER C ON C.ID = M.ID
         WHERE M.MEMBER_EMAIL = #{memberEmail}
-
     </select>
 
     <select id="countAllCompanyMember" resultType="_int">

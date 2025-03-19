@@ -3,15 +3,18 @@ package com.app.temp.service;
 import com.app.temp.controller.exception.BusinessNumberAlreadyExistsException;
 import com.app.temp.controller.exception.MemberNotFoundException;
 import com.app.temp.domain.dto.*;
-import com.app.temp.domain.vo.CompanyInquiryVO;
-import com.app.temp.domain.vo.CompanyVO;
+import com.app.temp.domain.vo.CompanyMemberVO;
+import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.repository.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 @Service
@@ -24,6 +27,7 @@ public class CompanyMemberService {
     private final CompanyDAO companyDAO;
     private final CompanyMemberDAO companyMemberDAO;
     private final CompanyInquiryDAO companyInquiryDAO;
+    private final HttpSession session;
 
     //    이메일로 기업회원 조회
     public Optional<CompanyMemberDTO> findByMemberEmail(String memberEmail) {
@@ -37,7 +41,7 @@ public class CompanyMemberService {
 
     // 기업회원 회원가입
     @Transactional(rollbackFor = Exception.class)
-    public void registerCompanyMember(HttpSession session, CompanyDTO companyDTO, CompanyMemberDTO companyMemberDTO) {
+    public void registerCompanyMember(HttpSession session, CompanyDTO companyDTO, CompanyMemberDTO companyMemberDTO, MultipartFile file) throws IOException {
         // 세션에서 멤버 정보 가져오기
         MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
 
@@ -50,6 +54,13 @@ public class CompanyMemberService {
         if (existingCompany.isPresent()) {
             throw new BusinessNumberAlreadyExistsException("이미 존재하는 사업자등록번호입니다.");
         }
+
+        // 사업자등록증 저장(다음에 인증할게요 체크하면 '인증 안 함'으로 insert)
+
+        String rootPath= "C:/upload/";
+        file.transferTo(new File(rootPath, file.getOriginalFilename()));
+
+        companyDTO.setCompanyCertificatePath(rootPath + file.getOriginalFilename());
 
         // TBL_MEMBER에 회원 정보가 있는지 확인
         if (memberDTO.getId() == null) {
@@ -80,10 +91,10 @@ public class CompanyMemberService {
         log.info("기업회원 정보가 TBL_COMPANY_MEMBER에 저장되었습니다.");
 
 
-        // ✅ 회원 등급을 기업회원으로 업데이트
+        // 회원 등급을 기업회원으로 업데이트
         memberDAO.setMemberClass(memberDTO.getId());
 
-        // ✅ 로그인 시간 업데이트
+        // 로그인 시간 업데이트
         memberDAO.updateMemberRecentLogin(memberDTO.getId());
 
         // 세션에 회사와 기업회원 정보 저장
@@ -107,6 +118,30 @@ public class CompanyMemberService {
         } else {
             log.info("company는 세션에 없습니다.");
         }
+    }
+
+    //    초대받은 기업회원 가입
+    public void addInvitedMember(MemberVO member, String companyName, String role) {
+        // company_member 테이블에 추가
+        CompanyMemberVO companyMember = new CompanyMemberVO();
+        Optional<CompanyDTO> foundCompany = companyDAO.findByCompanyName((String)session.getAttribute("companyName"));
+        if (foundCompany.isPresent()) {
+            companyMember.setCompanyId(foundCompany.get().getId());
+        }
+
+        companyMember.setId(member.getId());
+        companyMember.setCompanyMemberAuthority(role);
+        companyMember.setCompanyMemberDepartment("선택 안함");
+        companyMember.setCompanyMemberPosition("사원");
+
+        companyMemberDAO.saveInvitedCompanyMember(companyMember);
+
+        // ✅ 회원 등급을 기업회원으로 업데이트
+        memberDAO.setMemberClass(member.getId());
+
+        // ✅ 로그인 시간 업데이트
+        memberDAO.updateMemberRecentLogin(member.getId());
+
     }
 
     // 관리자 페이지에서 기업 회원 목록 조회

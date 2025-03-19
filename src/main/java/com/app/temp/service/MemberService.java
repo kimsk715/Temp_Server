@@ -34,6 +34,14 @@ public class MemberService {
         memberDAO.updateMemberRecentLogin(id);
     }
 
+    //    로그아웃(세션에 정보 남길게 있어서 invalidate 쓰면 안댐)
+    public String logout(HttpSession session){
+        session.removeAttribute("member");
+        session.removeAttribute("companyMember");
+        session.removeAttribute("company");
+        return "redirect:/";
+    }
+
 //    회원 탈퇴
     public void memberDelete(Long id){
         memberDAO.deleteMember(id);

@@ -71,7 +71,7 @@
   </div>
 </header>
 <div id="join_wrapper">
-  <form th:action="@{/company/register}" method="post" th:object="${companyDTO}">
+  <form th:action="@{/company/register}" method="post" th:object="${companyDTO}" enctype="multipart/form-data">
     <fieldset>
       <h3 class="tit_join_member">사람인 통합 기업회원 가입</h3>
       <div class="write_base">
@@ -122,20 +122,6 @@
               </div>
             </div>
           </div>
-          <!-- 클릭시 다른 파일 업로드 할수있다는 문구 -->
-          <div class="box_file_upload" id="box_file_upload" style="display: none">
-            <input type="file" id="confirm_document_file" name="confirm_document_file" class="file_input"
-                   data-gtm-form-interact-field-id="9" />
-            <label for="confirm_document_file" class="file_label" id="confirm_document_file_label">
-              <span class="blind">파일찾기</span>
-            </label>
-            <div class="file_view">
-              <p class="file_upload_name" id="confirm_document_file_nm"></p>
-              <p class="file_txt_guide">
-                클릭시 다른 파일로 변경할 수 있습니다
-              </p>
-            </div>
-          </div>
 
           <!-- 파일 검토받기 버튼 -->
           <div class="box_btn" id="request_certification_wrap" style="display: none">
@@ -149,7 +135,7 @@
                     for="certification_file">
               파일 선택
             </button>
-            <input type="file" name="" id="certification_file" style="display: none">
+            <input type="file" name="file" id="certification_file" style="display: none">
           </div>
           <!-- 검사 성공 -->
           <div class="file_upload_completed" id="request_certification_complete" style="display: none">
@@ -178,7 +164,7 @@
             </div>
           </div>
           <!-- 다음에 인증 -->
-          <div class="InpBox chkbox_next_certi" id="next_certification_check_wrap">
+          <div class="InpBox chkbox_next_certi" id="next_certification_check_wrap" style="display: none">
               <span class="Chk">
                 <input type="checkbox" id="next_certification_check" name="next_certification_check" />
                 <label class="Lbl" for="next_certification_check">다음에 인증할게요</label>
@@ -361,7 +347,7 @@
             </div>
           </div>
           <!-- 담당자 본인 인증 -->
-          <div class="cont_division identify_company" id="company_identify_area">
+          <div class="cont_division identify_company" id="company_identify_area" style="display: none">
             <strong id="phonetit" class="cont_tit">담당자 본인 인증</strong>
             <button type="button" class="BtnType SizeL btn_identify_phone" id="identify_phone">확인</button>
             <button type="button" class="BtnType SizeL btn_identify_phone" id="identify_phone_start">
