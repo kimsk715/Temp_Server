@@ -2,6 +2,7 @@ package com.app.temp.repository;
 
 import com.app.temp.domain.dto.ApplicationDTO;
 import com.app.temp.domain.dto.ApplyDTO;
+import com.app.temp.domain.dto.ApplyIDDTO;
 import com.app.temp.domain.dto.Pagination;
 import com.app.temp.mapper.ApplyMapper;
 import jakarta.servlet.http.HttpSession;
@@ -28,5 +29,9 @@ public class ApplyDAO {
 //    마이페이지 지원자 상태
     public Optional<ApplyDTO> selectApplicationMemberStatus(Long id) {
         return applyMapper.selectApplicationMemberStatus(id);
+    }
+    // 지원 현황 추가
+    public void set(ApplyIDDTO applyIDDTO) {
+        applyMapper.insert(applyIDDTO);
     }
 }

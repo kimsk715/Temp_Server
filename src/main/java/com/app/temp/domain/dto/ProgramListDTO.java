@@ -18,5 +18,7 @@ public class ProgramListDTO {
     private String programEndDate;
     private String programStatus;
     private String programDetail;
-
+    private String programBenefit;
+    private String programThumbnailPath;
+    private String companyIntroduce;
 }

@@ -19,6 +19,12 @@ public class ResumeDAO {
     private final ResumeDTO resumeDTO;
     private final ResumeMapper resumeMapper;
 
+//    특정 유저 이력서 조회
+    public ArrayList<MemberResumeDTO> findByMemberId(Long memberId) {
+        return resumeMapper.selectByMemberId(memberId);
+    }
+
+
     //  유저 이력서들 조회
     public List<ResumeDTO> findAllMemberResume(Long id){
 

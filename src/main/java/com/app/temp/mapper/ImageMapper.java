@@ -9,4 +9,6 @@ import java.util.List;
 public interface ImageMapper {
 
     public List<CompanyImageDTO> selectByCompanyId(Long companyId);
+
+    public int imageCount(Long companyId);
 }

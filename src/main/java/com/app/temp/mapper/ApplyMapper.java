@@ -15,9 +15,9 @@ public interface ApplyMapper {
 
     public ArrayList<CompanyProgramDTO> selectCompanyProgramDTOByCompanyId(Long companyId);
 
-    public ArrayList<ProgramListDTO> selectAll();
+    public ArrayList<ProgramListDTO> selectAll(ProgramPagination programPagination);
 
-    public Optional<ProgramInfoDTO> selectProgramInfoDTOById(Long Id);
+    public Optional<ProgramListDTO> selectProgramInfoDTOById(Long Id);
 
     public void update(ProgramVO programVO);
 
@@ -32,4 +32,12 @@ public interface ApplyMapper {
     public int selectApplicationCount(Long id);
 
     public Optional<ApplyDTO> selectApplicationMemberStatus(Long id);
+
+    public void insert(ApplyIDDTO applyIDDTO);
+
+    public int countByCompanyId(Long companyId);
+
+    public int countAll(ProgramPagination programPagination);
+
+    public ArrayList<ProgramInfoDTO> selectAllProgramInfoDTO();
 }

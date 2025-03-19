@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!searchText) {
       alert("검색어를 입력해주세요.");
       return;
+
     }
 
     // 검색 실행 (추후 서버 연동)
@@ -48,22 +49,22 @@ document.addEventListener("DOMContentLoaded", function () {
   // ----------------------------------------------------
 
   // 상태 필터 변경 이벤트
-  announceStatusFilter.addEventListener("change", function () {
-    const selectedStatus = this.value;
-    // 선택된 상태값에 따른 한글 상태 매핑
-    console.log(
-      "공고관리 상태값:",
-      selectedStatus === "pending"
-        ? "심사중"
-        : selectedStatus === "hold"
-        ? "보류"
-        : selectedStatus === "approved"
-        ? "승인"
-        : selectedStatus === "rejected"
-        ? "반려"
-        : "전체"
-    );
-  });
+  // announceStatusFilter.addEventListener("change", function () {
+  //   const selectedStatus = this.value;
+  //   // 선택된 상태값에 따른 한글 상태 매핑
+  //   console.log(
+  //     "공고관리 상태값:",
+  //     selectedStatus === "pending"
+  //       ? "심사중"
+  //       : selectedStatus === "hold"
+  //       ? "보류"
+  //       : selectedStatus === "approved"
+  //       ? "승인"
+  //       : selectedStatus === "rejected"
+  //       ? "반려"
+  //       : "전체"
+  //   );
+  // });
 
   // 기간 필터 변경 이벤트
   announceDateFilter.addEventListener("change", function () {
@@ -90,3 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeFilters(); // 필터 초기 상태 설정
   console.log("공고관리 필터 기능 초기화 완료");
 });
+
+
+
+
+
+
+
+
+
+
+

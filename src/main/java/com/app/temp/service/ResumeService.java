@@ -1,6 +1,7 @@
 package com.app.temp.service;
 
 import com.app.temp.controller.exception.UploadException;
+import com.app.temp.domain.dto.MemberResumeDTO;
 import com.app.temp.domain.dto.ResumeDTO;
 import com.app.temp.domain.vo.AdminVO;
 import com.app.temp.domain.vo.MemberVO;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,5 +49,20 @@ public class ResumeService {
 //    이력서 삭제
     public void deleteResume(Long id){
         resumeDAO.deleteResume(id);
+    }
+
+//     관리자용 개인 회원의 이력서 목록 조회
+    public ArrayList<MemberResumeDTO> check(Long memberId) {
+        ArrayList<MemberResumeDTO> memberResumeDTO = resumeMapper.selectByMemberId(memberId);
+        memberResumeDTO.forEach(resumeDTO -> {
+            String value;
+            if(resumeDTO.getResumeIntroduce() != null && resumeDTO.getResumeTitle() !=null && resumeDTO.getResumeProfilePhoto() !=null) {
+                resumeDTO.setResumeRequired("true");
+            }
+            else{
+                resumeDTO.setResumeRequired("false");
+            }
+        });
+        return memberResumeDTO;
     }
 }

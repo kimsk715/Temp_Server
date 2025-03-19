@@ -35,39 +35,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 필터 초기화 함수
-  function initializeFilters() {
-    memberStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
-    memberDateFilter.value = "week"; // 기간 필터 '1주일'로 초기화
-    memberSearchInput.value = ""; // 검색어 입력창 비우기
-    console.log("일반회원 필터 초기화 완료");
-  }
+  // function initializeFilters() {
+  //   memberStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
+  //   memberDateFilter.value = "week"; // 기간 필터 '1주일'로 초기화
+  //   memberSearchInput.value = ""; // 검색어 입력창 비우기
+  //   console.log("일반회원 필터 초기화 완료");
+  // }
 
   // 이벤트 리스너 설정 영역
   // ----------------------------------------------------
 
   // 회원상태 필터 변경 이벤트
-  memberStatusFilter.addEventListener("change", function () {
-    const selectedStatus = this.value;
-    // 선택된 상태값에 따른 한글 상태 매핑
-    console.log(
-      "회원 상태값:",
-      selectedStatus === "active"
-        ? "활성"
-        : selectedStatus === "dormant"
-        ? "휴면"
-        : selectedStatus === "suspended"
-        ? "정지"
-        : selectedStatus === "withdrawn"
-        ? "탈퇴"
-        : "전체"
-    );
-  });
+  // memberStatusFilter.addEventListener("change", function () {
+  //   const selectedStatus = this.value;
+  //   // 선택된 상태값에 따른 한글 상태 매핑
+  //   console.log(
+  //     "회원 상태값:",
+  //     selectedStatus === "active"
+  //       ? "활성"
+  //       : selectedStatus === "dormant"
+  //       ? "휴면"
+  //       : selectedStatus === "suspended"
+  //       ? "정지"
+  //       : selectedStatus === "withdrawn"
+  //       ? "탈퇴"
+  //       : "전체"
+  //   );
+  // });
 
   // 가입기간 필터 변경 이벤트
-  memberDateFilter.addEventListener("change", function () {
-    const selectedDate = this.value;
-    console.log("회원관리 기간 필터:", selectedDate);
-  });
+  // memberDateFilter.addEventListener("change", function () {
+  //   const selectedDate = this.value;
+  //   console.log("회원관리 기간 필터:", selectedDate);
+  // });
 
   // 검색 버튼 클릭 이벤트
   memberSearchBtn.addEventListener("click", function () {
@@ -85,6 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 초기화 실행
   // ----------------------------------------------------
-  initializeFilters(); // 필터 초기 상태 설정
+  // initializeFilters(); // 필터 초기 상태 설정
   console.log("일반회원 필터 기능 초기화 완료");
 });

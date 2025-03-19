@@ -1,3 +1,4 @@
+/*
 // 모든 관리 페이지의 페이지네이션을 처리하는 JS
 // 프론트엔드 역할: active 클래스 토글, 페이지 그룹 전환, 버튼 표시/숨김 제어
 // 백엔드 역할: 실제 페이지 데이터 처리, 데이터 필터링, DB 쿼리 처리
@@ -199,3 +200,4 @@ document.addEventListener("DOMContentLoaded", function () {
     reportNextBtn
   );
 });
+*/

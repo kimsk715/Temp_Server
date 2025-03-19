@@ -4,6 +4,8 @@ import com.app.temp.domain.vo.MemberVO;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 @Getter @Setter
 @NoArgsConstructor
@@ -23,6 +25,7 @@ public class MemberDTO {
     private String createdDate;
     private String updatedDate;
     private String memberBirth;
+    private ArrayList<MemberResumeDTO> resumeList;
 
     public MemberVO toVO(){
         MemberVO memberVO = new MemberVO();

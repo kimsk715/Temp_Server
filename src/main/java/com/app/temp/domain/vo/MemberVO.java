@@ -13,7 +13,6 @@ public class MemberVO {
     private Long id;
     private String memberName;
     private String memberPhone;
-    private String memberRegisterDate;
     private String memberRecentLogin;
     private String memberEmail;
     private String memberProfilePath;

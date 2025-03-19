@@ -1,9 +1,6 @@
 package com.app.temp.service;
 
-import com.app.temp.domain.dto.ApplicationDTO;
-import com.app.temp.domain.dto.ApplyDTO;
-import com.app.temp.domain.dto.MypageDTO;
-import com.app.temp.domain.dto.Pagination;
+import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.AdminVO;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.repository.AdminDAO;
@@ -24,6 +21,10 @@ public class ApplyService {
     private final ApplyDAO applyDAO;
     private final Pagination pagination;
 
+// 지원하기 버튼
+    public void apply(ApplyIDDTO applyIDDTO) {
+        applyDAO.set(applyIDDTO);
+    }
     //    마이페이지 지원  조회
     public List<ApplicationDTO> selelctApllyById(Long id, Pagination pagination, String applyMemberStatus) {
         pagination.create(applyDAO.findApplicationCount(id));

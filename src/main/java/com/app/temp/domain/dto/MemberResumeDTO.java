@@ -11,8 +11,11 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class MemberResumeDTO {
     @EqualsAndHashCode.Include
+    private Long id;
     private Long memberId;
     private String resumeTitle;
     private String resumeIntroduce;
-
+    private String resumeProfilePhoto;
+    private String createdDate;
+    private String resumeRequired;
 }

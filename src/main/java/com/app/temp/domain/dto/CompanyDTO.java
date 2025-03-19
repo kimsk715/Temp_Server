@@ -4,6 +4,8 @@ import com.app.temp.domain.vo.CompanyVO;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Getter @Setter @ToString
 @NoArgsConstructor
@@ -26,6 +28,8 @@ public class CompanyDTO {
     private String companyCulture;
     private String createdDate;
     private String updatedDate;
+    private int programCount;
+    private List<CompanyImageDTO> companyImageList;
 
     public CompanyVO toVO(){
         CompanyVO companyVO = new CompanyVO();

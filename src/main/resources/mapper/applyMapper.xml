@@ -17,24 +17,67 @@
     </select>
 
     <select id="selectCompanyProgramDTOByCompanyId" resultType="companyProgramDTO">
-         SELECT ID, PROGRAM_NAME, CREATED_DATE, PROGRAM_END_DATE, PROGRAM_EXPIRED
-         FROM TBL_PROGRAM
-         WHERE COMPANY_ID = #{companyId}
+        SELECT ID, PROGRAM_NAME, CREATED_DATE, (CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE)) PROGRAM_END_DATE, PROGRAM_EXPIRED
+        FROM TBL_PROGRAM
+        WHERE COMPANY_ID = #{companyId}
     </select>
 
+    <select id="countByCompanyId" resultType="_int">
+        SELECT COUNT(*)
+        FROM TBL_PROGRAM
+        WHERE COMPANY_ID = #{companyId}
+    </select>
+
+    <!--프로그램 전체 목록(관리자 전용)-->
     <select id="selectAll" resultType="programListDTO">
-        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, P.PROGRAM_STATUS
+        SELECT ID, COMPANY_NAME, PROGRAM_NAME, TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE , TO_CHAR(PROGRAM_END_DATE, 'YYYY-MM-DD') AS PROGRAM_END_DATE, PROGRAM_STATUS,
+        PROGRAM_THUMBNAIL_PATH, COMPANY_INTRODUCE, PROGRAM_BENEFIT, PROGRAM_DETAIL
+        FROM
+        (
+        SELECT ID, ROWNUM R, COMPANY_NAME, PROGRAM_NAME, CREATED_DATE, PROGRAM_END_DATE,
+        PROGRAM_STATUS, PROGRAM_THUMBNAIL_PATH, COMPANY_INTRODUCE, PROGRAM_BENEFIT,
+        PROGRAM_DETAIL
+        FROM
+        (
+        SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, P.CREATED_DATE, PROGRAM_END_DATE, P.PROGRAM_STATUS, P.PROGRAM_THUMBNAIL_PATH,
+        C.COMPANY_INTRODUCE, PROGRAM_BENEFIT, PROGRAM_DETAIL
         FROM TBL_PROGRAM P
         JOIN TBL_COMPANY C
         ON P.COMPANY_ID = C.ID
+
+        <if test="status != 'all' and status != null">
+            AND P.PROGRAM_STATUS = #{status}
+        </if>
+        <if test="keyword != null">
+            AND PROGRAM_NAME LIKE '%' || #{keyword} || '%'
+        </if>
+        <if test="date != 0 and date != 1">
+            AND CEIL(SYSDATE - TO_DATE(P.CREATED_DATE)) <![CDATA[ <= #{date}]]>
+        </if>
+        ORDER BY P.ID DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= ${endRow}
+        ]]>
+        )
+        <![CDATA[
+        WHERE R >= ${startRow}
+        ]]>
     </select>
 
-    <select id="selectProgramInfoDTOById" resultType="ProgramInfoDTO">
-        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, P.PROGRAM_STATUS, P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT, P.PROGRAM_THUMBNAIL_PATH
+    <select id="selectProgramInfoDTOById" resultType="programListDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, P.PROGRAM_STATUS, P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT, P.PROGRAM_THUMBNAIL_PATH, C.COMPANY_INTRODUCE
         FROM TBL_PROGRAM P
                  JOIN TBL_COMPANY C
                       ON P.COMPANY_ID = C.ID
         WHERE P.ID = #{id}
+    </select>
+    <!-- 공고 상세보기 -->
+    <select id="selectAllProgramInfoDTO" resultType="programInfoDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, TO_CHAR(P.CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE, TO_CHAR(P.PROGRAM_END_DATE, 'YYYY-MM-DD') AS PROGRAM_END_DATE, P.PROGRAM_STATUS, P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT, P.PROGRAM_THUMBNAIL_PATH
+        FROM TBL_PROGRAM P
+                 JOIN TBL_COMPANY C
+                      ON P.COMPANY_ID = C.ID
     </select>
 
     <update id="update">
@@ -44,7 +87,7 @@
     </update>
 
     <!-- 이 위는 모두 관리자용 기능. -->
-<!-- 일반회원용 프로그램 전체 목록 조회 -->
+    <!-- 일반회원용 프로그램 전체 목록 조회 -->
     <select id="selectAllMain" resultType="mainProgramListDTO">
         SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) DDAY
         FROM TBL_PROGRAM P
@@ -52,26 +95,56 @@
                       ON P.COMPANY_ID = C.ID
     </select>
 
-<!--카테고리로 프로그램 검색-->
+    <!--카테고리로 프로그램 검색-->
     <select id="selectAllByCategoryCId" resultType="mainProgramListDTO">
         SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID
         FROM TBL_PROGRAM P
                  JOIN TBL_COMPANY C
                       ON P.COMPANY_ID = C.ID
+                 JOIN TBL_CATEGORY_C CC
+                      ON P.CATEGORY_C_ID = CC.ID
         WHERE P.CATEGORY_C_ID = #{categoryCId}
     </select>
-
+    <!-- 프로그램 내용 조회 (/program/detail) -->
     <select id="selectMainProgramInfoDTOById" resultType="mainProgramInfoDTO">
-        SELECT P.ID, P.PROGRAM_NAME, P.CREATED_DATE, P.PROGRAM_END_DATE, CC.CATEGORY_C_NAME,
-               P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT,
-               C.COMPANY_NAME, P.CATEGORY_C_ID, C.COMPANY_ESTABLISHMENT, C.COMPANY_ADDRESS,
-               C.COMPANY_LOGO_PATH, C.COMPANY_WELFARE, C.COMPANY_CULTURE, C.COMPANY_INTRODUCE
+        SELECT P.ID, P.PROGRAM_NAME, P.CREATED_DATE, TO_CHAR(P.PROGRAM_END_DATE, 'YYYY-MM') PROGRAM_END_DATE, CC.CATEGORY_C_NAME,
+               P.PROGRAM_DETAIL, P.PROGRAM_PRICE, P.PROGRAM_BENEFIT, TO_CHAR(C.COMPANY_ESTABLISHMENT, 'YYYY') YEAR, TO_CHAR(C.COMPANY_ESTABLISHMENT, 'MM') MONTH,
+               CEIL((SYSDATE-TO_DATE(COMPANY_ESTABLISHMENT))/365) DURATION, C.COMPANY_NAME, P.CATEGORY_C_ID, C.COMPANY_ESTABLISHMENT, C.COMPANY_MAIN_ADDRESS, C.COMPANY_SUB_ADDRESS,
+               C.COMPANY_LOGO_PATH, C.COMPANY_WELFARE, C.COMPANY_CULTURE, C.COMPANY_INTRODUCE, C.COMPANY_URL
         FROM TBL_PROGRAM P
                  JOIN TBL_COMPANY C
                       ON P.COMPANY_ID = C.ID
-                            JOIN TBL_CATEGORY_C CC
-                                ON P.CATEGORY_C_ID = CC.ID
-                                        WHERE P.ID = #{id}
+                 JOIN TBL_CATEGORY_C CC
+                      ON P.CATEGORY_C_ID = CC.ID
+        WHERE P.ID = #{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO TBL_APPLY(ID, MEMBER_ID, PROGRAM_ID, RESUME_ID)
+        VALUES (SEQ_APPLY.NEXTVAL, #{memberId}, #{programId}, #{resumeId})
+    </insert>
+
+    <!--    pagination/total-->
+    <select id="countAll" resultType="_int">
+        SELECT COUNT(*) AS TOTAL
+        FROM
+        (
+        SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, P.CREATED_DATE, PROGRAM_END_DATE, P.PROGRAM_STATUS
+        FROM TBL_PROGRAM P
+        JOIN TBL_COMPANY C
+        ON P.COMPANY_ID = C.ID
+
+        <if test="status != 'all' and status != null">
+            AND P.PROGRAM_STATUS = #{status}
+        </if>
+        <if test="keyword != null">
+            AND PROGRAM_NAME LIKE '%' || #{keyword} || '%'
+        </if>
+        <if test="date != 0 and date != 1">
+            AND CEIL(SYSDATE - TO_DATE(P.CREATED_DATE)) <![CDATA[ <= #{date}]]>
+        </if>
+
+        )
     </select>
 <!--    마이페이지 지원한 리스트 -->
     <select id="selectApplicationById" resultType="applyDTO">

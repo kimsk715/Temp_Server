@@ -10,7 +10,9 @@
         <link rel="stylesheet" href="/css/admin/main.css" />
         <link rel="stylesheet" href="/css/admin/media.css" />
         <link rel="stylesheet" href="/css/admin/report.css" />
-        <link rel="stylesheet" href="/css/admin/report_modal.css" />
+        <link rel="stylesheet" href="/css/admin/report_modal.css">
+        <link rel="stylesheet" href="/css/admin/notice.css">
+        <link rel="stylesheet" href="/css/admin/notice_modal.css" />
         <link rel="stylesheet" href="/css/admin/announce.css" />
         <link
             rel="stylesheet"
@@ -106,7 +108,8 @@
                                         <div class="submenu-container">
                                             <a
                                                 class="submenu-item announce-link"
-                                                href="#"
+                                                href="/admin/home/programs"
+                                                data-category="program"
                                                 >공고목록</a
                                             >
                                         </div>
@@ -134,12 +137,14 @@
                                         <div class="submenu-container">
                                             <a
                                                 class="submenu-item normal-member-link"
-                                                href="#"
+                                                href="/admin/home/members"
+                                                data-category="member"
                                                 >일반회원</a
                                             >
                                             <a
                                                 class="submenu-item company-member-link"
-                                                href="#"
+                                                href="/admin/home/companymembers"
+                                                data-category="companymember"
                                                 >기업회원</a
                                             >
                                         </div>
@@ -167,12 +172,14 @@
                                         <div class="submenu-container">
                                             <a
                                                 class="submenu-item personal-inquiry-link"
-                                                href="#"
+                                                href="/admin/home/member-inquiries"
+                                                data-category="memberinquiry"
                                                 >개인문의</a
                                             >
                                             <a
                                                 class="submenu-item company-inquiry-link"
-                                                href="#"
+                                                href="/admin/home/company-inquiries"
+                                                data-category="companyinquiry"
                                                 >기업문의</a
                                             >
                                         </div>
@@ -201,13 +208,43 @@
                                             <a
                                                 class="submenu-item report-link"
                                                 href="#"
+                                                data-category="report"
                                                 >신고목록</a
+                                            >
+                                        </div>
+
+
+                                </div>
+                                    <div class="menu-section">
+                                        <a class="menu-item menu-has-submenu">
+                                            <span class="menu-label">
+                                                <img
+                                                        src="/images/admin/신고.png"
+                                                        alt="공지관리"
+                                                        class="menu-icon"
+                                                        width="16"
+                                                        height="16"
+                                                />
+                                                공지관리
+                                                <img
+                                                        src="/images/admin/arrow.svg"
+                                                        class="arrow-icon menu-arrow"
+                                                        alt="메뉴 화살표"
+                                                />
+                                            </span>
+                                        </a>
+                                        <div class="submenu-container">
+                                            <a
+                                                    class="submenu-item notice-link"
+                                                    href="/admin/home/notices"
+                                                    data-category="notice"
+                                            >공지목록</a
                                             >
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                    </div>
+
                     </nav>
 
                     <!-- 메인 컨텐츠 영역 -->
@@ -249,7 +286,7 @@
                                                                     >
                                                                     <a
                                                                         class="menu-btn announce-link"
-                                                                        href="#"
+                                                                        href="/admin/home/programs"
                                                                     >
                                                                         <span
                                                                             >바로가기</span
@@ -276,7 +313,7 @@
                                                                     >
                                                                     <a
                                                                         class="menu-btn normal-member-link"
-                                                                        href="#"
+                                                                        href="/admin/home/members"
                                                                     >
                                                                         <span
                                                                             >바로가기</span
@@ -303,7 +340,7 @@
                                                                     >
                                                                     <a
                                                                         class="menu-btn company-member-link"
-                                                                        href="#"
+                                                                        href="/admin/home/company-members"
                                                                     >
                                                                         <span
                                                                             >바로가기</span
@@ -331,7 +368,7 @@
                                                                     >
                                                                     <a
                                                                         class="menu-btn personal-inquiry-link"
-                                                                        href="#"
+                                                                        href="/admin/home/member-inquiries"
                                                                     >
                                                                         <span
                                                                             >바로가기</span
@@ -359,7 +396,7 @@
                                                                     >
                                                                     <a
                                                                         class="menu-btn company-inquiry-link"
-                                                                        href="#"
+                                                                        href="/admin/home/company-inquiries"
                                                                     >
                                                                         <span
                                                                             >바로가기</span
@@ -393,6 +430,32 @@
                                                                     </a>
                                                                 </div>
                                                             </li>
+
+                                                            <li
+                                                                    class="menu-card menu-notice"
+                                                            >
+                                                                <div
+                                                                        class="menu-content"
+                                                                >
+                                                                    <div
+                                                                            class="menu-name"
+                                                                    >
+                                                                        공지목록
+                                                                    </div>
+                                                                    <em
+                                                                            class="menu-status menu-wadiz-color"
+                                                                    >공지관리</em
+                                                                    >
+                                                                    <a
+                                                                            class="menu-btn notice-link"
+                                                                            href="/admin/home/notifications"
+                                                                    >
+                                                                        <span
+                                                                        >바로가기</span
+                                                                        >
+                                                                    </a>
+                                                                </div>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -404,7 +467,7 @@
                         </main>
 
                         <!-- 공고관리 컨텐츠 -->
-                        <div class="announce-management" style="display: block">
+                        <div class="announce-management" id="program" style="display: block">
                             <!-- 상단 검색/필터 영역 -->
                             <div
                                 class="announce-search-filter-container announce-filter"
@@ -414,6 +477,7 @@
                                         type="text"
                                         placeholder="검색어를 입력하세요"
                                         class="search-input announce-search-input"
+                                        name ="keyword"
                                     />
                                     <button
                                         type="button"
@@ -427,19 +491,20 @@
                                         class="status-filter announce-status-filter"
                                     >
                                         <option value="all">전체</option>
-                                        <option value="pending">심사중</option>
-                                        <option value="hold">보류</option>
-                                        <option value="approved">승인</option>
-                                        <option value="rejected">반려</option>
+                                        <option value="심사중">심사중</option>
+                                        <option value="보류">보류</option>
+                                        <option value="승인">승인</option>
+                                        <option value="반려">반려</option>
                                     </select>
                                     <select
                                         class="date-filter announce-date-filter"
                                     >
-                                        <option value="week">최근 1주일</option>
-                                        <option value="month">
+                                        <option value="1">전체</option>
+                                        <option value="7">최근 1주일</option>
+                                        <option value="30">
                                             최근 1개월
                                         </option>
-                                        <option value="three-month">
+                                        <option value="90">
                                             최근 3개월
                                         </option>
                                     </select>
@@ -460,113 +525,15 @@
                                             <th>관리</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>0000001</td>
-                                            <td>템프</td>
-                                            <td>실무자 원데이 체험 프로그램</td>
-                                            <td>2025-02-07</td>
-                                            <td>2025-02-28</td>
-                                            <td>
-                                                <span class="status pending"
-                                                    >심사중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000002</td>
-                                            <td>코리아IT</td>
-                                            <td>백엔드 개발자 ONE-WEEK 체험</td>
-                                            <td>2025-02-07</td>
-                                            <td>2025-04-13</td>
-                                            <td>
-                                                <span class="status hold"
-                                                    >보류</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000003</td>
-                                            <td>점핏</td>
-                                            <td>웹 퍼블리셔 일일 체험</td>
-                                            <td>2025-02-06</td>
-                                            <td>2025-06-07</td>
-                                            <td>
-                                                <span class="status approved"
-                                                    >승인</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000004</td>
-                                            <td>삼성</td>
-                                            <td>프론트엔드 개발자 체험</td>
-                                            <td>2025-02-06</td>
-                                            <td>2025-03-13</td>
-                                            <td>
-                                                <span class="status rejected"
-                                                    >반려</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="programList">
+<!--                                    공고 목록 들어가야할 공간-->
                                     </tbody>
                                 </table>
                             </div>
 
                             <!-- 페이지네이션 -->
                             <div class="pagination announce-pagination">
-                                <button type="button" class="page-btn prev">
-                                    이전
-                                </button>
-                                <div class="page-numbers">
-                                    <button
-                                        type="button"
-                                        class="page-btn active"
-                                    >
-                                        1
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        2
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        3
-                                    </button>
-                                </div>
-                                <button type="button" class="page-btn next">
-                                    다음
-                                </button>
+
                             </div>
                         </div>
 
@@ -585,6 +552,7 @@
                                         type="text"
                                         placeholder="검색어를 입력하세요"
                                         class="search-input member-search-input"
+                                        name="memberKeyword"
                                     />
                                     <button
                                         type="button"
@@ -599,20 +567,21 @@
                                         class="status-filter member-status-filter"
                                     >
                                         <option value="all">전체</option>
-                                        <option value="active">활성</option>
-                                        <option value="dormant">휴면</option>
-                                        <option value="suspended">정지</option>
-                                        <option value="withdrawn">탈퇴</option>
+                                        <option value="활성">활성</option>
+                                        <option value="휴면">휴면</option>
+                                        <option value="정지">정지</option>
+                                        <option value="탈퇴">탈퇴</option>
                                     </select>
                                     <!-- 가입기간 필터 -->
                                     <select
                                         class="date-filter member-date-filter"
                                     >
-                                        <option value="week">최근 1주일</option>
-                                        <option value="month">
+                                        <option value="1">전체</option>
+                                        <option value="7">최근 1주일</option>
+                                        <option value="30">
                                             최근 1개월
                                         </option>
-                                        <option value="three-month">
+                                        <option value="90">
                                             최근 3개월
                                         </option>
                                     </select>
@@ -635,86 +604,7 @@
                                     </thead>
                                     <tbody>
                                         <!-- 샘플 데이터 -->
-                                        <tr>
-                                            <td>0000001</td>
-                                            <td>허세웅</td>
-                                            <td>woongzzang@gmail.com</td>
-                                            <td>2025-01-15</td>
-                                            <td>2025-02-10</td>
-                                            <td>
-                                                <span class="status active"
-                                                    >활성</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000002</td>
-                                            <td>김동완</td>
-                                            <td>dongwan@naver.com</td>
-                                            <td>2024-08-20</td>
-                                            <td>2024-11-15</td>
-                                            <td>
-                                                <span class="status dormant"
-                                                    >휴면</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000003</td>
-                                            <td>김승균</td>
-                                            <td>victory95@gmail.com</td>
-                                            <td>2024-12-01</td>
-                                            <td>2025-02-09</td>
-                                            <td>
-                                                <span class="status suspended"
-                                                    >정지</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000004</td>
-                                            <td>한지수</td>
-                                            <td>jisoohan@daum.net</td>
-                                            <td>2024-09-05</td>
-                                            <td>2025-01-20</td>
-                                            <td>
-                                                <span class="status withdrawn"
-                                                    >탈퇴</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
+
                                         <!-- 추가 샘플 데이터들... -->
                                     </tbody>
                                 </table>
@@ -754,12 +644,13 @@
                             <div
                                 class="company-member-search-filter-container member-filter"
                             >
-                                <div class="search-box member-search">
+                                <div class="search-box company-member-search">
                                     <!-- 검색 입력창과 버튼 -->
                                     <input
                                         type="text"
                                         placeholder="검색어를 입력하세요"
                                         class="search-input member-search-input"
+                                        name="companyKeyword"
                                     />
                                     <button
                                         type="button"
@@ -771,25 +662,22 @@
                                 <div class="filter-box member-filter-box">
                                     <!-- 회원상태 필터 -->
                                     <select
-                                        class="status-filter member-status-filter"
+                                        class="status-filter company-member-status-filter"
                                     >
                                         <option value="all">전체</option>
-                                        <option value="active">활성</option>
-                                        <option value="dormant">휴면</option>
-                                        <option value="suspended">정지</option>
-                                        <option value="withdrawn">탈퇴</option>
+                                        <option value="활성">활성</option>
+                                        <option value="휴면">휴면</option>
+                                        <option value="정지">정지</option>
+                                        <option value="탈퇴">탈퇴</option>
                                     </select>
                                     <!-- 가입기간 필터 -->
                                     <select
-                                        class="date-filter member-date-filter"
+                                        class="date-filter company-member-date-filter"
                                     >
-                                        <option value="week">최근 1주일</option>
-                                        <option value="month">
-                                            최근 1개월
-                                        </option>
-                                        <option value="three-month">
-                                            최근 3개월
-                                        </option>
+                                        <option value="1">전체</option> <!-- 1은 전체 조회를 위한 파라미터, 그 외의 의미는 없음.-->
+                                        <option value="7">최근 1주일</option>
+                                        <option value="30">최근 1개월</option>
+                                        <option value="90">최근 3개월</option>
                                     </select>
                                 </div>
                             </div>
@@ -812,120 +700,14 @@
                                     </thead>
                                     <tbody>
                                         <!-- 샘플 데이터 -->
-                                        <tr>
-                                            <td>0000001</td>
-                                            <td>템프</td>
-                                            <td>123-45-67890</td>
-                                            <td>김영희</td>
-                                            <td>temp@temp.com</td>
-                                            <td>2025-01-15</td>
-                                            <td>2025-02-10</td>
-                                            <td>
-                                                <span class="status active"
-                                                    >활성</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000002</td>
-                                            <td>코리아IT</td>
-                                            <td>456-78-90123</td>
-                                            <td>한동석</td>
-                                            <td>itkorea@koreait.com</td>
-                                            <td>2024-08-20</td>
-                                            <td>2024-11-15</td>
-                                            <td>
-                                                <span class="status dormant"
-                                                    >휴면</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000003</td>
-                                            <td>점핏</td>
-                                            <td>789-01-23456</td>
-                                            <td>박지민</td>
-                                            <td>jumpit@jumpit.com</td>
-                                            <td>2024-12-01</td>
-                                            <td>2025-02-09</td>
-                                            <td>
-                                                <span class="status suspended"
-                                                    >정지</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000004</td>
-                                            <td>삼성전자</td>
-                                            <td>345-67-89012</td>
-                                            <td>최동욱</td>
-                                            <td>samsung@samsung.com</td>
-                                            <td>2024-09-05</td>
-                                            <td>2025-01-20</td>
-                                            <td>
-                                                <span class="status withdrawn"
-                                                    >탈퇴</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
 
                             <!-- 페이지네이션 -->
                             <div class="pagination company-member-pagination">
-                                <button type="button" class="page-btn prev">
-                                    이전
-                                </button>
-                                <div class="page-numbers">
-                                    <button
-                                        type="button"
-                                        class="page-btn active"
-                                    >
-                                        1
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        2
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        3
-                                    </button>
-                                </div>
-                                <button type="button" class="page-btn next">
-                                    다음
-                                </button>
+
                             </div>
                         </div>
 
@@ -944,6 +726,7 @@
                                         type="text"
                                         placeholder="검색어를 입력하세요"
                                         class="search-input normal-inquiry-search-input"
+                                        name="normalInquiryKeyword"
                                     />
                                     <button
                                         type="button"
@@ -960,20 +743,20 @@
                                         class="status-filter normal-inquiry-status-filter"
                                     >
                                         <option value="all">전체</option>
-                                        <option value="active">활성</option>
-                                        <option value="dormant">휴면</option>
-                                        <option value="suspended">정지</option>
-                                        <option value="withdrawn">탈퇴</option>
+                                        <option value="처리대기">처리대기</option>
+                                        <option value="처리완료">처리완료</option>
+
                                     </select>
                                     <!-- 가입기간 필터 -->
                                     <select
                                         class="date-filter normal-inquiry-date-filter"
                                     >
-                                        <option value="week">최근 1주일</option>
-                                        <option value="month">
+                                        <option value="1">전체</option>
+                                        <option value="7">최근 1주일</option>
+                                        <option value="30">
                                             최근 1개월
                                         </option>
-                                        <option value="three-month">
+                                        <option value="90">
                                             최근 3개월
                                         </option>
                                     </select>
@@ -996,113 +779,14 @@
                                     </thead>
                                     <tbody>
                                         <!-- 샘플 데이터 -->
-                                        <tr>
-                                            <td>0000001</td>
-                                            <td>수수료 관련 문의</td>
-                                            <td>허세웅</td>
-                                            <td>woongzzang@gmail.com</td>
-                                            <td>2025-01-15</td>
-                                            <td>
-                                                <span class="status pending"
-                                                    >처리중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000002</td>
-                                            <td>개인정보 관련 문의</td>
-                                            <td>김동완</td>
-                                            <td>dongwan@naver.com</td>
-                                            <td>2024-11-15</td>
-                                            <td>
-                                                <span class="status hold"
-                                                    >보류중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000003</td>
-                                            <td>기타</td>
-                                            <td>김승균</td>
-                                            <td>victory95@gmail.com</td>
-                                            <td>2024-12-01</td>
-                                            <td>
-                                                <span class="status hold"
-                                                    >보류중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000004</td>
-                                            <td>계정 관련 문의</td>
-                                            <td>한지수</td>
-                                            <td>jisoohan@daum.net</td>
-                                            <td>2025-01-20</td>
-                                            <td>
-                                                <span class="status completed"
-                                                    >처리완료</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <!-- 추가 샘플 데이터들... -->
+
                                     </tbody>
                                 </table>
                             </div>
 
                             <!-- 페이지네이션 -->
                             <div class="pagination normal-inquiry-pagination">
-                                <button type="button" class="page-btn prev">
-                                    이전
-                                </button>
-                                <div class="page-numbers">
-                                    <button
-                                        type="button"
-                                        class="page-btn active"
-                                    >
-                                        1
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        2
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        3
-                                    </button>
-                                </div>
-                                <button type="button" class="page-btn next">
-                                    다음
-                                </button>
+
                             </div>
                         </div>
                         <!-- // 개인문의 관리 컨텐츠 끝!!!!!!!!!! -->
@@ -1122,6 +806,7 @@
                                         type="text"
                                         placeholder="검색어를 입력하세요"
                                         class="search-input company-inquiry-search-input"
+                                        name = "companyInquiryKeyword"
                                     />
                                     <button
                                         type="button"
@@ -1138,20 +823,20 @@
                                         class="status-filter company-inquiry-status-filter"
                                     >
                                         <option value="all">전체</option>
-                                        <option value="active">활성</option>
-                                        <option value="dormant">휴면</option>
-                                        <option value="suspended">정지</option>
-                                        <option value="withdrawn">탈퇴</option>
+                                        <option value="처리대기">처리대기</option>
+                                        <option value="처리완료">처리완료</option>
+
                                     </select>
                                     <!-- 가입기간 필터 -->
                                     <select
                                         class="date-filter company-inquiry-date-filter"
                                     >
-                                        <option value="week">최근 1주일</option>
-                                        <option value="month">
+                                        <option value="1">전체</option>
+                                        <option value="7">최근 1주일</option>
+                                        <option value="30">
                                             최근 1개월
                                         </option>
-                                        <option value="three-month">
+                                        <option value="90">
                                             최근 3개월
                                         </option>
                                     </select>
@@ -1173,87 +858,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- 샘플 데이터 -->
-                                        <tr>
-                                            <td>0000001</td>
-                                            <td>수수료 관련 문의</td>
-                                            <td>템프</td>
-                                            <td>김영희</td>
-                                            <td>2025-01-15</td>
-                                            <td>
-                                                <span class="status pending"
-                                                    >처리중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000002</td>
-                                            <td>개인정보 관련 문의</td>
-                                            <td>코리아IT</td>
-                                            <td>한동석</td>
-                                            <td>2024-11-15</td>
-                                            <td>
-                                                <span class="status hold"
-                                                    >보류중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000003</td>
-                                            <td>기타</td>
-                                            <td>점핏</td>
-                                            <td>김승균</td>
-                                            <td>2024-12-01</td>
-                                            <td>
-                                                <span class="status hold"
-                                                    >보류중</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>0000004</td>
-                                            <td>계정 관련 문의</td>
-                                            <td>삼성</td>
-                                            <td>최동욱</td>
-                                            <td>2025-01-20</td>
-                                            <td>
-                                                <span class="status completed"
-                                                    >처리완료</span
-                                                >
-                                            </td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    class="detail-btn"
-                                                >
-                                                    상세보기
-                                                </button>
-                                            </td>
-                                        </tr>
+
                                         <!-- 추가 샘플 데이터들... -->
                                     </tbody>
                                 </table>
@@ -1261,26 +866,7 @@
 
                             <!-- 페이지네이션 -->
                             <div class="pagination company-inquiry-pagination">
-                                <button type="button" class="page-btn prev">
-                                    이전
-                                </button>
-                                <div class="page-numbers">
-                                    <button
-                                        type="button"
-                                        class="page-btn active"
-                                    >
-                                        1
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        2
-                                    </button>
-                                    <button type="button" class="page-btn">
-                                        3
-                                    </button>
-                                </div>
-                                <button type="button" class="page-btn next">
-                                    다음
-                                </button>
+
                             </div>
                         </div>
                         <!-- // 기업문의 관리 컨텐츠 끝!!!!!!!!!! -->
@@ -1452,8 +1038,86 @@
                                     다음
                                 </button>
                             </div>
+
+
+                        </div>
+                        <div class="notice-management" id="notice" style="display: none">
+                            <!-- 상단 검색/필터 영역 -->
+                            <div
+                                    class="notice-search-filter-container notice-filter"
+                            >
+                                <div class="search-box notice-search">
+                                    <input
+                                            type="text"
+                                            placeholder="검색어를 입력하세요"
+                                            class="search-input notice-search-input"
+                                            name ="keyword"
+                                    />
+                                    <button
+                                            type="button"
+                                            class="search-btn notice-search-btn"
+                                    >
+                                        검색
+                                    </button>
+
+                                    <button type="button" class="write-button">
+                                        작성
+                                    </button>
+                                </div>
+                                <div class="filter-box notice-filter-box">
+                                    <select
+                                            class="status-filter notice-type-filter"
+                                    >
+                                        <option value="all">전체</option>
+                                        <option value="공지">공지</option>
+                                        <option value="이벤트">이벤트</option>
+                                    </select>
+                                    <select
+                                            class="date-filter notice-date-filter"
+                                    >
+                                        <option value="1">전체</option>
+                                        <option value="7">최근 1주일</option>
+                                        <option value="30">
+                                            최근 1개월
+                                        </option>
+                                        <option value="90">
+                                            최근 3개월
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 공고 목록 테이블 -->
+                            <div class="notice-table-container">
+                                <table class="notice-table">
+                                    <thead>
+                                    <tr>
+                                        <th>공지번호</th>
+                                        <th>제목</th>
+                                        <th>유형</th>
+                                        <th>등록일</th>
+                                        <th>수정일</th>
+                                        <th>공지관리</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="noticeList">
+                                    <!--                                    공지 목록 들어가야할 공간-->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 페이지네이션 -->
+
+                            <div class="p notice-pagination">
+
+                            </div>
                         </div>
                     </div>
+                    </div>
+<!--   공지 목록 영역 -->
+
+
+
 
                     <!-- 사이드바 토글 버튼 -->
                     <button
@@ -1465,87 +1129,20 @@
                 </div>
             </div>
         </div>
+<!--      공지관리 상세보기 모달-->
+        <div class="notice-modal" style="display: none">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container">
+
+            </div>
+        </div>
+
 
         <!-- 신고관리 상세보기 모달 -->
         <div class="report-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
-                <!-- 모달 헤더 -->
-                <div class="modal-header">
-                    <h3>신고 상세정보</h3>
-                    <button type="button" class="close-btn">
-                        <img
-                            src="/images/admin/cross.png"
-                            alt="닫기"
-                        />
-                    </button>
-                </div>
 
-                <!-- 모달 본문 -->
-                <div class="modal-body">
-                    <!-- 신고 기본 정보 -->
-
-                    <div class="report-info">
-                        <h4>INFO</h4>
-                        <table class="info-table">
-                            <tbody>
-                                <tr>
-                                    <th>신고번호</th>
-                                    <td id="report-id">0000001</td>
-                                    <th>신고일시</th>
-                                    <td id="report-date">2025-02-04</td>
-                                </tr>
-                                <tr>
-                                    <th>신고자</th>
-                                    <td id="reporter">허세웅</td>
-                                    <th>신고대상</th>
-                                    <td id="report-target">템프</td>
-                                </tr>
-                                <tr>
-                                    <th>신고유형</th>
-                                    <td colspan="3" id="report-type">
-                                        부적절한 내용
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 신고 상세 내용 -->
-                    <div class="report-detail">
-                        <h4>신고 상세내용</h4>
-                        <div class="detail-content" id="report-content">
-                            템프 공고에 적절하지 않은 텍스트가 포함되어
-                            있습니다.
-                        </div>
-                    </div>
-
-                    <!-- 처리 상태 선택 -->
-                    <div class="status-selection">
-                        <h4>처리 상태</h4>
-                        <select class="status-select">
-                            <option value="processing">처리중</option>
-                            <option value="pending">보류</option>
-                            <option value="false">허위신고</option>
-                            <option value="completed">처리완료</option>
-                        </select>
-                    </div>
-
-                    <!-- 관리자 메모 -->
-                    <div class="admin-memo">
-                        <h4>관리자 메모</h4>
-                        <textarea
-                            placeholder="처리 관련 메모를 입력하세요"
-                            id="admin-memo"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 모달 푸터 -->
-                <div class="modal-footer">
-                    <button type="button" class="cancel-btn">취소</button>
-                    <button type="button" class="save-btn">저장</button>
-                </div>
             </div>
         </div>
 
@@ -1553,83 +1150,7 @@
         <div class="normal-inquiry-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
-                <!-- 모달 헤더 -->
-                <div class="modal-header">
-                    <h3>문의 상세정보</h3>
-                    <button type="button" class="close-btn">
-                        <img
-                            src="/images/admin/cross.png"
-                            alt="닫기"
-                        />
-                    </button>
-                </div>
 
-                <!-- 모달 본문 -->
-                <div class="modal-body">
-                    <!-- 문의 기본 정보 -->
-
-                    <div class="normal-inquiry-info">
-                        <h4>INFO</h4>
-                        <table class="info-table">
-                            <tbody>
-                                <tr>
-                                    <th>문의번호</th>
-                                    <td id="normal-inquiry-id">0000001</td>
-                                    <th>문의일시</th>
-                                    <td id="normal-inquiry-date">2025-02-04</td>
-                                </tr>
-                                <tr>
-                                    <th>문의자</th>
-                                    <td id="normal-inquirer">허세웅</td>
-                                    <th>이메일</th>
-                                    <td id="normal-inquiry-email">
-                                        temp123@gmail.com
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>문의유형</th>
-                                    <td colspan="3" id="normal-inquiry-type">
-                                        수수료 관련
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 문의 상세 내용 -->
-                    <div class="normal-inquiry-detail">
-                        <h4>문의 상세내용</h4>
-                        <div class="detail-content" id="normal-inquiry-content">
-                            공고에 이미 등록한 상태인데 취소해도 수수료를
-                            환불받을 수 없는지에 대해서 문의드립니다.
-                        </div>
-                    </div>
-
-                    <!-- 처리 상태 선택 -->
-                    <div class="status-selection">
-                        <h4>처리 상태</h4>
-                        <select class="status-select">
-                            <option value="processing">처리중</option>
-                            <option value="pending">보류</option>
-                            <option value="completed">처리완료</option>
-                        </select>
-                    </div>
-
-                    <!-- 관리자 메모 -->
-                    <div class="admin-memo">
-                        <h4>관리자 메모</h4>
-                        <textarea
-                            placeholder="처리 관련 메모를 입력하세요"
-                            id="n-inquiry-admin-memo"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 모달 푸터 -->
-                <div class="modal-footer">
-                    <button type="button" class="cancel-btn">취소</button>
-                    <button type="button" class="save-btn">저장</button>
-                </div>
             </div>
         </div>
 
@@ -1637,86 +1158,7 @@
         <div class="company-inquiry-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
-                <!-- 모달 헤더 -->
-                <div class="modal-header">
-                    <h3>문의 상세정보</h3>
-                    <button type="button" class="close-btn">
-                        <img
-                            src="/images/admin/cross.png"
-                            alt="닫기"
-                        />
-                    </button>
-                </div>
 
-                <!-- 모달 본문 -->
-                <div class="modal-body">
-                    <!-- 문의 기본 정보 -->
-
-                    <div class="company-inquiry-info">
-                        <h4>INFO</h4>
-                        <table class="info-table">
-                            <tbody>
-                                <tr>
-                                    <th>문의번호</th>
-                                    <td id="company-inquiry-id">0000001</td>
-                                    <th>문의일시</th>
-                                    <td id="company-inquiry-date">
-                                        2025-02-04
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>기업명</th>
-                                    <td id="company-name">템프</td>
-                                    <th>담당자</th>
-                                    <td id="company-inquirer">김영희</td>
-                                </tr>
-                                <tr>
-                                    <th>문의유형</th>
-                                    <td colspan="3" id="company-inquiry-type">
-                                        체험비 관련
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 문의 상세 내용 -->
-                    <div class="company-inquiry-detail">
-                        <h4>문의 상세내용</h4>
-                        <div
-                            class="detail-content"
-                            id="company-inquiry-content"
-                        >
-                            합격자 발표까지 한 이후에 정확히 언제쯤 체험비가
-                            입금되는지 알고 싶습니다.
-                        </div>
-                    </div>
-
-                    <!-- 처리 상태 선택 -->
-                    <div class="status-selection">
-                        <h4>처리 상태</h4>
-                        <select class="status-select">
-                            <option value="processing">처리중</option>
-                            <option value="pending">보류</option>
-                            <option value="completed">처리완료</option>
-                        </select>
-                    </div>
-
-                    <!-- 관리자 메모 -->
-                    <div class="admin-memo">
-                        <h4>관리자 메모</h4>
-                        <textarea
-                            placeholder="처리 관련 메모를 입력하세요"
-                            id="c-inquiry-admin-memo"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 모달 푸터 -->
-                <div class="modal-footer">
-                    <button type="button" class="cancel-btn">취소</button>
-                    <button type="button" class="save-btn">저장</button>
-                </div>
             </div>
         </div>
         <!-- // 기업문의 상세보기 모달 -->
@@ -1725,112 +1167,7 @@
         <div class="announce-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
-                <!-- 모달 헤더 -->
-                <div class="modal-header">
-                    <h3>공고 상세정보</h3>
-                    <button type="button" class="close-btn">
-                        <img
-                            src="/images/admin/cross.png"
-                            alt="닫기"
-                        />
-                    </button>
-                </div>
 
-                <!-- 모달 본문 -->
-                <div class="modal-body">
-                    <!-- 공고 기본 정보 -->
-                    <div class="announce-info">
-                        <h4>INFO</h4>
-                        <table class="info-table">
-                            <tbody>
-                                <tr>
-                                    <th>공고 제목</th>
-                                    <td colspan="3" id="announce-title">
-                                        실무자 원데이 체험 프로그램
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>공고번호</th>
-                                    <td id="announce-id">0000001</td>
-                                    <th>기업명</th>
-                                    <td id="company-name">템프</td>
-                                </tr>
-
-                                <tr>
-                                    <th>등록일</th>
-                                    <td id="register-date">2025-02-07</td>
-                                    <th>마감일</th>
-                                    <td id="deadline-date">2025-02-28</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 공고 상세내용 -->
-                    <div class="announce-content">
-                        <h4>공고 상세내용</h4>
-                        <select class="status-select content-select">
-                            <option value="">카테고리 선택</option>
-                            <option value="company-intro">
-                                기업 및 서비스 소개
-                            </option>
-                            <option value="program-intro">프로그램 소개</option>
-                            <option value="program-benefits">
-                                프로그램 장점
-                            </option>
-                            <option value="recruitment">모집 내용</option>
-                            <option value="process">지원 방법</option>
-                            <option value="etc">참고사항</option>
-                            <option value="contact">연락처</option>
-                            <option value="address">주소</option>
-                        </select>
-                        <div class="detail-content">
-                            <!-- 선택된 카테고리의 내용이 표시될 영역 -->
-                        </div>
-                    </div>
-
-                    <!-- 등록된 이미지 -->
-                    <div class="announce-image">
-                        <h4>등록된 이미지</h4>
-                        <div class="image-view">
-                            <img src="" alt="공고 이미지" />
-                            <div class="image-nav">
-                                <button type="button" class="prev-btn">
-                                    이전
-                                </button>
-                                <button type="button" class="next-btn">
-                                    다음
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 처리 상태 선택 -->
-                    <div class="status-selection">
-                        <h4>처리 상태</h4>
-                        <select class="status-select">
-                            <option value="pending">심사중</option>
-                            <option value="hold">보류</option>
-                            <option value="approved">승인</option>
-                            <option value="rejected">반려</option>
-                        </select>
-                    </div>
-
-                    <!-- 관리자 메모 -->
-                    <div class="admin-memo">
-                        <h4>관리자 메모</h4>
-                        <textarea
-                            placeholder="처리 관련 메모를 입력하세요"
-                            id="admin-memo"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 모달 푸터 -->
-                <div class="modal-footer">
-                    <button type="button" class="cancel-btn">취소</button>
-                    <button type="button" class="save-btn">저장</button>
-                </div>
             </div>
         </div>
 
@@ -1838,214 +1175,7 @@
         <div class="normal-member-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
-                <!-- 모달 헤더 -->
-                <div class="modal-header">
-                    <h3>일반회원 상세정보</h3>
-                    <button type="button" class="close-btn">
-                        <img
-                            src="/images/admin/cross.png"
-                            alt="닫기"
-                        />
-                    </button>
-                </div>
 
-                <!-- 모달 본문 -->
-                <div class="modal-body">
-                    <!-- 기본 정보 섹션 -->
-                    <div class="member-info">
-                        <h4>INFO</h4>
-                        <table class="info-table">
-                            <tbody>
-                                <tr>
-                                    <th>회원번호</th>
-                                    <td id="member-id">0000001</td>
-                                    <th>이름</th>
-                                    <td id="member-name">허세웅</td>
-                                </tr>
-                                <tr>
-                                    <th>아이디</th>
-                                    <td id="member-userid">woong123</td>
-                                    <th>연락처</th>
-                                    <td id="member-phone">010-1234-5678</td>
-                                </tr>
-                                <tr>
-                                    <th>가입일</th>
-                                    <td id="join-date">2025-01-15</td>
-                                    <th>최근접속일</th>
-                                    <td id="last-access">2025-02-10</td>
-                                </tr>
-                                <tr>
-                                    <th>이메일</th>
-                                    <td colspan="3" id="member-email">
-                                        woongzzang123@gmail.com
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 상세 내용 섹션 -->
-                    <div class="member-detail">
-                        <h4>회원 상세내용</h4>
-                        <select class="status-select detail-select">
-                            <option value="">카테고리 선택</option>
-                            <option value="profile-image">대표 이미지</option>
-                            <option value="brief-intro">간단 소개</option>
-                            <option value="education">학력</option>
-                            <option value="career">경력</option>
-                            <option value="etc">기타사항</option>
-                            <option value="self-intro">자기소개서</option>
-                        </select>
-                        <!-- 상세 내용 표시 영역 -->
-                        <div class="detail-content">
-                            <!-- 대표 이미지 섹션 -->
-                            <div
-                                class="content-section profile-image-section"
-                                style="display: none"
-                            >
-                                <div class="profile-image-view">
-                                    <img
-                                        src="/images/admin/default_profile.webp"
-                                        alt="프로필 이미지"
-                                    />
-                                </div>
-                            </div>
-
-                            <!-- 간단 소개 섹션 -->
-                            <div
-                                class="content-section brief-intro-section"
-                                style="display: none"
-                            >
-                                <p>웃음이 밝은 허세웅입니다...</p>
-                            </div>
-
-                            <!-- 학력 섹션 -->
-                            <div
-                                class="content-section education-section"
-                                style="display: none"
-                            >
-                                <p>xx 고등학교 최종 졸업...</p>
-                            </div>
-
-                            <!-- 경력 섹션 -->
-                            <div
-                                class="content-section career-section"
-                                style="display: none"
-                            >
-                                <p>프로게이머 경력은...</p>
-                            </div>
-
-                            <!-- 기타사항 섹션 -->
-                            <div
-                                class="content-section etc-section"
-                                style="display: none"
-                            >
-                                <p>TOEIC 900점...</p>
-                            </div>
-
-                            <!-- 자기소개서 섹션 -->
-                            <div
-                                class="content-section self-intro-section"
-                                style="display: none"
-                            >
-                                <p>
-                                    안녕하세요. 열정적인 프론트엔드 취업
-                                    희망자입니다...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 활동 내역 섹션 -->
-                    <div class="member-activity">
-                        <h4>활동 내역</h4>
-                        <select class="status-select activity-select">
-                            <option value="">카테고리 선택</option>
-                            <option value="application-history">
-                                지원이력
-                            </option>
-                            <option value="report-history">신고내역</option>
-                        </select>
-                        <!-- 활동 내역 표시 영역 -->
-                        <div class="activity-content">
-                            <!-- 지원이력 섹션 -->
-                            <div
-                                class="content-section application-history-section"
-                                style="display: none"
-                            >
-                                <table class="activity-table">
-                                    <thead>
-                                        <tr>
-                                            <th>지원일</th>
-                                            <th>기업명</th>
-                                            <th>공고명</th>
-                                            <th>상태</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2025-02-10</td>
-                                            <td>템프</td>
-                                            <td>실무자 원데이 체험 프로그램</td>
-                                            <td>지원완료</td>
-                                        </tr>
-                                        <!-- 추가 데이터는 서버에서 받아와 동적으로 추가 예정 -->
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <!-- 신고내역 섹션 -->
-                            <div
-                                class="content-section report-history-section"
-                                style="display: none"
-                            >
-                                <table class="activity-table">
-                                    <thead>
-                                        <tr>
-                                            <th>신고일</th>
-                                            <th>신고사유</th>
-                                            <th>처리상태</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2025-02-04</td>
-                                            <td>권리침해</td>
-                                            <td>처리완료</td>
-                                        </tr>
-                                        <!-- 추가 데이터는 서버에서 받아와 동적으로 추가 예정 -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 회원 상태 변경 섹션 -->
-                    <div class="status-selection">
-                        <h4>회원 상태</h4>
-                        <select class="status-select">
-                            <option value="active">활성</option>
-                            <option value="dormant">휴면</option>
-                            <option value="suspended">정지</option>
-                            <option value="withdrawn">탈퇴</option>
-                        </select>
-                    </div>
-
-                    <!-- 관리자 메모 -->
-                    <div class="admin-memo">
-                        <h4>관리자 메모</h4>
-                        <textarea
-                            placeholder="처리 관련 메모를 입력하세요"
-                            id="admin-memo"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 모달 푸터 -->
-                <div class="modal-footer">
-                    <button type="button" class="cancel-btn">취소</button>
-                    <button type="button" class="save-btn">저장</button>
-                </div>
             </div>
         </div>
 
@@ -2053,304 +1183,7 @@
         <div class="company-member-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
-                <!-- 모달 헤더 -->
-                <div class="modal-header">
-                    <h3>기업회원 상세정보</h3>
-                    <button type="button" class="close-btn">
-                        <img
-                            src="/images/admin/cross.png"
-                            alt="닫기"
-                        />
-                    </button>
-                </div>
 
-                <!-- 모달 본문 -->
-                <div class="modal-body">
-                    <!-- 기본 정보 섹션 -->
-                    <div class="member-info">
-                        <h4>INFO</h4>
-                        <table class="info-table">
-                            <tbody>
-                                <tr>
-                                    <th>회원번호</th>
-                                    <td id="company-member-id">0000001</td>
-                                    <th>기업명</th>
-                                    <td id="member-company-name">템프</td>
-                                </tr>
-                                <tr>
-                                    <th>사업자등록번호</th>
-                                    <td id="business-number">123-45-67890</td>
-                                    <th>대표자명</th>
-                                    <td id="ceo-name">홍길동</td>
-                                </tr>
-                                <tr>
-                                    <th>설립일</th>
-                                    <td id="establishment-date">2020-01-01</td>
-                                    <th>기업규모</th>
-                                    <td id="company-size">중소기업</td>
-                                </tr>
-                                <tr>
-                                    <th>업종</th>
-                                    <td id="company-sector">IT서비스</td>
-                                    <th>사원수</th>
-                                    <td id="employee-count">50명</td>
-                                </tr>
-                                <tr>
-                                    <th>본사주소</th>
-                                    <td colspan="3" id="company-address">
-                                        서울시 강남구 테헤란로
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 담당자 정보 섹션 -->
-                    <div class="manager-info">
-                        <h4>담당자 정보</h4>
-                        <table class="manager-table">
-                            <tbody>
-                                <tr>
-                                    <th>담당자명</th>
-                                    <td id="manager-name">김영희</td>
-                                    <th>부서/직책</th>
-                                    <td id="manager-position">인사팀/과장</td>
-                                </tr>
-                                <tr>
-                                    <th>아이디</th>
-                                    <td id="manager-userid">younghee123</td>
-                                    <th>연락처</th>
-                                    <td id="manager-phone">02-1234-5678</td>
-                                </tr>
-                                <tr>
-                                    <th>가입일</th>
-                                    <td id="company-join-date">2025-01-15</td>
-                                    <th>최근접속일</th>
-                                    <td id="company-last-access">2025-02-10</td>
-                                </tr>
-                                <tr>
-                                    <th>이메일</th>
-                                    <td colspan="3" id="manager-email">
-                                        temp@temp.com
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 기업 상세 정보 섹션 -->
-                    <div class="company-detail">
-                        <h4>기업 상세정보</h4>
-                        <select class="status-select detail-select">
-                            <option value="">카테고리 선택</option>
-                            <option value="company-logo">기업 로고</option>
-                            <option value="business-certificate">
-                                사업자등록증명원
-                            </option>
-                            <option value="company-intro">기업 소개</option>
-                            <option value="financial-info">재무정보</option>
-                            <option value="welfare">복리후생</option>
-                            <option value="company-culture">기업문화</option>
-                            <option value="etc">기타정보</option>
-                        </select>
-                        <!-- 상세 내용 표시 영역 -->
-                        <div class="detail-content">
-                            <!-- 기업 로고 섹션 -->
-                            <div
-                                class="content-section company-logo-section"
-                                style="display: none"
-                            >
-                                <div class="logo-image-view">
-                                    <img
-                                        src="/images/admin/default_logo.jfif"
-                                        alt="기업 로고"
-                                    />
-                                </div>
-                            </div>
-                            <!-- 사업자등록증명원 섹션 추가 -->
-                            <div
-                                class="content-section business-certificate-section"
-                                style="display: none"
-                            >
-                                <div class="certificate-image-view">
-                                    <img
-                                        src="/images/admin/default_certificate.png"
-                                        alt="사업자등록증명원"
-                                        class="certificate-image"
-                                    />
-                                    <div class="certificate-info">
-                                        <p class="certificate-date">
-                                            등록일: 2025-01-15
-                                        </p>
-                                        <p class="certificate-notice">
-                                            * 이미지를 클릭하면 원본 크기로 볼
-                                            수 있습니다
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 기업 소개 섹션 -->
-                            <div
-                                class="content-section company-intro-section"
-                                style="display: none"
-                            >
-                                <p>혁신적인 IT 서비스를 제공하는 기업...</p>
-                            </div>
-
-                            <!-- 재무정보 섹션 -->
-                            <div
-                                class="content-section financial-info-section"
-                                style="display: none"
-                            >
-                                <p>연매출 100억원...</p>
-                            </div>
-
-                            <!-- 복리후생 섹션 -->
-                            <div
-                                class="content-section welfare-section"
-                                style="display: none"
-                            >
-                                <p>자유로운 연차사용...</p>
-                            </div>
-
-                            <!-- 기업문화 섹션 -->
-                            <div
-                                class="content-section company-culture-section"
-                                style="display: none"
-                            >
-                                <p>수평적인 조직문화...</p>
-                            </div>
-
-                            <!-- 기타정보 섹션 -->
-                            <div
-                                class="content-section etc-section"
-                                style="display: none"
-                            >
-                                <p>특이사항 없음</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 활동 내역 섹션 -->
-                    <div class="company-activity">
-                        <h4>활동 내역</h4>
-                        <select class="status-select activity-select">
-                            <option value="">카테고리 선택</option>
-                            <option value="announcement-history">
-                                공고 등록 내역
-                            </option>
-                            <option value="program-history">
-                                체험 프로그램 운영 내역
-                            </option>
-                            <option value="report-history">신고 내역</option>
-                        </select>
-                        <!-- 활동 내역 표시 영역 -->
-                        <div class="activity-content">
-                            <!-- 공고 등록 내역 섹션 -->
-                            <div
-                                class="content-section announcement-history-section"
-                                style="display: none"
-                            >
-                                <table class="activity-table">
-                                    <thead>
-                                        <tr>
-                                            <th>공고번호</th>
-                                            <th>공고제목</th>
-                                            <th>등록일</th>
-                                            <th>마감일</th>
-                                            <th>상태</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2025-001</td>
-                                            <td>프론트엔드 개발자 체험</td>
-                                            <td>2025-02-10</td>
-                                            <td>2025-03-10</td>
-                                            <td>진행중</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <!-- 체험 프로그램 운영 내역 섹션 -->
-                            <div
-                                class="content-section program-history-section"
-                                style="display: none"
-                            >
-                                <table class="activity-table">
-                                    <thead>
-                                        <tr>
-                                            <th>프로그램명</th>
-                                            <th>시작일</th>
-                                            <th>종료일</th>
-                                            <th>참가인원</th>
-                                            <th>상태</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>백엔드 개발자 체험</td>
-                                            <td>2025-01-15</td>
-                                            <td>2025-01-16</td>
-                                            <td>3명</td>
-                                            <td>완료</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <!-- 신고 내역 섹션 -->
-                            <div
-                                class="content-section report-history-section"
-                                style="display: none"
-                            >
-                                <table class="activity-table">
-                                    <thead>
-                                        <tr>
-                                            <th>신고일</th>
-                                            <th>신고사유</th>
-                                            <th>처리상태</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2025-02-04</td>
-                                            <td>부적절한 내용</td>
-                                            <td>처리완료</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 회원 상태 변경 섹션 -->
-                    <div class="status-selection">
-                        <h4>회원 상태</h4>
-                        <select class="status-select">
-                            <option value="active">활성</option>
-                            <option value="dormant">휴면</option>
-                            <option value="suspended">정지</option>
-                            <option value="withdrawn">탈퇴</option>
-                        </select>
-                    </div>
-
-                    <!-- 관리자 메모 -->
-                    <div class="admin-memo">
-                        <h4>관리자 메모</h4>
-                        <textarea
-                            placeholder="처리 관련 메모를 입력하세요"
-                            id="admin-memo"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 모달 푸터 -->
-                <div class="modal-footer">
-                    <button type="button" class="cancel-btn">취소</button>
-                    <button type="button" class="save-btn">저장</button>
-                </div>
             </div>
         </div>
 
@@ -2366,6 +1199,10 @@
         </div>
 
         <!-- JavaScript 파일 연결 -->
+        <script>
+
+
+        </script>
         <script src="/js/admin/sidebar_each_menu_toggle.js"></script>
         <script src="/js/admin/sidebar_toggle.js"></script>
         <script src="/js/admin/main_contents_toggle.js"></script>
@@ -2381,5 +1218,27 @@
         <script src="/js/admin/modal_company_certificate.js"></script>
         <script src="/js/admin/modal_normal_inquiry.js"></script>
         <script src="/js/admin/modal_company_inquiry.js"></script>
+        <script src="/js/admin/program_service.js"></script>
+        <script src="/js/admin/program_layout.js"></script>
+        <script src="/js/admin/program_event.js"></script>
+        <script src="/js/admin/member_service.js"></script>
+        <script src="/js/admin/member_layout.js"></script>
+        <script src="/js/admin/member_event.js"></script>
+        <script src="/js/admin/company_member_service.js"></script>
+        <script src="/js/admin/company_member_layout.js"></script>
+        <script src="/js/admin/company_member_event.js"></script>
+        <script src="/js/admin/inquiry_service.js"></script>
+        <script src="/js/admin/inquiry_layout.js"></script>
+        <script src="/js/admin/inquiry_event.js"></script>
+        <script src="/js/admin/company_inquiry_service.js"></script>
+        <script src="/js/admin/company_inquiry_layout.js"></script>
+        <script src="/js/admin/company_inquiry_event.js"></script>
+        <script src="/js/admin/filter_company_inquiry.js"></script>
+        <script src="/js/admin/notice_event.js"></script>
+        <script src="/js/admin/notice_layout.js"></script>
+        <script src="/js/admin/notice_service.js"></script>
+        <script src="/js/admin/modal_notice.js"></script>
     </body>
+<script>
+</script>
 </html>

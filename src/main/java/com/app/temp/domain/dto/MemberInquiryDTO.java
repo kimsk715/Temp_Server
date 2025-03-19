@@ -16,6 +16,7 @@ public class MemberInquiryDTO {
     private String memberName;
     private String memberEmail;
     private String memberInquiryStatus;
+    private String memberInquiryDetail;
     private String createdDate;
 
 

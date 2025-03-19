@@ -1,11 +1,14 @@
 package com.app.temp.repository;
 
 import com.app.temp.domain.dto.CompanyMemberDTO;
+import com.app.temp.domain.dto.CompanyMemberInfoAdminDTO;
+import com.app.temp.domain.dto.CompanyMemberPagination;
 import com.app.temp.domain.vo.CompanyMemberVO;
 import com.app.temp.mapper.CompanyMemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -22,4 +25,19 @@ public class CompanyMemberDAO {
     public void saveFirstCompanyMember(CompanyMemberVO companyMemberVO) {
         companyMemberMapper.insertCompanyMemberAdmin(companyMemberVO);
     }
+
+
+    public List<CompanyMemberInfoAdminDTO> findAllAdmin(CompanyMemberPagination companyMemberPagination) {
+        return companyMemberMapper.selectAllAdmin(companyMemberPagination);
+    }
+
+    public int countAllCompanyMember(CompanyMemberPagination companyMemberPagination) {
+        return companyMemberMapper.countAllCompanyMember(companyMemberPagination);
+    }
+
+    public Optional<CompanyMemberInfoAdminDTO> findById(Long memberId) {
+        return companyMemberMapper.selectById(memberId);
+    }
+
+
 }

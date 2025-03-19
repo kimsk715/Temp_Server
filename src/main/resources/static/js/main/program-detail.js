@@ -347,3 +347,46 @@ document.addEventListener("DOMContentLoaded", function () {
         expandBtn.style.display = "inline-flex";
     });
 });
+
+const submitButton = document.querySelector(".submitButton")
+const applyForm = document.querySelector("article.applyForm")
+const resumeContent = document.querySelectorAll("li.resumeContent")
+applyForm.addEventListener('click', (e)=>{
+    resumeContent.forEach((content) => {
+        if(content.contains(e.target)){
+            const button = content.querySelector("input")
+
+            if(button.classList[0] === "true"){
+                submitButton.removeAttribute("disabled");
+            }
+            else{
+                submitButton.setAttribute("disabled","true");
+            }
+
+        }
+    })
+
+
+})
+
+submitButton.addEventListener('click',(e) => {
+    e.preventDefault();
+    sendData();
+})
+
+function sendData() {
+    fetch('/program/detail/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            memberId: document.getElementById("memberIdValue").value,
+            programId: document.getElementById("programIdValue").value,
+            resumeId: document.querySelector("input[type=radio]:checked").value
+        })
+    })
+        .then(response => response.json())
+        .then(data => window.location.href = "/program/list")
+        .catch(error => console.error('Error:', error));
+}

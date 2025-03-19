@@ -3,16 +3,65 @@
 
 <mapper namespace="com.app.temp.mapper.NoticeMapper">
     <select id="selectAll" resultType="noticeListDTO">
-        SELECT ID, NOTICE_TITLE, CREATED_DATE FROM TBL_NOTICE
+        SELECT ID, NOTICE_TITLE, NOTICE_CONTENT , TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE ,TO_CHAR(UPDATED_DATE,'YYYY-MM-DD') AS UPDATED_DATE,NOTICE_CATEGORY
+        FROM
+        (
+        SELECT ID, ROWNUM R, NOTICE_TITLE, NOTICE_CONTENT ,CREATED_DATE, UPDATED_DATE, NOTICE_CATEGORY
+        FROM
+        (
+        SELECT ID, NOTICE_TITLE, NOTICE_CONTENT ,CREATED_DATE, UPDATED_DATE ,NOTICE_CATEGORY
+        FROM TBL_NOTICE
+        WHERE ID IS NOT NULL
+        <if test="type!=null and type !=all">
+            AND NOTICE_CATEGORY = #{type}
+        </if>
+        <if test="keyword !=null">
+            AND NOTICE_TITLE LIKE '%'||#{noticeTitle}||'%'
+        </if>
+        <if test="date!=0 and date!=1">
+            AND CEIL(SYSDATE - TO_DATE(CREATED_DATE)) <![CDATA[ <= #{date}]]>
+        </if>
+        ORDER BY ID DESC
+        )
+        <![CDATA[
+            WHERE ROWNUM <= ${endRow}
+            ]]>
+        )
+        <![CDATA[
+        WHERE R >= ${startRow}
+        ]]>
+    </select>
+    <select id="countAll" resultType="_int">
+        SELECT COUNT(*) AS TOTAL
+        FROM
+        (SELECT ID, NOTICE_TITLE, NOTICE_CONTENT ,CREATED_DATE, UPDATED_DATE ,NOTICE_CATEGORY
+        FROM TBL_NOTICE
+        WHERE ID IS NOT NULL
+        <if test="type!=null and type !=all">
+            AND NOTICE_CATEGORY = #{type}
+        </if>
+        <if test="keyword !=null">
+            AND NOTICE_TITLE LIKE '%'||#{noticeTitle}||'%'
+        </if>
+        <if test="date!=0 and date!=1">
+            AND CEIL(SYSDATE - TO_DATE(CREATED_DATE)) <![CDATA[ <= #{date}]]>
+        </if>)
     </select>
 
-    <insert id="insert">
-        INSERT INTO TBL_NOTICE(ID, NOTICE_CATEGORY, NOTICE_TITLE, NOTICE_CONTENT)
-        VALUES(SEQ_NOTICE.NEXTVAL, #{noticeCategory}, #{noticeTitle}, #{noticeContent})
-    </insert>
-
-    <select id="selectNoticeById" resultType="noticeInfoDto">
-        SELECT NOTICE_TITLE, NOTICE_CATEGORY, NOTICE_CONTENT
+    <select id="selectNoticeById" resultType="noticeListDTO">
+        SELECT ID, NOTICE_TITLE, NOTICE_CATEGORY, NOTICE_CONTENT,TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE ,TO_CHAR(UPDATED_DATE,'YYYY-MM-DD') AS UPDATED_DATE
         FROM TBL_NOTICE WHERE ID = #{id}
     </select>
+
+    <insert id="insertNotice">
+        INSERT INTO TBL_NOTICE(ID, NOTICE_CATEGORY, NOTICE_TITLE, NOTICE_CONTENT, CREATED_DATE, UPDATED_DATE)
+        VALUES (SEQ_NOTICE.NEXTVAL, #{noticeCategory},#{noticeTitle},#{noticeContent}, SYSDATE, SYSDATE)
+
+    </insert>
+
+    <update id="updateNotice">
+        UPDATE TBL_NOTICE
+        SET NOTICE_TITLE = #{noticeTitle}, NOTICE_CONTENT = #{noticeContent}
+        WHERE ID = #{id}
+    </update>
 </mapper>
