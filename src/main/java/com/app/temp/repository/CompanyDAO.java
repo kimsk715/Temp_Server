@@ -23,8 +23,14 @@ public class CompanyDAO {
         return companyMapper.selectByCompanyBusinessNumber(companyBusinessNumber);
     }
 
-//    기업회원 id로 기업정보 조회
+    //    기업회원 id로 기업정보 조회
     public Optional<CompanyDTO> findById(Long id) {
         return companyMapper.selectById(id);
     }
+
+    //    기업명으로 기업정보 조회
+    public Optional<CompanyDTO> findByCompanyName(String companyName) {
+        return companyMapper.selectByCompanyName(companyName);
+    }
 }
+

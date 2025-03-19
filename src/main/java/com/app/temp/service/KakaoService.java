@@ -15,6 +15,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class KakaoService {
+    //    토큰 발급
     public String getKakaoAccessToken(String code, String type) {
         String accessToken = null;
         String requestURI = "https://kauth.kakao.com/oauth/token";
@@ -63,6 +64,7 @@ public class KakaoService {
         return accessToken;
     }
 
+    //    카카오에서 정보 받아오기
     public Optional<MemberDTO> getKakaoInfo(String token) {
         String accessToken = null;
         String requestURI = "https://kapi.kakao.com/v2/user/me";
@@ -104,5 +106,13 @@ public class KakaoService {
             throw new RuntimeException(e);
         }
         return Optional.ofNullable(memberDTO);
+    }
+    //    카카오 로그아웃
+    public String getKakaoLogoutURL(){
+        String requestURI = "https://kauth.kakao.com/oauth/logout"; // 로그아웃 페이지
+        String clientId = "87bef4c36fab14d5714ce773bdd6f030";   // 내 RestApi 키
+        String redirectURI = "http://localhost:10000/"; // 로그아웃 후 넘어갈 창
+
+        return requestURI + "?client_id=" + clientId + "&logout_redirect_uri=" + redirectURI;
     }
 }

@@ -174,6 +174,7 @@ const nextTbtn = document.querySelector("#next_certification_check");
 const corp_wrap = document.querySelector(
     "#normal_corp_code_certification_notice"
 );
+const fileInput = document.querySelector("#certification_file")
 const subCorp_wrap = document.querySelector("#next_certification_msg");
 
 corp_wrap.style.display = "block";
@@ -189,10 +190,13 @@ nextTbtn.addEventListener("change", () => {
     corp_wrap.style.display = "none";
     btnFile.style.display = "none";
     subCorp_wrap.style.display = "block";
+    fileInput.disabled = "true";  // 파일 업로드 비활성화
+    fileInput.value = ""; // 선택된 파일 제거
   } else {
     corp_wrap.style.display = "block";
     btnFile.style.display = "block";
     subCorp_wrap.style.display = "none";
+    fileInput.disabled = "false";
   }
 });
 

@@ -18,5 +18,5 @@ public class ReportInfoDTO {
     private String reportType;
     private String reportStatus;
     private String reportDetail;
-
+    private Pagination pagination;
 }

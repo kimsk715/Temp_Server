@@ -12,10 +12,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.swing.plaf.multi.MultiFileChooserUI;
 
 @Controller
 @Slf4j
@@ -31,12 +31,15 @@ public class registerController {
     }
 
     @PostMapping("register")
-    public String registerCompanyMember(HttpSession session, Model model,
+    public String registerCompanyMember(@RequestParam(required = false) MultipartFile file,
+                                        HttpSession session, Model model,
                                         @ModelAttribute CompanyDTO companyDTO,
-                                        @ModelAttribute CompanyMemberDTO companyMemberDTO) {
+                                        @ModelAttribute CompanyMemberDTO companyMemberDTO,
+                                        @RequestParam(value = "next_certification_check", defaultValue = "false") boolean noCertificate) {
+        log.info("--------{}", file.getOriginalFilename());
 
-        log.info("companyDTO: {}", companyDTO);
-        log.info("companyMemberDTO: {}", companyMemberDTO);
+//        log.info("companyDTO: {}", companyDTO);
+//        log.info("companyMemberDTO: {}", companyMemberDTO);
         try {
             // 세션에서 멤버 정보 가져오기
             MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
@@ -45,13 +48,16 @@ public class registerController {
                 throw new MemberNotFoundException("회원정보 찾을 수 없음");
             }
 
+            // noCertificate 값 확인
+            System.out.println("noCertificate: " + noCertificate);
+
             // companyMemberDTO에 member 정보를 추가
             companyMemberDTO.setMemberEmail(memberDTO.getMemberEmail());
             companyMemberDTO.setMemberName(memberDTO.getMemberName());
             companyMemberDTO.setMemberPhone(memberDTO.getMemberPhone());
 
             // 기업회원 등록 처리 서비스 호출
-            companyMemberService.registerCompanyMember(session, companyDTO, companyMemberDTO);
+            companyMemberService.registerCompanyMember(session, companyDTO, companyMemberDTO, file);
 
             // 기업회원 등록 완료 후 마이페이지로 리다이렉션
             return "redirect:/enterprise/main-page";  // 기업 마이페이지로 리디렉션
