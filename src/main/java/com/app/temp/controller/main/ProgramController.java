@@ -50,6 +50,7 @@ public class ProgramController {
             newMember.setMemberBirth(member.getMemberBirth());
             newMember.setResumeList(resumeService.check(newMember.getId()));
             httpSession.setAttribute("memberDTO", newMember);
+//            memberDTO 는 기본 로그인 정보인 member 에 추가적인 정보를 담고 있는 속성. 기본적으로는  로그인한 멤버의 정보를 세션에 담겨있음.
             log.info(httpSession.getAttribute("memberDTO").toString());
             ArrayList<MainProgramListDTO> mainProgramListDTOS = new ArrayList<>();
 
@@ -57,6 +58,7 @@ public class ProgramController {
             if (keyword != null && !keyword.isEmpty()) {
                 mainProgramListDTOS = programService.searchProgramsByKeyword(keyword);
                 model.addAttribute("keyword", keyword);
+                log.info(mainProgramListDTOS.toString());
             }
             // 네비게이션 바에서 직접 이동한 경우
             else {
@@ -73,7 +75,7 @@ public class ProgramController {
             if (keyword != null && !keyword.isEmpty()) {
                 mainProgramListDTOS = programService.searchProgramsByKeyword(keyword);
                 model.addAttribute("keyword", keyword);
-
+                log.info(mainProgramListDTOS.toString());
             }
             // 네비게이션 바에서 직접 이동한 경우
             else {
