@@ -190,20 +190,22 @@ public class AdminController {
 
     @PatchMapping("/admin/home/notices")
     public String updateNotice(@RequestParam("notice-id") Long id, @RequestParam("notice-title") String noticeTitle,
-                               @RequestParam("notice-content") String noticeContent) {
+                               @RequestParam("notice-content") String noticeContent, @RequestParam("notice-category") String noticeCategory) {
         NoticeVO noticeVO = new NoticeVO();
         noticeVO.setId(id);
         noticeVO.setNoticeTitle(noticeTitle);
         noticeVO.setNoticeContent(noticeContent);
+        noticeVO.setNoticeCategory(noticeCategory);
         noticeService.updateNotice(noticeVO);
         return "/admin/home";
     }
 
     @PutMapping("admin/home/notices")
-    public String insertNotice(@RequestParam("notice-id") Long id, @RequestParam("notice-title") String noticeTitle,
-                               @RequestParam("notice-content") String noticeContent){
+    public String insertNotice(@RequestParam("notice-title") String noticeTitle,
+                               @RequestParam("notice-content") String noticeContent,
+                               @RequestParam("notice-category") String noticeCategory) {
         NoticeVO noticeVO = new NoticeVO();
-        noticeVO.setId(id);
+        noticeVO.setNoticeCategory(noticeCategory);
         noticeVO.setNoticeTitle(noticeTitle);
         noticeVO.setNoticeContent(noticeContent);
         noticeService.insertNotice(noticeVO);

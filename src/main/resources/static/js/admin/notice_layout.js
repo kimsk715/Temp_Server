@@ -69,8 +69,8 @@ const noticeLayout = (() =>{
                                 <th>공지번호</th>
                                 <td id="notice-id">${notice.id}</td>
                                 <th>공지유형</th>
-                                <td id="notice-type">
-                                <select>
+                                <td>
+                                <select id="notice-type">
                                 <option value="공지사항">공지사항</option>
                                 <option value="이벤트">이벤트</option>
                                 </select>
@@ -110,9 +110,72 @@ const noticeLayout = (() =>{
         `;
 
         // 모달 표시
-        document.getElementById("notice-type").value = "${notice.noticeCategory}"
+
         openModal(document.querySelector(".notice-modal"));
     };
 
-    return {showList : showList, openNoticeDetail: openNoticeDetail};
+    // 공지 작성용 모달창
+    const addNotice = async()  => {
+        const modalContainer = document.querySelector("div.notice-modal div.modal-container");
+        modalContainer.innerHTML = `
+        <div class="modal-header">
+                <h3>공지 작성</h3>
+                <button type="button" class=" close-btn">
+                    <img src="/images/admin/cross.png" class="close-button" alt="닫기" />
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="notice-info">
+                    <h4>INFO</h4>
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <th>공지 제목</th>
+                                <td colspan="3" >
+                                        <textarea id="notice-title">
+                                        </textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>공지유형</th>
+                                <td id="notice-type">
+                                <select id="noticeType">
+                                <option value="공지사항">공지사항</option>
+                                <option value="이벤트">이벤트</option>
+                                </select>
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="notice-content">
+                    <h4>공지내용</h4>
+                    <div class="detail-content"> 
+                            <div class="content-section notice-content-section">
+                                <textarea id="noticeContent"></textarea>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="announce-image">
+                    <h4>등록된 이미지</h4>
+                    <div class="image-view">
+                        <img src="" alt="공고 이미지" />        
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="close-button cancel-btn">취소</button>
+                <button type="button" class="close-button confirm-btn">저장</button>
+            </div>`;
+        openModal(document.querySelector(".notice-modal"));
+    }
+
+
+
+    return {showList : showList, openNoticeDetail: openNoticeDetail, addNotice : addNotice};
 })();

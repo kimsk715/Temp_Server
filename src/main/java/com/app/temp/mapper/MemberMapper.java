@@ -21,7 +21,7 @@ public interface MemberMapper {
 //    id로 회원조회
     public Optional<MemberVO> selectById(Long id);
 
-    public Optional<MemberDTO> selectByMemberId(Long id);
+    public MemberDTO selectByMemberId(Long id);
 //    조회(이메일)
     public Optional<MemberDTO> selectByMemberEmail(String memberEmail);
 //    개인회원 기업회원으로 전환

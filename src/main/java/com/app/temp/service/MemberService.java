@@ -57,8 +57,8 @@ public class MemberService {
     }
 
     //  아이디로 회원 조회
-    public Optional<MemberDTO> getMemberById(MemberDTO memberDTO){
-        return memberDAO.findByMemberId(memberDTO.getId());
+    public MemberDTO getMemberById(Long id){
+        return memberDAO.findByMemberId(id);
     }
 
     public AdminMemberListDTO getAllAdmin(MemberPagination memberpagination){

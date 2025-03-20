@@ -87,12 +87,40 @@
     </update>
 
     <!-- 이 위는 모두 관리자용 기능. -->
-    <!-- 일반회원용 프로그램 전체 목록 조회 -->
-    <select id="selectAllMain" resultType="mainProgramListDTO">
-        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) DDAY
+
+    <!--    프로그램 검색 + 필터도 추가해야됨-->
+    <select id="searchProgramsByKeyword" resultType="mainProgramListDTO">
+        SELECT P.ID, PROGRAM_NAME, PROGRAM_DETAIL, PROGRAM_EXPIRED, PROGRAM_STATUS, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) AS DDAY, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH, COMPANY_ID, CATEGORY_C_ID, P.CREATED_DATE, P.UPDATED_DATE,
+               C.ID, COMPANY_NAME, COMPANY_BUSINESS_NUMBER, COMPANY_ESTABLISHMENT, COMPANY_EMPLOYEE, COMPANY_MAIN_ADDRESS, COMPANY_LOGO_PATH, COMPANY_CEO, COMPANY_URL, COMPANY_CERTIFICATE_PATH, COMPANY_INTRODUCE, COMPANY_WELFARE, COMPANY_CULTURE, COMPANY_SUB_ADDRESS
         FROM TBL_PROGRAM P
                  JOIN TBL_COMPANY C
                       ON P.COMPANY_ID = C.ID
+        WHERE P.PROGRAM_DETAIL LIKE '%' || #{keyword} || '%'
+           OR P.PROGRAM_NAME LIKE '%' || #{keyword} || '%'
+           OR C.COMPANY_NAME LIKE '%' || #{keyword} || '%'
+           OR C.COMPANY_WELFARE LIKE '%' || #{keyword} || '%'
+    </select>
+
+    <!-- 일반회원용 프로그램 전체 목록 조회 -->
+    <!-- 일반회원용 프로그램 전체 목록 조회 + 카테고리 클릭마다 추가해서 필터 적용-->
+    <select id="selectAllMain" resultType="mainProgramListDTO">
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) DDAY
+        FROM TBL_PROGRAM P
+        JOIN TBL_COMPANY C ON P.COMPANY_ID = C.ID
+        JOIN TBL_CATEGORY_C CC ON CC.ID = P.CATEGORY_C_ID
+        JOIN TBL_CATEGORY_B CB ON CC.CATEGORY_B_ID = CB.ID
+        JOIN TBL_CATEGORY_A CA ON CB.CATEGORY_A_ID = CA.ID
+        <!--                        WHERE-->
+        <!--                            <if test="categories != null">-->
+        <!--                                P.CATEGORY_C_ID IN (-->
+        <!--                                <trim suffixOverrides=",">-->
+        <!--                                    <foreach item="category" collection="categories">-->
+        <!--                                        #{category},-->
+        <!--                                    </foreach>-->
+        <!--                                </trim>-->
+        <!--                                )-->
+        <!--                            </if>-->
+        ORDER BY P.ID DESC
     </select>
 
     <!--카테고리로 프로그램 검색-->

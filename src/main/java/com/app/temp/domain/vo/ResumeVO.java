@@ -15,6 +15,7 @@ public class ResumeVO {
     private String resumeTitle;
     private String resumeProfilePhoto; // path
     private String resumeIntroduce;
+    private String resumeRequired;
     private Long memberId;
     private String createdDate;
     private String updatedDate;

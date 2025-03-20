@@ -1,6 +1,7 @@
 package com.app.temp.controller.main;
 
 import com.app.temp.domain.dto.*;
+import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.domain.vo.ScrapVO;
 import com.app.temp.service.*;
 import jakarta.servlet.http.HttpSession;
@@ -39,19 +40,56 @@ public class ProgramController {
     }
 
     @GetMapping("list")
-    public String list(Model model, HttpSession httpSession) {
-        MemberDTO member = (MemberDTO) httpSession.getAttribute("member");
-        log.info(member.toString());
-        String memberEmail = member.getMemberEmail();
-        Long memberId = member.getId();
-        Optional<MemberDTO> newMember = memberService.getMember(member.getMemberEmail());
-        newMember.ifPresent(memberDTO -> memberDTO.setResumeList(resumeService.check(newMember.get().getId())));
-        log.info(newMember.toString());
-        httpSession.setAttribute("member", newMember.get());
-        programService.getAllMain(memberEmail);
-        ArrayList<MainProgramListDTO> mainProgramListDTOS = programService.getAllMain(memberEmail);
-        model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
+    public String list(Model model, HttpSession httpSession, @RequestParam(required = false) String keyword) {
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        log.info("member: {}", member);
+// 회원일 경우 스크랩 여부 검증
+        if (member != null) {
+            Long memberId = member.getId();
+            MemberDTO newMember = memberService.getMemberById(memberId);
+            newMember.setResumeList(resumeService.check(newMember.getId()));
+            httpSession.setAttribute("memberDTO", newMember);
+            log.info(httpSession.getAttribute("memberDTO").toString());
+            ArrayList<MainProgramListDTO> mainProgramListDTOS = new ArrayList<>();
+
+            // 검색창을 이용한 경우
+            if (keyword != null && !keyword.isEmpty()) {
+                mainProgramListDTOS = programService.searchProgramsByKeyword(keyword);
+                model.addAttribute("keyword", keyword);
+            }
+            // 네비게이션 바에서 직접 이동한 경우
+            else {
+                mainProgramListDTOS = programService.getAllMain(memberId); // 전체 목록 반환
+            }
+
+            model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
+        }
+        // 비로그인 사용자
+        else {
+            ArrayList<MainProgramListDTO> mainProgramListDTOS = new ArrayList<>();
+
+            // 검색을 수행한 경우
+            if (keyword != null && !keyword.isEmpty()) {
+                mainProgramListDTOS = programService.searchProgramsByKeyword(keyword);
+                model.addAttribute("keyword", keyword);
+
+            }
+            // 네비게이션 바에서 직접 이동한 경우
+            else {
+                mainProgramListDTOS = programService.getAllMainNonLogin(); // 전체 목록 반환
+
+            }
+
+            model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
+        }
         return "/main/program-list";
+    }
+
+    // 검색 키워드를 받아서 리스트 페이지로 전달
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, Model model) {
+        model.addAttribute("keyword", keyword); // 검색어 전달
+        return "forward:/program/list"; // 검색어를 포함하여 바로 리스트 페이지로 이동
     }
 
 
@@ -74,7 +112,7 @@ public class ProgramController {
     @PostMapping(value = "detail/submit", consumes = "application/json")
     public String submit(@RequestBody ApplyIDDTO data) {
         applyService.apply(data);
-        return "redirect:/main/program-list";
+        return "forward:/program/list";
     }
 
     @GetMapping("company-info/{id}")
@@ -92,9 +130,9 @@ public class ProgramController {
     @PostMapping("list/add/{programId}")
     public ResponseEntity<Void> addScrap(@PathVariable Long programId, HttpSession httpSession) {
         ScrapVO scrapVO = new ScrapVO();
-        MemberDTO member = (MemberDTO) httpSession.getAttribute("member");
-        String memberEmail = member.getMemberEmail();
-        Long memberId = memberService.getMember(memberEmail).get().getId();
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        Long memberId = member.getId();
+        MemberDTO newMember = memberService.getMemberById(memberId);
         scrapVO.setProgramId(programId);
         scrapVO.setMemberId(memberId); //테스트용
         scrapService.create(scrapVO);
@@ -103,11 +141,10 @@ public class ProgramController {
     // 스크랩 제거
     @DeleteMapping("list/delete/{programId}")
     public ResponseEntity<Void> deleteScrap(@PathVariable Long programId, HttpSession httpSession) {
-
         ScrapVO scrapVO = new ScrapVO();
-        MemberDTO member = (MemberDTO) httpSession.getAttribute("member");
-        String memberEmail = member.getMemberEmail();
-        Long memberId = memberService.getMember(memberEmail).get().getId();
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        Long memberId = member.getId();
+        MemberDTO newMember = memberService.getMemberById(memberId);
         scrapVO.setProgramId(programId);
         scrapVO.setMemberId(memberId); //테스트용
         scrapService.delete(scrapVO);
@@ -117,9 +154,9 @@ public class ProgramController {
     @GetMapping("list/exists/{programId}")
     public ResponseEntity<Map<String, Boolean>> checkScrapExists(@PathVariable Long programId, HttpSession httpSession) {
         ScrapVO scrapVO = new ScrapVO();
-        MemberDTO member = (MemberDTO) httpSession.getAttribute("member");
-        String memberEmail = member.getMemberEmail();
-        Long memberId = memberService.getMember(memberEmail).get().getId();
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        Long memberId = member.getId();
+        MemberDTO newMember = memberService.getMemberById(memberId);
         scrapVO.setProgramId(programId);
         System.out.println("🔍 존재 여부 확인 요청: programId = " + programId);
         scrapVO.setMemberId(memberId); //테스트용

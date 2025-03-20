@@ -8,6 +8,7 @@
             rel="stylesheet"
             href="/css/main/program-detail.css"
     />
+    <link rel="stylesheet" href="/css/member/header.css">
     <link
             rel="shortcut icon"
             href="https://jumpit.saramin.co.kr/favicon.ico"
@@ -16,6 +17,7 @@
 </head>
 <body th:object="${programInfo}">
 <!-- 헤더 시작 -->
+<header th:replace="/main/header.html :: .header-sc"></header>
 <!-- // 헤더 끝 -->
 <!-- 메인 시작 -->
 <main>
@@ -1009,7 +1011,7 @@
                                 </li>
                             </ul>
                         </section>
-                        <section class="formElement" th:object="${session.member}" >
+                        <section class="formElement" th:object="${session.memberDTO}" >
                             <div class="resumeTitle">
                                 <h2>지원 이력서<em class="mustRedDot">
                                     <span class="blind">필수</span>
@@ -1065,4 +1067,5 @@
 <!-- // 메인 끝 -->
 </body>
 <script src="/js/main/program-detail.js"></script>
+<script src="/js/member/mypage-all.js"></script>
 </html>

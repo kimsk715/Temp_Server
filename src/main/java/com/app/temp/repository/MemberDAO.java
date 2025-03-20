@@ -26,7 +26,7 @@ public class MemberDAO {
         return memberMapper.selectByMemberEmail(memberEmail);
     }
 
-    public Optional<MemberDTO> findByMemberId(Long id){
+    public MemberDTO findByMemberId(Long id){
         return memberMapper.selectByMemberId(id);
     }
 

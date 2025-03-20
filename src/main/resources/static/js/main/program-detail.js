@@ -234,8 +234,11 @@ applyCloseButton.addEventListener("click", () => {
 // 지원하기 누르면 입사지원창이 켜짐
 const applyOpenButton = document.querySelector(".applyButton");
 
-applyOpenButton.addEventListener("click", () => {
-    applyWindow.style.display = "block";
+document.addEventListener("click", (e) => {
+    if(applyOpenButton.contains(e.target)){
+        applyWindow.style.display = "block";
+        console.log("클릭됨")
+    }
 });
 
 // 첨부파일 삽입, 다운, 삭제

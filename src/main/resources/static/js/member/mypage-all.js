@@ -31,6 +31,16 @@ document.addEventListener('click', function(e){
     }
 })
 
+// 헤더의 검색 버튼 관련 이벤트
+const searchBox = document.querySelector(".search-box input");
+const searchButton = document.querySelector(".search-button");
 
+searchButton.addEventListener('click',async () =>{
+    let keyword = searchBox.value;
+    let path = `/program/list?keyword=${keyword}`;
+    const response = await fetch(path)
+    const programList = await response.json();
+
+})
 
 
