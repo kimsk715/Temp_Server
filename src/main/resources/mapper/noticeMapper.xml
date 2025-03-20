@@ -12,11 +12,11 @@
         SELECT ID, NOTICE_TITLE, NOTICE_CONTENT ,CREATED_DATE, UPDATED_DATE ,NOTICE_CATEGORY
         FROM TBL_NOTICE
         WHERE ID IS NOT NULL
-        <if test="type!=null and type !=all">
+        <if test="type!=null and type !='all'">
             AND NOTICE_CATEGORY = #{type}
         </if>
         <if test="keyword !=null">
-            AND NOTICE_TITLE LIKE '%'||#{noticeTitle}||'%'
+            AND NOTICE_TITLE LIKE '%'||#{keyword}||'%'
         </if>
         <if test="date!=0 and date!=1">
             AND CEIL(SYSDATE - TO_DATE(CREATED_DATE)) <![CDATA[ <= #{date}]]>
@@ -37,11 +37,11 @@
         (SELECT ID, NOTICE_TITLE, NOTICE_CONTENT ,CREATED_DATE, UPDATED_DATE ,NOTICE_CATEGORY
         FROM TBL_NOTICE
         WHERE ID IS NOT NULL
-        <if test="type!=null and type !=all">
+        <if test="type!=null and type !='all'">
             AND NOTICE_CATEGORY = #{type}
         </if>
         <if test="keyword !=null">
-            AND NOTICE_TITLE LIKE '%'||#{noticeTitle}||'%'
+            AND NOTICE_TITLE LIKE '%'||#{keyword}||'%'
         </if>
         <if test="date!=0 and date!=1">
             AND CEIL(SYSDATE - TO_DATE(CREATED_DATE)) <![CDATA[ <= #{date}]]>
@@ -56,7 +56,6 @@
     <insert id="insertNotice">
         INSERT INTO TBL_NOTICE(ID, NOTICE_CATEGORY, NOTICE_TITLE, NOTICE_CONTENT, CREATED_DATE, UPDATED_DATE)
         VALUES (SEQ_NOTICE.NEXTVAL, #{noticeCategory},#{noticeTitle},#{noticeContent}, SYSDATE, SYSDATE)
-
     </insert>
 
     <update id="updateNotice">

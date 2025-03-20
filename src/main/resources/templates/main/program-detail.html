@@ -8,6 +8,7 @@
             rel="stylesheet"
             href="/css/main/program-detail.css"
     />
+    <link rel="stylesheet" href="/css/member/header.css">
     <link
             rel="shortcut icon"
             href="https://jumpit.saramin.co.kr/favicon.ico"
@@ -16,6 +17,7 @@
 </head>
 <body th:object="${programInfo}">
 <!-- 헤더 시작 -->
+<header th:replace="/main/header.html :: .header-sc"></header>
 <!-- // 헤더 끝 -->
 <!-- 메인 시작 -->
 <main>
@@ -24,7 +26,7 @@
         <section class="mainContent">
             <div class="contentTitle">
                 <h1 th:text="*{programName}"></h1>
-                <a href="" class="name">
+                <a th:href="|/program/company-info/*{companyId}|" class="name">
                     <span th:text="*{companyName}"></span>
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +158,7 @@
             </div>
             <div class="companyInfo">
                 <h2 class="title">기업/서비스 소개</h2>
-                <a th:href="|/program/company-info/*{id}|" class="link">
+                <a th:href="|/program/company-info/*{companyId}|" class="link">
                     기업상세 정보로 이동
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -331,7 +333,7 @@
                         />
                         <div class="name">
                             <h2 th:text="*{companyName}"></h2>
-                            <a th:href="|/program/company-info/*{id}|">
+                            <a th:href="|/program/company-info/*{companyId}|">
                                         <span
                                         >기업정보 보기
                                         <svg
@@ -920,7 +922,7 @@
                             <div class="accountTitle">
                                 <h2>통합 계정정보</h2>
                             </div>
-                            <ul class="accountInfo" th:object="${session.member}">
+                            <ul class="accountInfo" th:object="${session.memberDTO}">
                                 <li>
                                     <span class="title">이름</span>
                                     <span class="accountContent" th:text="*{memberName}"></span>
@@ -1009,7 +1011,7 @@
                                 </li>
                             </ul>
                         </section>
-                        <section class="formElement" th:object="${session.member}" >
+                        <section class="formElement" th:object="${session.memberDTO}" >
                             <div class="resumeTitle">
                                 <h2>지원 이력서<em class="mustRedDot">
                                     <span class="blind">필수</span>
@@ -1065,4 +1067,12 @@
 <!-- // 메인 끝 -->
 </body>
 <script src="/js/main/program-detail.js"></script>
+<script src="/js/member/mypage-all.js"></script>
+<script>
+    // 클릭 체크용
+    //  다 쓰고 지우ㅣㄱ
+    document.addEventListener("click",(e) => {
+        console.log(e.target)
+    })
+</script>
 </html>

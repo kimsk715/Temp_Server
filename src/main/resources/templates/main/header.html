@@ -10,7 +10,7 @@
 <header class="header-sc" th:fragment="header-sc">
     <div class="div-sc1">
         <div class="div-sc2">
-            <div class="logo-wrap"><a aria-label="점핏" class="logo-top" href="/static"><svg
+            <div class="logo-wrap"><a aria-label="점핏" class="logo-top" href="/"><svg
                     xmlns="http://www.w3.org/2000/svg" width="62" height="28" fill="none" viewBox="0 0 62 28"
                     aria-hidden="true">
                 <mask id="a" width="62" height="28" x="0" y="0" maskUnits="userSpaceOnUse"
@@ -73,17 +73,23 @@
             </svg></a></div>
             <div class="searchbox-top">
                 <div class="searchbox-inner">
-                    <div class="search-box"><input autocomplete="off" maxlength="50" placeholder="검색어를 입력해주세요"
-                                                   type="text" value=""><button aria-label="검색" class="search-button" type="button"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
-                        <g fill="none" fill-rule="evenodd" stroke="#222" stroke-width="2">
-                            <circle cx="11.111" cy="11.111" r="7.111" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                            </circle>
-                            <path d="m20 20-3.867-3.867">
-                            </path>
-                        </g>
-                    </svg></button></div><button class="close-button">닫기</button>
+                    <div class="search-box">
+                        <form action="/program/list" method="get">
+                            <input autocomplete="off" maxlength="50" placeholder="검색어를 입력해주세요" name="keyword" type="text" value="">
+                            <button aria-label="검색" class="search-button" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
+                                    <g fill="none" fill-rule="evenodd" stroke="#222" stroke-width="2">
+                                        <circle cx="11.111" cy="11.111" r="7.111" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                        </circle>
+                                        <path d="m20 20-3.867-3.867">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    <button class="close-button">닫기</button>
                 </div>
                 <div class="searchbox-hidden">
                     <div class="recentsearch">
@@ -97,8 +103,8 @@
         </div>
         <nav aria-label="Main navigation" class="nav-sc3">
             <ul class="header4">
-                <li><a>템프</a></li>
-                <li><a class="header-element5" href="/resumes">이력서</a></li>
+                <li><a href="/program/list">템프</a></li>
+                <li><a class="header-element5" href="/resume/main">이력서</a></li>
 
             </ul>
             <ul class="header-right6">
@@ -114,7 +120,7 @@
                     </div>
                     <div class="header-right-menu8">
                         <ul>
-                            <li><a href="/myjumpit">마이템프</a>
+                            <li><a href="/mypage/account-main">마이템프</a>
                             </li>
                             <li><button type="button">로그아웃</button>
                             </li>

@@ -1,23 +1,18 @@
 const noticeModalWrapper = document.querySelector(".notice-modal");
-const noticeCategories = document.querySelector(".notice-status-filter");
+const noticeCategories = document.querySelector(".notice-type-filter");
 const noticeDateCategories = document.querySelector(".notice-date-filter")
 const noticeKeywordInput = document.querySelector("div.notice-filter div.search-box input[name=keyword]");
 const noticeWrapper = document.querySelector(".notice-management");
-document.addEventListener('click',(e) => {
-    console.log(e.target);
-})
-
+const noticePageWrapper = document.querySelector(".notice-pagination");
 document.addEventListener('click',(e)=>{
     if(e.target.classList.contains("notice-link")){
-        console.log("클릭됨")
         noticeService.getAllNotice(noticeLayout.showList);
     }
-
 })
 
 
 
-pageWrap.addEventListener('click',(e) =>{
+noticePageWrapper.addEventListener('click',(e) =>{
     if(e.target.className.includes("page-btn")){
         const dateType  = noticeDateCategories.value;
         const statusType = noticeCategories.value;
@@ -29,36 +24,35 @@ pageWrap.addEventListener('click',(e) =>{
     }
 })
 
-statusCategories.addEventListener('click',(e) =>{
-        const dateType  = noticeDateCategories.value;
-        const statusType = noticeCategories.value;
-        const param = {search : {date : dateType, type : statusType}}
-        const keyword = noticeKeywordInput.value;
-
-        if(keyword){
-            param.search.keyword = keyword;
-        }
-        noticeService.getAllNotice(noticeLayout.showList, param);
-    })
-
-
-dateCategories.addEventListener('click',(e) =>{
-        // e.preventDefault();
-        const dateType  = noticeDateCategories.value;
-        const statusType = noticeCategories.value;
-        const param = {search : {date : dateType, type : statusType}}
-        const keyword = noticeKeywordInput.value;
-
-        if(keyword){
-            param.search.keyword = keyword;
-        }
-        noticeService.getAllNotice(noticeLayout.showList, param);
-    })
+noticeCategories.addEventListener('click',(e) =>{
+    const dateType  = noticeDateCategories.value;
+    const statusType = noticeCategories.value;
+    const keyword = noticeKeywordInput.value;
+    const param = {search : {date : dateType, type : statusType}}
+    if(keyword){
+        param.search.keyword = keyword;
+    }
+    noticeService.getAllNotice(noticeLayout.showList, param);
+})
 
 
-keywordInput.addEventListener("keyup",(e)=>{
+noticeDateCategories.addEventListener('click',(e) =>{
+    // e.preventDefault();
+    const dateType  = noticeDateCategories.value;
+    const statusType = noticeCategories.value;
+    const keyword = noticeKeywordInput.value;
+    const param = {search : {date : dateType, type : statusType}}
+    if(keyword){
+        param.search.keyword = keyword;
+    }
+    noticeService.getAllNotice(noticeLayout.showList, param);
+})
+
+
+noticeKeywordInput.addEventListener("keyup",(e)=>{
     if(e.key === 'Enter'){
         const keyword = e.target.value;
+        console.log(keyword)
         if(keyword){
             const dateType  = noticeDateCategories.value;
             const statusType = noticeCategories.value;
@@ -83,11 +77,17 @@ document.addEventListener("input",(e) =>{
         e.target.style.height = "auto";
         e.target.style.height = e.target.scrollHeight + "px";
     }
-    })
+})
 
 document.addEventListener("input",(e) =>{
     if(e.target && e.target.matches("#notice-title textarea")) {
         e.target.style.height = "auto";
         e.target.style.height = e.target.scrollHeight + "px";
     }
+})
+
+const noticeWriteButton = document.querySelector(".write-button");
+noticeWriteButton.addEventListener('click',()=>{
+    console.log("작성버튼 클릭됨")
+    noticeLayout.addNotice();
 })

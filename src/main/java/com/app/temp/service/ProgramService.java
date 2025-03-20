@@ -36,13 +36,11 @@ public class ProgramService {
     }
     //  프로그램 목록 조회(메인페이지) + 스크랩 버튼 초기 상태 구분
 //  스크랩 버튼의 aria-pressed 속성을 true or false 로 저장해서 화면에서 보여줌.
-    public ArrayList<MainProgramListDTO> getAllMain(String memberEmail){
+    public ArrayList<MainProgramListDTO> getAllMain(Long id){
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllMain();
-        Optional<MemberDTO> member = memberDAO.findByMemberEmail(memberEmail); // 현재 테스트용 아이디가 들어가있음.
-        Long memberID = (Long) member.get().getId();
-        log.info("memberEmail: " + memberEmail);
+
         ScrapVO scrapVO = new ScrapVO();
-        scrapVO.setMemberId(memberID);
+        scrapVO.setMemberId(id);
         mainProgramListDTOS.forEach(mainProgramListDTO -> {
             scrapVO.setProgramId(mainProgramListDTO.getId());
             scrapDAO.findOne(scrapVO).ifPresentOrElse(scrap -> mainProgramListDTO.setScrapStatus("true"), ()-> mainProgramListDTO.setScrapStatus("false"));
@@ -55,6 +53,19 @@ public class ProgramService {
         });
         return mainProgramListDTOS;
     }
+//비로그인용 프로그램 목록 조회
+    public ArrayList<MainProgramListDTO> getAllMainNonLogin(){
+        ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllMain();
+        log.info(String.valueOf(mainProgramListDTOS));
+        mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
+            mainProgramListDTO.setDDay("day");
+        } else if (mainProgramListDTO.getDDay().contains("-")) {
+            mainProgramListDTO.setDDay("day");
+        }
+        });
+        return mainProgramListDTOS;
+    }
+
     // 특정 프로그램의 정보 조회(메인 페이지)
     public Optional<MainProgramInfoDTO> getMainProgramInfoDTOById(Long id){
         Optional<MainProgramInfoDTO> programInfo = programDAO.findMainProgramInfoDTOById(id);
@@ -62,6 +73,7 @@ public class ProgramService {
         programInfo.ifPresent(mainProgramInfoDTO -> mainProgramInfoDTO.setImageCount(companyImageDAO.imageCount(id)));
         return programInfo;
     }
+
 
     public ArrayList<CompanyProgramDTO> getAllProgramByCompanyId(Long companyId){
         ArrayList<CompanyProgramDTO> companyProgramDTOS = programDAO.findAllProgramByCompanyId(companyId);
@@ -89,6 +101,17 @@ public class ProgramService {
     //    관리자 페이지에서 프로그램의 상태 변경용.
     public void set(ProgramVO programVO) {
         programDAO.set(programVO);
+    }
+
+    //    상단 검색바 검색 조회
+    public ArrayList<MainProgramListDTO> searchProgramsByKeyword(String keyword){
+        ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.searchProgramsByKeyword(keyword);
+        mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
+            mainProgramListDTO.setDDay("day");
+        } else if (mainProgramListDTO.getDDay().contains("-")) {
+            mainProgramListDTO.setDDay("day");
+        }});
+        return mainProgramListDTOS;
     }
 }
 

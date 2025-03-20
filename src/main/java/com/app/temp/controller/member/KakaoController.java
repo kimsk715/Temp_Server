@@ -60,7 +60,8 @@ public class KakaoController {
             }
 
             MemberDTO existingMember = foundMember.get();
-
+            log.info(existingMember.toString());
+            System.out.println("실행점 확인");
             // 최근 로그인 시간 업데이트
             memberService.updateMemberRecentLogin(existingMember.getId());
 

@@ -16,6 +16,7 @@ public class ResumeDTO {
     private String resumeTitle;
     private String resumeProfilePhoto;
     private String resumeIntroduce;
+    private String resumeRequired;
     private Long memberId;
     private String memberName;
     private String memberEmail;

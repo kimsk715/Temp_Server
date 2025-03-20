@@ -1,202 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>이력서를 공개했는데 특정 기업을 차단하고 싶어요.</title>
-        <link
+<head th:object="${notice}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="*{noticeTitle}"></title>
+    <link
             rel="stylesheet"
             href="/css/main/notice-detail.css"
-        />
-        <link
+    />
+    <link
             rel="shortcut icon"
             href="https://jumpit.saramin.co.kr/favicon.ico"
             type="image/x-icon"
-        />
-    </head>
-    <body class="light">
-        <div id="_next">
-            <div class="css0">
-                <div>
-                    <div class="notionApp">
-                        <div class="notionAppInner">
-                            <div class="notionFrame">
-                                <div class="notionScroller">
-                                    <div class="mainUpper">
-                                        <div class="width padding">
-                                            <div class="pageIcon">
-                                                <div class="pageIconWrapper">
-                                                    <span role="img">📑</span>
-                                                </div>
-                                            </div>
-                                            <div class="notionPageControls"></div>
-                                            <div class="pageTitleWrapper">
-                                                <h1 class="pageTitle">이력서를 공개했는데 특정 기업을 차단하고 싶어요.</h1>
-                                            </div>
+    />
+</head>
+<body class="light">
+<div id="_next">
+    <div class="css0">
+        <div>
+            <div class="notionApp">
+                <div class="notionAppInner">
+                    <div class="notionFrame">
+                        <div class="notionScroller" th:object="${notice}">
+                            <div class="mainUpper">
+                                <div class="width padding">
+                                    <div class="pageIcon">
+                                        <div class="pageIconWrapper">
+                                            <span role="img">📑</span>
                                         </div>
                                     </div>
-                                    <div class="mainSort">
-                                        <div class="width padding">
-                                            <div class="sortsWrapper">
-                                                <div class="sortDivider">
-                                                    <div class="sortTitle">
-                                                        <div class="sortTitleWrapper">
-                                                            <div class="sortTitleDivider">
-                                                                <svg viewBox="0 0 14 14" class="typesMultipleSelect" style="width: 16px; height: 16px; fill: rgba(55, 53, 47, 0.45); margin-right: 8px;"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg>
-                                                                <div class="sortTitleText">구분</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sortType">
-                                                        <div class="sortTypeWrapper">
-                                                            <div class="sortTypeBadge">
-                                                                <div class="sortBadgeBox">
-                                                                    <div class="sortBadgeText">이력서</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                    <div class="notionPageControls"></div>
+                                    <div class="pageTitleWrapper">
+                                        <h1 class="pageTitle" th:text="*{noticeTitle}"></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mainSort">
+                                <div class="width padding">
+                                    <div class="sortsWrapper">
+                                        <div class="sortDivider">
+                                            <div class="sortTitle">
+                                                <div class="sortTitleWrapper">
+                                                    <div class="sortTitleDivider">
+                                                        <svg viewBox="0 0 14 14" class="typesMultipleSelect" style="width: 16px; height: 16px; fill: rgba(55, 53, 47, 0.45); margin-right: 8px;"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg>
+                                                        <div class="sortTitleText">구분</div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div style="height: 1px; background: rgba(55, 53, 47, 0.09); margin-bottom: 8px;"></div>
+                                            <div class="sortType">
+                                                <div class="sortTypeWrapper">
+                                                    <div class="sortTypeBadge">
+                                                        <div class="sortBadgeBox">
+                                                            <div class="sortBadgeText" th:text="*{noticeCategory}"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="mainContent width padding">
-                                        <div class="contentTitleSection">
-                                            <div class="contentTitleTextWrapper">
-                                                <h3 class="contentTitleText">
-                                                    <span>이력서 공개 기능은 아직 준비 중입니다!</span>
-                                                </h3>
-                                            </div>
+                                    <div style="height: 1px; background: rgba(55, 53, 47, 0.09); margin-bottom: 8px;"></div>
+                                </div>
+                            </div>
+                            <div class="mainContent width padding">
+                                <!--                                        <div class="contentTitleSection">-->
+                                <!--                                            <div class="contentTitleTextWrapper">-->
+                                <!--                                                <h3 class="contentTitleText">-->
+                                <!--                                                    <span ></span>-->
+                                <!--                                                </h3>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textContent">
+                                    <div style="display: flex;">
+                                        <div class="textSpanWrapper" spellcheck="true">
+                                            <span th:text="*{noticeContent}"></span>
                                         </div>
-                                        <div class="textContent">
-                                            <div style="display: flex;">
-                                                <div class="textSpanWrapper" spellcheck="true">
-                                                    <span>포지션에 직접 지원한 경우에만 기업에서 이력서를 열람할 수 있습니다.</span>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textContent">
-                                            <div style="display: flex;">
-                                                <div class="textSpanWrapper" spellcheck="true">
-                                                    <span>추후 서비스가 오픈되면 안내 드리겠습니다.</span>
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textGrayBox">
+                                    <div style="display: flex;">
+                                        <div class="textSpanWrapper" spellcheck="true">
+                                            <span>더 자세한 문의는 아래로 연락주세요. </span>
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="textGrayBox">
-                                            <div style="display: flex;">
-                                                <div class="textSpanWrapper" spellcheck="true">
-                                                    <span>더 자세한 문의는 아래로 연락주세요. </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="textContent">
-                                            <div style="display: flex;">
-                                                <div class="textSpanWrapper" spellcheck="true">
+                                    </div>
+                                </div>
+                                <div class="textContent">
+                                    <div style="display: flex;">
+                                        <div class="textSpanWrapper" spellcheck="true">
                                                     <span>
                                                         <img class="notion-emoji mailIconImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" style="width: 1em; height: 1em; line-height: 1em; vertical-align: -0.1em; margin: 0px;">
                                                     </span>
-                                                    <a href="mailto:help@jumpit.co.kr" class="LinkHover">
-                                                        <span style="border-bottom: 0.05em solid rgba(55, 53, 47, 0.4); opacity: 0.7;">help@jumpit.co.kr</span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <a href="mailto:help@jumpit.co.kr" class="LinkHover">
+                                                <span style="border-bottom: 0.05em solid rgba(55, 53, 47, 0.4); opacity: 0.7;">help@jumpit.co.kr</span>
+                                            </a>
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
-                                        <div class="textDivideBlock">
-                                            <div style="display: flex;">
-                                                <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="textDivideBlock">
+                                    <div style="display: flex;">
+                                        <div class="textBlockWrapper" spellcheck="true" placeholder="" contenteditable="false">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- 위로 가기 버튼 -->
-                    <div class="goToTopButtonWrapper">
-                        <div style="position: relative">
-                            <div
-                                class="topButton goToTopButtonContainer"
-                                style="right: 0px; bottom: 16px;"
-                            >
-                                <svg
-                                    version="1.1"
-                                    width="12"
-                                    height="12"
-                                    x="0"
-                                    y="0"
-                                    viewBox="0 0 292.362 292.362"
-                                    fill="currentColor"
-                                >
-                                    <g
-                                        transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,292.36199951171875,292.3629837036133)"
-                                    >
-                                        <g xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424 C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428 s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"
-                                                fill="currentColor"
-                                                data-original="#000000"
-                                            ></path>
-                                        </g>
-                                    </g>
-                                </svg>
-                                TOP
-                            </div>
-                        </div>
-                    </div>
-                    <!-- // 위로 가기 버튼 -->
                 </div>
             </div>
+            <!-- 위로 가기 버튼 -->
+            <div class="goToTopButtonWrapper">
+                <div style="position: relative">
+                    <div
+                            class="topButton goToTopButtonContainer"
+                            style="right: 0px; bottom: 16px;"
+                    >
+                        <svg
+                                version="1.1"
+                                width="12"
+                                height="12"
+                                x="0"
+                                y="0"
+                                viewBox="0 0 292.362 292.362"
+                                fill="currentColor"
+                        >
+                            <g
+                                    transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,292.36199951171875,292.3629837036133)"
+                            >
+                                <g xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424 C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428 s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"
+                                            fill="currentColor"
+                                            data-original="#000000"
+                                    ></path>
+                                </g>
+                            </g>
+                        </svg>
+                        TOP
+                    </div>
+                </div>
+            </div>
+            <!-- // 위로 가기 버튼 -->
         </div>
-    </body>
-    <script src="/js/main/notice-detail.js"></script>
+    </div>
+</div>
+</body>
+<script src="/js/main/notice-detail.js"></script>
 </html>

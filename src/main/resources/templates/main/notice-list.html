@@ -1,273 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>공지사항 및 자주 묻는 질문</title>
-        <link rel="stylesheet" href="/css/main/notice-list.css" />
-        <link
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공지사항 및 자주 묻는 질문</title>
+    <link rel="stylesheet" href="/css/main/notice-list.css" />
+    <link
             rel="shortcut icon"
             href="https://jumpit.saramin.co.kr/favicon.ico"
             type="image/x-icon"
-        />
-    </head>
-    <body class="light">
-        <div id="_next">
-            <div class="css0">
-                <div>
-                    <div class="notionApp">
-                        <div class="notionAppInner">
-                            <div class="notionFrame">
+    />
+</head>
+<body class="light">
+<div id="_next">
+    <div class="css0">
+        <div>
+            <div class="notionApp">
+                <div class="notionAppInner">
+                    <div class="notionFrame">
 
+                        <div class="notionScroller">
+                            <div class="sectionUpper">
+                                <img class="pageCover" src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4f379f48-61d3-4d93-a132-e8825a055280%2F%EA%B3%B5%EC%A7%80.png&blockId=8ef18954-8f62-4767-9445-9b5805a4ae6d&width=3600" >
+                                <div class="width padding">
+                                    <div class="pageIcon">
+                                        <div>
+                                            <div class="imgIconWrap">
+                                                <span role="img">📢</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="notionPageControls"></div>
+                                    <div id="noticeTitle" class="notionPageBlock">
+                                        <h1 class="pageTitle" id="Notice">공지사항</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 공지사항 목록 -->
+                            <section class="sectionMain width padding">
+                                <div class="notionPageBlock" th:each="notice :${noticeList}">
+                                    <a th:href="|/notice/detail/${notice.id}|">
+                                        <div class="notification-item">
+                                            <div class="icon-container">
+                                                <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                            </div>
+                                            <div class="text" th:text="|${notice.noticeTitle}(${notice.createdDate})|"></div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="notion-divider-block width">
+                                    <div class="notion-cursor-default">
+                                        <div class="divider-line"></div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- // 공지사항 목록 -->
+                            <!-- 개인 회원 FAQ -->
+                            <div class="personalMember" >
                                 <div class="notionScroller">
                                     <div class="sectionUpper">
-                                        <img class="pageCover" src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4f379f48-61d3-4d93-a132-e8825a055280%2F%EA%B3%B5%EC%A7%80.png&blockId=8ef18954-8f62-4767-9445-9b5805a4ae6d&width=3600" >
                                         <div class="width padding">
                                             <div class="pageIcon">
                                                 <div>
                                                     <div class="imgIconWrap">
-                                                        <span role="img">📢</span>
+                                                        <span role="img">🧑‍💻</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="notionPageControls"></div>
-                                            <div id="noticeTitle" class="notionPageBlock">
-                                                <h1 class="pageTitle" id="Notice">공지사항</h1>
+                                            <div id="memberNoticeTitle" class="notionPageBlock">
+                                                <h1 class="pageTitle">자주 묻는 질문 - 개인회원</h1>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- 공지사항 목록 -->
-                                    <section class="sectionMain width padding">
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">개인정보 처리방침 개정에 대해 안내드립니다. (20241219)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">개인정보 처리방침 개정에 대해 안내드립니다. (20241031)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">개인정보 처리방침 개정에 대해 안내드립니다. (20240926)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">점핏 고객센터 유선 번호 변경에 대해 안내드립니다. (20241008)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">점핏 취업축하금 정책 변경에 대해 안내드립니다. (20241008)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">개인회원 약관 개정에 대해 안내드립니다. (20240926)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">기업회원 약관 개정에 대해 안내드립니다. (20240926)</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notion-divider-block width">
-                                            <div class="notion-cursor-default">
-                                            <div class="divider-line"></div>
-                                            </div>
-                                        </div>   
-                                    </section>   
-                                    <!-- // 공지사항 목록 -->
-                                    <!-- 개인 회원 FAQ -->
-                                    <div class="personalMember" >
-                                        <div class="notionScroller">
-                                            <div class="sectionUpper">                                            
-                                                <div class="width padding">
-                                                    <div class="pageIcon">
-                                                        <div>
-                                                            <div class="imgIconWrap">
-                                                                <span role="img">🧑‍💻</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="notionPageControls"></div>
-                                                    <div id="memberNoticeTitle" class="notionPageBlock">
-                                                        <h1 class="pageTitle">자주 묻는 질문 - 개인회원</h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <section class="sectionMain width padding">
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">계정(이메일)을 변경하고 싶어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">계정 탈퇴하고 싶어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">기업회원으로 잘못 가입했어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">이력서를 공개했는데 특정 기업을 차단하고 싶어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">이력서에서 전화번호를 지우고 싶어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">입사지원 후 이력서를 수정하면 반영이 되나요?</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji applyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">서류 열람 후 기업에서 연락이 없어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji applyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">고민중 포지션은 뭔가요?</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji cashShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">프로그램 신청비용은 언제 결제하나요?</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notionPageBlock">
-                                                <a href="">
-                                                    <div class="notification-item">
-                                                        <div class="icon-container">
-                                                            <img class="notion-emoji guitarShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                        </div>
-                                                        <div class="text">기타 오류사항이 있어요.</div>
-                                                    </div>                                                 
-                                                </a>
-                                            </div>
-                                            <div class="notion-text-block css-vhphko">
-                                                <div class="inquiryInfo" contenteditable="false" spellcheck="true" placeholder=" ">
-                                                    더 자세한 문의는 아래로 연락주세요.
-                                                </div>
-                                                <div class="css-1g4vl24" contenteditable="false" spellcheck="true" placeholder=" ">
-                                                    <img class=" mailShapeIcon notion-emoji" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="emoji">
-                                                    <a class="notion-link-token" href="mailto:help@jumpit.co.kr" target="_blank">
-                                                        <span>help@jumpit.co.kr</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            
-                                        </section>
-                                    </div>                                                                         
-                                </div>
-                                <!-- // 개인 회원 FAQ --> 
-                                <!-- 기업 회원 FAQ -->
-                                <div class="companyMember" style="display: none;">
-                                    <div class="notionScroller">
-                                        <div class="sectionUpper">                                            
-                                            <div class="width padding">
-                                                <div class="pageIcon">
-                                                    <div>
-                                                        <div class="imgIconWrap">
-                                                            <span role="img">🧑‍💼</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="notionPageControls"></div>
-                                                <div id="companyNoticeTitle" class="notionPageBlock">
-                                                    <h1 class="pageTitle" id="FAQ">자주 묻는 질문 - 기업회원</h1>
-                                                </div>
-                                            </div>
-                                        </div>
                                     <section class="sectionMain width padding">
                                         <div class="notionPageBlock">
                                             <a href="">
@@ -275,8 +81,8 @@
                                                     <div class="icon-container">
                                                         <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">담당자 변경 등으로 계정 변경이 필요해요.</div>
-                                                </div>                                                 
+                                                    <div class="text">계정(이메일)을 변경하고 싶어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
@@ -285,8 +91,8 @@
                                                     <div class="icon-container">
                                                         <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">불필요한 멤버를 삭제하고 싶어요.</div>
-                                                </div>                                                 
+                                                    <div class="text">계정 탈퇴하고 싶어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
@@ -295,58 +101,38 @@
                                                     <div class="icon-container">
                                                         <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">관리자 계정을 추가하고 싶어요.</div>
-                                                </div>                                                 
+                                                    <div class="text">기업회원으로 잘못 가입했어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
                                             <a href="">
                                                 <div class="notification-item">
                                                     <div class="icon-container">
-                                                        <img class="notion-emoji companyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">기업명/사업자등록번호가 변경되었어요.</div>
-                                                </div>                                                 
+                                                    <div class="text">이력서를 공개했는데 특정 기업을 차단하고 싶어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
                                             <a href="">
                                                 <div class="notification-item">
                                                     <div class="icon-container">
-                                                        <img class="notion-emoji companyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">로고 및 대표 이미지를 변경하고 싶어요.</div>
-                                                </div>                                                 
+                                                    <div class="text">이력서에서 전화번호를 지우고 싶어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
                                             <a href="">
                                                 <div class="notification-item">
                                                     <div class="icon-container">
-                                                        <img class="notion-emoji companyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                        <img class="notion-emoji pageShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">이미지 승인이 보류되었어요.</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji cardShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">서비스 이용 수수료가 궁금해요.</div>
-                                                </div>                                                 
-                                            </a>
-                                        </div>
-                                        <div class="notionPageBlock">
-                                            <a href="">
-                                                <div class="notification-item">
-                                                    <div class="icon-container">
-                                                        <img class="notion-emoji cardShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                                    </div>
-                                                    <div class="text">카드로 결제하고 싶어요.</div>
-                                                </div>                                                 
+                                                    <div class="text">입사지원 후 이력서를 수정하면 반영이 되나요?</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
@@ -355,18 +141,38 @@
                                                     <div class="icon-container">
                                                         <img class="notion-emoji applyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">지원자 검토 중에 실수로 불합격 처리가 됐어요.</div>
-                                                </div>                                                 
+                                                    <div class="text">서류 열람 후 기업에서 연락이 없어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notionPageBlock">
                                             <a href="">
                                                 <div class="notification-item">
                                                     <div class="icon-container">
-                                                        <img class="notion-emoji memoShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                        <img class="notion-emoji applyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
                                                     </div>
-                                                    <div class="text">등록 가능한 포지션 개수가 정해져 있나요?</div>
-                                                </div>                                                 
+                                                    <div class="text">고민중 포지션은 뭔가요?</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji cashShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">프로그램 신청비용은 언제 결제하나요?</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji guitarShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">기타 오류사항이 있어요.</div>
+                                                </div>
                                             </a>
                                         </div>
                                         <div class="notion-text-block css-vhphko">
@@ -380,22 +186,157 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        
+
                                     </section>
-                                </div>                                                                         
+                                </div>
                             </div>
-                                <!-- // 기업 회원 FAQ -->
+                            <!-- // 개인 회원 FAQ -->
+                            <!-- 기업 회원 FAQ -->
+                            <div class="companyMember" style="display: none;">
+                                <div class="notionScroller">
+                                    <div class="sectionUpper">
+                                        <div class="width padding">
+                                            <div class="pageIcon">
+                                                <div>
+                                                    <div class="imgIconWrap">
+                                                        <span role="img">🧑‍💼</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="notionPageControls"></div>
+                                            <div id="companyNoticeTitle" class="notionPageBlock">
+                                                <h1 class="pageTitle" id="FAQ">자주 묻는 질문 - 기업회원</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <section class="sectionMain width padding">
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">담당자 변경 등으로 계정 변경이 필요해요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">불필요한 멤버를 삭제하고 싶어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji lockShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">관리자 계정을 추가하고 싶어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji companyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">기업명/사업자등록번호가 변경되었어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji companyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">로고 및 대표 이미지를 변경하고 싶어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji companyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">이미지 승인이 보류되었어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji cardShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">서비스 이용 수수료가 궁금해요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji cardShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">카드로 결제하고 싶어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji applyShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">지원자 검토 중에 실수로 불합격 처리가 됐어요.</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notionPageBlock">
+                                            <a href="">
+                                                <div class="notification-item">
+                                                    <div class="icon-container">
+                                                        <img class="notion-emoji memoShapeIcon" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                    </div>
+                                                    <div class="text">등록 가능한 포지션 개수가 정해져 있나요?</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="notion-text-block css-vhphko">
+                                            <div class="inquiryInfo" contenteditable="false" spellcheck="true" placeholder=" ">
+                                                더 자세한 문의는 아래로 연락주세요.
+                                            </div>
+                                            <div class="css-1g4vl24" contenteditable="false" spellcheck="true" placeholder=" ">
+                                                <img class=" mailShapeIcon notion-emoji" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="emoji">
+                                                <a class="notion-link-token" href="mailto:help@jumpit.co.kr" target="_blank">
+                                                    <span>help@jumpit.co.kr</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </section>
+                                </div>
                             </div>
+                            <!-- // 기업 회원 FAQ -->
                         </div>
                     </div>
-                    <!-- 위로 가기 버튼 -->
-                    <div class="goToTopButtonWrapper">
-                        <div style="position: relative">
-                            <div
+                </div>
+                <!-- 위로 가기 버튼 -->
+                <div class="goToTopButtonWrapper">
+                    <div style="position: relative">
+                        <div
                                 class="topButton goToTopButtonContainer"
                                 style="right: 0px; bottom: 16px;"
-                            >
-                                <svg
+                        >
+                            <svg
                                     version="1.1"
                                     width="12"
                                     height="12"
@@ -403,28 +344,28 @@
                                     y="0"
                                     viewBox="0 0 292.362 292.362"
                                     fill="currentColor"
-                                >
-                                    <g
+                            >
+                                <g
                                         transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,292.36199951171875,292.3629837036133)"
-                                    >
-                                        <g xmlns="http://www.w3.org/2000/svg">
-                                            <path
+                                >
+                                    <g xmlns="http://www.w3.org/2000/svg">
+                                        <path
                                                 d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424 C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428 s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"
                                                 fill="currentColor"
                                                 data-original="#000000"
-                                            ></path>
-                                        </g>
+                                        ></path>
                                     </g>
-                                </svg>
-                                TOP
-                            </div>
+                                </g>
+                            </svg>
+                            TOP
                         </div>
                     </div>
-                    <!-- // 위로 가기 버튼 -->
                 </div>
+                <!-- // 위로 가기 버튼 -->
             </div>
         </div>
-        </div>
-    </body>
-    <script src="/js/main/notice.js"></script>
+    </div>
+</div>
+</body>
+<script src="/js/main/notice.js"></script>
 </html>

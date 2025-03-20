@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>템프 | 새로운 커리어 경험</title>
     <link rel="stylesheet" href="/css/main/MainPage.css" />
+    <link rel="stylesheet" href="/css/member/header.css">
     <link
             rel="shortcut icon"
             href="https://jumpit.saramin.co.kr/favicon.ico"
@@ -12,6 +13,7 @@
     />
 </head>
 <body>
+<header th:replace="/main/header.html :: .header-sc"></header>
 <!-- 메인 시작 -->
 <main>
     <div class="mainWrapper">
@@ -924,4 +926,5 @@
 <!-- // 메인 끝 -->
 </body>
 <script src="/js/main/MainPage.js"></script>
+<script src="/js/member/mypage-all.js"></script>
 </html>

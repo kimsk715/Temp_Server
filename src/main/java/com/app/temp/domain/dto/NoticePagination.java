@@ -26,7 +26,6 @@ public class NoticePagination {
     private String keyword;
     private int date; // 최근 1주일, 1개월, 3개월 필터
     private String type; // 처리 상태
-    private Long programId; // 상세 보기용 id
 
     public void create(int total) {
         this.rowCount = 10;
