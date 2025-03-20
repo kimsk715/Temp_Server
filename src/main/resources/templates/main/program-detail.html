@@ -26,7 +26,7 @@
         <section class="mainContent">
             <div class="contentTitle">
                 <h1 th:text="*{programName}"></h1>
-                <a href="" class="name">
+                <a th:href="|/program/company-info/*{companyId}|" class="name">
                     <span th:text="*{companyName}"></span>
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +158,7 @@
             </div>
             <div class="companyInfo">
                 <h2 class="title">기업/서비스 소개</h2>
-                <a th:href="|/program/company-info/*{id}|" class="link">
+                <a th:href="|/program/company-info/*{companyId}|" class="link">
                     기업상세 정보로 이동
                     <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -333,7 +333,7 @@
                         />
                         <div class="name">
                             <h2 th:text="*{companyName}"></h2>
-                            <a th:href="|/program/company-info/*{id}|">
+                            <a th:href="|/program/company-info/*{companyId}|">
                                         <span
                                         >기업정보 보기
                                         <svg
@@ -922,7 +922,7 @@
                             <div class="accountTitle">
                                 <h2>통합 계정정보</h2>
                             </div>
-                            <ul class="accountInfo" th:object="${session.member}">
+                            <ul class="accountInfo" th:object="${session.memberDTO}">
                                 <li>
                                     <span class="title">이름</span>
                                     <span class="accountContent" th:text="*{memberName}"></span>
@@ -1068,4 +1068,11 @@
 </body>
 <script src="/js/main/program-detail.js"></script>
 <script src="/js/member/mypage-all.js"></script>
+<script>
+    // 클릭 체크용
+    //  다 쓰고 지우ㅣㄱ
+    document.addEventListener("click",(e) => {
+        console.log(e.target)
+    })
+</script>
 </html>

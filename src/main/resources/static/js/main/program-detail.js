@@ -21,7 +21,7 @@ copyButton.addEventListener("click", () => {
 // 기업/서비스 소개 더보기 버튼 누르면 정보 전체출력
 const moreInfoBtn = document.querySelector(".companyDetailButton");
 const moreInfoText = document.querySelector(".companyDetailText");
-const textGradient = document.querySelector(".compnayDetailHide");
+const textGradient = document.querySelector(".companyDetailHide");
 const expandIcon = moreInfoBtn.querySelector(".expandIcon"); // 펼치기 아이콘
 const collapseIcon = moreInfoBtn.querySelector(".collapseIcon"); // 접기 아이콘
 const buttonText = moreInfoBtn.querySelector(".buttonText"); // 버튼 내 텍스트 span
@@ -231,8 +231,13 @@ applyCloseButton.addEventListener("click", () => {
     applyWindow.style.display = "none";
 });
 
+
 // 지원하기 누르면 입사지원창이 켜짐
 const applyOpenButton = document.querySelector(".applyButton");
+
+applyOpenButton.addEventListener('click',() => {
+    applyWindow.style.display = "block";
+})
 
 document.addEventListener("click", (e) => {
     if(applyOpenButton.contains(e.target)){
@@ -372,13 +377,10 @@ applyForm.addEventListener('click', (e)=>{
 
 })
 
-submitButton.addEventListener('click',(e) => {
-    e.preventDefault();
-    sendData();
-})
 
-function sendData() {
-    fetch('/program/detail/submit', {
+
+const sendData = async () => {
+    await fetch('/program/detail/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -388,8 +390,11 @@ function sendData() {
             programId: document.getElementById("programIdValue").value,
             resumeId: document.querySelector("input[type=radio]:checked").value
         })
-    })
-        .then(response => response.json())
-        .then(data => window.location.href = "/program/list")
-        .catch(error => console.error('Error:', error));
+    });
+    window.location.href = "/program/list";
 }
+
+submitButton.addEventListener('click',(e) => {
+    e.preventDefault();
+    sendData();
+})

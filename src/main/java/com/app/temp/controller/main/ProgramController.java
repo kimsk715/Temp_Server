@@ -47,6 +47,7 @@ public class ProgramController {
         if (member != null) {
             Long memberId = member.getId();
             MemberDTO newMember = memberService.getMemberById(memberId);
+            newMember.setMemberBirth(member.getMemberBirth());
             newMember.setResumeList(resumeService.check(newMember.getId()));
             httpSession.setAttribute("memberDTO", newMember);
             log.info(httpSession.getAttribute("memberDTO").toString());
@@ -89,15 +90,15 @@ public class ProgramController {
     @GetMapping("/search")
     public String search(@RequestParam("keyword") String keyword, Model model) {
         model.addAttribute("keyword", keyword); // 검색어 전달
-        return "forward:/program/list"; // 검색어를 포함하여 바로 리스트 페이지로 이동
+        return "forward:/program/list";
     }
-
 
     //   각 프로그램으로 이동
     @GetMapping("detail/{id}")
     public String programDetail(@PathVariable Long id, Model model, HttpSession httpSession) {
         Optional<MainProgramInfoDTO> programInfo =  programService.getMainProgramInfoDTOById(id);
-
+        programInfo.ifPresent(mainProgramInfoDTO -> {mainProgramInfoDTO.setCompanyImageList(imageService.getByCompanyId(mainProgramInfoDTO.getCompanyId()));});
+        log.info(programInfo.get().toString());
         if(programInfo.isPresent()) {
             model.addAttribute("programInfo", programInfo.get());
         }
@@ -109,17 +110,20 @@ public class ProgramController {
 
     }
     //    지원하기 버튼 누를 시 실행
-    @PostMapping(value = "detail/submit", consumes = "application/json")
-    public String submit(@RequestBody ApplyIDDTO data) {
+    @PostMapping(value = "detail/submit")
+    @ResponseBody
+    public void submit(@RequestBody ApplyIDDTO data) {
         applyService.apply(data);
-        return "forward:/program/list";
     }
+
 
     @GetMapping("company-info/{id}")
     public String companyInfo(@PathVariable Long id, HttpSession httpSession, Model model) {
         Optional<CompanyDTO> companyDTO = companyService.getById(id);
         companyDTO.ifPresent(company -> company.setCompanyImageList(imageService.getByCompanyId(company.getId())));
         companyDTO.ifPresent(company -> company.setProgramCount(programService.countByCompanyId(company.getId())));
+        log.info(imageService.getByCompanyId(id).toString());
+        log.info(companyDTO.toString());
         model.addAttribute("companyDTO", companyDTO.get());
         List<CompanyProgramDTO> programDTOList = programService.getAllProgramByCompanyId(id);
         model.addAttribute("programDTOList", programDTOList);

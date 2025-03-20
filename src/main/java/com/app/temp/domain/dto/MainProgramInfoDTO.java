@@ -27,6 +27,7 @@ public class MainProgramInfoDTO {
     private String companyUrl;
     private int programPrice;
     private String programBenefit;
+    private Long companyId;
     private String companyName;
     private String companyIntroduce;
     private String companyEstablishment;

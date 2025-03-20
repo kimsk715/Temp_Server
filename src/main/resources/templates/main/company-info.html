@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>템프 | 기업정보</title>
     <link rel="stylesheet" href="/css/main/company-info.css" />
+    <link rel="stylesheet" href="/css/member/header.css">
     <link
             rel="shortcut icon"
             href="https://jumpit.saramin.co.kr/favicon.ico"
@@ -13,6 +14,7 @@
 </head>
 <body>
 <!-- 헤더 시작 -->
+<header th:replace="/main/header.html :: .header-sc"></header>
 <!-- // 헤더 끝 -->
 <main class="main" th:object="${companyDTO}">
     <div class="mainWrapper">
@@ -678,6 +680,7 @@
 <!-- // 푸터 끝 -->
 </body>
 <script src="/js/main/company-info.js"></script>
+<script src="/js/member/mypage-all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </html>
