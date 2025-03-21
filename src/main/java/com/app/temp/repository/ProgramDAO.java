@@ -66,7 +66,11 @@ public class ProgramDAO {
 
     //    프로그램 검색 리스트
     public ArrayList<MainProgramListDTO> searchProgramsByKeyword(String keyword) {
-
         return applyMapper.searchProgramsByKeyword(keyword);
+    }
+
+//    카테고리 포함한 검색
+    public ArrayList<MainProgramListDTO> findAllByCategories(SearchInfoDTO searchInfoDTO) {
+        return applyMapper.selectAllByCategories(searchInfoDTO);
     }
 }

@@ -42,4 +42,6 @@ public interface ApplyMapper {
     public ArrayList<ProgramInfoDTO> selectAllProgramInfoDTO();
     //    상단 검색바에서 검색 시 조회할 프로그램 목록
     public ArrayList<MainProgramListDTO> searchProgramsByKeyword(String keyword);
+
+    public ArrayList<MainProgramListDTO> selectAllByCategories(SearchInfoDTO searchInfoDTO);
 }

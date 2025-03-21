@@ -34,7 +34,7 @@ public class ProgramService {
         adminProgramListDTO.setPrograms(programDAO.findAll(programPagination));
         return adminProgramListDTO;
     }
-    //  프로그램 목록 조회(메인페이지) + 스크랩 버튼 초기 상태 구분
+    //  로그인된 유저의 전체 목록 조회
 //  스크랩 버튼의 aria-pressed 속성을 true or false 로 저장해서 화면에서 보여줌.
     public ArrayList<MainProgramListDTO> getAllMain(Long id){
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllMain();
@@ -53,7 +53,7 @@ public class ProgramService {
         });
         return mainProgramListDTOS;
     }
-//비로그인용 프로그램 목록 조회
+//비로그인용 프로그램  전체 목록 조회
     public ArrayList<MainProgramListDTO> getAllMainNonLogin(){
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllMain();
         log.info(String.valueOf(mainProgramListDTOS));
@@ -106,6 +106,17 @@ public class ProgramService {
     //    상단 검색바 검색 조회
     public ArrayList<MainProgramListDTO> searchProgramsByKeyword(String keyword){
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.searchProgramsByKeyword(keyword);
+        mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
+            mainProgramListDTO.setDDay("day");
+        } else if (mainProgramListDTO.getDDay().contains("-")) {
+            mainProgramListDTO.setDDay("day");
+        }});
+        return mainProgramListDTOS;
+    }
+
+    //  카테고리 구분해서 조회
+    public ArrayList<MainProgramListDTO> getAllByCategories(SearchInfoDTO searchInfoDTO){
+        ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllByCategories(searchInfoDTO);
         mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
             mainProgramListDTO.setDDay("day");
         } else if (mainProgramListDTO.getDDay().contains("-")) {

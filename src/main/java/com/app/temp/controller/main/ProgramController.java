@@ -42,7 +42,7 @@ public class ProgramController {
     @GetMapping("list")
     public String list(Model model, HttpSession httpSession, @RequestParam(required = false) String keyword) {
         MemberVO member = (MemberVO) httpSession.getAttribute("member");
-        log.info("member: {}", member);
+//        log.info("member: {}", member);
 // 회원일 경우 스크랩 여부 검증
         if (member != null) {
             Long memberId = member.getId();
@@ -51,14 +51,14 @@ public class ProgramController {
             newMember.setResumeList(resumeService.check(newMember.getId()));
             httpSession.setAttribute("memberDTO", newMember);
 //            memberDTO 는 기본 로그인 정보인 member 에 추가적인 정보를 담고 있는 속성. 기본적으로는  로그인한 멤버의 정보를 세션에 담겨있음.
-            log.info(httpSession.getAttribute("memberDTO").toString());
+//            log.info(httpSession.getAttribute("memberDTO").toString());
             ArrayList<MainProgramListDTO> mainProgramListDTOS = new ArrayList<>();
 
             // 검색창을 이용한 경우
             if (keyword != null && !keyword.isEmpty()) {
                 mainProgramListDTOS = programService.searchProgramsByKeyword(keyword);
                 model.addAttribute("keyword", keyword);
-                log.info(mainProgramListDTOS.toString());
+//                log.info(mainProgramListDTOS.toString());
             }
             // 네비게이션 바에서 직접 이동한 경우
             else {
@@ -75,7 +75,7 @@ public class ProgramController {
             if (keyword != null && !keyword.isEmpty()) {
                 mainProgramListDTOS = programService.searchProgramsByKeyword(keyword);
                 model.addAttribute("keyword", keyword);
-                log.info(mainProgramListDTOS.toString());
+//                log.info(mainProgramListDTOS.toString());
             }
             // 네비게이션 바에서 직접 이동한 경우
             else {
@@ -90,8 +90,9 @@ public class ProgramController {
 
     // 검색 키워드를 받아서 리스트 페이지로 전달
     @GetMapping("/search")
-    public String search(@RequestParam("keyword") String keyword, Model model) {
+    public String search(@RequestParam("keyword") String keyword, Model model, HttpSession httpSession) {
         model.addAttribute("keyword", keyword); // 검색어 전달
+        httpSession.setAttribute("keyword", keyword);
         return "forward:/program/list";
     }
 
@@ -100,7 +101,7 @@ public class ProgramController {
     public String programDetail(@PathVariable Long id, Model model, HttpSession httpSession) {
         Optional<MainProgramInfoDTO> programInfo =  programService.getMainProgramInfoDTOById(id);
         programInfo.ifPresent(mainProgramInfoDTO -> {mainProgramInfoDTO.setCompanyImageList(imageService.getByCompanyId(mainProgramInfoDTO.getCompanyId()));});
-        log.info(programInfo.get().toString());
+//        log.info(programInfo.get().toString());
         if(programInfo.isPresent()) {
             model.addAttribute("programInfo", programInfo.get());
         }
@@ -124,8 +125,8 @@ public class ProgramController {
         Optional<CompanyDTO> companyDTO = companyService.getById(id);
         companyDTO.ifPresent(company -> company.setCompanyImageList(imageService.getByCompanyId(company.getId())));
         companyDTO.ifPresent(company -> company.setProgramCount(programService.countByCompanyId(company.getId())));
-        log.info(imageService.getByCompanyId(id).toString());
-        log.info(companyDTO.toString());
+//        log.info(imageService.getByCompanyId(id).toString());
+//        log.info(companyDTO.toString());
         model.addAttribute("companyDTO", companyDTO.get());
         List<CompanyProgramDTO> programDTOList = programService.getAllProgramByCompanyId(id);
         model.addAttribute("programDTOList", programDTOList);
@@ -169,6 +170,24 @@ public class ProgramController {
         boolean exists = scrapService.isExists(scrapVO);
         System.out.println("✅ 존재 여부: " + exists);
         return ResponseEntity.ok(Collections.singletonMap("exists", exists));
+    }
+//  카테고리 버튼 눌렀을 때 필터링하는 기능.
+//    검색 키워드가 있으면 그 키워드를 유지하고, 거기에 추가로 카테고리까지 쿼리에 적용.
+    @GetMapping("lists")
+    @ResponseBody
+    public ArrayList<MainProgramListDTO> setCategories(@RequestParam("categories") String[] categories, Model model, HttpSession httpSession) {
+            if(httpSession.getAttribute("member") != null) {
+            Long memberId = ((MemberDTO) httpSession.getAttribute("memberDTO")).getId();
+                log.info("{}로그인된 아이디", memberId.toString());
+            }
+
+//            String keyword = httpSession.getAttribute("keyword").toString();
+//            log.info("세션 체크 : {}", keyword);
+            String modelKeyword = (String) model.getAttribute("keyword");
+            log.info("모델 체크 : {}", modelKeyword);
+            log.info(Arrays.toString(categories));
+
+        return null;
     }
 
 
