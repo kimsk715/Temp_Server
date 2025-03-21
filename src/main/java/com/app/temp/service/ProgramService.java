@@ -117,6 +117,7 @@ public class ProgramService {
     //  카테고리 구분해서 조회
     public ArrayList<MainProgramListDTO> getAllByCategories(SearchInfoDTO searchInfoDTO){
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllByCategories(searchInfoDTO);
+        log.info("서비스 : {}", mainProgramListDTOS);
         mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
             mainProgramListDTO.setDDay("day");
         } else if (mainProgramListDTO.getDDay().contains("-")) {

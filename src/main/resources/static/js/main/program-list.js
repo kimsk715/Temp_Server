@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // 예:) document.querySelector("a").setAttribute("href", "https://google.com"); // a태그 링크수정
             const isPressed = button.getAttribute("aria-pressed") === "true";
 
+
             // 개별 버튼이 하나라도 해제되면 "전체 선택"을 false로 변경
 
             // some은 배열에서 하나라도 조건을 만족하는 요소가 있는지 확인할 때 사용
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const anyUnchecked = [...categoryButtons].some(
                 (btn) => btn.getAttribute("aria-pressed") === "false"
             );
+
             // aria-pressed 상태가 true인가? true면 false, false면 true로 반대로 리턴한다.
             selectAllButton.setAttribute(
                 "aria-pressed",

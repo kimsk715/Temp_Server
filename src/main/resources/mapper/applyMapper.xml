@@ -131,21 +131,15 @@
     </select>
 <!-- 카테고리 추가해서 검색-->
     <select id="selectAllByCategories" resultType="mainProgramListDTO">
-        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) DDAY
+        SELECT P.ID, C.COMPANY_NAME, P.PROGRAM_NAME, P.PROGRAM_END_DATE, P.PROGRAM_THUMBNAIL_PATH, P.CATEGORY_C_ID, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) DDAY, CA.ID AS CATEGORY_A_ID
         FROM TBL_PROGRAM P
         JOIN TBL_COMPANY C ON P.COMPANY_ID = C.ID
         JOIN TBL_CATEGORY_C CC ON CC.ID = P.CATEGORY_C_ID
         JOIN TBL_CATEGORY_B CB ON CC.CATEGORY_B_ID = CB.ID
         JOIN TBL_CATEGORY_A CA ON CB.CATEGORY_A_ID = CA.ID
                                         WHERE P.ID IS NOT NULL
-                                            <if test="keyword != null">
-                                                AND P.PROGRAM_DETAIL LIKE '%' || #{keyword} || '%'
-                                                OR P.PROGRAM_NAME LIKE '%' || #{keyword} || '%'
-                                                OR C.COMPANY_NAME LIKE '%' || #{keyword} || '%'
-                                                OR C.COMPANY_WELFARE LIKE '%' || #{keyword} || '%'
-                                            </if>
                                             <if test="categories != null">
-                                                AND P.CATEGORY_C_ID IN (
+                                                AND CA.ID IN (
                                                 <trim suffixOverrides=",">
                                                     <foreach item="category" collection="categories">
                                                         #{category},
@@ -153,7 +147,13 @@
                                                 </trim>
                                                 )
                                             </if>
-        ORDER BY P.ID DESC
+                                            <if test="keyword != null">
+                                            AND (P.PROGRAM_DETAIL LIKE '%' || #{keyword} || '%'
+                                            OR P.PROGRAM_NAME LIKE '%' || #{keyword} || '%'
+                                            OR C.COMPANY_NAME LIKE '%' || #{keyword} || '%'
+                                            OR C.COMPANY_WELFARE LIKE '%' || #{keyword} || '%')
+                                            </if>
+                                            ORDER BY P.ID DESC
     </select>
 
 
