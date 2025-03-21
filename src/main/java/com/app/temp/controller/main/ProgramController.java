@@ -40,13 +40,16 @@ public class ProgramController {
     }
 
     @GetMapping("list")
-    public String list(Model model, HttpSession httpSession, @RequestParam(required = false) String keyword) {
+    public String list(Model model, HttpSession httpSession,
+                       @RequestParam(required = false) String keyword,
+                       @RequestParam(value = "categories", required = false) String[] categories) {
         MemberVO member = (MemberVO) httpSession.getAttribute("member");
         httpSession.setAttribute("keyword", keyword);
 
 //        log.info("member: {}", member);
 // 회원일 경우 스크랩 여부 검증
-
+    if(categories == null)
+        {
             if (member != null) {
                 Long memberId = member.getId();
                 MemberDTO newMember = memberService.getMemberById(memberId);
@@ -88,6 +91,30 @@ public class ProgramController {
 
                 model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
             }
+        }
+        else{
+            SearchInfoDTO searchInfoDTO = new SearchInfoDTO();
+            if(httpSession.getAttribute("member") != null) {
+                Long memberId = ((MemberDTO) httpSession.getAttribute("memberDTO")).getId();
+                log.info("로그인된 아이디 : {}", memberId.toString());
+                searchInfoDTO.setMemberId(memberId);
+            }
+            if(httpSession.getAttribute("keyword") != null) {
+                String getKeyword = httpSession.getAttribute("keyword").toString();
+                log.info("세션 체크 : {}", getKeyword);
+                searchInfoDTO.setKeyword(getKeyword);
+            }
+            if(categories != null && categories.length > 0) {
+                searchInfoDTO.setCategories(categories);
+            }
+            log.info(searchInfoDTO.toString());
+            ArrayList<MainProgramListDTO> mainProgramListDTOS = programService.getAllByCategories(searchInfoDTO);
+
+            log.info(mainProgramListDTOS.toString());
+            log.info("프로그램 갯수 BY 조회 : {}", mainProgramListDTOS.size());
+            model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
+            log.info("프로그램 목록 BY MODEL: {}", model.getAttribute("mainProgramListDTOS"));
+        }
 
 
         return "/main/program-list";
@@ -178,33 +205,6 @@ public class ProgramController {
     }
 //  카테고리 버튼 눌렀을 때 필터링하는 기능.
 //    검색 키워드가 있으면 그 키워드를 유지하고, 거기에 추가로 카테고리까지 쿼리에 적용.
-    @GetMapping("/lists")
-    public String setCategories(@RequestParam("categories") String[] categories, Model model,
-                                HttpSession httpSession) {
-        SearchInfoDTO searchInfoDTO = new SearchInfoDTO();
-        if(httpSession.getAttribute("member") != null) {
-                Long memberId = ((MemberDTO) httpSession.getAttribute("memberDTO")).getId();
-                log.info("로그인된 아이디 : {}", memberId.toString());
-                searchInfoDTO.setMemberId(memberId);
-            }
-        if(httpSession.getAttribute("keyword") != null) {
-            String keyword = httpSession.getAttribute("keyword").toString();
-            log.info("세션 체크 : {}", keyword);
-            searchInfoDTO.setKeyword(keyword);
-        }
-        if(categories != null && categories.length > 0) {
-            searchInfoDTO.setCategories(categories);
-        }
-        log.info(searchInfoDTO.toString());
-        ArrayList<MainProgramListDTO> mainProgramListDTOS = programService.getAllByCategories(searchInfoDTO);
-
-        log.info(mainProgramListDTOS.toString());
-        log.info("프로그램 갯수 BY 조회 : {}", mainProgramListDTOS.size());
-        model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
-        log.info("프로그램 목록 BY MODEL: {}", model.getAttribute("mainProgramListDTOS"));
-
-        return "/main/program-list";
-    }
 
 
 
