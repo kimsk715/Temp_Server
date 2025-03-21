@@ -47,18 +47,15 @@
             AND CEIL(SYSDATE - TO_DATE(CREATED_DATE)) <![CDATA[ <= #{date}]]>
         </if>)
     </select>
-
     <select id="selectNoticeById" resultType="noticeListDTO">
         SELECT ID, NOTICE_TITLE, NOTICE_CATEGORY, NOTICE_CONTENT,TO_CHAR(CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE ,TO_CHAR(UPDATED_DATE,'YYYY-MM-DD') AS UPDATED_DATE
         FROM TBL_NOTICE WHERE ID = #{id}
     </select>
-
     <insert id="insertNotice">
         INSERT INTO TBL_NOTICE(ID, NOTICE_CATEGORY, NOTICE_TITLE, NOTICE_CONTENT, CREATED_DATE, UPDATED_DATE)
         VALUES (SEQ_NOTICE.NEXTVAL, #{noticeCategory},#{noticeTitle},#{noticeContent}, SYSDATE, SYSDATE)
 
     </insert>
-
     <update id="updateNotice">
         UPDATE TBL_NOTICE
         SET NOTICE_TITLE = #{noticeTitle}, NOTICE_CONTENT = #{noticeContent}
