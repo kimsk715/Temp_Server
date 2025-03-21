@@ -66,7 +66,6 @@ public class MemberService {
     public AdminMemberListDTO getAllAdmin(MemberPagination memberpagination){
         AdminMemberListDTO memberAdminList = new AdminMemberListDTO();
         memberpagination.create(memberDAO.countAll(memberpagination));
-
         memberAdminList.setMemberPagination(memberpagination);
         memberAdminList.setMemberList(memberDAO.findAllAdmin(memberpagination));
         return memberAdminList;

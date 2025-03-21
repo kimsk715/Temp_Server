@@ -24,182 +24,129 @@
             <h1 class="listTitle">체험 공고 탐색</h1>
             <section class="listJobs">
                 <div class="listJobBtnWrap">
-                    <button
-                            aria-pressed="true"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton selectAllButton"
-                    >
-                        <span>전체</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>기획·전략</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>마케팅·홍보·조사</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>회계·세무·재무</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>인사·노무·HRD</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>총무·법무·사무</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>IT개발·데이터</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>디자인</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>영업·판매·무역</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>고객상담·TM</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>구매·자재·물류</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>상품기획·MD</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>운전·운송·배송</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>서비스</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>생산</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>건설·건축</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>의료</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>연구·R&D</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>교육</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>미디어·문화·스포츠</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>금융·보험</span>
-                    </button>
-                    <button
-                            aria-pressed="false"
-                            type="button"
-                            value="jobCategory"
-                            class="categoryButton"
-                    >
-                        <span>공공·복지</span>
-                    </button>
+                    <label>
+                        <input type="checkbox" class="allCategory" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>전체</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="1" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>서비스업</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="2" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>제조·화학</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="3" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>IT·웹·통신</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="4" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>은행·금융업</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="5" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>미디어·디자인</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="6" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>교육업</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="7" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>의료·제약·복지</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="8" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>판매·유통</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="9" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>건설업</span>
+                        </button>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="10" class="categorySelect" style="display: none;"/>
+                        <button
+                                aria-pressed="true"
+                                type="button"
+                                value="all"
+                                class="categoryButton selectAllButton"
+                        >
+                            <span>기관·협회</span>
+                        </button>
+                    </label>
+
+
                 </div>
             </section>
         </section>
@@ -323,6 +270,9 @@
 </body>
 <script src="/js/main/program-list.js"></script>
 <script src="/js/member/mypage-all.js"></script>
+<script src="/js/main/program_list_service.js"></script>
+<script src="/js/main/program_list_event.js"></script>
+<script src="/js/main/program_list_layout.js"></script>
 <script th:if="${param.refresh}" th:inline="javascript">
     window.location.href = window.location.pathname; // 현재 페이지 새로고침
 
