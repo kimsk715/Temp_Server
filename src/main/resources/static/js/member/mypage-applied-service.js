@@ -1,4 +1,4 @@
-const mypageAppliedService = (()=>{
+const myPageAppliedService = (()=>{
     // 1
     // 추가
     // 비동기 함수,, applyMemberStatus는 파라미터를 받아서 처리함, reply는 서버로 전송할 데이터다!!!

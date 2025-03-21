@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.temp.mapper.CompanyMapper">
+<!--    기업 회원 가입-->
     <insert id="insert">
         INSERT INTO TBL_COMPANY (ID, COMPANY_BUSINESS_NUMBER, COMPANY_CERTIFICATE_PATH, COMPANY_NAME,
                                  COMPANY_CEO, COMPANY_MAIN_ADDRESS, COMPANY_SUB_ADDRESS)
         VALUES (SEQ_COMPANY.NEXTVAL, #{companyBusinessNumber}, #{companyCertificatePath}, #{companyName},
                 #{companyCEO}, #{companyMainAddress}, #{companySubAddress})
     </insert>
+
+<!--    사업자 번호로 조회-->
     <select id="selectByCompanyBusinessNumber" resultType="companyDTO">
         SELECT * FROM TBL_COMPANY WHERE COMPANY_BUSINESS_NUMBER = #{companyBusinessNumber}
     </select>
+
+<!--    아이디로 조회-->
     <select id="selectById" resultType="companyDTO">
         SELECT * FROM TBL_COMPANY WHERE ID = #{id}
     </select>
@@ -23,9 +28,16 @@
         WHERE M.MEMBER_CLASS='기업'
     </select>
 
+
     <select id="selectMemberInfoAdmin" resultType="companyMemberInfoAdminDTO">
         SELECT M.ID, C.ID AS COMPANY_ID, C.COMPANY_NAME, C.COMPANY_BUSINESS_NUMBER, C.COMPANY_ESTABLISHMENT, C.COMPANY_EMPLOYEE, C.COMPANY_MAIN_ADDRESS, C.COMPANY_SUB_ADDRESS , C.COMPANY_LOGO_PATH, C.COMPANY_URL, C.COMPANY_CERTIFICATE_PATH, C.COMPANY_INTRODUCE, C.COMPANY_WELFARE, C.COMPANY_CULTURE, C.COMPANY_CEO
              ,CM.COMPANY_MEMBER_DEPARTMENT, CM.COMPANY_MEMBER_POSITION, M.MEMBER_RECENT_LOGIN, M.CREATED_DATE, M.MEMBER_NAME, M.MEMBER_PHONE, M.MEMBER_EMAIL, M.MEMBER_STATUS
+
+<!--      기업회원 조회-->
+    <select id="selectCompanyMemberInfoById" resultType="companyMemberInfoAdminDTO">
+        SELECT M.ID, C.ID AS COMPANY_ID, C.COMPANY_NAME, C.COMPANY_BUSINESS_NUMBER, C.COMPANY_ESTABLISHMENT, C.COMPANY_EMPLOYEE, C.COMPANY_MAIN_ADDRESS, C.COMPANY_LOGO_PATH, C.COMPANY_URL, C.COMPANY_CERTIFICATE_PATH, C.COMPANY_INTRODUCE, C.COMPANY_WELFARE, C.COMPANY_CULTURE, C.COMPANY_CEO
+             ,CM.COMPANY_MEMBER_DEPARTMENT, CM.COMPANY_MEMBER_POSITION, M.MEMBER_RECENT_LOGIN, M.MEMBER_NAME, M.MEMBER_PHONE, M.MEMBER_EMAIL, M.MEMBER_STATUS
+
         FROM TBL_COMPANY C
                  JOIN TBL_COMPANY_MEMBER CM
                       ON CM.COMPANY_ID = C.ID
@@ -34,9 +46,13 @@
         WHERE M.ID = #{id} AND M.MEMBER_CLASS='기업'
     </select>
 
+
     <select id="selectByCompanyName" resultType="companyDTO">
         SELECT * FROM TBL_COMPANY WHERE COMPANY_NAME = #{companyName}
     </select>
+
+
+<!--    기업회원 으로 수정-->
 
     <update id="update">
         UPDATE TBL_MEMBER
@@ -44,4 +60,34 @@
         WHERE ID = #{id}
     </update>
 
+<!--    기업 ID로 공고목록조회-->
+    <select id="selectProgramWriteByCompanyId" resultType="programInfoDTO">
+        SELECT P.ID,
+               COMPANY_NAME,
+               PROGRAM_NAME,
+               PROGRAM_END_DATE,
+               PROGRAM_STATUS,
+               PROGRAM_DETAIL,
+               PROGRAM_PRICE,
+               PROGRAM_BENEFIT,
+               PROGRAM_THUMBNAIL_PATH
+        FROM TBL_COMPANY C
+                 JOIN TBL_PROGRAM P
+                      ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '작성중'
+    </select>
+    <select id="selectProgramWaitByCompanyId" resultType="programInfoDTO">
+        SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, PROGRAM_END_DATE, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH
+        FROM TBL_COMPANY C JOIN TBL_PROGRAM P
+                                ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '승인 요청중'
+    </select>
+    <select id="selectProgramWorkByCompanyId" resultType="programInfoDTO">
+        SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, PROGRAM_END_DATE, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH
+        FROM TBL_COMPANY C JOIN TBL_PROGRAM P
+                                ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '진행중'
+    </select>
+    <select id="selectProgramEndByCompanyId" resultType="programInfoDTO">
+        SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, PROGRAM_END_DATE, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH
+        FROM TBL_COMPANY C JOIN TBL_PROGRAM P
+                                ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '마감'
+    </select>
 </mapper>

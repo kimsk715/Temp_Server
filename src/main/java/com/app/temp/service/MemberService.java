@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,7 +24,7 @@ public class MemberService {
 
 //    회원가입
     public void join(MemberDTO memberDTO){
-        memberDAO.save(memberDTO.toVO());
+        memberDAO.insertPayHistory(memberDTO.toVO());
     }
 
 
@@ -58,6 +59,7 @@ public class MemberService {
 
     //  아이디로 회원 조회
     public MemberDTO getMemberById(Long id){
+
         return memberDAO.findByMemberId(id);
     }
 
@@ -79,5 +81,15 @@ public class MemberService {
 
     public void set(MemberVO memberVO){
         memberDAO.set(memberVO);
+    }
+
+//    결제내역 저장
+    public void insertPayHistory (PayDTO payDTO) {
+        memberDAO.insertPayHistory(payDTO);
+    }
+
+//    결제내역 조회
+    public List<PayDTO> selectPayHistory(Long id) {
+       return memberDAO.selectPayHistory(id);
     }
 }
