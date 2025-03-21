@@ -3,8 +3,6 @@ package com.app.temp.service;
 import com.app.temp.controller.exception.BusinessNumberAlreadyExistsException;
 import com.app.temp.controller.exception.MemberNotFoundException;
 import com.app.temp.domain.dto.*;
-import com.app.temp.domain.vo.CompanyInquiryVO;
-import com.app.temp.domain.vo.CompanyVO;
 import com.app.temp.repository.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +23,15 @@ public class CompanyMemberService {
     private final CompanyMemberDAO companyMemberDAO;
     private final CompanyInquiryDAO companyInquiryDAO;
 
+//    기업 회원 id로 기업 회원정보 조회
+    public Optional<CompanyMemberInfoAdminDTO> selectCompanyMemberInfoById(Long id) {
+
+       return Optional.ofNullable(companyMemberDAO.findCompanyMemberInfoById(id).orElseThrow(() -> new MemberNotFoundException("찾지못함")));
+    }
+
+
     //    이메일로 기업회원 조회
-    public Optional<CompanyMemberDTO> findByMemberEmail(String memberEmail) {
+    public Optional<CompanyMemberDTO> selectByMemberEmail(String memberEmail) {
         return companyMemberDAO.findByMemberEmail(memberEmail);
     }
 
@@ -54,7 +59,7 @@ public class CompanyMemberService {
         // TBL_MEMBER에 회원 정보가 있는지 확인
         if (memberDTO.getId() == null) {
             // TBL_MEMBER에 회원 정보가 없으면 insert
-            memberDAO.save(memberDTO.toVO());
+            memberDAO.insertPayHistory(memberDTO.toVO());
             log.info("회원 정보가 TBL_MEMBER에 저장되었습니다.");
         } else {
             log.info("회원 정보가 이미 TBL_MEMBER에 존재합니다. ID: {}", memberDTO.getId());
@@ -119,7 +124,7 @@ public class CompanyMemberService {
     }
 
     public Optional<CompanyMemberInfoAdminDTO> getById(Long companyMemberId) {
-        Optional<CompanyMemberInfoAdminDTO> companyMember = companyMemberDAO.findById(companyMemberId);
+        Optional<CompanyMemberInfoAdminDTO> companyMember = companyMemberDAO.findCompanyMemberInfoById(companyMemberId);
         Long companyId = companyMember.get().getCompanyId();
         companyMember.ifPresent(companyMemberInfoAdminDTO -> companyMemberInfoAdminDTO.setCompanyInquiryList(companyInquiryDAO.findByCompanyId(companyId)));
         companyMember.ifPresent(companyMemberInfoAdminDTO -> companyMemberInfoAdminDTO.setCompanyProgramList(programDAO.findAllProgramByCompanyId(companyId)));

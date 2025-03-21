@@ -39,7 +39,7 @@ public class KakaoController {
         Optional<MemberDTO> foundMember = memberService.getMember(memberDTO.getMemberEmail());
 
         // 기업회원 여부 확인
-        Optional<CompanyMemberDTO> foundCompanyMember = companyMemberService.findByMemberEmail(memberDTO.getMemberEmail());
+        Optional<CompanyMemberDTO> foundCompanyMember = companyMemberService.selectByMemberEmail(memberDTO.getMemberEmail());
 
         // 개인회원 로그인 처리
         if ("personal".equals(type)) {
@@ -98,7 +98,7 @@ public class KakaoController {
             log.info("Set session attribute: company = {}", session.getAttribute("company"));
 
             // 이미 가입된 기업회원이면 기업회원 마이페이지로 이동
-            return "redirect:/enterprise/main-page"; // 기업 마이페이지
+            return "redirect:/enterprise/program-list"; // 기업 마이페이지
         }
 
         // type이 personal이나 company가 아닐 경우

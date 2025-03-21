@@ -16,9 +16,12 @@ import java.util.Optional;
 public class CompanyMemberDAO {
     private final CompanyMemberMapper companyMemberMapper;
 
+//    
+    
+    
 //    이메일로 기업회원 조회
     public Optional<CompanyMemberDTO> findByMemberEmail(String memberEmail) {
-        return companyMemberMapper.selectBymemberEmail(memberEmail);
+        return companyMemberMapper.selectByMemberEmail(memberEmail);
     }
 
 //    기업회원 정보 생성(기업 첫 회원, 관리자 권한)
@@ -35,8 +38,9 @@ public class CompanyMemberDAO {
         return companyMemberMapper.countAllCompanyMember(companyMemberPagination);
     }
 
-    public Optional<CompanyMemberInfoAdminDTO> findById(Long memberId) {
-        return companyMemberMapper.selectById(memberId);
+//    아이디로 기업멤버 조회
+    public Optional<CompanyMemberInfoAdminDTO> findCompanyMemberInfoById(Long id) {
+        return companyMemberMapper.selectCompanyMemberInfoById(id);
     }
 
 

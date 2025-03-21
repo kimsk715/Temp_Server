@@ -1,9 +1,6 @@
 package com.app.temp.repository;
 
-import com.app.temp.domain.dto.MemberAdminListDTO;
-import com.app.temp.domain.dto.MemberDTO;
-import com.app.temp.domain.dto.MemberInfoAdminDTO;
-import com.app.temp.domain.dto.MemberPagination;
+import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +15,7 @@ public class MemberDAO {
     private final MemberMapper memberMapper;
 
 //    추가
-    public void save(MemberVO memberVO){
+    public void insertPayHistory(MemberVO memberVO){
         memberMapper.insert(memberVO);
     }
 //    조회(이메일)
@@ -34,27 +31,33 @@ public class MemberDAO {
     public void setMemberClass(Long id){
         memberMapper.updateMemberClass(id);
     }
+
 //    회원 최근 로그인시간 갱신
     public void updateMemberRecentLogin(Long id){
         memberMapper.updateMemberRecentLogin(id);
     }
+
 //  아이디로 회원 정보 조회
-public Optional<MemberAdminListDTO> findMemberInfoAdmin(Long id) {
+    public Optional<MemberAdminListDTO> findMemberInfoAdmin(Long id) {
     return memberMapper.selectMemberInfoAdmin(id);
 }
+
 //  마이페이지 정보 조회
     public Optional<MemberVO> findById(Long id) {
         MemberVO memberinfo = memberMapper.selectByIdForInfo(id);
         return Optional.ofNullable(memberinfo);
     }
+
 //  마이페이지 정보 수정
     public void setMember(MemberVO memberVO) {
         memberMapper.updateMember(memberVO);
     }
+
 //  회원 탈퇴
     public void deleteMember(Long id) {
         memberMapper.memberDelete(id);
     }
+
 
     public List<MemberAdminListDTO> findAllAdmin(MemberPagination memberpagination){
         return memberMapper.selectAllAdmin(memberpagination);
@@ -67,6 +70,17 @@ public Optional<MemberAdminListDTO> findMemberInfoAdmin(Long id) {
     public void set(MemberVO memberVO){
         memberMapper.update(memberVO);
     }
+
+//    결제 내역 저장하기
+    public void insertPayHistory(PayDTO payDTO){
+        memberMapper.insertPayHistory(payDTO);
+    }
+
+//    결제 내역 조회하기
+    public List<PayDTO> selectPayHistory(Long id) {
+        return memberMapper.selectPayHistory(id);
+    }
+
 
 }
 

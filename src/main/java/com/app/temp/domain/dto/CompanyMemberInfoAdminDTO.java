@@ -17,8 +17,9 @@ public class CompanyMemberInfoAdminDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private String companyMainAddress;
+    private String companyMemberAuthority;
     private Long companyId;
-    private Long companyBusinessNumber;
+    private String companyBusinessNumber;
     private int year; // ~~~~년 출력용
     private int month; // ~~월 출력용
     private String companyEstablishment;

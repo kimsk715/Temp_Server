@@ -32,8 +32,7 @@ public class MypageService {
 
 //     마이페이지 회원 정보 조회
     public Optional<MemberVO> accountInfoSelect(Long id) {
-        Optional<MemberVO> memberInfo = memberDAO.findById(id);
-        return memberInfo;
+        return memberDAO.findById(id);
     }
 //     마이페이지 회원정보 수정
     public void accountInfoUpdate(MemberVO memberVO, HttpSession session) {

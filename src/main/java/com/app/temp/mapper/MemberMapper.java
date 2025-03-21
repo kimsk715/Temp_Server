@@ -1,9 +1,6 @@
 package com.app.temp.mapper;
 
-import com.app.temp.domain.dto.MemberAdminListDTO;
-import com.app.temp.domain.dto.MemberDTO;
-import com.app.temp.domain.dto.MemberInfoAdminDTO;
-import com.app.temp.domain.dto.MemberPagination;
+import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -45,7 +42,10 @@ public interface MemberMapper {
     public void updateMember(MemberVO memberVO);
 //   로그인
     public Optional<MemberVO> selectByMemberEmailAndMemberPassword(MemberVO memberVO);
-
+//   결제내역 저장
+    public void insertPayHistory(PayDTO payDTO);
+//   결제내역 조회
+    public List<PayDTO> selectPayHistory(Long id);
 
 
 }

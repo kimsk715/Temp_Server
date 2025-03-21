@@ -23,7 +23,11 @@ const resumeLayout = (() => {
                                     </button>
                                     <div class="managemenu-wrapper hidden">
                                         <ul>
-                                            <li><button type="button">다운로드</button></li>
+                                            <li>
+                                            <a href="/resume/download">
+                                            <button type="button"><button/>다운로드
+                                            </a>
+                                            </li>
                                             <li><button type="button">이력서 복사</button></li>
                                             <li><button class="warning" type="button" id="${resume.id}">이력서 삭제</button></li>
                                         </ul>
