@@ -39,6 +39,19 @@ public class ProgramController {
         this.applyDTO = applyDTO;
     }
 
+//    필터링 + 검색기능 모두 포함.
+    @GetMapping("list")
+    public String list(Model model, HttpSession httpSession,
+                       @RequestParam(required = false) String keyword,
+                       @RequestParam(value = "categories", required = false) String[] categories){
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        httpSession.setAttribute("keyword", keyword);
+
+    }
+
+
+
+
     @GetMapping("list")
     public String list(Model model, HttpSession httpSession,
                        @RequestParam(required = false) String keyword,
