@@ -17,6 +17,8 @@
         <typeAlias type="com.app.temp.domain.dto.ApplyListDTO" alias="applyListDTO"/>
         <typeAlias type="com.app.temp.domain.dto.ReportInfoDTO" alias="reportInfoDTO"/>
         <typeAlias type="com.app.temp.domain.dto.ReportListDTO" alias="reportListDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ProgramReportInfoDTO" alias="programReportInfoDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyReportInfoDTO" alias="companyReportInfoDTO"/>
         <typeAlias type="com.app.temp.domain.dto.CompanyMemberAdminListDTO" alias="companyMemberAdminListDTO"/>
         <typeAlias type="com.app.temp.domain.dto.CompanyMemberInfoAdminDTO" alias="companyMemberInfoAdminDTO"/>
         <typeAlias type="com.app.temp.domain.dto.CompanyProgramDTO" alias="companyProgramDTO"/>

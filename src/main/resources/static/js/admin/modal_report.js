@@ -30,15 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // ----------------------------------------------------
 
   // 모달 기본 요소 참조 선택
-  const reportModal = document.querySelector(".report-modal"); // 신고관리 모달의 최상위 컨테이너
-  const reportDetailBtns = document.querySelectorAll(
-    ".report-table .detail-btn"
+  const companyReportModal = document.querySelector(".company-report-modal"); // 신고관리 모달의 최상위 컨테이너
+  const programReportModal = document.querySelector(".program-report-modal"); // 신고관리 모달의 최상위 컨테이너
+  const companyReportDetailBtns = document.querySelectorAll(
+    ".company-report-table .detail-btn"
+  ); // 목록의 모든 상세보기 버튼
+  const programReportDetailBtns = document.querySelectorAll(
+      ".program-report-table .detail-btn"
   ); // 목록의 모든 상세보기 버튼
 
 
   // 필수 DOM 요소 존재 검증
   // 모달 동작에 핵심적인 요소들이 존재하지 않으면 초기화 중단
-  if (!reportModal || !reportDetailBtns) {
+  if (!companyReportModal || !companyReportDetailBtns) {
+    console.error("신고관리 모달 초기화 실패: 필수 DOM 요소 누락");
+    return;
+  }
+  if (!programReportModal || !programReportDetailBtns) {
     console.error("신고관리 모달 초기화 실패: 필수 DOM 요소 누락");
     return;
   }
@@ -50,49 +58,104 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       // 상세보기 버튼 클릭 이벤트 설정
       // 목록의 각 행에서 버튼 클릭시 해당 신고건의 상세 정보를 모달로 표시
-      reportDetailBtns.forEach((btn) => {
+      companyReportDetailBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-          openModal(reportModal);
+          openModal(companyReportModal);
           // 추후 구현: 클릭된 행의 신고 데이터를 서버에서 조회하여 모달에 표시
           console.log("신고 상세정보 조회 시작");
         });
       });
-      const reportCloseBtn = document.querySelector(".report-modal .close-btn"); // 모달 우측 상단 X버튼
-      const reportCancelBtn = document.querySelector(".report-modal .cancel-btn"); // 모달 하단 취소 버튼
-      const reportSaveBtn = document.querySelector(".report-modal .save-btn"); // 모달 하단 저장 버튼
+      const companyReportCloseBtn = document.querySelector(".company-report-modal .close-btn"); // 모달 우측 상단 X버튼
+      const companyReportCancelBtn = document.querySelector(".company-report-modal .cancel-btn"); // 모달 하단 취소 버튼
+      const companyReportSaveBtn = document.querySelector(".company-report-modal .save-btn"); // 모달 하단 저장 버튼
       // 닫기(X) 버튼 이벤트 설정
       // 모달 우측 상단 X 버튼 클릭시 모달 닫기
-      if (reportCloseBtn) {
-        reportCloseBtn.addEventListener("click", () => {
-          closeModal(reportModal);
+      if (companyReportCloseBtn) {
+        companyReportCloseBtn.addEventListener("click", () => {
+          closeModal(companyReportModal);
           console.log("닫기 버튼으로 모달 닫기 처리");
         });
       }
 
       // 취소 버튼 이벤트 설정
       // 모달 하단 취소 버튼 클릭시 모달 닫기
-      if (reportCancelBtn) {
-        reportCancelBtn.addEventListener("click", () => {
-          closeModal(reportModal);
+      if (companyReportCancelBtn) {
+        companyReportCancelBtn.addEventListener("click", () => {
+          closeModal(companyReportModal);
           console.log("취소 버튼으로 모달 닫기 처리");
         });
       }
 
       // 저장 버튼 이벤트 설정
       // 처리상태 변경 후 저장 버튼 클릭시 서버 저장 처리
-      if (reportSaveBtn) {
-        reportSaveBtn.addEventListener("click", () => {
+      if (companyReportSaveBtn) {
+        companyReportSaveBtn.addEventListener("click", () => {
           // 추후 구현: 변경된 처리상태를 서버에 저장하는 API 호출
           console.log("신고관리 처리상태 저장 시작");
-          closeModal(reportModal);
+          closeModal(companyReportModal);
         });
       }
 
       // 모달 외부 영역 클릭 이벤트 설정
       // backdrop(모달 뒷 배경) 클릭시 모달 닫기
-      reportModal.addEventListener("click", (e) => {
+      companyReportModal.addEventListener("click", (e) => {
         if (e.target.classList.contains("modal-backdrop")) {
-          closeModal(reportModal);
+          closeModal(companyReportModal);
+          console.log("배경 클릭으로 모달 닫기 처리");
+        }
+      });
+
+      console.log("신고관리 모달 이벤트 리스너 초기화 완료");
+    } catch (error) {
+      console.error("신고관리 모달 이벤트 리스너 설정 중 오류 발생:", error);
+    }
+
+    try {
+      // 상세보기 버튼 클릭 이벤트 설정
+      // 목록의 각 행에서 버튼 클릭시 해당 신고건의 상세 정보를 모달로 표시
+      programReportDetailBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          openModal(programReportModal);
+          // 추후 구현: 클릭된 행의 신고 데이터를 서버에서 조회하여 모달에 표시
+          console.log("신고 상세정보 조회 시작");
+        });
+      });
+      const programReportCloseBtn = document.querySelector(".program-report-modal .close-btn"); // 모달 우측 상단 X버튼
+      const programReportCancelBtn = document.querySelector(".program-report-modal .cancel-btn"); // 모달 하단 취소 버튼
+      const programReportSaveBtn = document.querySelector(".program-report-modal .save-btn"); // 모달 하단 저장 버튼
+      // 닫기(X) 버튼 이벤트 설정
+      // 모달 우측 상단 X 버튼 클릭시 모달 닫기
+      if (programReportCloseBtn) {
+        programReportCloseBtn.addEventListener("click", () => {
+          closeModal(programReportModal);
+          console.log("닫기 버튼으로 모달 닫기 처리");
+        });
+      }
+
+      // 취소 버튼 이벤트 설정
+      // 모달 하단 취소 버튼 클릭시 모달 닫기
+      if (programReportCancelBtn) {
+        programReportCancelBtn.addEventListener("click", () => {
+          closeModal(programReportModal);
+          console.log("취소 버튼으로 모달 닫기 처리");
+        });
+      }
+
+      // 저장 버튼 이벤트 설정
+      // 처리상태 변경 후 저장 버튼 클릭시 서버 저장 처리
+      if (programReportSaveBtn) {
+        programReportSaveBtn.addEventListener("click", () => {
+          // 추후 구현: 변경된 처리상태를 서버에 저장하는 API 호출
+          console.log("신고관리 처리상태 저장 시작");
+          closeModal(programReportModal);
+        });
+      }
+
+      // 모달 외부 영역 클릭 이벤트 설정
+      // backdrop(모달 뒷 배경) 클릭시 모달 닫기
+      programReportModal.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal-backdrop")) {
+          closeModal(programReportModal);
           console.log("배경 클릭으로 모달 닫기 처리");
         }
       });
@@ -106,8 +169,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESC 키 이벤트 핸들러 설정
   // 모달이 열린 상태에서 ESC 키 입력시 모달 닫기
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && reportModal.style.display === "block") {
-      closeModal(reportModal);
+    if (e.key === "Escape" && companyReportModal.style.display === "block") {
+      closeModal(companyReportModal);
+      console.log("ESC 키 입력으로 모달 닫기 처리");
+    }
+    if (e.key === "Escape" && programReportModal.style.display === "block") {
+      closeModal(programReportModal);
       console.log("ESC 키 입력으로 모달 닫기 처리");
     }
   });

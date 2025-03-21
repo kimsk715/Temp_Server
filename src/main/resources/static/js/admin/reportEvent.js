@@ -1,12 +1,20 @@
-// 페이지네이션 버튼이 들어갈 요소
-const reportPageWrap = document.querySelector(".report-pagination");
-const keywordInputReport = document.querySelector(".report-search-input[name=keyword]");
-const keywordSearchButton = document.querySelector(".report-search-btn");
-const reportStatusFilter = document.querySelector(".report-status-filter");  // 하나만 선택(select 안에 option)
-const reportDateFilter = document.querySelector(".report-date-filter");  // 얘도 하나만 선택
+// 기업 페이지네이션 버튼이 들어갈 요소
+const companyReportPageWrap = document.querySelector(".company-report-pagination");
+const companyKeywordInputReport = document.querySelector(".company-report-search-input[name=keyword]");
+const companyKeywordSearchButton = document.querySelector(".company-report-search-btn");
+const companyReportStatusFilter = document.querySelector(".company-report-status-filter");  // 하나만 선택(select 안에 option)
+const companyReportDateFilter = document.querySelector(".company-report-date-filter");  // 얘도 하나만 선택
+
+// 공고 페이지네이션 버튼이 들어갈 요소
+const programReportPageWrap = document.querySelector(".program-report-pagination");
+const programKeywordInputReport = document.querySelector(".program-report-search-input[name=keyword]");
+const programKeywordSearchButton = document.querySelector(".program-report-search-btn");
+const programReportStatusFilter = document.querySelector(".program-report-status-filter");  // 하나만 선택(select 안에 option)
+const programReportDateFilter = document.querySelector(".program-report-date-filter");  // 얘도 하나만 선택
 
 // 처음 페이지가 로드될 때 페이지 리스트를 가져와 화면에 출력
-reportService.getList(reportLayout.showList);
+reportService.getCompanyList(reportLayout.showCompanyList);
+reportService.getProgramList(reportLayout.showProgramList);
 
 // 기간 필터에 따른 날짜 계산(신고일~현재 날짜가 기간)
 const calculateDateRange = (dateFilterValue) => {
@@ -52,52 +60,77 @@ const updateParam = (param, createdDateStart, createdDateEnd, reportStatus) => {
 };
 
 // 초기 날짜 범위 설정
-const dateFilterValue = reportDateFilter.value;
-let { createdDateStart, createdDateEnd } = calculateDateRange(dateFilterValue);
+const companyDateFilterValue = companyReportDateFilter.value;
+let { createdDateStart, createdDateEnd } = calculateDateRange(companyDateFilterValue);
 
 // param 객체 선언
 let param = { page: 1 }; // 기본 페이지 1로 설정
 updateParam(param, createdDateStart, createdDateEnd);
 
 // 페이지네이션 추가
-reportPageWrap.addEventListener("click", (e) => {
+companyReportPageWrap.addEventListener("click", (e) => {
     // 클릭된 요소가 페이지네이션 버튼이면
     if (e.target.className.includes("page-btn")) {
         // 선택한 페이지의 번호(타겟의 id)를 가져와 리스트 갱신
         param.page = e.target.id;
-        reportService.getList(reportLayout.showList, param);    // 요청 시 param 객체 전달(한번에 전달되서 편함)
+        reportService.getCompanyList(reportLayout.showCompanyList, param);    // 요청 시 param 객체 전달(한번에 전달되서 편함)
     }
 });
 
 // 검색 내용 입력하고 엔터 누를 시 처리
-keywordInputReport.addEventListener("keyup", (e) => {
+companyKeywordInputReport.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
         const keyword = e.target.value;
         if (keyword) {
             param.search.keyword = keyword; // 검색어 정보(keyword) param 객체에 담기
 
-            reportService.getList(reportLayout.showList, param);
+            reportService.getCompanyList(reportLayout.showCompanyList, param);
+        }
+    }
+});
+programKeywordInputReport.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        const keyword = e.target.value;
+        if (keyword) {
+            param.search.keyword = keyword; // 검색어 정보(keyword) param 객체에 담기
+
+            reportService.getProgramList(reportLayout.showProgramList, param);
         }
     }
 });
 
 // 검색 내용 입력하고 검색 버튼 누를 때도 동일
-keywordSearchButton.addEventListener("click", () => {
-    const keyword = keywordInputReport.value;
+companyKeywordSearchButton.addEventListener("click", () => {
+    const keyword = companyKeywordInputReport.value;
     if (keyword) param.search.keyword = keyword;
 
-    reportService.getList(reportLayout.showList, param);
+    reportService.getCompanyList(reportCompanyLayout.showCompanyList, param);
+});
+programKeywordSearchButton.addEventListener("click", () => {
+    const keyword = programKeywordInputReport.value;
+    if (keyword) param.search.keyword = keyword;
+
+    reportService.getProgramList(reportLayout.showProgramList, param);
 });
 
 // 기간 필터 선택 시 처리
-reportDateFilter.addEventListener("change", () => {
-    const dateFilterValue = reportDateFilter.value;
+companyReportDateFilter.addEventListener("change", () => {
+    const dateFilterValue = companyReportDateFilter.value;
     // 계산된 날짜를 이용하여 param에 전달하긔
     const { createdDateStart, createdDateEnd } = calculateDateRange(dateFilterValue);
     updateParam(param, createdDateStart, createdDateEnd);
 
-    reportService.getList(reportLayout.showList, param);
+    reportService.getCompanyList(reportLayout.showCompanyList, param);
 });
+programReportDateFilter.addEventListener("change", () => {
+    const dateFilterValue = programReportDateFilter.value;
+    // 계산된 날짜를 이용하여 param에 전달하긔
+    const { createdDateStart, createdDateEnd } = calculateDateRange(dateFilterValue);
+    updateParam(param, createdDateStart, createdDateEnd);
+
+    reportService.getProgramList(reportLayout.showProgramList, param);
+});
+
 
 // 보고서 상태값을 한글로 변환
 const convertStatusToKorean = (status) => {
@@ -131,14 +164,14 @@ const convertDateRange = (selectedRange) => {
 };
 
 // 필터 적용 함수
-function applyFilters() {
-    const reportStatus = reportStatusFilter.value;  // 선택된 신고 상태 가져오기
-    const { createdDateStart, createdDateEnd } = convertDateRange(reportDateFilter.value);  // 날짜 변환 함수 호출
+function applyCompanyFilters() {
+    const reportStatus = companyReportStatusFilter.value;  // 선택된 신고 상태 가져오기
+    const { createdDateStart, createdDateEnd } = convertDateRange(companyReportDateFilter.value);  // 날짜 변환 함수 호출
 
     const koreanStatus = convertStatusToKorean(reportStatus);
 
     // 필터 초기화 (전체 선택 시 기본값으로 리셋)
-    if (reportStatus === 'all' && reportDateFilter.value === 'all') {
+    if (reportStatus === 'all' && companyReportDateFilter.value === 'all') {
         delete param.search.reportStatus;
         delete param.search.createdDateStart;
         delete param.search.createdDateEnd;
@@ -147,12 +180,32 @@ function applyFilters() {
     }
 
     // 리스트 갱신
-    reportService.getList(reportLayout.showList, param);
+    reportService.getCompanyList(reportLayout.showCompanyList, param);
+}
+function applyProgramFilters() {
+    const reportStatus = programReportStatusFilter.value;  // 선택된 신고 상태 가져오기
+    const { createdDateStart, createdDateEnd } = convertDateRange(programReportDateFilter.value);  // 날짜 변환 함수 호출
+
+    const koreanStatus = convertStatusToKorean(reportStatus);
+
+    // 필터 초기화 (전체 선택 시 기본값으로 리셋)
+    if (reportStatus === 'all' && programReportDateFilter.value === 'all') {
+        delete param.search.reportStatus;
+        delete param.search.createdDateStart;
+        delete param.search.createdDateEnd;
+    } else {
+        updateParam(param, createdDateStart, createdDateEnd, koreanStatus);
+    }
+
+    // 리스트 갱신
+    reportService.getProgramList(reportLayout.showProgramList, param);
 }
 
 // 필터 변경 이벤트 리스너 등록
-reportStatusFilter.addEventListener("change", applyFilters);
-reportDateFilter.addEventListener("change", applyFilters);
+companyReportStatusFilter.addEventListener("change", applyCompanyFilters);
+companyReportDateFilter.addEventListener("change", applyCompanyFilters);
+programReportStatusFilter.addEventListener("change", applyProgramFilters);
+programReportDateFilter.addEventListener("change", applyProgramFilters);
 
 //     상세보기 버튼을 누르면 모달창이 뜸
 const reportModal = document.querySelector(".report-modal");
@@ -171,7 +224,7 @@ const openReportModal = async (reportId) => {
         // split을 써서 시간을 제외한 연도-월-날짜만 가져옴
         document.querySelector("#report-date").textContent = reportData.createdDate.split(" ")[0];
         document.querySelector("#report-memberName").textContent = reportData.memberName;
-        document.querySelector("#report-reportSubject").textContent = reportData.reportSubject;
+        document.querySelector("#report-reportSubject").textContent = reportData.companyName;
         document.querySelector("#report-reportType").textContent = reportData.reportType;
         document.querySelector("#report-reportDetail").textContent = reportData.reportDetail;
 
@@ -198,7 +251,7 @@ cancelBtn.addEventListener("click", () => {
 
 // 상세보기 버튼 클릭 시 해당 신고의 상세 정보를 모달로 표시
 // 상세보기 버튼이 js에서 생성된거라 그냥 클래스명으로 선택하려니까 이벤트가 발동안됨..
-document.querySelector("#report-table tbody").addEventListener("click", (e) => {
+document.querySelector("#company-report-table tbody").addEventListener("click", (e) => {
     // 클릭한 대상이 'detail-btn' 클래스가 있는 버튼인지 확인
     if (e.target && e.target.classList.contains("detail-btn")) {
         const reportId = e.target.getAttribute("id");  // id 가져오기
@@ -227,5 +280,5 @@ saveBtn.addEventListener("click", async (e) => {
     await reportModalService.updateStatus(newStatus);
 
     // 상태 변경 후 현재 페이지를 유지하면서 목록을 갱신
-    await reportService.getList(reportLayout.showList, param);  // 현재 페이지 번호를 그대로 사용하여 목록 갱신
+    await reportService.getCompanyList(reportCompanyLayout.showCompanyList, param);  // 현재 페이지 번호를 그대로 사용하여 목록 갱신
 });

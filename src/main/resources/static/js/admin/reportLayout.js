@@ -1,20 +1,16 @@
-// 기간 필터의 기본값을 강제로 전체로 설정
-window.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".report-date-filter").value = "all";
-});
-
 const reportLayout = (() => {
-    const showList = async (reportListData) => {
+    const showCompanyList = async (companyReportListData, companyPagination) => {
+
         // js로 생성된 내용을 넣을 테이블의 바디
-        const reportTbody = document.querySelector("#report-table tbody");
+        const companyReportTbody = document.querySelector("#company-report-table tbody");
         // 페이지네이션을 감싸는 div
-        const reportPageWrap = document.querySelector(".report-pagination");
+        const reportPageWrap = document.querySelector(".company-report-pagination");
         // 신고목록 데이터에 있는 페이지네이션 정보
-        const pagination = reportListData.pagination;
+        const pagination = companyPagination;
 
         let text = ``;
         // 신고개수만큼 반복해서 테이블의 행 생성
-        reportListData.reports.forEach((report) => {
+        companyReportListData.forEach((report) => {
             const statusClass = getStatusClass(report.reportStatus); // 상태에 따른 클래스 설정
             const formattedDate = formatDate(report.createdDate); // 날짜 포매팅(시간 제거)
 
@@ -22,7 +18,7 @@ const reportLayout = (() => {
                 <tr>
                      <td>${report.id}</td>
                      <td>${report.reportType}</td>
-                     <td>${report.reportSubject}</td>
+                     <td>${report.companyName}</td>
                      <td>${report.memberName}</td>
                      <td>${formattedDate}</td>
                      <td>
@@ -35,7 +31,63 @@ const reportLayout = (() => {
             `;
         })
 
-        reportTbody.innerHTML = text;
+        companyReportTbody.innerHTML = text;
+
+        text = ``;
+
+        // 페이지 수에 맞게 페이지네이션 버튼을 생성
+        // 이전버튼(첫 페이지가 아닐때만 뜸)
+        if(pagination.prev){
+            text += `<button id="${pagination.startPage - 1}" class="page-btn prev">이전</button>`
+        }
+        // 페이지 수만큼 반복되어 만들어지는 페이지 버튼(id로 누를 때 이동할 페이지를 알려줌)
+        for(let i=pagination.startPage; i<=pagination.endPage; i++){
+            if(pagination.page === i){
+                text += `<button id="${i}" class="page-btn active">${i}</button>`
+                continue;
+            }
+            text += `<button id="${i}" class="page-btn">${i}</button>`
+        }
+        // 다음버튼(마지막 페이지가 아닐때만 뜸)
+        if(pagination.next){
+            text += `<button id="${pagination.endPage + 1}" class="page-btn next">다음</button>`
+        }
+        reportPageWrap.innerHTML = text;
+    }
+    const showProgramList = async (programReportListData, programPagination) => {
+
+        // js로 생성된 내용을 넣을 테이블의 바디
+        const programReportTbody = document.querySelector("#program-report-table tbody");
+        // 페이지네이션을 감싸는 div
+        const reportPageWrap = document.querySelector(".program-report-pagination");
+        // 신고목록 데이터에 있는 페이지네이션 정보
+        const pagination = programPagination;
+        console.log(programReportListData, programPagination);
+
+        let text = ``;
+        // 신고개수만큼 반복해서 테이블의 행 생성
+        programReportListData.forEach((report) => {
+            const statusClass = getStatusClass(report.reportStatus); // 상태에 따른 클래스 설정
+            const formattedDate = formatDate(report.createdDate); // 날짜 포매팅(시간 제거)
+
+            text += `
+                <tr>
+                     <td>${report.id}</td>
+                     <td>${report.reportType}</td>
+                     <td>${report.programName}</td>
+                     <td>${report.memberName}</td>
+                     <td>${formattedDate}</td>
+                     <td>
+                          <span class="status ${statusClass}">${report.reportStatus}</span>
+                     </td>
+                     <td>
+                         <button type="button" class="detail-btn" id="${report.id}">상세보기</button>
+                     </td>
+                </tr>
+            `;
+        })
+
+        programReportTbody.innerHTML = text;
 
         text = ``;
 
@@ -83,7 +135,7 @@ const reportLayout = (() => {
     }
 
 
-    return {showList : showList};
+    return {showCompanyList : showCompanyList, showProgramList : showProgramList};
 })();
 
 

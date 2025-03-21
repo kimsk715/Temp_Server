@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
     companyMember: document.querySelector(".company-member-management"), // 기업회원 관리 페이지
     personalInquiry: document.querySelector(".personal-inquiry-management"), // 개인문의 관리 페이지
     companyInquiry: document.querySelector(".company-inquiry-management"), // 기업문의 관리 페이지
-    report: document.querySelector(".report-management"), // 신고관리 페이지
+    companyReport: document.querySelector(".company-report-management"), // 기업 신고관리 페이지
+    programReport: document.querySelector(".program-report-management"), // 공고 신고관리 페이지
     notice : document.querySelector(".notice-management")
   };
 
@@ -56,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
     companyMember: document.querySelectorAll(".company-member-link"), // 기업회원 관련 모든 링크
     personalInquiry: document.querySelectorAll(".personal-inquiry-link"), // 개인문의 관련 모든 링크
     companyInquiry: document.querySelectorAll(".company-inquiry-link"), // 기업문의 관련 모든 링크
-    report: document.querySelectorAll(".report-link"), // 신고목록 관련 모든 링크
+    companyReport: document.querySelectorAll(".company-report-link"), // 기업 신고목록 관련 모든 링크
+    programReport: document.querySelectorAll(".program-report-link"), // 기업 신고목록 관련 모든 링크
     notice : document.querySelectorAll(".notice-link")
   };
 

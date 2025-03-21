@@ -20,5 +20,10 @@ public class ReportListDTO {
     private String createdDate;
     private String reportStatus;
     private Pagination pagination;
-    private List<ReportInfoDTO> reports;
+
+    // 기업 신고 리스트
+    private List<CompanyReportInfoDTO> companyReports;
+
+    // 프로그램 신고 리스트
+    private List<ProgramReportInfoDTO> programReports;
 }
