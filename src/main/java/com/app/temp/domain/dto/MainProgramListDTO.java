@@ -19,6 +19,7 @@ public class MainProgramListDTO {
     private String programThumbnailPath;
     private String scrapStatus;
     private Long categoryCId;
+    private Long categoryAId;
     //    0319 수정
-    private String keyword;
+
 }

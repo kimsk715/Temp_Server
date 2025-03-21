@@ -4,11 +4,12 @@ import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.ProgramVO;
 import com.app.temp.mapper.ApplyMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
+@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class ProgramDAO {
@@ -66,7 +67,12 @@ public class ProgramDAO {
 
     //    프로그램 검색 리스트
     public ArrayList<MainProgramListDTO> searchProgramsByKeyword(String keyword) {
-
         return applyMapper.searchProgramsByKeyword(keyword);
+    }
+
+//    카테고리 포함한 검색
+    public ArrayList<MainProgramListDTO> findAllByCategories(SearchInfoDTO searchInfoDTO) {
+        log.info("DAO : {}", applyMapper.selectAllByCategories(searchInfoDTO));
+        return applyMapper.selectAllByCategories(searchInfoDTO);
     }
 }
