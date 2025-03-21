@@ -25,7 +25,7 @@ searchCategories.forEach((searchCategory) => {
             })
             const param = {search: {category: categoryDatas}}
 
-            programListService.getAllProgramList(programListLayout.showList, param);
+            programListService.getAllProgramList(param);
         }, 0)
     })
 

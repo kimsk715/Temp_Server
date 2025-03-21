@@ -95,6 +95,7 @@
         FROM TBL_PROGRAM P
                  JOIN TBL_COMPANY C
                       ON P.COMPANY_ID = C.ID
+
         WHERE P.PROGRAM_DETAIL LIKE '%' || #{keyword} || '%'
            OR P.PROGRAM_NAME LIKE '%' || #{keyword} || '%'
            OR C.COMPANY_NAME LIKE '%' || #{keyword} || '%'

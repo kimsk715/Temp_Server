@@ -1,5 +1,5 @@
 const programListService= (() => {
-    const getAllProgramList = async(callback, param ={}, keyword) =>{
+    const getAllProgramList = async(param ={}, keyword) =>{
         let category = "";
         let search = param.search;
 
@@ -23,10 +23,8 @@ const programListService= (() => {
         }
         console.log(path)
         const response = await fetch(path)
-        const programListData = await response.json();
-        if(callback){
-            callback(programListData)
-        }
+        // const programListData = await response.json();
+
     }
     return {getAllProgramList: getAllProgramList};
 })();
