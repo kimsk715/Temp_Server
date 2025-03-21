@@ -3,10 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // ----------------------------------------------------
 
   // 신고관리 필터 요소 선택
-  const reportStatusFilter = document.querySelector(".report-status-filter"); // 상태 필터 드롭다운
-  const reportDateFilter = document.querySelector(".report-date-filter"); // 기간 필터 드롭다운
-  const reportSearchInput = document.querySelector(".report-search-input"); // 검색어 입력창
-  const reportSearchBtn = document.querySelector(".report-search-btn"); // 검색 버튼
+  const companyReportStatusFilter = document.querySelector(".company-report-status-filter"); // 상태 필터 드롭다운
+  const programReportStatusFilter = document.querySelector(".program-report-status-filter"); // 상태 필터 드롭다운
+  const companyReportDateFilter = document.querySelector(".company-report-date-filter"); // 기간 필터 드롭다운
+  const programReportDateFilter = document.querySelector(".program-report-date-filter"); // 기간 필터 드롭다운
+  const companyReportSearchInput = document.querySelector(".company-report-search-input"); // 검색어 입력창
+  const programReportSearchInput = document.querySelector(".program-report-search-input"); // 검색어 입력창
+  const companyReportSearchBtn = document.querySelector(".company-report-search-btn"); // 검색 버튼
+  const programReportSearchBtn = document.querySelector(".program-report-search-btn"); // 검색 버튼
 
   // 필수 DOM 요소 존재 검증
   //   if (
@@ -36,9 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 필터 초기화 함수
   function initializeFilters() {
-    reportStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
-    reportDateFilter.value = "week"; // 기간 필터 '1주일'로 초기화
-    reportSearchInput.value = ""; // 검색어 입력창 비우기
+    companyReportStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
+    programReportStatusFilter.value = "all"; // 상태 필터 '전체'로 초기화
+    companyReportDateFilter.value = "all"; // 기간 필터 '전체'로 초기화
+    programReportDateFilter.value = "all"; // 기간 필터 '전체'로 초기화
+    companyReportSearchInput.value = ""; // 검색어 입력창 비우기
+    programReportSearchInput.value = ""; // 검색어 입력창 비우기
     console.log("신고관리 필터 초기화 완료");
   }
 
@@ -46,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ----------------------------------------------------
 
   // 상태 필터 변경 이벤트
-  reportStatusFilter.addEventListener("change", function () {
+  companyReportStatusFilter.addEventListener("change", function () {
     const selectedStatus = this.value;
     // 선택된 상태값에 따른 한글 상태 매핑
     console.log(
@@ -63,20 +70,51 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
+  programReportStatusFilter.addEventListener("change", function () {
+    const selectedStatus = this.value;
+    // 선택된 상태값에 따른 한글 상태 매핑
+    console.log(
+        "신고관리 상태값:",
+        selectedStatus === "hold"
+            ? "보류"
+            : selectedStatus === "pending"
+                ? "처리중"
+                : selectedStatus === "false"
+                    ? "허위신고"
+                    : selectedStatus === "completed"
+                        ? "처리완료"
+                        : "전체"
+    );
+  });
+
   // 기간 필터 변경 이벤트
-  reportDateFilter.addEventListener("change", function () {
+  companyReportDateFilter.addEventListener("change", function () {
     const selectedDate = this.value;
-    console.log("신고관리 기간 필터:", selectedDate);
+    // console.log("신고관리 기간 필터:", selectedDate);
+  });
+  programReportDateFilter.addEventListener("change", function () {
+    const selectedDate = this.value;
+    // console.log("신고관리 기간 필터:", selectedDate);
   });
 
   // 검색 버튼 클릭 이벤트
-  reportSearchBtn.addEventListener("click", function () {
-    const searchText = reportSearchInput.value.trim();
+  companyReportSearchBtn.addEventListener("click", function () {
+    const searchText = companyReportSearchInput.value.trim();
+    reportSearch(searchText);
+  });
+  programReportSearchBtn.addEventListener("click", function () {
+    const searchText = programReportSearchInput.value.trim();
     reportSearch(searchText);
   });
 
   // 검색어 입력창 엔터키 이벤트
-  reportSearchInput.addEventListener("keypress", function (e) {
+  companyReportSearchInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      const searchText = this.value.trim();
+      reportSearch(searchText);
+    }
+  });
+  programReportSearchInput.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
       const searchText = this.value.trim();
       reportSearch(searchText);

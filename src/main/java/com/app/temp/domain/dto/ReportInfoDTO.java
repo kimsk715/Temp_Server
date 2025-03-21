@@ -14,9 +14,13 @@ public class ReportInfoDTO {
     private Long id;
     private String createdDate;
     private String memberName;
-    private String reportSubject;
+    private String companyName;
+    private String programName;
     private String reportType;
     private String reportStatus;
     private String reportDetail;
+    private Long memberId;
     private Pagination pagination;
+    private Long companyId;
+    private Long programId;
 }
