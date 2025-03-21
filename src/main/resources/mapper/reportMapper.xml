@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.app.temp.mapper.ReportMapper">
+    <!--  신고테이블 작성  -->
+    <insert id="insertReport">
+        <selectKey keyProperty="id" order="BEFORE" resultType="long">
+            SELECT SEQ_REPORT.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_REPORT
+        (ID, REPORT_TYPE, REPORT_DETAIL, REPORT_STATUS, MEMBER_ID)
+        VALUES(#{id}, #{reportType}, #{reportDetail}, '처리중', #{memberId})
+    </insert>
+
+    <!--  기업 신고테이블 작성  -->
+    <insert id="insertCompanyReport">
+        INSERT INTO TBL_COMPANY_REPORT (ID, COMPANY_ID)
+        VALUES (#{id}, #{companyId})
+    </insert>
+
+    <!--  공고 신고테이블 작성  -->
+    <insert id="insertProgramReport">
+        INSERT INTO TBL_PROGRAM_REPORT (ID, PROGRAM_ID)
+        VALUES (#{id}, #{programId})
+    </insert>
+
     <select id="selectReportListDtoByMemberId" resultType="reportListDTO">
         SELECT MEMBER_ID, REPORT_TYPE, REPORT_STATUS, CREATED_DATE FROM TBL_REPORT
         WHERE MEMBER_ID = #{id}
@@ -14,22 +36,38 @@
                       ON R.MEMBER_ID = CM.ID
     </select>
 
-    <select id="selectReportDetailById" resultType="reportInfoDTO">
-        SELECT R.ID, R.CREATED_DATE, M.MEMBER_NAME, R.REPORT_SUBJECT, R.REPORT_TYPE, R.REPORT_STATUS, R.REPORT_DETAIL
-        FROM TBL_MEMBER M JOIN TBL_REPORT R
-                               ON M.ID = R.MEMBER_ID
-                                   AND R.ID = #{id}
+    <!--  기업 상세정보 조회  -->
+    <select id="selectCompanyReportDetailById" resultType="reportInfoDTO">
+        SELECT R.ID, R.CREATED_DATE, M.MEMBER_NAME, C.COMPANY_NAME, R.REPORT_TYPE, R.REPORT_STATUS, R.REPORT_DETAIL
+        FROM TBL_MEMBER M
+        JOIN TBL_REPORT R ON M.ID = R.MEMBER_ID
+        JOIN TBL_COMPANY_REPORT CR ON CR.ID = R.ID
+        JOIN TBL_COMPANY C ON C.ID = CR.COMPANY_ID
+        WHERE R.ID = #{id}
     </select>
 
-    <select id="selectTotal" resultType="_int">
-        SELECT COUNT(*)
+    <!--  공고 상세정보 조회  -->
+    <select id="selectProgramReportDetailById" resultType="reportInfoDTO">
+        SELECT R.ID, R.CREATED_DATE, M.MEMBER_NAME, P.PROGRAM_NAME, R.REPORT_TYPE, R.REPORT_STATUS, R.REPORT_DETAIL
         FROM TBL_MEMBER M
-        JOIN TBL_REPORT RP ON RP.MEMBER_ID = M.ID
+                 JOIN TBL_REPORT R ON M.ID = R.MEMBER_ID
+                 JOIN TBL_PROGRAM_REPORT PR ON PR.ID = R.ID
+                 JOIN TBL_PROGRAM P ON P.ID = PR.PROGRAM_ID
+        WHERE R.ID = #{id}
+    </select>
+
+    <!--  기업신고 개수 조회  -->
+    <select id="selectCompanyReportTotal" resultType="_int">
+        SELECT COUNT(*)
+        FROM TBL_COMPANY_REPORT RC
+        JOIN TBL_REPORT RP ON RC.ID = RP.ID
+        JOIN TBL_MEMBER M ON RP.MEMBER_ID = M.ID
+        JOIN TBL_COMPANY C ON RC.COMPANY_ID = C.ID
         <where>
             <trim prefixOverrides="AND">
                 <if test="keyword != null and keyword != ''">
                     (M.MEMBER_NAME LIKE '%' || #{keyword} || '%'
-                    OR RP.REPORT_SUBJECT LIKE '%' || #{keyword} || '%')
+                    OR C.COMPANY_NAME LIKE '%' || #{keyword} || '%')
                 </if>
                 <if test="reportStatus != null and reportStatus != ''">
                     AND RP.REPORT_STATUS = #{reportStatus}
@@ -48,27 +86,109 @@
         </where>
     </select>
 
-    <!--  신고목록 조회  -->
-    <select id="selectAll" resultType="reportInfoDTO">
+    <!--  공고신고 개수 조회  -->
+    <select id="selectProgramReportTotal" resultType="_int">
+        SELECT COUNT(*)
+        FROM TBL_PROGRAM_REPORT PR
+        JOIN TBL_REPORT RP ON PR.ID = RP.ID
+        JOIN TBL_MEMBER M ON RP.MEMBER_ID = M.ID
+        JOIN TBL_PROGRAM P ON PR.PROGRAM_ID = P.ID
+        <where>
+            <trim prefixOverrides="AND">
+                <if test="keyword != null and keyword != ''">
+                    (M.MEMBER_NAME LIKE '%' || #{keyword} || '%'
+                    OR P.PROGRAM_NAME LIKE '%' || #{keyword} || '%')
+                </if>
+                <if test="reportStatus != null and reportStatus != ''">
+                    AND RP.REPORT_STATUS = #{reportStatus}
+                </if>
+                <if test="createdDateStart != null and createdDateStart != ''">
+                    <![CDATA[
+                    AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') >= #{createdDateStart}
+                ]]>
+                </if>
+                <if test="createdDateEnd != null and createdDateEnd != ''">
+                    <![CDATA[
+                    AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') <= #{createdDateEnd}
+                ]]>
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <!--  기업 신고목록 조회  -->
+    <select id="selectAllCompanyReport" resultType="companyReportInfoDTO">
         SELECT
-        ID, REPORT_SUBJECT, REPORT_TYPE, REPORT_DETAIL,
-        REPORT_STATUS, MEMBER_NAME, CREATED_DATE
+        ID, COMPANY_NAME, REPORT_TYPE, REPORT_DETAIL,
+        REPORT_STATUS, MEMBER_NAME, CREATED_DATE, COMPANY_ID, MEMBER_ID
+        FROM
+        (
+            SELECT
+            ROWNUM R, ID, COMPANY_NAME, REPORT_TYPE, REPORT_DETAIL,
+            REPORT_STATUS, CREATED_DATE, MEMBER_NAME, COMPANY_ID, MEMBER_ID
+            FROM
+        (
+            SELECT
+            RP.ID, C.COMPANY_NAME, RP.REPORT_TYPE, RP.REPORT_DETAIL,
+            RP.REPORT_STATUS, RP.CREATED_DATE, M.MEMBER_NAME, CR.COMPANY_ID, RP.MEMBER_ID
+            FROM TBL_MEMBER M
+            JOIN TBL_REPORT RP ON RP.MEMBER_ID = M.ID
+            JOIN TBL_COMPANY_REPORT CR ON RP.ID = CR.ID
+            JOIN TBL_COMPANY C ON C.ID = CR.COMPANY_ID
+                <!--  신고자나 신고대상으로 검색  -->
+                <if test="keyword != null and keyword != ''">
+                    AND (M.MEMBER_NAME LIKE '%' || #{keyword} || '%'
+                    OR C.COMPANY_NAME LIKE '%' || #{keyword} || '%')
+                </if>
+                <!--  처리상태로 필터링  -->
+                <if test="reportStatus != null and reportStatus != ''">
+                    AND RP.REPORT_STATUS = #{reportStatus}
+                </if>
+                <!--  신고 기간으로 필터링  -->
+                <if test="createdDateStart != null and createdDateStart != ''">
+                    <![CDATA[
+                                    AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') >= #{createdDateStart}
+                                ]]>
+                </if>
+                <if test="createdDateEnd != null and createdDateEnd != ''">
+                    <![CDATA[
+                                    AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') <= #{createdDateEnd}
+                                ]]>
+                </if>
+            ORDER BY RP.ID DESC
+            )
+                <![CDATA[
+                WHERE ROWNUM <= #{endRow}
+                    ]]>
+            )
+                <![CDATA[
+            WHERE R >= #{startRow}
+            ]]>
+    </select>
+
+    <!--  공고 신고목록 조회  -->
+    <select id="selectAllProgramReport" resultType="programReportInfoDTO">
+        SELECT
+        ID, PROGRAM_NAME, REPORT_TYPE, REPORT_DETAIL,
+        REPORT_STATUS, MEMBER_NAME, CREATED_DATE, PROGRAM_ID, MEMBER_ID
         FROM
         (
         SELECT
-        ROWNUM R, ID, REPORT_SUBJECT, REPORT_TYPE, REPORT_DETAIL,
-        REPORT_STATUS, CREATED_DATE, MEMBER_NAME
+        ROWNUM R, ID, PROGRAM_NAME, REPORT_TYPE, REPORT_DETAIL,
+        REPORT_STATUS, CREATED_DATE, MEMBER_NAME, PROGRAM_ID, MEMBER_ID
         FROM
         (
         SELECT
-        RP.ID, RP.REPORT_SUBJECT, RP.REPORT_TYPE, RP.REPORT_DETAIL,
-        RP.REPORT_STATUS, RP.CREATED_DATE, M.MEMBER_NAME
-        FROM TBL_MEMBER M JOIN TBL_REPORT RP
-        ON RP.MEMBER_ID = M.ID
+        RP.ID, P.PROGRAM_NAME, RP.REPORT_TYPE, RP.REPORT_DETAIL,
+        RP.REPORT_STATUS, RP.CREATED_DATE, M.MEMBER_NAME, PR.PROGRAM_ID, RP.MEMBER_ID
+        FROM TBL_MEMBER M
+        JOIN TBL_REPORT RP ON RP.MEMBER_ID = M.ID
+        JOIN TBL_PROGRAM_REPORT PR ON RP.ID = PR.ID
+        JOIN TBL_PROGRAM P ON P.ID = PR.PROGRAM_ID
         <!--  신고자나 신고대상으로 검색  -->
         <if test="keyword != null and keyword != ''">
             AND (M.MEMBER_NAME LIKE '%' || #{keyword} || '%'
-            OR RP.REPORT_SUBJECT LIKE '%' || #{keyword} || '%')
+            OR P.PROGRAM_NAME LIKE '%' || #{keyword} || '%')
         </if>
         <!--  처리상태로 필터링  -->
         <if test="reportStatus != null and reportStatus != ''">
@@ -77,24 +197,25 @@
         <!--  신고 기간으로 필터링  -->
         <if test="createdDateStart != null and createdDateStart != ''">
             <![CDATA[
-                            AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') >= #{createdDateStart}
-                        ]]>
+                                    AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') >= #{createdDateStart}
+                                ]]>
         </if>
         <if test="createdDateEnd != null and createdDateEnd != ''">
             <![CDATA[
-                            AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') <= #{createdDateEnd}
-                        ]]>
+                                    AND TO_CHAR(RP.CREATED_DATE, 'YYYY-MM-DD') <= #{createdDateEnd}
+                                ]]>
         </if>
         ORDER BY RP.ID DESC
         )
         <![CDATA[
-        WHERE ROWNUM <= #{endRow}
-            ]]>
+                WHERE ROWNUM <= #{endRow}
+                    ]]>
         )
         <![CDATA[
-    WHERE R >= #{startRow}
-    ]]>
+            WHERE R >= #{startRow}
+            ]]>
     </select>
+    <!--  처리상태 변경  -->
     <update id="updateReportStatus">
         UPDATE TBL_REPORT
         SET REPORT_STATUS=#{reportStatus}

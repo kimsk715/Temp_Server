@@ -113,15 +113,15 @@
   height: 270px;
 }
 
-/* 2개 항목을 가진 메뉴 (회원관리, 문의관리) */
+/* 2개 항목을 가진 메뉴 (회원관리, 문의관리, 신고관리) */
 .menu-section:nth-child(2) .submenu-container.show,
-.menu-section:nth-child(3) .submenu-container.show {
+.menu-section:nth-child(3) .submenu-container.show,
+.menu-section:nth-child(4) .submenu-container.show {
   height: 90px; /* 2개 항목 x 45px */
 }
 
-/* 1개 항목을 가진 메뉴 (공고관리, 신고관리) */
-.menu-section:nth-child(1) .submenu-container.show,
-.menu-section:nth-child(4) .submenu-container.show {
+/* 1개 항목을 가진 메뉴 (공고관리) */
+.menu-section:nth-child(1) .submenu-container.show{
   height: 45px; /* 1개 항목 x 45px */
 }
 

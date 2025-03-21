@@ -206,15 +206,19 @@
                                         </a>
                                         <div class="submenu-container">
                                             <a
-                                                class="submenu-item report-link"
-                                                href="#"
-                                                data-category="report"
-                                                >신고목록</a
+                                                class="submenu-item company-report-link"
+                                                href="/admin/home/reports/company-list"
+                                                data-category="company-report"
+                                                >기업 신고목록</a
+                                            >
+                                            <a
+                                                    class="submenu-item program-report-link"
+                                                    href="/admin/home/reports/program-list"
+                                                    data-category="program-report"
+                                            >공고 신고목록</a
                                             >
                                         </div>
-
-
-                                </div>
+                                    </div>
                                     <div class="menu-section">
                                         <a class="menu-item menu-has-submenu">
                                             <span class="menu-label">
@@ -244,7 +248,7 @@
                                     </div>
                                 </div>
                                     </div>
-
+                        </div>
                     </nav>
 
                     <!-- 메인 컨텐츠 영역 -->
@@ -414,18 +418,44 @@
                                                                     <div
                                                                         class="menu-name"
                                                                     >
-                                                                        신고목록
+                                                                        기업 신고목록
                                                                     </div>
                                                                     <em
                                                                         class="menu-status menu-wadiz-color"
                                                                         >신고관리</em
                                                                     >
                                                                     <a
-                                                                        class="menu-btn report-link"
-                                                                        href="#"
+                                                                        class="menu-btn company-report-link"
+                                                                        href="/admin/home/reports/company-list"
                                                                     >
                                                                         <span
                                                                             >바로가기</span
+                                                                        >
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+
+                                                            <li
+                                                                    class="menu-card menu-report"
+                                                            >
+                                                                <div
+                                                                        class="menu-content"
+                                                                >
+                                                                    <div
+                                                                            class="menu-name"
+                                                                    >
+                                                                        공고 신고목록
+                                                                    </div>
+                                                                    <em
+                                                                            class="menu-status menu-wadiz-color"
+                                                                    >신고관리</em
+                                                                    >
+                                                                    <a
+                                                                            class="menu-btn program-report-link"
+                                                                            href="/admin/home/reports/program-list"
+                                                                    >
+                                                                        <span
+                                                                        >바로가기</span
                                                                         >
                                                                     </a>
                                                                 </div>
@@ -871,29 +901,29 @@
                         </div>
                         <!-- // 기업문의 관리 컨텐츠 끝!!!!!!!!!! -->
 
-                        <!-- 신고관리 컨텐츠 -->
-                        <div class="report-management" style="display: none">
+                        <!-- 기업 신고관리 컨텐츠 -->
+                        <div class="company-report-management" style="display: none">
                             <!-- 상단 검색/필터 영역 -->
                             <div
-                                    class="report-search-filter-container report-filter"
+                                    class="company-report-search-filter-container company-report-filter"
                             >
                                 <div class="search-box report-search">
                                     <input
                                             type="text"
                                             name="keyword"
-                                            placeholder="신고자/신고대상으로 검색"
-                                            class="search-input report-search-input"
+                                            placeholder="신고자/신고기업으로 검색"
+                                            class="search-input company-report-search-input"
                                     />
                                     <button
                                             type="button"
-                                            class="search-btn report-search-btn"
+                                            class="search-btn company-report-search-btn"
                                     >
                                         검색
                                     </button>
                                 </div>
-                                <div class="filter-box report-filter-box">
+                                <div class="filter-box company-report-filter-box">
                                     <select
-                                            class="status-filter report-status-filter"
+                                            class="status-filter company-report-status-filter"
                                     >
                                         <option value="all" selected>전체</option>
                                         <option value="hold">보류</option>
@@ -904,7 +934,7 @@
                                         </option>
                                     </select>
                                     <select
-                                            class="date-filter report-date-filter"
+                                            class="date-filter company-report-date-filter"
                                     >
                                         <option value="all" selected>전체</option>
                                         <option value="week">최근 1주일</option>
@@ -919,8 +949,8 @@
                             </div>
 
                             <!-- 신고 목록 테이블 -->
-                            <div class="report-table-container">
-                                <table class="report-table" id="report-table">
+                            <div class="company-report-table-container">
+                                <table class="company-report-table" id="company-report-table">
                                     <thead>
                                     <tr>
                                         <th>신고번호</th>
@@ -937,7 +967,97 @@
                             </div>
 
                             <!-- 페이지네이션 -->
-                            <div class="pagination report-pagination">
+                            <div class="pagination company-report-pagination">
+                                <!--                                <button type="button" class="page-btn prev">-->
+                                <!--                                    이전-->
+                                <!--                                </button>-->
+                                <!--                                <div class="page-numbers">-->
+                                <!--                                    <button-->
+                                <!--                                        type="button"-->
+                                <!--                                        class="page-btn active"-->
+                                <!--                                    >-->
+                                <!--                                        1-->
+                                <!--                                    </button>-->
+                                <!--                                    <button type="button" class="page-btn">-->
+                                <!--                                        2-->
+                                <!--                                    </button>-->
+                                <!--                                    <button type="button" class="page-btn">-->
+                                <!--                                        3-->
+                                <!--                                    </button>-->
+                                <!--                                </div>-->
+                                <!--                                <button type="button" class="page-btn next">-->
+                                <!--                                    다음-->
+                                <!--                                </button>-->
+                            </div>
+                        </div>
+
+                        <!-- 공고 신고관리 컨텐츠 -->
+                        <div class="program-report-management" style="display: none">
+                            <!-- 상단 검색/필터 영역 -->
+                            <div
+                                    class="program-report-search-filter-container program-report-filter"
+                            >
+                                <div class="search-box program-report-search">
+                                    <input
+                                            type="text"
+                                            name="keyword"
+                                            placeholder="신고자/신고공고로 검색"
+                                            class="search-input program-report-search-input"
+                                    />
+                                    <button
+                                            type="button"
+                                            class="search-btn program-report-search-btn"
+                                    >
+                                        검색
+                                    </button>
+                                </div>
+                                <div class="filter-box program-report-filter-box">
+                                    <select
+                                            class="status-filter program-report-status-filter"
+                                    >
+                                        <option value="all" selected>전체</option>
+                                        <option value="hold">보류</option>
+                                        <option value="pending">처리중</option>
+                                        <option value="false">허위신고</option>
+                                        <option value="completed">
+                                            처리완료
+                                        </option>
+                                    </select>
+                                    <select
+                                            class="date-filter program-report-date-filter"
+                                    >
+                                        <option value="all" selected>전체</option>
+                                        <option value="week">최근 1주일</option>
+                                        <option value="month">
+                                            최근 1개월
+                                        </option>
+                                        <option value="three-month">
+                                            최근 3개월
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- 신고 목록 테이블 -->
+                            <div class="program-report-table-container">
+                                <table class="program-report-table" id="program-report-table">
+                                    <thead>
+                                    <tr>
+                                        <th>신고번호</th>
+                                        <th>신고유형</th>
+                                        <th>신고대상</th>
+                                        <th>신고자</th>
+                                        <th>신고일시</th>
+                                        <th>처리상태</th>
+                                        <th>&nbsp&nbsp신고관리</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
+                            <!-- 페이지네이션 -->
+                            <div class="pagination program-report-pagination">
                                 <!--                                <button type="button" class="page-btn prev">-->
                                 <!--                                    이전-->
                                 <!--                                </button>-->
@@ -1058,8 +1178,8 @@
         </div>
 
 
-        <!-- 신고관리 상세보기 모달 -->
-        <div class="report-modal" style="display: none">
+        <!-- 기업 신고관리 상세보기 모달 -->
+        <div class="company-report-modal" style="display: none">
             <div class="modal-backdrop"></div>
             <div class="modal-container">
                 <!-- 모달 헤더 -->
@@ -1077,25 +1197,25 @@
                 <div class="modal-body">
                     <!-- 신고 기본 정보 -->
 
-                    <div class="report-info">
+                    <div class="company-report-info">
                         <h4>INFO</h4>
                         <table class="info-table">
                             <tbody>
                             <tr>
                                 <th>신고번호</th>
-                                <td id="report-id">0000001</td>
+                                <td id="company-report-id">0000001</td>
                                 <th>신고일시</th>
-                                <td id="report-date">2025-02-04</td>
+                                <td id="company-report-date">2025-02-04</td>
                             </tr>
                             <tr>
                                 <th>신고자</th>
-                                <td id="report-memberName">허세웅</td>
+                                <td id="company-report-memberName">허세웅</td>
                                 <th>신고대상</th>
-                                <td id="report-reportSubject">템프</td>
+                                <td id="company-report-companyName">템프</td>
                             </tr>
                             <tr>
                                 <th>신고유형</th>
-                                <td colspan="3" id="report-reportType">
+                                <td colspan="3" id="company-report-reportType">
                                     부적절한 내용
                                 </td>
                             </tr>
@@ -1104,9 +1224,9 @@
                     </div>
 
                     <!-- 신고 상세 내용 -->
-                    <div class="report-detail">
+                    <div class="company-report-detail">
                         <h4>신고 상세내용</h4>
-                        <div class="detail-content" id="report-reportDetail">
+                        <div class="detail-content" id="company-report-reportDetail">
                             템프 공고에 적절하지 않은 텍스트가 포함되어
                             있습니다.
                         </div>
@@ -1115,7 +1235,7 @@
                     <!-- 처리 상태 선택 -->
                     <div class="status-selection">
                         <h4>처리 상태</h4>
-                        <select class="status-select report-status">
+                        <select class="status-select company-report-status">
                             <option value="pending">처리중</option>
                             <option value="hold">보류</option>
                             <option value="false">허위신고</option>
@@ -1132,6 +1252,80 @@
                     <!--                        ></textarea>-->
                     <!--                    </div>-->
                     <!--                </div>-->
+
+                    <!-- 모달 푸터 -->
+                    <div class="modal-footer">
+                        <button type="button" class="cancel-btn">취소</button>
+                        <button type="button" class="save-btn">저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 공고 신고관리 상세보기 모달 -->
+        <div class="program-report-modal" style="display: none">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container">
+                <!-- 모달 헤더 -->
+                <div class="modal-header">
+                    <h3>신고 상세정보</h3>
+                    <button type="button" class="close-btn">
+                        <img
+                                src="/images/admin/cross.png"
+                                alt="닫기"
+                        />
+                    </button>
+                </div>
+
+                <!-- 모달 본문 -->
+                <div class="modal-body">
+                    <!-- 신고 기본 정보 -->
+
+                    <div class="program-report-info">
+                        <h4>INFO</h4>
+                        <table class="info-table">
+                            <tbody>
+                            <tr>
+                                <th>신고번호</th>
+                                <td id="program-report-id">0000001</td>
+                                <th>신고일시</th>
+                                <td id="program-report-date">2025-02-04</td>
+                            </tr>
+                            <tr>
+                                <th>신고자</th>
+                                <td id="program-report-memberName">허세웅</td>
+                                <th>신고대상</th>
+                                <td id="program-report-programName">템프</td>
+                            </tr>
+                            <tr>
+                                <th>신고유형</th>
+                                <td colspan="3" id="program-report-reportType">
+                                    부적절한 내용
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 신고 상세 내용 -->
+                    <div class="company-report-detail">
+                        <h4>신고 상세내용</h4>
+                        <div class="detail-content" id="program-report-reportDetail">
+                            템프 공고에 적절하지 않은 텍스트가 포함되어
+                            있습니다.
+                        </div>
+                    </div>
+
+                    <!-- 처리 상태 선택 -->
+                    <div class="status-selection">
+                        <h4>처리 상태</h4>
+                        <select class="status-select program-report-status">
+                            <option value="pending">처리중</option>
+                            <option value="hold">보류</option>
+                            <option value="false">허위신고</option>
+                            <option value="completed">처리완료</option>
+                        </select>
+                    </div>
 
                     <!-- 모달 푸터 -->
                     <div class="modal-footer">

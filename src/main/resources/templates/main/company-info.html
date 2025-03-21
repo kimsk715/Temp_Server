@@ -17,6 +17,8 @@
 <header th:replace="/main/header.html :: .header-sc"></header>
 <!-- // 헤더 끝 -->
 <main class="main" th:object="${companyDTO}">
+<!--  id를 받기 위한 숨겨진 input  -->
+    <input type="hidden" th:value="*{id}" name="companyId">
     <div class="mainWrapper">
         <div class="mainContent">
             <section class="companyTitle compSection">
@@ -217,6 +219,38 @@
                             </dd>
                         </div>
                     </dl>
+                            <div class="reportModalButton">
+                                <a href="" id="openModalButton">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="24" width="24" version="1.1" id="Layer_1" viewBox="0 0 512 512" xml:space="preserve">
+<g>
+	<g>
+		<path d="M384,372.07v-128c0-70.579-57.421-128-128-128s-128,57.421-128,128v128c-14.14,0-25.6,11.46-25.6,25.6v25.6    c0,14.14,11.46,25.6,25.6,25.6h256c14.14,0,25.6-11.46,25.6-25.6v-25.6C409.6,383.531,398.14,372.07,384,372.07z M153.6,244.07    c0-56.559,45.85-102.4,102.4-102.4c56.55,0,102.4,45.841,102.4,102.4v128H153.6V244.07z M384,423.27H128v-25.6h256V423.27z"/>
+	</g>
+</g>
+                                        <g>
+	<g>
+		<path d="M129.348,117.419l-18.091-18.091C74.172,136.405,51.2,187.605,51.2,244.07c0,38.502,10.88,74.419,29.431,105.224    l21.922-13.15C86.315,309.188,76.8,277.76,76.8,244.07C76.8,194.662,96.896,149.862,129.348,117.419z"/>
+	</g>
+</g>
+                                        <g>
+	<g>
+		<path d="M400.751,99.319L382.66,117.41c32.444,32.452,52.54,77.252,52.54,126.66c0,33.69-9.515,65.118-25.745,92.075l21.922,13.15    C449.92,318.49,460.8,282.564,460.8,244.07C460.8,187.605,437.828,136.405,400.751,99.319z"/>
+	</g>
+</g>
+                                        <g>
+	<g>
+		<path d="M436.932,63.13l-18.099,18.099c41.728,41.719,67.567,99.319,67.567,162.842c0,43.315-12.237,83.729-33.109,118.374    l21.922,13.158C498.406,337.101,512,292.198,512,244.07C512,173.483,483.294,109.483,436.932,63.13z"/>
+	</g>
+</g>
+                                        <g>
+	<g>
+		<path d="M93.158,81.229L75.068,63.13C28.706,109.483,0,173.483,0,244.07c0,48.128,13.594,93.03,36.779,131.533l21.922-13.158    C37.837,327.791,25.6,287.377,25.6,244.07C25.6,180.548,51.439,122.948,93.158,81.229z"/>
+	</g>
+</g>
+</svg>
+                                    <span>기업 신고하기</span>
+                                </a>
+                            </div>
                 </div>
             </section>
             <section
@@ -678,9 +712,89 @@
 </main>
 <!-- 푸터 시작 -->
 <!-- // 푸터 끝 -->
+<!--신고하기 누르면 뜨는 모달창-->
+<div class="report-modal" style="display: none">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+        <!-- 모달 헤더 -->
+        <div class="modal-header">
+            <h3>기업 신고하기</h3>
+            <button type="button" class="close-btn">
+                <img
+                        src="/images/admin/cross.png"
+                        alt="닫기"
+                />
+            </button>
+        </div>
+
+        <!-- 모달 본문 -->
+        <div class="modal-body">
+            <!-- 신고 대상 입력 -->
+            <form th:action="@{/reports/company-create}" method="post" id="">
+                <div class="report-info">
+                    <h4>신고 대상</h4>
+                    <div class="report-subject" id="report-target">
+                        <span
+                                style="width: 100%; height: 100%"
+                                id="companyName"
+                                th:text="${companyDTO.companyName}"
+                        ></span>
+                        <input type="hidden" id="companyId" name="companyId" th:value="${companyDTO.id}">
+                    </div>
+
+                    <!-- 신고 유형 선택 -->
+                    <div class="report-selection">
+                        <h4>신고 유형</h4>
+                        <select class="report-type" name="reportType" id="reportType">
+                            <option
+                                    value="권리 침해"
+                                    selected
+                            >
+                                권리 침해
+                            </option>
+                            <option value="허위정보">
+                                허위정보
+                            </option>
+                            <option value="스팸 / 도배"> 스팸 &#47; 도배</option>
+                            <option value="부적절한 내용">
+                                부적절한 내용
+                            </option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+
+                    <!-- 신고 상세정보 입력 -->
+                    <div class="report-detail">
+                        <h4>신고 상세 내용</h4>
+                        <textarea
+                                placeholder="신고 내역에 대한 상세정보를 입력해주세요."
+                                id="reportDetail"
+                                style="
+                            width: 100%;
+                            min-height: 100px;
+                            padding: 12px;
+                            margin: 8px 0;
+                            border: 1px solid #e9ecef;
+                            border-radius: 4px;
+                            resize: vertical;"
+                                name="reportDetail"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- 모달 푸터 -->
+                <div class="modal-footer">
+                    <button type="button" class="cancel-btn">취소</button>
+                    <button type="button" class="save-btn">보내기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 <script src="/js/main/company-info.js"></script>
 <script src="/js/member/mypage-all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="/js/admin/reportService.js"></script>
+<script src="/js/main/report-write-event.js"></script>
 </html>
