@@ -42,5 +42,8 @@
         <typeAlias type="com.app.temp.domain.dto.MypageDTO" alias="mypageDTO"/>
         <typeAlias type="com.app.temp.domain.dto.ApplicationDTO" alias="applicationDTO"/>
         <typeAlias type="com.app.temp.domain.dto.ApplyDTO" alias="applyDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.ProgramInfoDTO" alias="programInfoDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.PayDTO" alias="payDTO"/>
+
     </typeAliases>
 </configuration>

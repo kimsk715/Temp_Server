@@ -29,9 +29,9 @@
 
         <div>
             <div id="content" class="basic">
-                <div class="wrap_content">
+                <div class="wrap_content" th:object="${companyMember}">
                     <div id="divTitle" class="wrap_title">
-                        <h1 class="title_common">기업정보 관리</h1>
+                        <h1 class="title_common" th:text="*{memberName}">기업정보 관리</h1>
                     </div>
                     <div class="companyinfo_modify_wrap">
                         <input type="hidden" name="mode" value="edit"
@@ -56,64 +56,43 @@
                                     <col style="width:300px">
                                 </colgroup>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            ID
-                                        </th>
-                                        <td colspan="2"
-                                            class="txtLeft">
-                                            qwer1234 </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            사업자등록번호
-                                        </th>
-                                        <td colspan="2"
-                                            class="txtLeft">
-                                            <input type="hidden"
-                                                name="before_csn"
-                                                value="000-00-00000"
-                                                id="before_csn">000-00-00000
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            기업 인증
-                                            <div
-                                                class="toolTipWrap over">
-                                                <button type="button"
-                                                    class="icon_tooltip"><span
-                                                        class="hidden">툴팁</span></button>
-                                                <div class="toolTip"
-                                                    style="bottom: 31px; left: -123px; width: 262px;">
-                                                    <span
-                                                        class="tail tail_bottom_center"></span>
-                                                    <div
-                                                        class="toolTipCont txtLeft">
-                                                        <p>정확한 기업정보
-                                                            제공을 위해<br>
-                                                            기업 인증 절차를
-                                                            진행하고
-                                                            있습니다.<br>
-                                                            인증을 원하시는
-                                                            경우,<br>
-                                                            [인증 요청]을
-                                                            이용해주시기
-                                                            바랍니다. <br>
-                                                            (사업자등록증명원
-                                                            사본 첨부 필수)
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </th>
-                                        <td colspan="2"
-                                            class="company_division txtLeft">
-                                            미인증<button type="button"
-                                                id="req_certification"
-                                                class="btnSizeS colorWhite btn_right">인증
-                                                요청</button> </td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row">
+                                            <span class="required"><b>*</b>
+                                                이메일</span>
+                                    </th>
+
+                                    <td class="txtLeft" colspan="2">
+                                        <input type="hidden" name="seq" value="seq1738488158" id="seq"><input type="hidden" name="fit_masking_fl" value="n" id="fit_masking_fl"><input type="hidden" name="sms_corp_charge" value="n" id="sms_corp_charge"><input type="hidden" name="mail_confirm_complete" value="n" id="mail_confirm_complete">
+                                        <span class="form_body">
+                                                <span style="display: inline; margin-bottom:20px" id="maskingEmailForm" th:text="*{memberEmail}">
+
+                                                </span>
+                                                <span class="input_confirm" id="maskingCompareForm" style="display:none;">
+                                                    <input type="text" class="inpTypo sizeS" id="masking_email" value="" placeholder="현재 이메일을 입력해주세요.">
+                                                    <button type="button" id="btnMaskingEmailCompare" class="btnSizeS colorWhite">확인</button>
+                                                </span>
+                                                <span class="input_confirm" id="sendEmailForm" style="display:none;">
+                                                    <input type="text" class="inpTypo sizeS" id="change_email" value="" placeholder="변경할 이메일 주소를 입력해주세요.">
+                                                    <button type="button" id="btnSendEmail" class="btnSizeS colorWhite">인증요청</button>
+                                                </span>
+                                                <span class="input_confirm" id="sendEmailCodeForm" style="display:none;">
+                                                    <input type="text" class="inpTypo sizeS" id="mailCertNum" value="" placeholder="인증번호를 입력해주세요.">
+                                                    <button type="button" id="btnCertConfirmMail" class="btnSizeS colorWhite">확인</button>
+                                                    <span class="remain_time">
+                                                        남은시간 <span class="remain_time_mail" id="remain_time_mail">2:55</span>
+                                                    </span>
+                                                </span>
+                                                <button type="button" id="btnEditEmail" class="btnSizeS colorWhite" data-type="email">변경하기</button>
+                                                <button type="button" id="btnEditEmailCancle" class="btnSizeS colorWhite" data-type="email" style="display:none;">취소</button>
+                                            </span>
+                                        <div class="ipin_guide" id="privacy_guide_email" style="display:none;">
+                                            * 현재 이메일이 기억나지 않는다면 <a href="#" class="ipin_link" onclick="popupCertify(document.getElementById('certify-form2'))">본인명의
+                                            인증</a> 후 수정할 수
+                                            있습니다.
+                                        </div>
+                                    </td>
+                                </tr>
                                     <tr>
                                         <th scope="row">
                                             <span
@@ -151,7 +130,7 @@
                                             <input type="hidden"
                                                 name="company_cd"
                                                 value="1"
-                                                id="company_cd"> 일반
+                                                id="company_cd" th:text="*{memberStatus}">
                                         </td>
                                     </tr>
                                     <tr>
@@ -160,8 +139,8 @@
                                                 class="required"><b>*</b>
                                                 이름</span>
                                         </th>
-                                        <td class="txtLeft">
-                                            홍길동 </td>
+                                        <td class="txtLeft" th:text="*{memberName}">
+                                             </td>
                                         <td scope="row" rowspan="2"
                                             class="txtCenter">
                                             <button type="button"
@@ -177,131 +156,20 @@
                                                 class="required"><b>*</b>
                                                 연락처</span>
                                         </th>
-                                        <td class="txtLeft">
-                                            010 - **** - 5678 </td>
+                                        <td class="txtLeft" th:text="*{memberPhone}">
+                                             </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <span
-                                                class="required"><b>*</b>
-                                                이메일</span>
-                                        </th>
 
-                                        <td class="txtLeft"
-                                            colspan="2">
-                                            <input type="hidden"
-                                                name="seq"
-                                                value="seq1738488158"
-                                                id="seq"><input
-                                                type="hidden"
-                                                name="fit_masking_fl"
-                                                value="n"
-                                                id="fit_masking_fl"><input
-                                                type="hidden"
-                                                name="sms_corp_charge"
-                                                value="n"
-                                                id="sms_corp_charge"><input
-                                                type="hidden"
-                                                name="mail_confirm_complete"
-                                                value="n"
-                                                id="mail_confirm_complete">
-                                            <span class="form_body">
-                                                <span
-                                                    style="display: inline; margin-bottom:20px"
-                                                    id="maskingEmailForm">
-                                                    qwe*****@gmail.com
-                                                </span>
-                                                <span
-                                                    class="input_confirm"
-                                                    id="maskingCompareForm"
-                                                    style="display:none;">
-                                                    <input type="text"
-                                                        class="inpTypo sizeS"
-                                                        id="masking_email"
-                                                        value=""
-                                                        placeholder="현재 이메일을 입력해주세요.">
-                                                    <button
-                                                        type="button"
-                                                        id="btnMaskingEmailCompare"
-                                                        class="btnSizeS colorWhite">확인</button>
-                                                </span>
-                                                <span
-                                                    class="input_confirm"
-                                                    id="sendEmailForm"
-                                                    style="display:none;">
-                                                    <input type="text"
-                                                        class="inpTypo sizeS"
-                                                        id="change_email"
-                                                        value=""
-                                                        placeholder="변경할 이메일 주소를 입력해주세요.">
-                                                    <button
-                                                        type="button"
-                                                        id="btnSendEmail"
-                                                        class="btnSizeS colorWhite">인증요청</button>
-                                                </span>
-                                                <span
-                                                    class="input_confirm"
-                                                    id="sendEmailCodeForm"
-                                                    style="display:none;">
-                                                    <input type="text"
-                                                        class="inpTypo sizeS"
-                                                        id="mailCertNum"
-                                                        value=""
-                                                        placeholder="인증번호를 입력해주세요.">
-                                                    <button
-                                                        type="button"
-                                                        id="btnCertConfirmMail"
-                                                        class="btnSizeS colorWhite">확인</button>
-                                                    <span
-                                                        class="remain_time">
-                                                        남은시간 <span
-                                                            class="remain_time_mail"
-                                                            id="remain_time_mail">2:55</span>
-                                                    </span>
-                                                </span>
-                                                <button type="button"
-                                                    id="btnEditEmail"
-                                                    class="btnSizeS colorWhite"
-                                                    data-type="email">변경하기</button>
-                                                <button type="button"
-                                                    id="btnEditEmailCancle"
-                                                    class="btnSizeS colorWhite"
-                                                    data-type="email"
-                                                    style="display:none;">취소</button>
-                                            </span>
-                                            <div class="ipin_guide"
-                                                id="privacy_guide_email"
-                                                style="display:none;">
-                                                * 현재 이메일이 기억나지 않는다면 <a
-                                                    href="#"
-                                                    class="ipin_link"
-                                                    onclick="popupCertify(document.getElementById('certify-form2'))">본인명의
-                                                    인증</a> 후 수정할 수
-                                                있습니다.
-                                            </div>
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <th scope="row">
                                             <span class="required">나의
                                                 권한</span>
                                         </th>
                                         <td colspan="2"
-                                            class="txtLeft">
+                                            class="txtLeft" th:text="*{companyMemberAuthority}">
                                             마스터 </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <span
-                                                class="required">비밀번호</span>
-                                        </th>
-                                        <td colspan="2"
-                                            class="txtLeft">
-                                            <button type="button"
-                                                id="btnEditPassword"
-                                                class="btnSizeS colorWhite">변경하기</button>
-                                        </td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -309,546 +177,546 @@
                         </div>
                         <br>
                         <br>
-                        <script>
-                            (function ($) {
-                                var processFlag = '';
-                                $("input[name='agency_file_nm_certification'], input[name='file_nm_certification'], input[name='agency_file_nm']").bind("change", function () {
+<!--                        <script>-->
+<!--                            (function ($) {-->
+<!--                                var processFlag = '';-->
+<!--                                $("input[name='agency_file_nm_certification'], input[name='file_nm_certification'], input[name='agency_file_nm']").bind("change", function () {-->
 
-                                    if (ie_flag() < 10 && ie_flag() != false) {
-                                        return false;
-                                    }
+<!--                                    if (ie_flag() < 10 && ie_flag() != false) {-->
+<!--                                        return false;-->
+<!--                                    }-->
 
-                                    var name = $(this).attr('name');
-                                    var classNm = '#' + name + '_txt';
-                                    var reader = new FileReader();
-                                    var file = $(this).get(0).files[0];
+<!--                                    var name = $(this).attr('name');-->
+<!--                                    var classNm = '#' + name + '_txt';-->
+<!--                                    var reader = new FileReader();-->
+<!--                                    var file = $(this).get(0).files[0];-->
 
-                                    if (file && /\.(jpe?g|gif|png)$/i.test(file.name)
-                                        && file.size < 1000000) {
-                                        reader.readAsDataURL(file);
-                                        reader.onload = function () {
-                                            var tmp = reader.result;
-                                            $(classNm).val(file.name);
-                                        }
-                                    } else {
-                                        if (file) alert("첨부한 파일의 확장자/용량을 확인해주세요.\n" +
-                                            "*최대 용량 : 1MB 이하\n" +
-                                            "*파일 확장자 : jpg, jpeg, png, gif 권장");
-                                        $(this).val("");
-                                        return false;
-                                    }
-                                });
+<!--                                    if (file && /\.(jpe?g|gif|png)$/i.test(file.name)-->
+<!--                                        && file.size < 1000000) {-->
+<!--                                        reader.readAsDataURL(file);-->
+<!--                                        reader.onload = function () {-->
+<!--                                            var tmp = reader.result;-->
+<!--                                            $(classNm).val(file.name);-->
+<!--                                        }-->
+<!--                                    } else {-->
+<!--                                        if (file) alert("첨부한 파일의 확장자/용량을 확인해주세요.\n" +-->
+<!--                                            "*최대 용량 : 1MB 이하\n" +-->
+<!--                                            "*파일 확장자 : jpg, jpeg, png, gif 권장");-->
+<!--                                        $(this).val("");-->
+<!--                                        return false;-->
+<!--                                    }-->
+<!--                                });-->
 
-                                var clearId = '';
-                                $('#sendCodeEmail').on('click', function () {
-                                    if ($('#email_id').val() === '' || $('#email_dm').val() === '') {
-                                        alert('이메일 값을 입력 해주세요.');
-                                    }
-                                    var email = $('#email_id').val() + '@' + $('#email_dm').val();
-                                    sendCode('', email);
+<!--                                var clearId = '';-->
+<!--                                $('#sendCodeEmail').on('click', function () {-->
+<!--                                    if ($('#email_id').val() === '' || $('#email_dm').val() === '') {-->
+<!--                                        alert('이메일 값을 입력 해주세요.');-->
+<!--                                    }-->
+<!--                                    var email = $('#email_id').val() + '@' + $('#email_dm').val();-->
+<!--                                    sendCode('', email);-->
 
-                                });
+<!--                                });-->
 
-                                $('#btnEditEmail').on('click', function () {
-                                    maskingMode();
-                                });
+<!--                                $('#btnEditEmail').on('click', function () {-->
+<!--                                    maskingMode();-->
+<!--                                });-->
 
-                                $('#btnEditEmailCancle').on('click', function () {
-                                    maskingMode('masking');
-                                });
+<!--                                $('#btnEditEmailCancle').on('click', function () {-->
+<!--                                    maskingMode('masking');-->
+<!--                                });-->
 
-                                $('#masking_email').on('keyup', function () {
-                                    setButtonColor(this, 'btnMaskingEmailCompare');
-                                });
+<!--                                $('#masking_email').on('keyup', function () {-->
+<!--                                    setButtonColor(this, 'btnMaskingEmailCompare');-->
+<!--                                });-->
 
-                                $('#change_email').on('keyup', function () {
-                                    setButtonColor(this, 'btnSendEmail');
-                                });
+<!--                                $('#change_email').on('keyup', function () {-->
+<!--                                    setButtonColor(this, 'btnSendEmail');-->
+<!--                                });-->
 
-                                $('#mailCertNum').on('keyup', function () {
-                                    setButtonColor(this, 'btnCertConfirmMail');
-                                });
+<!--                                $('#mailCertNum').on('keyup', function () {-->
+<!--                                    setButtonColor(this, 'btnCertConfirmMail');-->
+<!--                                });-->
 
-                                $('#btnMaskingEmailCompare').on('click', function () {
-                                    maskingEmailCompare();
-                                });
+<!--                                $('#btnMaskingEmailCompare').on('click', function () {-->
+<!--                                    maskingEmailCompare();-->
+<!--                                });-->
 
-                                $('#btnSendEmail').on('click', function () {
-                                    sendChangeEmail();
-                                });
+<!--                                $('#btnSendEmail').on('click', function () {-->
+<!--                                    sendChangeEmail();-->
+<!--                                });-->
 
-                                $('#sms_corp_charge').on('change', function () {
-                                    if ($('#sms_corp_charge').val() === 'y' && $('#fit_masking_fl').val() === 'y') {
-                                        $('#maskingCompareForm').css("display", "none");
-                                        $('#sendEmailForm').css("display", "block");
-                                        $('#privacy_guide_email').css("display", "none");
-                                    }
-                                });
+<!--                                $('#sms_corp_charge').on('change', function () {-->
+<!--                                    if ($('#sms_corp_charge').val() === 'y' && $('#fit_masking_fl').val() === 'y') {-->
+<!--                                        $('#maskingCompareForm').css("display", "none");-->
+<!--                                        $('#sendEmailForm').css("display", "block");-->
+<!--                                        $('#privacy_guide_email').css("display", "none");-->
+<!--                                    }-->
+<!--                                });-->
 
-                                $('#sendEmailCancel').on('click', function () {
-                                    maskingMode('masking');
-                                });
-                                $('#sendEmailCodeCancel').on('click', function () {
-                                    $('#sendEmailCodeForm').hide();
-                                    $('#sendEmailBtnForm').show();
-                                    $('#sendEmailCodeBtnForm').hide();
-                                    $('#domainForm').show();
-                                    sendCodeMode();
-                                    stopSmsConfirm();
-                                });
-                                $('#btnCertConfirmMail').on('click', function () {
-                                    certConfirm();
-                                });
-                                $('#req_certification').on('click', function () {
-                                    window.open('/zf_user/memcom/certification/', '_blank');
-                                    return false;
-                                    //window.location.href = '/zf_user/memcom/certification/';
-                                });
-                                $('#btnEditPassword').on('click', function () {
-                                    window.open(location.origin + '/zf_user/company/edit-passwd')
-                                });
+<!--                                $('#sendEmailCancel').on('click', function () {-->
+<!--                                    maskingMode('masking');-->
+<!--                                });-->
+<!--                                $('#sendEmailCodeCancel').on('click', function () {-->
+<!--                                    $('#sendEmailCodeForm').hide();-->
+<!--                                    $('#sendEmailBtnForm').show();-->
+<!--                                    $('#sendEmailCodeBtnForm').hide();-->
+<!--                                    $('#domainForm').show();-->
+<!--                                    sendCodeMode();-->
+<!--                                    stopSmsConfirm();-->
+<!--                                });-->
+<!--                                $('#btnCertConfirmMail').on('click', function () {-->
+<!--                                    certConfirm();-->
+<!--                                });-->
+<!--                                $('#req_certification').on('click', function () {-->
+<!--                                    window.open('/zf_user/memcom/certification/', '_blank');-->
+<!--                                    return false;-->
+<!--                                    //window.location.href = '/zf_user/memcom/certification/';-->
+<!--                                });-->
+<!--                                $('#btnEditPassword').on('click', function () {-->
+<!--                                    window.open(location.origin + '/zf_user/company/edit-passwd')-->
+<!--                                });-->
 
-                                $('#btnEditDeptNm').on('click', function () {
-                                    $('#currentDeptNm').hide();
-                                    $('#deptNmForm').show();
-                                    $('#btnEditDeptNm').hide();
-                                    $('#btnEditDeptNmCancel').show();
-                                });
+<!--                                $('#btnEditDeptNm').on('click', function () {-->
+<!--                                    $('#currentDeptNm').hide();-->
+<!--                                    $('#deptNmForm').show();-->
+<!--                                    $('#btnEditDeptNm').hide();-->
+<!--                                    $('#btnEditDeptNmCancel').show();-->
+<!--                                });-->
 
-                                $('#btnEditDeptNmCancel').on('click', function () {
-                                    var deptNm = $('#currentDeptNm').text().trim(),
-                                        value = deptNm.length < 1 || deptNm === '-' ? '' : deptNm;
-                                    $('#changeDeptNm').val(value);
-                                    $('#currentDeptNm').show();
-                                    $('#deptNmForm').hide();
-                                    $('#btnEditDeptNm').show();
-                                    $('#btnEditDeptNmCancel').hide();
-                                });
+<!--                                $('#btnEditDeptNmCancel').on('click', function () {-->
+<!--                                    var deptNm = $('#currentDeptNm').text().trim(),-->
+<!--                                        value = deptNm.length < 1 || deptNm === '-' ? '' : deptNm;-->
+<!--                                    $('#changeDeptNm').val(value);-->
+<!--                                    $('#currentDeptNm').show();-->
+<!--                                    $('#deptNmForm').hide();-->
+<!--                                    $('#btnEditDeptNm').show();-->
+<!--                                    $('#btnEditDeptNmCancel').hide();-->
+<!--                                });-->
 
-                                $('#btnSaveDeptNm').on('click', function () {
-                                    saveDeptNm();
-                                });
+<!--                                $('#btnSaveDeptNm').on('click', function () {-->
+<!--                                    saveDeptNm();-->
+<!--                                });-->
 
-                                function setButtonColor(el, id) {
-                                    if ($(el).val().length > 0) {
-                                        setActiveButton(id, true);
-                                    } else {
-                                        setActiveButton(id, false);
-                                    }
-                                }
+<!--                                function setButtonColor(el, id) {-->
+<!--                                    if ($(el).val().length > 0) {-->
+<!--                                        setActiveButton(id, true);-->
+<!--                                    } else {-->
+<!--                                        setActiveButton(id, false);-->
+<!--                                    }-->
+<!--                                }-->
 
-                                function setActiveButton(id, active) {
-                                    if (active) {
-                                        if ($('#' + id).hasClass('colorWhite')) {
-                                            $('#' + id).removeClass('colorWhite');
-                                        }
-                                        if (!$('#' + id).hasClass('colorBlue')) {
-                                            $('#' + id).addClass('colorBlue');
-                                        }
-                                    } else {
-                                        if ($('#' + id).hasClass('colorBlue')) {
-                                            $('#' + id).removeClass('colorBlue');
-                                        }
-                                        if (!$('#' + id).hasClass('colorWhite')) {
-                                            $('#' + id).addClass('colorWhite');
-                                        }
-                                    }
-                                }
+<!--                                function setActiveButton(id, active) {-->
+<!--                                    if (active) {-->
+<!--                                        if ($('#' + id).hasClass('colorWhite')) {-->
+<!--                                            $('#' + id).removeClass('colorWhite');-->
+<!--                                        }-->
+<!--                                        if (!$('#' + id).hasClass('colorBlue')) {-->
+<!--                                            $('#' + id).addClass('colorBlue');-->
+<!--                                        }-->
+<!--                                    } else {-->
+<!--                                        if ($('#' + id).hasClass('colorBlue')) {-->
+<!--                                            $('#' + id).removeClass('colorBlue');-->
+<!--                                        }-->
+<!--                                        if (!$('#' + id).hasClass('colorWhite')) {-->
+<!--                                            $('#' + id).addClass('colorWhite');-->
+<!--                                        }-->
+<!--                                    }-->
+<!--                                }-->
 
-                                function maskingMode(type) {
-                                    if (type === 'masking') {
-                                        resetEmailChangeForm();
+<!--                                function maskingMode(type) {-->
+<!--                                    if (type === 'masking') {-->
+<!--                                        resetEmailChangeForm();-->
 
-                                        $('#maskingCompareForm').css("display", "none");
-                                        $('#sendEmailForm').css("display", "none");
-                                        $('#sendEmailCodeForm').css("display", "none");
+<!--                                        $('#maskingCompareForm').css("display", "none");-->
+<!--                                        $('#sendEmailForm').css("display", "none");-->
+<!--                                        $('#sendEmailCodeForm').css("display", "none");-->
 
-                                        $('#btnEditEmail').show();
-                                        $('#btnEditEmailCancle').hide();
-                                        $('#privacy_guide_email').hide();
-                                    } else {
-                                        if ($('#maskingEmailForm').text().trim().length < 1 || $('#maskingEmailForm').text().trim() === '-') {
-                                            $('#fit_masking_fl').val('y');
-                                            $('#maskingCompareForm').css("display", "none");
-                                            $('#sendEmailForm').css("display", "block");
-                                            $('#btnEditEmail').hide();
-                                            $('#btnEditEmailCancle').show();
-                                            $('#privacy_guide_email').show();
-                                        } else {
-                                            $('#maskingCompareForm').css("display", "block");
-                                            $('#btnEditEmail').hide();
-                                            $('#btnEditEmailCancle').show();
-                                            $('#privacy_guide_email').show();
-                                        }
-                                    }
-                                }
+<!--                                        $('#btnEditEmail').show();-->
+<!--                                        $('#btnEditEmailCancle').hide();-->
+<!--                                        $('#privacy_guide_email').hide();-->
+<!--                                    } else {-->
+<!--                                        if ($('#maskingEmailForm').text().trim().length < 1 || $('#maskingEmailForm').text().trim() === '-') {-->
+<!--                                            $('#fit_masking_fl').val('y');-->
+<!--                                            $('#maskingCompareForm').css("display", "none");-->
+<!--                                            $('#sendEmailForm').css("display", "block");-->
+<!--                                            $('#btnEditEmail').hide();-->
+<!--                                            $('#btnEditEmailCancle').show();-->
+<!--                                            $('#privacy_guide_email').show();-->
+<!--                                        } else {-->
+<!--                                            $('#maskingCompareForm').css("display", "block");-->
+<!--                                            $('#btnEditEmail').hide();-->
+<!--                                            $('#btnEditEmailCancle').show();-->
+<!--                                            $('#privacy_guide_email').show();-->
+<!--                                        }-->
+<!--                                    }-->
+<!--                                }-->
 
-                                function resetEmailChangeForm() {
-                                    $('#fit_masking_fl').val('n');
-                                    $('#masking_email').val('');
-                                    $('#change_email').val('');
-                                    $('#mailCertNum').val('');
-                                    $('#change_email').prop('readonly', false);
-                                    $('#btnSendEmail').prop('disabled', false);
-                                    setActiveButton('btnMaskingEmailCompare', false);
-                                    setActiveButton('btnSendEmail', false);
-                                    setActiveButton('btnCertConfirmMail', false);
-                                    stopSmsConfirm();
-                                    stopSmsConfirmAfter();
-                                }
+<!--                                function resetEmailChangeForm() {-->
+<!--                                    $('#fit_masking_fl').val('n');-->
+<!--                                    $('#masking_email').val('');-->
+<!--                                    $('#change_email').val('');-->
+<!--                                    $('#mailCertNum').val('');-->
+<!--                                    $('#change_email').prop('readonly', false);-->
+<!--                                    $('#btnSendEmail').prop('disabled', false);-->
+<!--                                    setActiveButton('btnMaskingEmailCompare', false);-->
+<!--                                    setActiveButton('btnSendEmail', false);-->
+<!--                                    setActiveButton('btnCertConfirmMail', false);-->
+<!--                                    stopSmsConfirm();-->
+<!--                                    stopSmsConfirmAfter();-->
+<!--                                }-->
 
-                                function maskingEmailCompare() {
-                                    if ($('#masking_email').val() === '') {
-                                        alert('현재 이메일을 입력해주세요.');
-                                        $('#masking_email').focus();
-                                        return false;
-                                    }
+<!--                                function maskingEmailCompare() {-->
+<!--                                    if ($('#masking_email').val() === '') {-->
+<!--                                        alert('현재 이메일을 입력해주세요.');-->
+<!--                                        $('#masking_email').focus();-->
+<!--                                        return false;-->
+<!--                                    }-->
 
-                                    if (processFlag !== '') {
-                                        alert('다른 작업을 수행중입니다. 잠시후 다시시도 바랍니다.');
-                                        return false;
-                                    }
+<!--                                    if (processFlag !== '') {-->
+<!--                                        alert('다른 작업을 수행중입니다. 잠시후 다시시도 바랍니다.');-->
+<!--                                        return false;-->
+<!--                                    }-->
 
-                                    const paramData = {
-                                        type: 'email',
-                                        value: $('#masking_email').val()
-                                    };
-                                    $.ajax({
-                                        url: '/zf_user/member/fit-masking/fit-cell-email',
-                                        type: 'POST',
-                                        data: paramData,
-                                        dataType: 'json',
-                                        beforeSend: function () {
-                                            processFlag = 'maskingEmailCompare';
-                                        },
-                                        success: function (res) {
-                                            processFlag = '';
-                                            $('#fit_masking_fl').val('n');
-                                            if (res.result === 'fail') {
-                                                alert(res.message);
-                                                $('#masking_email').focus();
-                                                return false;
-                                            }
-                                            if (res.result === 'success') {
-                                                $('#fit_masking_fl').val('y');
-                                                $('#maskingCompareForm').css("display", "none");
-                                                $('#sendEmailForm').css("display", "block");
-                                                $('#privacy_guide_email').css("display", "none");
-                                            }
-                                        },
-                                        error: function (error) {
-                                            alert('요청에 실패하였습니다. 새로고침 후 다시 시도해주세요.');
-                                        }
-                                    });
-                                }
+<!--                                    const paramData = {-->
+<!--                                        type: 'email',-->
+<!--                                        value: $('#masking_email').val()-->
+<!--                                    };-->
+<!--                                    $.ajax({-->
+<!--                                        url: '/zf_user/member/fit-masking/fit-cell-email',-->
+<!--                                        type: 'POST',-->
+<!--                                        data: paramData,-->
+<!--                                        dataType: 'json',-->
+<!--                                        beforeSend: function () {-->
+<!--                                            processFlag = 'maskingEmailCompare';-->
+<!--                                        },-->
+<!--                                        success: function (res) {-->
+<!--                                            processFlag = '';-->
+<!--                                            $('#fit_masking_fl').val('n');-->
+<!--                                            if (res.result === 'fail') {-->
+<!--                                                alert(res.message);-->
+<!--                                                $('#masking_email').focus();-->
+<!--                                                return false;-->
+<!--                                            }-->
+<!--                                            if (res.result === 'success') {-->
+<!--                                                $('#fit_masking_fl').val('y');-->
+<!--                                                $('#maskingCompareForm').css("display", "none");-->
+<!--                                                $('#sendEmailForm').css("display", "block");-->
+<!--                                                $('#privacy_guide_email').css("display", "none");-->
+<!--                                            }-->
+<!--                                        },-->
+<!--                                        error: function (error) {-->
+<!--                                            alert('요청에 실패하였습니다. 새로고침 후 다시 시도해주세요.');-->
+<!--                                        }-->
+<!--                                    });-->
+<!--                                }-->
 
-                                function sendChangeEmail() {
-                                    const email_reg = /^[0-9a-z._+-]+@([0-9a-z_-]+\.)+[a-z]{2,10}$/i;
-                                    const changeEmail = $('#change_email').val();
+<!--                                function sendChangeEmail() {-->
+<!--                                    const email_reg = /^[0-9a-z._+-]+@([0-9a-z_-]+\.)+[a-z]{2,10}$/i;-->
+<!--                                    const changeEmail = $('#change_email').val();-->
 
-                                    //이메일 벨리데이션
-                                    if ($('#fit_masking_fl').val() !== 'y') {
-                                        alert('정상적인 이메일 변경이 아닙니다. 다시 확인해주세요.');
-                                        window.location.reload();
-                                        return false;
-                                    }
-                                    if (changeEmail.length < 1 || changeEmail == '') {
-                                        alert('변경할 이메일을 입력해주세요.');
-                                        $('#change_email').focus();
-                                        return false;
-                                    }
+<!--                                    //이메일 벨리데이션-->
+<!--                                    if ($('#fit_masking_fl').val() !== 'y') {-->
+<!--                                        alert('정상적인 이메일 변경이 아닙니다. 다시 확인해주세요.');-->
+<!--                                        window.location.reload();-->
+<!--                                        return false;-->
+<!--                                    }-->
+<!--                                    if (changeEmail.length < 1 || changeEmail == '') {-->
+<!--                                        alert('변경할 이메일을 입력해주세요.');-->
+<!--                                        $('#change_email').focus();-->
+<!--                                        return false;-->
+<!--                                    }-->
 
-                                    if (!email_reg.test(changeEmail)) {
-                                        alert("잘못된 이메일 주소입니다. 이메일 주소를 정확하게 입력해주세요.");
-                                        $('#change_email').focus();
-                                        return false;
-                                    }
+<!--                                    if (!email_reg.test(changeEmail)) {-->
+<!--                                        alert("잘못된 이메일 주소입니다. 이메일 주소를 정확하게 입력해주세요.");-->
+<!--                                        $('#change_email').focus();-->
+<!--                                        return false;-->
+<!--                                    }-->
 
-                                    if (!checkDuplicateEmail(changeEmail)) {
-                                        sendCode('', changeEmail);
-                                    }
-                                }
+<!--                                    if (!checkDuplicateEmail(changeEmail)) {-->
+<!--                                        sendCode('', changeEmail);-->
+<!--                                    }-->
+<!--                                }-->
 
-                                function getEmailData() {
-                                    $.ajax({
-                                        url: '/zf_user/company-join/get-company-info-data',
-                                        type: 'POST',
-                                        data: {
-                                            type: 'email'
-                                        },
-                                        dataType: 'json',
-                                        success: function (res) {
-                                            if (res.status === 'need_login') {
-                                                alert('로그인 후 이용해주세요.');
-                                                location.reload();
-                                                return;
-                                            }
+<!--                                function getEmailData() {-->
+<!--                                    $.ajax({-->
+<!--                                        url: '/zf_user/company-join/get-company-info-data',-->
+<!--                                        type: 'POST',-->
+<!--                                        data: {-->
+<!--                                            type: 'email'-->
+<!--                                        },-->
+<!--                                        dataType: 'json',-->
+<!--                                        success: function (res) {-->
+<!--                                            if (res.status === 'need_login') {-->
+<!--                                                alert('로그인 후 이용해주세요.');-->
+<!--                                                location.reload();-->
+<!--                                                return;-->
+<!--                                            }-->
 
-                                            if (!!res.result.email_account) {
-                                                $('#email_id').val(res.result.email_account);
-                                            }
+<!--                                            if (!!res.result.email_account) {-->
+<!--                                                $('#email_id').val(res.result.email_account);-->
+<!--                                            }-->
 
-                                            $('#maskingEmailForm').hide();
-                                            $('#sendEmailForm').show();
-                                            $('#sendEmailBtnForm').show();
-                                        },
-                                        error: function (error) {
-                                            alert('요청에 실패하였습니다. 새로고침 후 다시 시도해주세요.');
-                                        }
-                                    });
-                                }
+<!--                                            $('#maskingEmailForm').hide();-->
+<!--                                            $('#sendEmailForm').show();-->
+<!--                                            $('#sendEmailBtnForm').show();-->
+<!--                                        },-->
+<!--                                        error: function (error) {-->
+<!--                                            alert('요청에 실패하였습니다. 새로고침 후 다시 시도해주세요.');-->
+<!--                                        }-->
+<!--                                    });-->
+<!--                                }-->
 
-                                function sendCodeMode(type) {
-                                    if (type === 'send') {
-                                        $('#change_email').prop('readonly', true);
-                                        $('#sendEmailCodeForm').show();
-                                    } else if (type === 'send_btn') {
-                                        $('#btnSendEmail').prop('disabled', true);
-                                    } else if (type === 'timeout_btn') {
-                                        $('#sendEmailCodeForm').hide();
-                                        $('#change_email').prop('readonly', false);
-                                        $('#btnSendEmail').prop('disabled', false);
-                                    } else {
-                                        $('#sendEmailCodeForm').hide();
-                                        $('#change_email').prop('readonly', false);
-                                    }
-                                }
+<!--                                function sendCodeMode(type) {-->
+<!--                                    if (type === 'send') {-->
+<!--                                        $('#change_email').prop('readonly', true);-->
+<!--                                        $('#sendEmailCodeForm').show();-->
+<!--                                    } else if (type === 'send_btn') {-->
+<!--                                        $('#btnSendEmail').prop('disabled', true);-->
+<!--                                    } else if (type === 'timeout_btn') {-->
+<!--                                        $('#sendEmailCodeForm').hide();-->
+<!--                                        $('#change_email').prop('readonly', false);-->
+<!--                                        $('#btnSendEmail').prop('disabled', false);-->
+<!--                                    } else {-->
+<!--                                        $('#sendEmailCodeForm').hide();-->
+<!--                                        $('#change_email').prop('readonly', false);-->
+<!--                                    }-->
+<!--                                }-->
 
-                                function checkDuplicateEmail(email) {
-                                    var result = false;
+<!--                                function checkDuplicateEmail(email) {-->
+<!--                                    var result = false;-->
 
-                                    $.ajax('/zf_user/company-join/check-duplicate-email', {
-                                        type: 'POST',
-                                        data: { email: email },
-                                        dataType: 'json',
-                                        async: false,
-                                        success: function (res) {
-                                            if (res.status === 'already_joined') {
-                                                alert(res.message || '이미 가입된 멤버입니다.');
-                                                result = true;
-                                            } else if (res.status === 'need_login') {
-                                                alert('로그인 후 이용해주세요.');
-                                                location.reload();
-                                            }
-                                        },
-                                        error: function (e) {
-                                        }
-                                    });
+<!--                                    $.ajax('/zf_user/company-join/check-duplicate-email', {-->
+<!--                                        type: 'POST',-->
+<!--                                        data: { email: email },-->
+<!--                                        dataType: 'json',-->
+<!--                                        async: false,-->
+<!--                                        success: function (res) {-->
+<!--                                            if (res.status === 'already_joined') {-->
+<!--                                                alert(res.message || '이미 가입된 멤버입니다.');-->
+<!--                                                result = true;-->
+<!--                                            } else if (res.status === 'need_login') {-->
+<!--                                                alert('로그인 후 이용해주세요.');-->
+<!--                                                location.reload();-->
+<!--                                            }-->
+<!--                                        },-->
+<!--                                        error: function (e) {-->
+<!--                                        }-->
+<!--                                    });-->
 
-                                    return result;
-                                }
+<!--                                    return result;-->
+<!--                                }-->
 
-                                function sendCode(cell, email) {
-                                    if ($('#fit_masking_fl').val() !== 'y') {
-                                        alert('정상적인 수정 프로세스가 아닙니다. 다시 시도해주세요.');
-                                        window.location.reload();
-                                        return;
-                                    }
+<!--                                function sendCode(cell, email) {-->
+<!--                                    if ($('#fit_masking_fl').val() !== 'y') {-->
+<!--                                        alert('정상적인 수정 프로세스가 아닙니다. 다시 시도해주세요.');-->
+<!--                                        window.location.reload();-->
+<!--                                        return;-->
+<!--                                    }-->
 
-                                    $.ajax('/zf_user/persons/send-code', {
-                                        type: 'POST',
-                                        data: {
-                                            phone: cell,
-                                            email: email,
-                                            channel: 'mail'
-                                        },
-                                        dataType: 'json',
-                                        success: function (json) {
-                                            if (json.code === 'limit.send') {
-                                                return alert(json.msg);
-                                            }
-                                            if (json === "invalid_phone") {
-                                                return alert("휴대폰번호가 올바르지 않습니다.");
-                                            }
-                                            if (json === "invalid_email") {
-                                                return alert("이메일주소가 올바르지 않습니다.");
-                                            }
-                                            if (json === 'confirms.duplication') {
-                                                return alert("현재 등록된 정보와 동일합니다.");
-                                            }
-                                            if (json.code === "certification_notice") {
-                                                return alert("일시적인 오류로 인하여 " + json.message + " 이용이 불가능합니다. 잠시 후 다시 이용해주세요.");
-                                            }
-                                            startSmsConfirm();
-                                            alert("인증번호가 발송되었습니다.");
-                                            sendCodeMode('send');
-                                            sendCodeMode('send_btn');
-                                        },
-                                        error: function (e) {
-                                            if (window.console) {
-                                                console.log(e);
-                                            }
-                                        }
-                                    });
-                                }
+<!--                                    $.ajax('/zf_user/persons/send-code', {-->
+<!--                                        type: 'POST',-->
+<!--                                        data: {-->
+<!--                                            phone: cell,-->
+<!--                                            email: email,-->
+<!--                                            channel: 'mail'-->
+<!--                                        },-->
+<!--                                        dataType: 'json',-->
+<!--                                        success: function (json) {-->
+<!--                                            if (json.code === 'limit.send') {-->
+<!--                                                return alert(json.msg);-->
+<!--                                            }-->
+<!--                                            if (json === "invalid_phone") {-->
+<!--                                                return alert("휴대폰번호가 올바르지 않습니다.");-->
+<!--                                            }-->
+<!--                                            if (json === "invalid_email") {-->
+<!--                                                return alert("이메일주소가 올바르지 않습니다.");-->
+<!--                                            }-->
+<!--                                            if (json === 'confirms.duplication') {-->
+<!--                                                return alert("현재 등록된 정보와 동일합니다.");-->
+<!--                                            }-->
+<!--                                            if (json.code === "certification_notice") {-->
+<!--                                                return alert("일시적인 오류로 인하여 " + json.message + " 이용이 불가능합니다. 잠시 후 다시 이용해주세요.");-->
+<!--                                            }-->
+<!--                                            startSmsConfirm();-->
+<!--                                            alert("인증번호가 발송되었습니다.");-->
+<!--                                            sendCodeMode('send');-->
+<!--                                            sendCodeMode('send_btn');-->
+<!--                                        },-->
+<!--                                        error: function (e) {-->
+<!--                                            if (window.console) {-->
+<!--                                                console.log(e);-->
+<!--                                            }-->
+<!--                                        }-->
+<!--                                    });-->
+<!--                                }-->
 
-                                function startSmsConfirm() {
-                                    var minute = 3;
-                                    var second = 0;
+<!--                                function startSmsConfirm() {-->
+<!--                                    var minute = 3;-->
+<!--                                    var second = 0;-->
 
-                                    setTimeText(minute, second);
-                                    stopSmsConfirm();
+<!--                                    setTimeText(minute, second);-->
+<!--                                    stopSmsConfirm();-->
 
-                                    clearId = setInterval(lap, 1000);
+<!--                                    clearId = setInterval(lap, 1000);-->
 
-                                    function setTimeText(minute, second) {
-                                        var second_text = (second / 10) < 1 ? "0" + second : second;
-                                        $('#remain_time_mail').html(minute + ':' + second_text);
-                                    }
+<!--                                    function setTimeText(minute, second) {-->
+<!--                                        var second_text = (second / 10) < 1 ? "0" + second : second;-->
+<!--                                        $('#remain_time_mail').html(minute + ':' + second_text);-->
+<!--                                    }-->
 
-                                    function lap() {
-                                        if (second === 0 && minute > 0) {
-                                            second = 59;
-                                            minute -= 1;
-                                        } else {
-                                            second -= 1;
-                                        }
+<!--                                    function lap() {-->
+<!--                                        if (second === 0 && minute > 0) {-->
+<!--                                            second = 59;-->
+<!--                                            minute -= 1;-->
+<!--                                        } else {-->
+<!--                                            second -= 1;-->
+<!--                                        }-->
 
-                                        setTimeText(minute, second);
+<!--                                        setTimeText(minute, second);-->
 
-                                        if (minute === 0 && second === 0) {
-                                            alert('입력시간이 만료되었습니다. 인증번호를 다시 발송해주세요.');
-                                            stopSmsConfirm();
-                                            stopSmsConfirmAfter();
-                                            sendCodeMode('timeout_btn');
-                                        }
-                                    }
-                                }
-                                function stopSmsConfirmAfter() {
-                                    $('#remain_time_mail').html('00:00');
-                                }
+<!--                                        if (minute === 0 && second === 0) {-->
+<!--                                            alert('입력시간이 만료되었습니다. 인증번호를 다시 발송해주세요.');-->
+<!--                                            stopSmsConfirm();-->
+<!--                                            stopSmsConfirmAfter();-->
+<!--                                            sendCodeMode('timeout_btn');-->
+<!--                                        }-->
+<!--                                    }-->
+<!--                                }-->
+<!--                                function stopSmsConfirmAfter() {-->
+<!--                                    $('#remain_time_mail').html('00:00');-->
+<!--                                }-->
 
 
-                                function stopSmsConfirm() {
-                                    if (clearId) {
-                                        clearInterval(clearId);
-                                        clearId = '';
-                                    }
-                                }
+<!--                                function stopSmsConfirm() {-->
+<!--                                    if (clearId) {-->
+<!--                                        clearInterval(clearId);-->
+<!--                                        clearId = '';-->
+<!--                                    }-->
+<!--                                }-->
 
-                                function certConfirm() {
-                                    var certNum = '',
-                                        email = $('#change_email').val(),
-                                        certNum = $('#mailCertNum').val();
+<!--                                function certConfirm() {-->
+<!--                                    var certNum = '',-->
+<!--                                        email = $('#change_email').val(),-->
+<!--                                        certNum = $('#mailCertNum').val();-->
 
-                                    if (certNum === '') {
-                                        return alert("인증번호를 입력해주세요.");
-                                    }
+<!--                                    if (certNum === '') {-->
+<!--                                        return alert("인증번호를 입력해주세요.");-->
+<!--                                    }-->
 
-                                    $.ajax({
-                                        url: '/zf_user/persons/validate-code',
-                                        type: 'POST',
-                                        data: {
-                                            category: 'edit',
-                                            seq: $('#seq').val(),
-                                            code: certNum,
-                                            channel: 'mail',
-                                            phone: '',
-                                            email: email
-                                        },
-                                        dataType: 'json',
-                                        success: function (json) {
-                                            if (json === 'limit.cert') {
-                                                return alert('본인 인증이 5회 이상 실패하여 24시간 동안 인증이 제한됩니다.\n제한해제를 원하실 경우, 고객센터로 문의해주세요.')
-                                            }
+<!--                                    $.ajax({-->
+<!--                                        url: '/zf_user/persons/validate-code',-->
+<!--                                        type: 'POST',-->
+<!--                                        data: {-->
+<!--                                            category: 'edit',-->
+<!--                                            seq: $('#seq').val(),-->
+<!--                                            code: certNum,-->
+<!--                                            channel: 'mail',-->
+<!--                                            phone: '',-->
+<!--                                            email: email-->
+<!--                                        },-->
+<!--                                        dataType: 'json',-->
+<!--                                        success: function (json) {-->
+<!--                                            if (json === 'limit.cert') {-->
+<!--                                                return alert('본인 인증이 5회 이상 실패하여 24시간 동안 인증이 제한됩니다.\n제한해제를 원하실 경우, 고객센터로 문의해주세요.')-->
+<!--                                            }-->
 
-                                            if (json === 'confirms.verified') {
-                                                $('#mail_confirm_complete').val('y');
-                                                stopSmsConfirm();
-                                                alert("인증되었습니다.");
-                                                saveEmail();
-                                                return;
-                                            }
-                                            $('#mail_confirm_complete').val('n');
-                                            alert("인증번호가 틀렸습니다. 다시 입력해주세요.");
-                                            return;
-                                        },
+<!--                                            if (json === 'confirms.verified') {-->
+<!--                                                $('#mail_confirm_complete').val('y');-->
+<!--                                                stopSmsConfirm();-->
+<!--                                                alert("인증되었습니다.");-->
+<!--                                                saveEmail();-->
+<!--                                                return;-->
+<!--                                            }-->
+<!--                                            $('#mail_confirm_complete').val('n');-->
+<!--                                            alert("인증번호가 틀렸습니다. 다시 입력해주세요.");-->
+<!--                                            return;-->
+<!--                                        },-->
 
-                                        error: function (error) {
-                                            stopSmsConfirm();
-                                            alert("인증번호 확인 오류. 다시 확인해주세요.");
-                                            return;
-                                        },
-                                        complete: function (json) {
-                                            if (window.console) {
-                                                console.log('complete');
-                                            }
-                                        }
-                                    });
-                                }
+<!--                                        error: function (error) {-->
+<!--                                            stopSmsConfirm();-->
+<!--                                            alert("인증번호 확인 오류. 다시 확인해주세요.");-->
+<!--                                            return;-->
+<!--                                        },-->
+<!--                                        complete: function (json) {-->
+<!--                                            if (window.console) {-->
+<!--                                                console.log('complete');-->
+<!--                                            }-->
+<!--                                        }-->
+<!--                                    });-->
+<!--                                }-->
 
-                                function saveEmail() {
-                                    var params = { 'type': 'email' },
-                                        emailVal = $('#change_email').val().split('@'),
-                                        emailIdValue = emailVal[0] || '',
-                                        emailDmValue = emailVal[1] || '';
-                                    if (emailIdValue === '' || emailDmValue === '') {
-                                        alert('이메일이 입력되지 않았습니다.');
-                                        return false;
-                                    }
-                                    params.email_id = emailIdValue;
-                                    params.email_dm = emailDmValue;
-                                    params.change_security = 'y';
-                                    params.info_item = 'email';
-                                    params.seq = $('#seq').val();
+<!--                                function saveEmail() {-->
+<!--                                    var params = { 'type': 'email' },-->
+<!--                                        emailVal = $('#change_email').val().split('@'),-->
+<!--                                        emailIdValue = emailVal[0] || '',-->
+<!--                                        emailDmValue = emailVal[1] || '';-->
+<!--                                    if (emailIdValue === '' || emailDmValue === '') {-->
+<!--                                        alert('이메일이 입력되지 않았습니다.');-->
+<!--                                        return false;-->
+<!--                                    }-->
+<!--                                    params.email_id = emailIdValue;-->
+<!--                                    params.email_dm = emailDmValue;-->
+<!--                                    params.change_security = 'y';-->
+<!--                                    params.info_item = 'email';-->
+<!--                                    params.seq = $('#seq').val();-->
 
-                                    $.ajax({
-                                        url: '/zf_user/company-join/update-item',
-                                        method: 'post',
-                                        data: params,
-                                        dataType: 'json',
-                                        async: false
-                                    }).done(function (data) {
-                                        if (data.result === 'not_authorized') {
-                                            alert('세션이 종료되었습니다.\n다시 로그인 하여 주시기 바랍니다.');
-                                            location.reload();
-                                            return false;
-                                        } else if (data.result === 'invalid_code') {
-                                            alert('이메일 인증을 다시 시도해 주시기 바랍니다.');
-                                            location.reload();
-                                            return false;
-                                        }
+<!--                                    $.ajax({-->
+<!--                                        url: '/zf_user/company-join/update-item',-->
+<!--                                        method: 'post',-->
+<!--                                        data: params,-->
+<!--                                        dataType: 'json',-->
+<!--                                        async: false-->
+<!--                                    }).done(function (data) {-->
+<!--                                        if (data.result === 'not_authorized') {-->
+<!--                                            alert('세션이 종료되었습니다.\n다시 로그인 하여 주시기 바랍니다.');-->
+<!--                                            location.reload();-->
+<!--                                            return false;-->
+<!--                                        } else if (data.result === 'invalid_code') {-->
+<!--                                            alert('이메일 인증을 다시 시도해 주시기 바랍니다.');-->
+<!--                                            location.reload();-->
+<!--                                            return false;-->
+<!--                                        }-->
 
-                                        alert('변경되었습니다.');
-                                        location.reload();
-                                    }).fail(function () {
-                                        alert('변경 실패하였습니다.\n잠시 후 다시 시도해 주시기 바랍니다.');
-                                        location.reload();
-                                    });
-                                }
+<!--                                        alert('변경되었습니다.');-->
+<!--                                        location.reload();-->
+<!--                                    }).fail(function () {-->
+<!--                                        alert('변경 실패하였습니다.\n잠시 후 다시 시도해 주시기 바랍니다.');-->
+<!--                                        location.reload();-->
+<!--                                    });-->
+<!--                                }-->
 
-                                function saveDeptNm() {
-                                    var deptNm = $('#changeDeptNm').val().trim() || '';
+<!--                                function saveDeptNm() {-->
+<!--                                    var deptNm = $('#changeDeptNm').val().trim() || '';-->
 
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "/zf_user/memcom/company-assistant/update-dept-nm",
-                                        data: { dept_nm: deptNm },
-                                        success: function (data) {
-                                            if (data.status !== 'success') {
-                                                return alert(data.message || '오류가 발생하였습니다.');
-                                            }
-                                            alert('변경되었습니다.');
-                                            location.reload();
-                                        },
-                                        error: function () {
-                                            alert('오류가 발생하였습니다. 잠시 후 시도해주세요.');
-                                        }
-                                    });
-                                }
-                            })(jQuery);
+<!--                                    $.ajax({-->
+<!--                                        type: "POST",-->
+<!--                                        url: "/zf_user/memcom/company-assistant/update-dept-nm",-->
+<!--                                        data: { dept_nm: deptNm },-->
+<!--                                        success: function (data) {-->
+<!--                                            if (data.status !== 'success') {-->
+<!--                                                return alert(data.message || '오류가 발생하였습니다.');-->
+<!--                                            }-->
+<!--                                            alert('변경되었습니다.');-->
+<!--                                            location.reload();-->
+<!--                                        },-->
+<!--                                        error: function () {-->
+<!--                                            alert('오류가 발생하였습니다. 잠시 후 시도해주세요.');-->
+<!--                                        }-->
+<!--                                    });-->
+<!--                                }-->
+<!--                            })(jQuery);-->
 
-                            var isPendingDeferredPaymentCompany = false;
-                            function pendingDeferredPayment() {
-                                if (confirm('미결제 살태인 후불 가상계좌 상품이 존재합니다.\n확인버튼 클릭 후 결제완료 시 탈퇴가 가능 합니다.')) {
-                                    location.href = '/zf_user/memcom/service-manage/payment-history';
-                                }
-                            }
+<!--                            var isPendingDeferredPaymentCompany = false;-->
+<!--                            function pendingDeferredPayment() {-->
+<!--                                if (confirm('미결제 살태인 후불 가상계좌 상품이 존재합니다.\n확인버튼 클릭 후 결제완료 시 탈퇴가 가능 합니다.')) {-->
+<!--                                    location.href = '/zf_user/memcom/service-manage/payment-history';-->
+<!--                                }-->
+<!--                            }-->
 
-                            function requestChangeCompanyNm() {
-                                openMembercompanyAppicationForm('name_modify');
-                            }
-                        </script>
+<!--                            function requestChangeCompanyNm() {-->
+<!--                                openMembercompanyAppicationForm('name_modify');-->
+<!--                            }-->
+<!--                        </script>-->
                         <h2>
                             기업정보
                             <span class="txt_noti inline_btn">
@@ -903,18 +771,30 @@
                                                     class="required"><b>*</b>
                                                     기업명</span>
                                             </th>
-                                            <td class="txtLeft">
+                                            <td class="txtLeft" th:text="*{companyName}">
                                                 KOREAIT아카데미 </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" colspan="2">
+                                                사업자등록번호
+                                            </th>
+                                            <td
+                                                class="txtLeft">
+                                                <input type="hidden"
+                                                       name="before_csn"
+                                                       value="000-00-00000"
+                                                       id="before_csn" th:text="*{companyBusinessNumber}">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th scope="row"
                                                 colspan="2">
                                                 <span
-                                                    class="required"><b>*</b>
+                                                    class="required" ><b>*</b>
                                                     대표자명</span>
                                             </th>
-                                            <td class="txtLeft">
-                                                홍길동 </td>
+                                            <td class="txtLeft" th:text="*{companyCEO}">
+                                                 </td>
                                         </tr>
                                         <tr>
                                             <th scope="row"
@@ -1107,39 +987,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row"
-                                                colspan="2">
-                                                <span
-                                                    class="required"><b>*</b>
-                                                    대표 기업 전화</span>
-                                            </th>
-                                            <td class="txtLeft">
-                                                <input type="hidden"
-                                                    name="tel"
-                                                    value="" id="tel">
-                                                <input type="text"
-                                                    name="tel1"
-                                                    class="inpTypo sizeS"
-                                                    style="width:96px"
-                                                    maxlength="4"
-                                                    onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-                                                -
-                                                <input type="text"
-                                                    name="tel2"
-                                                    class="inpTypo sizeS"
-                                                    style="width:96px"
-                                                    maxlength="4"
-                                                    onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-                                                -
-                                                <input type="text"
-                                                    name="tel3"
-                                                    class="inpTypo sizeS"
-                                                    style="width:96px"
-                                                    maxlength="4"
-                                                    onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
-                                            </td>
-                                        </tr>
+
                                         <!-- <tr>
                                             <th scope="row" colspan="2">
                                                 대표 기업 로고
@@ -1238,27 +1086,6 @@
                                                     class="piece grey right">
                                                     <strong>0</strong>
                                                     / 100자
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"
-                                                colspan="2">
-                                                기업 한줄 소개
-                                            </th>
-                                            <td class="txtLeft">
-                                                <input type="text"
-                                                    name="company_intro"
-                                                    class="inpTypo sizeS"
-                                                    value=""
-                                                    placeholder="우리 기업을 한줄로 소개해보세요! ( ex. 취업포털 1위! 대표 리쿠르팅 플랫폼! )"
-                                                    onkeyup="textAreaLengthCheck(this)"
-                                                    style="width:500px"
-                                                    maxlength="20">
-                                                <span
-                                                    class="piece grey right">
-                                                    <strong>0</strong>
-                                                    / 20자
                                                 </span>
                                             </td>
                                         </tr>
@@ -2418,22 +2245,6 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <!-- <tr>
-                                            <th scope="row" colspan="2">
-                                                사내 동호회
-                                            </th>
-                                            <td class="txtLeft">
-                                                <ul class="item_contents activity_item_contents">
-                                                </ul>
-                                                <div class="line_block block_right">
-                                                    <button type="button" class="underline_btn"
-                                                        onclick="resetSelectedActivity('front')">초기화</button>
-                                                    <button type="button" id="btn_society"
-                                                        class="btnSizeS colorWhite btn_right">등록
-                                                        / 수정</button>
-                                                </div>
-                                            </td>
-                                        </tr> -->
                                         <tr>
                                             <th scope="row"
                                                 colspan="2">
@@ -2456,1090 +2267,6 @@
                                                         <strong>0</strong>
                                                         / 150자
                                                     </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"
-                                                colspan="2">
-                                                기업 형태
-                                            </th>
-                                            <td
-                                                class="txtLeft inner_table">
-                                                <span
-                                                    class="txt_header">아래
-                                                    해당하는 기업 형태가 있다면,
-                                                    직접 선택해주세요.</span>
-                                                <div
-                                                    class="tblWrap tblRow tblBorder">
-                                                    <table>
-                                                        <colgroup>
-                                                            <col
-                                                                style="width:20%">
-                                                            <col
-                                                                style="width:20%">
-                                                            <col
-                                                                style="width:20%">
-                                                            <col
-                                                                style="width:20%">
-                                                            <col
-                                                                style="width:20%">
-                                                        </colgroup>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    외국계
-                                                                    여부
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    법률
-                                                                    여부
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    법인
-                                                                    여부
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    인증
-                                                                    여부
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    수출
-                                                                    여부
-                                                                </th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="foreign_type_1"
-                                                                            value="none"
-                                                                            name="foreign_type"
-                                                                            checked="">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="foreign_type_1">해당없음</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="foreign_invest"
-                                                                            value="foreign_invest"
-                                                                            name="foreign_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="foreign_invest">외국인
-                                                                            투자</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="foreign_corp"
-                                                                            value="foreign_corp"
-                                                                            name="foreign_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="foreign_corp">외국법인기업</label>
-                                                                    </span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="law_type_1"
-                                                                            value="none"
-                                                                            name="law_type"
-                                                                            checked="">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="law_type_1">해당없음</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="law_type_2"
-                                                                            value="stock"
-                                                                            name="law_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="law_type_2">주식회사</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="law_type_3"
-                                                                            value="incorporated"
-                                                                            name="law_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="law_type_3">유한회사</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="law_type_4"
-                                                                            value="cooperative"
-                                                                            name="law_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="law_type_4">협동조합</label>
-                                                                    </span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="corporation_type_1"
-                                                                            value="none"
-                                                                            name="corporation_type"
-                                                                            checked="">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="corporation_type_1">해당없음</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="corporation_type_2"
-                                                                            value="corporate-juridical-person"
-                                                                            name="corporation_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="corporation_type_2">사단법인</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="corporation_type_3"
-                                                                            value="foundation"
-                                                                            name="corporation_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="corporation_type_3">재단법인</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="corporation_type_4"
-                                                                            value="ex_audit"
-                                                                            name="corporation_type">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="corporation_type_4">외부감사법인</label>
-                                                                    </span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpChk sizeM">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            id="certification_type_01"
-                                                                            name="sub_company_gb[]"
-                                                                            value="military">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="certification_type_01">병역
-                                                                            특례인증
-                                                                            업체</label>
-                                                                    </span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpChk sizeM">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            id="export_type_01"
-                                                                            name="sub_company_gb[]"
-                                                                            value="ex_import">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="export_type_01">수출입기업</label>
-                                                                    </span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    추가
-                                                                    규모
-                                                                    여부
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    상장
-                                                                    여부
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter"
-                                                                    colspan="3">
-                                                                    기관
-                                                                    여부
-                                                                </th>
-                                                            </tr>
-                                                            <tr
-                                                                class="last">
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="additional_scale_type_1"
-                                                                            name="scale"
-                                                                            value="대기업">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="additional_scale_type_1">대기업</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="additional_scale_type_2"
-                                                                            name="scale"
-                                                                            value="중견기업">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="additional_scale_type_2">중견기업</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="additional_scale_type_3"
-                                                                            name="scale"
-                                                                            value="중소기업">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="additional_scale_type_3">중소기업</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="additional_scale_type_4"
-                                                                            name="scale"
-                                                                            value="기타">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="additional_scale_type_4">기타</label>
-                                                                    </span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft txtTop">
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="listed_type_1"
-                                                                            name="stock_gb"
-                                                                            value="kospi">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="listed_type_1">코스피</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="listed_type_2"
-                                                                            name="stock_gb"
-                                                                            value="kosdaq">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="listed_type_2">코스닥</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="listed_type_3"
-                                                                            name="stock_gb"
-                                                                            value="konex">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="listed_type_3">코넥스</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="listed_type_4"
-                                                                            name="stock_gb"
-                                                                            value=""
-                                                                            checked="">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="listed_type_4">비상장</label>
-                                                                    </span>
-                                                                </td>
-                                                                <td class="txtLeft txtTop"
-                                                                    colspan="3">
-                                                                    <span
-                                                                        class="inpRdo sizeM half">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_1"
-                                                                            name="agency_type"
-                                                                            value="public">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_1">공사,공기업</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_2"
-                                                                            name="agency_type"
-                                                                            value="laboratory">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_2">연구소</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_3"
-                                                                            name="agency_type"
-                                                                            value="school">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_3">학교,교육기관</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_4"
-                                                                            name="agency_type"
-                                                                            value="social-welfare">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_4">사회복지기관</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_5"
-                                                                            name="agency_type"
-                                                                            value="banking-organ">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_5">금융기관</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_6"
-                                                                            name="agency_type"
-                                                                            value="nonprofit">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_6">비영리단체,협회</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_7"
-                                                                            name="agency_type"
-                                                                            value="medical-institution">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_7">병원,의료기관</label>
-                                                                    </span>
-                                                                    <span
-                                                                        class="inpRdo sizeM half last">
-                                                                        <input
-                                                                            type="radio"
-                                                                            id="agency_type_8"
-                                                                            name="agency_type"
-                                                                            value="none"
-                                                                            checked="">
-                                                                        <label
-                                                                            class="lbl"
-                                                                            for="agency_type_8">해당
-                                                                            없음</label>
-                                                                    </span>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"
-                                                colspan="2">
-                                                재무 정보
-                                            </th>
-                                            <td
-                                                class="txtLeft inner_table">
-                                                <div class="tblWrap tblRow tblBorder borderRight"
-                                                    style="width:767px">
-                                                    <table>
-                                                        <colgroup>
-                                                            <col
-                                                                style="width:25%">
-                                                            <col
-                                                                style="width:25%">
-                                                            <col
-                                                                style="width:25%">
-                                                            <col
-                                                                style="width:25%">
-                                                        </colgroup>
-                                                        <thead>
-                                                            <tr
-                                                                id="financial_header">
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    기준년도
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    자본금
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    매출액
-                                                                </th>
-                                                                <th scope="col"
-                                                                    class="txtCenter">
-                                                                    영업이익
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr
-                                                                class="financial_row">
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <div class="inpSel sizeS"
-                                                                        style="width:100%">
-                                                                        <select
-                                                                            name="basis_year[]"
-                                                                            id="basis_year"
-                                                                            style="width:100%;"
-                                                                            onchange="checkBasisYear(this); return false;">
-                                                                            <option
-                                                                                value=""
-                                                                                label="년도선택"
-                                                                                selected="selected">
-                                                                                년도선택
-                                                                            </option>
-                                                                            <option
-                                                                                value="2025"
-                                                                                label="2025년">
-                                                                                2025년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2024"
-                                                                                label="2024년">
-                                                                                2024년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2023"
-                                                                                label="2023년">
-                                                                                2023년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2022"
-                                                                                label="2022년">
-                                                                                2022년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2021"
-                                                                                label="2021년">
-                                                                                2021년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2020"
-                                                                                label="2020년">
-                                                                                2020년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2019"
-                                                                                label="2019년">
-                                                                                2019년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2018"
-                                                                                label="2018년">
-                                                                                2018년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2017"
-                                                                                label="2017년">
-                                                                                2017년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2016"
-                                                                                label="2016년">
-                                                                                2016년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2015"
-                                                                                label="2015년">
-                                                                                2015년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2014"
-                                                                                label="2014년">
-                                                                                2014년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2013"
-                                                                                label="2013년">
-                                                                                2013년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2012"
-                                                                                label="2012년">
-                                                                                2012년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2011"
-                                                                                label="2011년">
-                                                                                2011년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2010"
-                                                                                label="2010년">
-                                                                                2010년
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="capital[]"
-                                                                        id="capital"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td>
-                                                                    <input
-                                                                        type="text"
-                                                                        name="sales[]"
-                                                                        id="sales"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="op_profit[]"
-                                                                        id="op_profit"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this, 'profit');"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr
-                                                                class="financial_row">
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <div class="inpSel sizeS"
-                                                                        style="width:100%">
-                                                                        <select
-                                                                            name="basis_year[]"
-                                                                            id="basis_year"
-                                                                            style="width:100%;"
-                                                                            onchange="checkBasisYear(this); return false;">
-                                                                            <option
-                                                                                value=""
-                                                                                label="년도선택"
-                                                                                selected="selected">
-                                                                                년도선택
-                                                                            </option>
-                                                                            <option
-                                                                                value="2025"
-                                                                                label="2025년">
-                                                                                2025년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2024"
-                                                                                label="2024년">
-                                                                                2024년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2023"
-                                                                                label="2023년">
-                                                                                2023년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2022"
-                                                                                label="2022년">
-                                                                                2022년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2021"
-                                                                                label="2021년">
-                                                                                2021년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2020"
-                                                                                label="2020년">
-                                                                                2020년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2019"
-                                                                                label="2019년">
-                                                                                2019년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2018"
-                                                                                label="2018년">
-                                                                                2018년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2017"
-                                                                                label="2017년">
-                                                                                2017년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2016"
-                                                                                label="2016년">
-                                                                                2016년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2015"
-                                                                                label="2015년">
-                                                                                2015년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2014"
-                                                                                label="2014년">
-                                                                                2014년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2013"
-                                                                                label="2013년">
-                                                                                2013년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2012"
-                                                                                label="2012년">
-                                                                                2012년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2011"
-                                                                                label="2011년">
-                                                                                2011년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2010"
-                                                                                label="2010년">
-                                                                                2010년
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="capital[]"
-                                                                        id="capital"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td>
-                                                                    <input
-                                                                        type="text"
-                                                                        name="sales[]"
-                                                                        id="sales"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="op_profit[]"
-                                                                        id="op_profit"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this, 'profit');"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr
-                                                                class="financial_row">
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <div class="inpSel sizeS"
-                                                                        style="width:100%">
-                                                                        <select
-                                                                            name="basis_year[]"
-                                                                            id="basis_year"
-                                                                            style="width:100%;"
-                                                                            onchange="checkBasisYear(this); return false;">
-                                                                            <option
-                                                                                value=""
-                                                                                label="년도선택"
-                                                                                selected="selected">
-                                                                                년도선택
-                                                                            </option>
-                                                                            <option
-                                                                                value="2025"
-                                                                                label="2025년">
-                                                                                2025년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2024"
-                                                                                label="2024년">
-                                                                                2024년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2023"
-                                                                                label="2023년">
-                                                                                2023년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2022"
-                                                                                label="2022년">
-                                                                                2022년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2021"
-                                                                                label="2021년">
-                                                                                2021년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2020"
-                                                                                label="2020년">
-                                                                                2020년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2019"
-                                                                                label="2019년">
-                                                                                2019년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2018"
-                                                                                label="2018년">
-                                                                                2018년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2017"
-                                                                                label="2017년">
-                                                                                2017년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2016"
-                                                                                label="2016년">
-                                                                                2016년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2015"
-                                                                                label="2015년">
-                                                                                2015년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2014"
-                                                                                label="2014년">
-                                                                                2014년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2013"
-                                                                                label="2013년">
-                                                                                2013년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2012"
-                                                                                label="2012년">
-                                                                                2012년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2011"
-                                                                                label="2011년">
-                                                                                2011년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2010"
-                                                                                label="2010년">
-                                                                                2010년
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="capital[]"
-                                                                        id="capital"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td>
-                                                                    <input
-                                                                        type="text"
-                                                                        name="sales[]"
-                                                                        id="sales"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="op_profit[]"
-                                                                        id="op_profit"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this, 'profit');"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr
-                                                                class="financial_row">
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <div class="inpSel sizeS"
-                                                                        style="width:100%">
-                                                                        <select
-                                                                            name="basis_year[]"
-                                                                            id="basis_year"
-                                                                            style="width:100%;"
-                                                                            onchange="checkBasisYear(this); return false;">
-                                                                            <option
-                                                                                value=""
-                                                                                label="년도선택"
-                                                                                selected="selected">
-                                                                                년도선택
-                                                                            </option>
-                                                                            <option
-                                                                                value="2025"
-                                                                                label="2025년">
-                                                                                2025년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2024"
-                                                                                label="2024년">
-                                                                                2024년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2023"
-                                                                                label="2023년">
-                                                                                2023년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2022"
-                                                                                label="2022년">
-                                                                                2022년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2021"
-                                                                                label="2021년">
-                                                                                2021년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2020"
-                                                                                label="2020년">
-                                                                                2020년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2019"
-                                                                                label="2019년">
-                                                                                2019년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2018"
-                                                                                label="2018년">
-                                                                                2018년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2017"
-                                                                                label="2017년">
-                                                                                2017년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2016"
-                                                                                label="2016년">
-                                                                                2016년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2015"
-                                                                                label="2015년">
-                                                                                2015년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2014"
-                                                                                label="2014년">
-                                                                                2014년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2013"
-                                                                                label="2013년">
-                                                                                2013년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2012"
-                                                                                label="2012년">
-                                                                                2012년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2011"
-                                                                                label="2011년">
-                                                                                2011년
-                                                                            </option>
-                                                                            <option
-                                                                                value="2010"
-                                                                                label="2010년">
-                                                                                2010년
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="capital[]"
-                                                                        id="capital"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td>
-                                                                    <input
-                                                                        type="text"
-                                                                        name="sales[]"
-                                                                        id="sales"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this);"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                                <td
-                                                                    class="txtLeft">
-                                                                    <input
-                                                                        type="text"
-                                                                        name="op_profit[]"
-                                                                        id="op_profit"
-                                                                        value=""
-                                                                        style="width:100%;"
-                                                                        class="inpTypo sizeS"
-                                                                        oninput="moneyFormat(this, 'profit');"
-                                                                        maxlength="12">
-                                                                    <span
-                                                                        class="piece grey">만원</span>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"
-                                                colspan="2">
-                                                연혁 및 실적
-                                            </th>
-                                            <td class="txtLeft">
-                                                우리 기업의 창립 시점부터 현재까지의
-                                                발전 과정과, 이루어 낸 업적을
-                                                적어주세요! (연도와 날짜에 맞게 내용
-                                                기입)
-                                                <div
-                                                    class="line_block">
-                                                    <textarea
-                                                        class="inpTarea"
-                                                        name="history_result"
-                                                        placeholder="ex.
-                <2019년>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                7월&nbsp; &nbsp;&nbsp; 사람인, 2019 올해의 브랜드 대상 8년 연속 수상!&nbsp; &nbsp;&nbsp;
-                4월&nbsp; &nbsp;&nbsp; 사람인, 2019 국가브랜드대상 8년 연속 수상&nbsp; &nbsp;&nbsp;
-                1월&nbsp; &nbsp;&nbsp; 사람인 AI 지원자 분석 서비스 런칭&nbsp; &nbsp;&nbsp;
-                <2018년>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                9월&nbsp; &nbsp;&nbsp; PC 웹사이트 메인 개편 - 사람인 BI 리뉴얼&nbsp; &nbsp;&nbsp;
-                9월&nbsp; &nbsp;&nbsp; PC 웹사이트 메인 개편 - 사람인 BI 리뉴얼&nbsp; &nbsp;&nbsp;
-                4월&nbsp; &nbsp;&nbsp; 2018 국가브랜드대상 7년 연속 수상&nbsp; &nbsp;&nbsp;
-                <2017년>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                12월&nbsp;&nbsp; 2017 웹어워드·스마트앱어워드 3개 부문 수상&nbsp; &nbsp;&nbsp;
-                11월&nbsp;&nbsp; 한국소비자원 '취업정보 사이트 서비스 만족도' 부분 1위&nbsp; &nbsp;&nbsp;
-                <2016년>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                12월&nbsp;&nbsp; 2016 대한민국 퍼스트브랜드 대상 5년 연속 대상&nbsp; &nbsp;&nbsp;
-                <2015년>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                12월&nbsp;&nbsp; 재능마켓 오투잡 합병" style="width:845px;height:85px"></textarea>
                                                 </div>
                                             </td>
                                         </tr>
@@ -6982,9 +5709,6 @@
 
                         <div class="box_noti type2">
                             <ul class="list">
-                                <li>※ 저장완료한 이미지는 공고등록 &gt; 일반채용 &gt;
-                                    직무형 공고 양식 내 기업/서비스 이미지에도 동일하게
-                                    적용됩니다.</li>
                                 <li>※ 모든 정보는 HTML은 입력하실 수 없으며, HTML
                                     입력시 관련 내용이 삭제될 수 있습니다.</li>
                                 <li>※ 당사의 운영 정책에 위배되는 정보는 등록이 불가하며,
@@ -6992,8 +5716,6 @@
                                 </li>
                                 <li>※ 개인정보가 포함된 사진 및 적합하지 않은 정보는, 관리자에
                                     의해 통보 없이 삭제될 수 있음을 알려드립니다.</li>
-                                <li>※ 대표 기업 로고가 없는 경우, 사람인이 해당 기업의 공식
-                                    홈페이지에서 제공하는 로고를 등록할 수 있습니다.</li>
                             </ul>
                         </div>
 

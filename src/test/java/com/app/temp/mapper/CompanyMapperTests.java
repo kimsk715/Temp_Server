@@ -3,9 +3,11 @@ package com.app.temp.mapper;
 import com.app.temp.controller.exception.BusinessNumberAlreadyExistsException;
 import com.app.temp.domain.dto.CompanyDTO;
 import com.app.temp.domain.dto.CompanyMemberDTO;
+import com.app.temp.domain.dto.ProgramInfoDTO;
 import com.app.temp.domain.vo.CompanyVO;
 import com.app.temp.repository.CompanyDAO;
 import com.app.temp.service.CompanyMemberService;
+import com.app.temp.service.ProgramService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class CompanyMapperTests {
     private CompanyMapper companyMapper;
     @Autowired
     private CompanyDAO companyDAO;
+    @Autowired
+    private ProgramService programService;
 
     @Test
 //    기업회원 전용 기업정보 입력하기
@@ -63,5 +67,17 @@ public class CompanyMapperTests {
         companyDTO.setCompanyCEO("테스트");
 
         companyDAO.save(companyDTO.toVO());
+    }
+
+    @Test
+    public void testSelect() {
+        ProgramInfoDTO programInfoDTO = new ProgramInfoDTO();
+        CompanyVO companyVO = new CompanyVO();
+        companyVO.setId(21L);
+        companyVO.setCompanyBusinessNumber("2039583916");
+        companyVO.setCompanyCertificatePath("test.jpg");
+        companyVO.setCompanyName("test");
+
+        programService.getProgramInfoDTOById(companyVO.getId());
     }
 }

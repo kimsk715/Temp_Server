@@ -28,6 +28,6 @@ public interface CompanyMemberMapper {
 
     public int countAllCompanyMember(CompanyMemberPagination companyMemberPagination);
 
-    public Optional<CompanyMemberInfoAdminDTO> selectById(Long memberId);
+    public Optional<CompanyMemberInfoAdminDTO> selectCompanyMemberInfoById(Long id);
 }
 
