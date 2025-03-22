@@ -99,6 +99,7 @@ public class EnterpriseController {
 
     }
 
+//    공고목록 등록
     @GetMapping("enterprise/program-edit")
     public void programEdit(){
 
