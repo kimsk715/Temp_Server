@@ -60,12 +60,18 @@ const updateParam = (param, createdDateStart, createdDateEnd, reportStatus) => {
 };
 
 // 초기 날짜 범위 설정
+// 기업 신고 필터 적용
 const companyDateFilterValue = companyReportDateFilter.value;
-let { createdDateStart, createdDateEnd } = calculateDateRange(companyDateFilterValue);
+let { createdDateStart: companyReportStartDate, createdDateEnd: companyReportEndDate } = calculateDateRange(companyDateFilterValue);
+
+// 공고 신고 필터 적용
+const programDateFilterValue = programReportDateFilter.value;
+let { createdDateStart: programReportStartDate, createdDateEnd: programReportEndDate } = calculateDateRange(programDateFilterValue);
 
 // param 객체 선언
 let param = { page: 1 }; // 기본 페이지 1로 설정
-updateParam(param, createdDateStart, createdDateEnd);
+updateParam(param, companyReportStartDate, companyReportEndDate);
+updateParam(param, programReportStartDate, programReportEndDate);
 
 // 페이지네이션 추가
 companyReportPageWrap.addEventListener("click", (e) => {
@@ -74,6 +80,14 @@ companyReportPageWrap.addEventListener("click", (e) => {
         // 선택한 페이지의 번호(타겟의 id)를 가져와 리스트 갱신
         param.page = e.target.id;
         reportService.getCompanyList(reportLayout.showCompanyList, param);    // 요청 시 param 객체 전달(한번에 전달되서 편함)
+    }
+});
+programReportPageWrap.addEventListener("click", (e) => {
+    // 클릭된 요소가 페이지네이션 버튼이면
+    if (e.target.className.includes("page-btn")) {
+        // 선택한 페이지의 번호(타겟의 id)를 가져와 리스트 갱신
+        param.page = e.target.id;
+        reportService.getProgramList(reportLayout.showProgramList, param);    // 요청 시 param 객체 전달(한번에 전달되서 편함)
     }
 });
 
@@ -104,7 +118,7 @@ companyKeywordSearchButton.addEventListener("click", () => {
     const keyword = companyKeywordInputReport.value;
     if (keyword) param.search.keyword = keyword;
 
-    reportService.getCompanyList(reportCompanyLayout.showCompanyList, param);
+    reportService.getCompanyList(reportLayout.showCompanyList, param);
 });
 programKeywordSearchButton.addEventListener("click", () => {
     const keyword = programKeywordInputReport.value;
@@ -208,45 +222,80 @@ programReportStatusFilter.addEventListener("change", applyProgramFilters);
 programReportDateFilter.addEventListener("change", applyProgramFilters);
 
 //     상세보기 버튼을 누르면 모달창이 뜸
-const reportModal = document.querySelector(".report-modal");
-const closeBtn = document.querySelector(".report-modal .close-btn");
-const cancelBtn = document.querySelector(".report-modal .cancel-btn");
-const saveBtn = document.querySelector(".report-modal .save-btn");
+const companyReportModal = document.querySelector(".company-report-modal");
+const companyCloseBtn = document.querySelector(".company-report-modal .close-btn");
+const companyCancelBtn = document.querySelector(".company-report-modal .cancel-btn");
+const companySaveBtn = document.querySelector(".company-report-modal .save-btn");
+
+const programReportModal = document.querySelector(".program-report-modal");
+const programCloseBtn = document.querySelector(".program-report-modal .close-btn");
+const programCancelBtn = document.querySelector(".program-report-modal .cancel-btn");
+const programSaveBtn = document.querySelector(".program-report-modal .save-btn");
 
 // 신고 상세 정보를 모달에 표시하는 함수
-const openReportModal = async (reportId) => {
+const openCompanyReportModal = async (reportId) => {
     try {
         // 서비스에서 데이터 가져오기
-        const reportData = await reportModalService.getReportDetail(reportId);
+        const reportData = await reportModalService.getCompanyReportDetail(reportId);
 
         // 데이터로 모달 내용을 업데이트
-        document.querySelector("#report-id").textContent = reportData.id;
+        document.querySelector("#company-report-id").textContent = reportData.id;
         // split을 써서 시간을 제외한 연도-월-날짜만 가져옴
-        document.querySelector("#report-date").textContent = reportData.createdDate.split(" ")[0];
-        document.querySelector("#report-memberName").textContent = reportData.memberName;
-        document.querySelector("#report-reportSubject").textContent = reportData.companyName;
-        document.querySelector("#report-reportType").textContent = reportData.reportType;
-        document.querySelector("#report-reportDetail").textContent = reportData.reportDetail;
+        document.querySelector("#company-report-date").textContent = reportData.createdDate.split(" ")[0];
+        document.querySelector("#company-report-memberName").textContent = reportData.memberName;
+        document.querySelector("#company-report-companyName").textContent = reportData.companyName;
+        document.querySelector("#company-report-reportType").textContent = reportData.reportType;
+        document.querySelector("#company-report-reportDetail").textContent = reportData.reportDetail;
 
         // 처리 상태 선택을 서버에서 받은 상태로 설정
-        const reportStatus = document.querySelector(".report-status")
+        const reportStatus = document.querySelector(".company-report-status")
         reportStatus.value = convertStatusToEnglish(reportData.reportStatus);
 
         // 모달 보이기
-        reportModal.style.display = "block";
+        companyReportModal.style.display = "block";
+    } catch (error) {
+        console.error("보고서 상세 정보를 불러오는 데 실패했습니다.", error);
+    }
+};
+const openProgramReportModal = async (reportId) => {
+    try {
+        // 서비스에서 데이터 가져오기
+        const reportData = await reportModalService.getProgramReportDetail(reportId);
+
+        // 데이터로 모달 내용을 업데이트
+        document.querySelector("#program-report-id").textContent = reportData.id;
+        // split을 써서 시간을 제외한 연도-월-날짜만 가져옴
+        document.querySelector("#program-report-date").textContent = reportData.createdDate.split(" ")[0];
+        document.querySelector("#program-report-memberName").textContent = reportData.memberName;
+        document.querySelector("#program-report-programName").textContent = reportData.programName;
+        document.querySelector("#program-report-reportType").textContent = reportData.reportType;
+        document.querySelector("#program-report-reportDetail").textContent = reportData.reportDetail;
+
+        // 처리 상태 선택을 서버에서 받은 상태로 설정
+        const reportStatus = document.querySelector(".program-report-status")
+        reportStatus.value = convertStatusToEnglish(reportData.reportStatus);
+
+        // 모달 보이기
+        programReportModal.style.display = "block";
     } catch (error) {
         console.error("보고서 상세 정보를 불러오는 데 실패했습니다.", error);
     }
 };
 
 // 모달 닫기 버튼 클릭 시 모달 닫기
-closeBtn.addEventListener("click", () => {
-    reportModal.style.display = "none";
+companyCloseBtn.addEventListener("click", () => {
+    companyReportModal.style.display = "none";
+});
+programCloseBtn.addEventListener("click", () => {
+    programReportModal.style.display = "none";
 });
 
 // 모달 취소 버튼 클릭 시 모달 닫기
-cancelBtn.addEventListener("click", () => {
-    reportModal.style.display = "none";
+companyCancelBtn.addEventListener("click", () => {
+    companyReportModal.style.display = "none";
+});
+programCancelBtn.addEventListener("click", () => {
+    programReportModal.style.display = "none";
 });
 
 // 상세보기 버튼 클릭 시 해당 신고의 상세 정보를 모달로 표시
@@ -255,17 +304,24 @@ document.querySelector("#company-report-table tbody").addEventListener("click", 
     // 클릭한 대상이 'detail-btn' 클래스가 있는 버튼인지 확인
     if (e.target && e.target.classList.contains("detail-btn")) {
         const reportId = e.target.getAttribute("id");  // id 가져오기
-        openReportModal(reportId);  // 모달 열기
+        openCompanyReportModal(reportId);  // 모달 열기
+    }
+});
+document.querySelector("#program-report-table tbody").addEventListener("click", (e) => {
+    // 클릭한 대상이 'detail-btn' 클래스가 있는 버튼인지 확인
+    if (e.target && e.target.classList.contains("detail-btn")) {
+        const reportId = e.target.getAttribute("id");  // id 가져오기
+        openProgramReportModal(reportId);  // 모달 열기
     }
 });
 
 // 저장 버튼을 누르면 설정된 처리상태가 저장됨
-saveBtn.addEventListener("click", async (e) => {
+companySaveBtn.addEventListener("click", async (e) => {
 
     // 모달에서 선택한 처리상태 가져오기
-    const reportStatus = document.querySelector(".report-status").value;
+    const reportStatus = document.querySelector(".company-report-status").value;
     // console.log("현재 처리상태: " + reportStatus);
-    const reportId = document.querySelector("#report-id").textContent;
+    const reportId = document.querySelector("#company-report-id").textContent;
 
     // 영어로 저장되어있는 처리상태 DB의 저장을 위해 한국어로 변경
     const koreanStatus = convertStatusToKorean(reportStatus);
@@ -277,8 +333,30 @@ saveBtn.addEventListener("click", async (e) => {
     };
 
     // 상태 업데이트
-    await reportModalService.updateStatus(newStatus);
+    await reportModalService.updateCompanyStatus(newStatus);
 
     // 상태 변경 후 현재 페이지를 유지하면서 목록을 갱신
-    await reportService.getCompanyList(reportCompanyLayout.showCompanyList, param);  // 현재 페이지 번호를 그대로 사용하여 목록 갱신
+    await reportService.getCompanyList(reportLayout.showCompanyList, param);  // 현재 페이지 번호를 그대로 사용하여 목록 갱신
+});
+programSaveBtn.addEventListener("click", async (e) => {
+
+    // 모달에서 선택한 처리상태 가져오기
+    const reportStatus = document.querySelector(".program-report-status").value;
+    // console.log("현재 처리상태: " + reportStatus);
+    const reportId = document.querySelector("#program-report-id").textContent;
+
+    // 영어로 저장되어있는 처리상태 DB의 저장을 위해 한국어로 변경
+    const koreanStatus = convertStatusToKorean(reportStatus);
+    // console.log(koreanStatus);
+
+    const newStatus = {
+        id: reportId,
+        reportStatus: koreanStatus
+    };
+
+    // 상태 업데이트
+    await reportModalService.updateProgramStatus(newStatus);
+
+    // 상태 변경 후 현재 페이지를 유지하면서 목록을 갱신
+    await reportService.getProgramList(reportLayout.showProgramList, param);  // 현재 페이지 번호를 그대로 사용하여 목록 갱신
 });
