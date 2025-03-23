@@ -1,14 +1,45 @@
 const selectAllButton = document.querySelector(".allCategory"); // 전체 선택 버튼
 const categoryButtons = document.querySelectorAll(".categorySelect"); // 각 카테고리 버튼
+const allCheckboxes = document.querySelectorAll(".listJobBtnWrap label input"); // 전체 버튼 + 카테고리 버튼을 포함한 모든 버튼
+// 버튼 클릭 정보를 저장하는 함수
+function saveCheckboxState() {
+    const checkboxState = {};
+    allCheckboxes.forEach((checkbox, index) => {
+        checkboxState[index] = checkbox.checked; // 체크 상태 저장
+    });
+    sessionStorage.setItem("checkboxState", JSON.stringify(checkboxState));
+}
+
+function loadCheckboxState() {
+    const savedState = JSON.parse(sessionStorage.getItem("checkboxState"));
+    if (savedState) {
+        allCheckboxes.forEach((checkbox, index) => {
+            checkbox.checked = savedState[index] || false; // 저장된 값 적용
+        });
+    }
+}
+
+allCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", saveCheckboxState);
+});
+
+document.addEventListener("DOMContentLoaded", loadCheckboxState);
+
+
 // 전체 버튼을 클릭했을 때, 다른 카테고리 필터의 클릭 상태 초기화
-selectAllButton.addEventListener("click",(e)=>{
-    if(e.target.checked){
-    // selectAllButton.checked = false;
+selectAllButton.addEventListener("click",()=>{
     categoryButtons.forEach((checkbox) => {
         checkbox.checked = false;
         })
-    }
+
 })
+
+const anyButtonChecked = () => {
+    let anyChecked = [...categoryButtons].some(
+        (btn) => btn.checked);
+    selectAllButton.checked = !anyChecked;
+}
+
 
 let checkedCount = 0;
 //  url 로부터 keyword 받아오기
@@ -22,10 +53,12 @@ let searchKeyword = "";
 let path = "";
 categoryButtons.forEach((categoryButton)=>{
     categoryButton.addEventListener("click",(e)=>{
+        console.log("카테고리 버튼 클릭")
         path = '/program/list';
         if(!(getQueryParam("keyword").length === 0)){
             searchKeyword = "keyword=" + getQueryParam("keyword") + "&";
         }
+        console.log(checkedCount + "클릭 이전의 카운트 수")
         const categoryDatas = [];
         const categories = document.querySelectorAll(".listJobBtnWrap input[type='checkbox']:checked")
         categories.forEach((category) =>{
@@ -35,6 +68,9 @@ categoryButtons.forEach((categoryButton)=>{
                 checkedCount = categoryDatas.length;
             }
         })
+        if(checkedCount > 5){
+            return;
+        }
         if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
             path += "?";
         }
@@ -44,26 +80,38 @@ categoryButtons.forEach((categoryButton)=>{
         if(categoryDatas.length > 0) {
             path += text
         }
+        let anyChecked = [...categoryButtons].some(
+            (btn) => btn.checked);
+        if(!anyChecked){
+            text="";
+        }
         if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
             path = path.slice(0, -1);
         }
-        // console.log(checkedCount)
+        console.log(path)
+        console.log(checkedCount + "클릭 이후의 카운트 수")
 
     })
 })
 
-const anyButtonChecked = () => {
-    let anyChecked = [...categoryButtons].some(
-        (btn) => btn.checked);
-    if(anyChecked){
-        selectAllButton.checked = false;
+selectAllButton.addEventListener('click',() =>{
+    path = '/program/list';
+    if(!(getQueryParam("keyword").length === 0)){
+        searchKeyword = "keyword=" + getQueryParam("keyword");
+        path += "?";
+        path += searchKeyword;
     }
-}
-
+    categoryButtons.forEach((button) => {
+        button.checked = false;
+    })
+    addQuery();
+})
+// 만약 카테고리 버튼의 변화(추가 or 삭제)가 있다면, 실행해서
 document.addEventListener("change",(anyButtonChecked));
+
 const addQuery = () => {
+    console.log(path)
     window.location.href = path;
-    // console.log(path)
     path=""; // 초기화
     text="";
     searchKeyword="";
@@ -76,29 +124,12 @@ categoryButtons.forEach((button) => {
         addQuery();
     })
 })
-// 버튼 클릭 정보를 저장하는 함수
-function saveCheckboxState() {
-    const checkboxState = {};
-    categoryButtons.forEach((checkbox, index) => {
-        checkboxState[index] = checkbox.checked; // 체크 상태 저장
-    });
-    sessionStorage.setItem("checkboxState", JSON.stringify(checkboxState));
-}
 
-function loadCheckboxState() {
-    const savedState = JSON.parse(sessionStorage.getItem("checkboxState"));
-    if (savedState) {
-        categoryButtons.forEach((checkbox, index) => {
-            checkbox.checked = savedState[index] || false; // 저장된 값 적용
-        });
-    }
-}
 
-categoryButtons.forEach(checkbox => {
-    checkbox.addEventListener("change", saveCheckboxState);
-});
 
-document.addEventListener("DOMContentLoaded", loadCheckboxState);
+
+
+
 
 // 이 아래부터는 스크랩 기능 관련 함수 모음
 const scrapButtons = document.querySelectorAll("button.scrapButton");
