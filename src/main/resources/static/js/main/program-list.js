@@ -47,7 +47,7 @@ categoryButtons.forEach((categoryButton)=>{
         if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
             path = path.slice(0, -1);
         }
-        console.log(checkedCount)
+        // console.log(checkedCount)
 
     })
 })
@@ -62,8 +62,8 @@ const anyButtonChecked = () => {
 
 document.addEventListener("change",(anyButtonChecked));
 const addQuery = () => {
-    // window.location.href = path;
-    console.log(path)
+    window.location.href = path;
+    // console.log(path)
     path=""; // 초기화
     text="";
     searchKeyword="";
