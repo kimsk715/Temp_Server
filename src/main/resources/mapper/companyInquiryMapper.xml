@@ -3,8 +3,8 @@
 
 <mapper namespace="com.app.temp.mapper.CompanyInquiryMapper">
     <insert id="insertCompanyInquiry">
-        INSERT INTO TBL_COMPANY_INQUIRY(ID, COMPANY_INQUIRY_TYPE, COMPANY_INQUIRY_DETAIL, COMPANY_INQUIRY_STATUS, MEMBER_ID)
-        VALUES(SEQ_COMPANY_INQUIRY.NEXTVAL, #{companyInquiryType}, #{companyInquiryDetail}, #{companyInquiryStatus}, #{memberId})
+        INSERT INTO TBL_COMPANY_INQUIRY(ID, COMPANY_INQUIRY_TYPE, COMPANY_INQUIRY_DETAIL, COMPANY_INQUIRY_STATUS, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES(SEQ_COMPANY_INQUIRY.NEXTVAL, #{companyInquiryType}, #{companyInquiryDetail}, #{companyInquiryStatus}, #{memberId}, SYSDATE, SYSDATE)
     </insert>
     <select id="selectById" resultType="companyInquiryListDTO">
         SELECT CI.ID, COMPANY_INQUIRY_TYPE, C.COMPANY_NAME, COMPANY_INQUIRY_DETAIL,

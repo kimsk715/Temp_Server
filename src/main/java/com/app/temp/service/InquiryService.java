@@ -71,5 +71,9 @@ public class InquiryService {
     public void setMemberInquiry(MemberInquiryVO memberInquiryVO){
         inquiryDAO.saveMemberInquiry(memberInquiryVO);
     }
+
+    public void setCompanyInquiry(CompanyInquiryVO companyInquiryVO){
+        inquiryDAO.saveCompanyInquiry(companyInquiryVO);
+    }
 }
 

@@ -245,10 +245,17 @@ submitButton.addEventListener("click",async (e) => {
         e.preventDefault();
         return;
     }
-    let path = `/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
+    let path = `/enterprise/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
     await fetch(path);
-    closeInquiryModal(modalContainer)
+
 })
 
+const closeButton = document.querySelectorAll(".close-button")
+
+closeButton.forEach((button) =>{
+    button.addEventListener("click",()=>{
+        closeInquiryModal(modalContainer)
+    })
+})
 
 

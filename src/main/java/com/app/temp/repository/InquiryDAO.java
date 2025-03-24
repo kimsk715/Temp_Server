@@ -49,4 +49,8 @@ public class InquiryDAO {
     public void saveMemberInquiry(MemberInquiryVO memberInquiryVO){
         memberInquiryMapper.insertMemberInquiry(memberInquiryVO);
     }
+
+    public void saveCompanyInquiry(CompanyInquiryVO companyInquiryVO){
+        companyInquiryMapper.insertCompanyInquiry(companyInquiryVO);
+    }
 }
