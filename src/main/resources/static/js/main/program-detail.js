@@ -71,7 +71,7 @@ const bannerCount = document.querySelector(".bannerCount span");
 
 const images = imageBanner.children; // 이미지가 들어있는 div 요소들
 const totalImages = images.length; // 전체 이미지 개수
-// const imageWidth = images[0].offsetWidth; // 각 이미지의 너비
+const imageWidth = images[0].offsetWidth; // 각 이미지의 너비
 
 let currentIndex = 0; // 현재 이미지 인덱스
 let scrollTimeout; // 스크롤 이벤트 딜레이용 타이머
