@@ -23,6 +23,7 @@ allCheckboxes.forEach(checkbox => {
     checkbox.addEventListener("change", saveCheckboxState);
 });
 
+// 페이지 로드 시 버튼 정보 불러옴.
 document.addEventListener("DOMContentLoaded", loadCheckboxState);
 
 
