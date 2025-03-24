@@ -3,9 +3,25 @@ const categoryButtons = document.querySelectorAll(".categorySelect"); // 각 카
 const allCheckboxes = document.querySelectorAll(".listJobBtnWrap label input"); // 전체 버튼 + 카테고리 버튼을 포함한 모든 버튼
 const searchInput = document.querySelector("input[name=keyword]")
 // 버튼 클릭 정보를 저장하는 함수
+searchInput.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        const currentKeyword = searchInput.value.trim();
+        const prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword")) || "";
+
+        console.log("이전 키워드:", prevKeyword);
+        console.log("현재 키워드:", currentKeyword);
+
+        if (currentKeyword !== prevKeyword) {
+            console.log("🔄 검색어 변경됨 -> prevKeyword 업데이트!");
+            sessionStorage.setItem("prevKeyword", JSON.stringify(currentKeyword));
+        } else {
+            console.log("✅ 검색어 동일 -> 업데이트 안함");
+        }
+    }
+});
 function saveCheckboxState() {
     const checkboxState = {};
-
+    const prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword"));
     allCheckboxes.forEach((checkbox, index) => {
         checkboxState[index] = checkbox.checked; // 체크 상태 저장
     });
@@ -18,9 +34,7 @@ function saveCheckboxState() {
     // 키워드 입력으로 검색 시 카테고리 초기화
     // 위에서 버튼 체크 상태로 체크해도 검색어가 입력되면 그에 맞게 초기화 되도록
     // 좀 더 후순위로 실행되도록 밑에 작성.
-
     sessionStorage.setItem("checkboxState", JSON.stringify(checkboxState));
-
 }
 
 // - 카테고리로 필터링 된 상태에서 검색을 다시 할 경우, 키워드로만 검색되는데, 버튼의 표시 상태가 초기화되지 않음.
@@ -28,31 +42,29 @@ function saveCheckboxState() {
 
 function loadCheckboxState() {
     const savedState = JSON.parse(sessionStorage.getItem("checkboxState"));
-    const prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword"));
-    console.log(prevKeyword)
+    let prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword")); // 이전 키워드 가져오기
+    const currentKeyword = getQueryParam("keyword")?.[0] || "";
+    console.log("이전 키워드:" ,prevKeyword)
+    console.log("현재 키워드:" ,currentKeyword)
     if (savedState) {
-        if(getQueryParam("keyword")!=null && getQueryParam("keyword") !== prevKeyword){
-            allCheckboxes.forEach((checkbox, index) => {
-                checkbox.checked = false; // 키워드가 입력된 경우에는 버튼 정보 초기화를 위해 모두 false 로 만들고
-                // 검색 시에만 실행되도록 바꾸기
-                // 첫 버튼(전체 버튼)만 true 로 변경
+        // 🔥 이전 키워드와 현재 키워드가 다를 때만 초기화!
+        if (currentKeyword !== "" && prevKeyword !== currentKeyword) {
+            console.log("🔄 검색어 변경됨 -> 카테고리 초기화");
+            allCheckboxes.forEach((checkbox) => {
+                checkbox.checked = false; // 체크박스 초기화
             });
-            selectAllButton.checked = true;
-        }
-        // 그 외의 경우에는 저장된 값을 적용
-        else {
+            selectAllButton.checked = true; // '전체' 버튼 체크
+
+            // ✅ 검색어가 변경된 경우에만 prevKeyword 업데이트
+            sessionStorage.setItem("prevKeyword", JSON.stringify(currentKeyword));
+        } else {
+            console.log("✅ 검색어 동일 -> 기존 체크 상태 유지");
+            // 기존 체크 상태 유지
             allCheckboxes.forEach((checkbox, index) => {
-                checkbox.checked = savedState[index] || false; // 저장된 값 적용
+                checkbox.checked = savedState[index] || false;
             });
         }
     }
-}
-
-const saveKeyword = () => {
-    const tempKeyword = searchInput.value
-    console.log(tempKeyword)
-    sessionStorage.setItem("prevKeyword", JSON.stringify(tempKeyword))
-    console.log(JSON.parse(sessionStorage.getItem("prevKeyword")));
 }
 
 allCheckboxes.forEach(checkbox => {
@@ -60,7 +72,7 @@ allCheckboxes.forEach(checkbox => {
 });
 
 // 페이지 로드 시 버튼 정보 불러옴.
-document.addEventListener("DOMContentLoaded", loadCheckboxState, saveKeyword);
+document.addEventListener("DOMContentLoaded", loadCheckboxState);
 
 
 // 전체 버튼을 클릭했을 때, 다른 카테고리 필터의 클릭 상태 초기화
@@ -83,9 +95,9 @@ const anyButtonChecked = () => {
 const resetAll = () => {
     path = "/program/list";
 }
-// ======================================
+// =======================================
 
-let checkedCount = 0;
+let checkedCount = 0; // 카테고리 선택된 갯수 확인
 //  url 로부터 keyword 받아오기
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -99,12 +111,12 @@ let searchKeyword = "";
 let path = "";
 categoryButtons.forEach((categoryButton)=>{
     categoryButton.addEventListener("click",(e)=>{
-        console.log("카테고리 버튼 클릭")
-        path = '/program/list';
+        // console.log("카테고리 버튼 클릭")
+        path = '/program/list'; // 기본 경로값. 이 뒤에 쿼리 스트링 추가됨.
         if(!(getQueryParam("keyword").length === 0)){
             searchKeyword = "keyword=" + getQueryParam("keyword") + "&";
         }
-        console.log(checkedCount + "클릭 이전의 카운트 수")
+        // 카테고리를 배열의 형태로 저장.
         const categoryDatas = [];
         const categories = document.querySelectorAll(".listJobBtnWrap input[type='checkbox']:checked")
         categories.forEach((category) =>{
@@ -114,30 +126,35 @@ categoryButtons.forEach((categoryButton)=>{
                 checkedCount = categoryDatas.length;
             }
         })
-        if(checkedCount > 5){
-            return;
+        // 5개까지만 동시에 필터링. 그 이상일 경우에는 버튼의 이벤트를 방지하고, 직전 검색 결과로 이동.
+        // (ex. 1,3,4,6 이 클릭된 상태에 키워드 '감자' 가 있으면, /program/list?keyword=감자&categories=1&categories=3&categories=4&categories=6
+        if(checkedCount <= 5){
+            if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
+                path += "?";
+            }
+            if(!(getQueryParam("keyword").length === 0)){
+                path += searchKeyword;
+            }
+            if(categoryDatas.length > 0) {
+                path += text
+            }
+            let anyChecked = [...categoryButtons].some(
+                (btn) => btn.checked);
+            if(!anyChecked){
+                text="";
+            }
+            if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
+                path = path.slice(0, -1);
+            }
         }
-        if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
-            path += "?";
-        }
-        if(!(getQueryParam("keyword").length === 0)){
-            path += searchKeyword;
-        }
-        if(categoryDatas.length > 0) {
-            path += text
-        }
-        let anyChecked = [...categoryButtons].some(
-            (btn) => btn.checked);
-        if(!anyChecked){
-            text="";
-        }
-        if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
-            path = path.slice(0, -1);
+        else{
+            e.preventDefault();
+            e.target.checked = false;
+            const prevURL = window.location.search;
+            path += prevURL
         }
         console.log(path)
         console.log(checkedCount + "클릭 이후의 카운트 수")
-
-
     })
 })
 
