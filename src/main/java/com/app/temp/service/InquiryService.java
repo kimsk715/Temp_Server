@@ -67,5 +67,9 @@ public class InquiryService {
     public Optional<CompanyInquiryInfoDTO> getCompanyInquiryInfoById(Long id){
         return companyInquiryDAO.findInquiryById(id);
     }
+
+    public void setMemberInquiry(MemberInquiryVO memberInquiryVO){
+        inquiryDAO.saveMemberInquiry(memberInquiryVO);
+    }
 }
 

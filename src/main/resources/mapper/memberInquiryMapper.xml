@@ -3,8 +3,8 @@
 
 <mapper namespace="com.app.temp.mapper.MemberInquiryMapper">
     <insert id="insertMemberInquiry">
-        INSERT INTO TBL_MEMBER_INQUIRY(ID, MEMBER_INQUIRY_TYPE, MEMBER_INQUIRY_DETAIL, MEMBER_INQUIRY_STATUS, MEMBER_ID)
-        VALUES(SEQ_MEMBER_INQUIRY.NEXTVAL, #{memberInquiryType}, #{memberInquiryDetail}, #{memberInquiryStatus}, #{memberId})
+        INSERT INTO TBL_MEMBER_INQUIRY(ID, MEMBER_INQUIRY_TYPE, MEMBER_INQUIRY_DETAIL, MEMBER_INQUIRY_STATUS, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES(SEQ_MEMBER_INQUIRY.NEXTVAL, #{memberInquiryType}, #{memberInquiryDetail}, #{memberInquiryStatus}, #{memberId}, SYSDATE, SYSDATE)
     </insert>
     <!-- 관리자용 -->
     <select id="selectAll" resultType="memberInquiryDTO">
