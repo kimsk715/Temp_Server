@@ -1,171 +1,138 @@
-// 카테고리 버튼 구현 부분
-// aria-pressed? html에 있길래 쓰긴 했는데
-// 버튼같은 요소가 눌린 상태인지 여부를 나타내는 속성이라고 합니다...
-// 토글 기능을 넣어야 하니까 이게 true인지 false인지에 따라 CSS에서 스탈을 따로 줘야겠음
+const selectAllButton = document.querySelector(".allCategory"); // 전체 선택 버튼
+const categoryButtons = document.querySelectorAll(".categorySelect"); // 각 카테고리 버튼
+const allCheckboxes = document.querySelectorAll(".listJobBtnWrap label input"); // 전체 버튼 + 카테고리 버튼을 포함한 모든 버튼
+// 버튼 클릭 정보를 저장하는 함수
+function saveCheckboxState() {
+    const checkboxState = {};
+    allCheckboxes.forEach((checkbox, index) => {
+        checkboxState[index] = checkbox.checked; // 체크 상태 저장
+    });
+    sessionStorage.setItem("checkboxState", JSON.stringify(checkboxState));
+}
 
-// DOMContentLoaded가 뭔가하니 사이트 킬 때 즉시 js가 실행되게 하는 역할이라구 함
-// document.addEventListener("DOMContentLoaded", () => {
-    const selectAllButton = document.querySelector(".allCategory"); // 전체 선택 버튼
-    const categoryButtons = document.querySelectorAll(".categorySelect");
-        // selectAllButton 이 아닌 개별 카테고리 버튼
-    selectAllButton.addEventListener("click",(e)=>{
-     if(e.target.checked){
-         categoryButtons.forEach((checkbox) => {
-            checkbox.checked = false;
-         })
-     }
-    })
-let checkedCount = 0;
-categoryButtons.forEach((button) =>{
-    button.addEventListener('click',()=>{
-        if(button.checked){
-            checkedCount++;
-            // console.log(checkedCount)
-        }
-    })
+function loadCheckboxState() {
+    const savedState = JSON.parse(sessionStorage.getItem("checkboxState"));
+    if (savedState) {
+        allCheckboxes.forEach((checkbox, index) => {
+            checkbox.checked = savedState[index] || false; // 저장된 값 적용
+        });
+    }
+}
 
+allCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", saveCheckboxState);
+});
+
+// 페이지 로드 시 버튼 정보 불러옴.
+document.addEventListener("DOMContentLoaded", loadCheckboxState);
+
+
+// 전체 버튼을 클릭했을 때, 다른 카테고리 필터의 클릭 상태 초기화
+selectAllButton.addEventListener("click",()=>{
+    categoryButtons.forEach((checkbox) => {
+        checkbox.checked = false;
+        })
 
 })
+
+const anyButtonChecked = () => {
+    let anyChecked = [...categoryButtons].some(
+        (btn) => btn.checked);
+    selectAllButton.checked = !anyChecked;
+}
+
+
+let checkedCount = 0;
+//  url 로부터 keyword 받아오기
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.getAll(param);
+}
+// url 에 카테고리 배열을 쿼리 스트링의 형태로 추가하기
 let text="";
+let searchKeyword = "";
+let path = "";
 categoryButtons.forEach((categoryButton)=>{
     categoryButton.addEventListener("click",(e)=>{
-        text += "?";
+        console.log("카테고리 버튼 클릭")
+        path = '/program/list';
+        if(!(getQueryParam("keyword").length === 0)){
+            searchKeyword = "keyword=" + getQueryParam("keyword") + "&";
+        }
+        console.log(checkedCount + "클릭 이전의 카운트 수")
         const categoryDatas = [];
         const categories = document.querySelectorAll(".listJobBtnWrap input[type='checkbox']:checked")
         categories.forEach((category) =>{
-            categoryDatas.push(category.value);
-            text += "categories="+ category.value+"&";
-
+            if(category.value !== "all"){
+                categoryDatas.push(category.value);
+                text += "categories="+ category.value+"&";
+                checkedCount = categoryDatas.length;
+            }
         })
-        console.log(categoryDatas)
-        text = text.slice(0,-1);
-        // console.log(text);
+        if(checkedCount > 5){
+            return;
+        }
+        if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
+            path += "?";
+        }
+        if(!(getQueryParam("keyword").length === 0)){
+            path += searchKeyword;
+        }
+        if(categoryDatas.length > 0) {
+            path += text
+        }
+        let anyChecked = [...categoryButtons].some(
+            (btn) => btn.checked);
+        if(!anyChecked){
+            text="";
+        }
+        if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
+            path = path.slice(0, -1);
+        }
+        console.log(path)
+        console.log(checkedCount + "클릭 이후의 카운트 수")
+
     })
 })
 
+selectAllButton.addEventListener('click',() =>{
+    path = '/program/list';
+    if(!(getQueryParam("keyword").length === 0)){
+        searchKeyword = "keyword=" + getQueryParam("keyword");
+        path += "?";
+        path += searchKeyword;
+    }
+    categoryButtons.forEach((button) => {
+        button.checked = false;
+    })
+    addQuery();
+})
+// 만약 카테고리 버튼의 변화(추가 or 삭제)가 있다면, 실행해서
+document.addEventListener("change",(anyButtonChecked));
+
 const addQuery = () => {
-     let path = '/program/list' +text;
-
-     text="";
-    // console.log(path);
+    console.log(path)
     window.location.href = path;
-
-    path="";
+    path=""; // 초기화
+    text="";
+    searchKeyword="";
 }
+
+
+// 버튼 누를 시 쿼리 실행해주는 함수.
 categoryButtons.forEach((button) => {
     button.addEventListener("click",() =>{
         addQuery();
     })
 })
 
-function saveCheckboxState() {
-    const checkboxState = {};
-    categoryButtons.forEach((checkbox, index) => {
-        checkboxState[index] = checkbox.checked; // 체크 상태 저장
-    });
-    localStorage.setItem("checkboxState", JSON.stringify(checkboxState)); // 저장
-}
-
-function loadCheckboxState() {
-    const savedState = JSON.parse(localStorage.getItem("checkboxState"));
-    if (savedState) {
-        categoryButtons.forEach((checkbox, index) => {
-            checkbox.checked = savedState[index] || false; // 저장된 값 적용
-        });
-    }
-}
-
-categoryButtons.forEach(checkbox => {
-    checkbox.addEventListener("change", saveCheckboxState);
-});
-
-document.addEventListener("DOMContentLoaded", loadCheckboxState);
-
-
-
-
-
-//
-//     // 카테고리 버튼을 누르면 aria-pressed 상태 변경
-//     // 버튼을 각각 확인
-//     categoryButtons.forEach((button) => {
-//         button.addEventListener("click", () => {
-//             // aria-pressed 값 토글
-//             // isPressed: 버튼이 지금 눌려있니?(boolean)
-//
-//             // setAttribute(속성, 값) & getAttribute(속성)?
-//             // html에서 속성이랑 값을 수정할 때랑 가져올 때 쓴다구 한다.
-//             // 자바때 배운 getter setter이랑 느낌은 비슷한듯
-//             // 예:) document.querySelector("a").setAttribute("href", "https://google.com"); // a태그 링크수정
-//             const isPressed = button.checked;
-//
-//
-//             // 개별 버튼이 하나라도 해제되면 "전체 선택"을 false로 변경
-//
-//             // some은 배열에서 하나라도 조건을 만족하는 요소가 있는지 확인할 때 사용
-//             // 여기선 개별 버튼을 누르면 전체 버튼을 끄는 목적으로 사용
-//             const anyUnchecked = [...categoryButtons].some(
-//                 (btn) => btn.checked === "false"
-//             );
-//
-//             // aria-pressed 상태가 true인가? true면 false, false면 true로 반대로 리턴한다.
-//             selectAllButton.setAttribute(
-//                 "checked",
-//                 anyUnchecked ? "false" : "true"
-//             );
-//
-//             // 선택된 버튼 개수 확인
-//             let buttonCount = 0;
-//             categoryButtons.forEach((btn) => {
-//                 // aria-pressed의 상태가 true면
-//                 if (btn.checked === "true") {
-//                     // 선택된 개수에 추가하여 계산한다.
-//                     buttonCount++;
-//                 }
-//             });
-//
-//             // 개별 버튼을 5개 이상 누르면 alert 메세지 띄우기
-//             // buttonCount 제한만 쓰니까 alert 메세지가 뜨고 버튼 해제도 안 되어서 안 눌려있다는 조건을 추가함
-//
-//             // ※ alert 띄우지 말고 선택만 더 안 되게 막으라고 하셔서 alert는 빼야겠음
-//             if (!isPressed && buttonCount >= 5) {
-//                 // alert("직무는 5개까지 선택 가능합니다");
-//                 // 메세지는 제대로 뜨는데 alert가 뜨고도 버튼 체크되는게 마음에 안 듬.
-//                 // 여기를 통과해야 aria-pressed의 상태를 바꾸는게 좋아보임.
-//                 return;
-//             }
-//
-//             // 상태 변경 (위 조건을 통과한 경우만 실행)
-//             // aria-pressed 상태가 true인가? true면 false, false면 true로 반대로 리턴한다.
-//             button.setAttribute("checked", isPressed ? "false" : "true");
-//         });
-//     });
-//
-//     // "전체 선택" 버튼 클릭 이벤트 (개별 버튼 상태 변경)
-//     selectAllButton.addEventListener("click", () => {
-//         const isPressed =
-//             selectAllButton.checked === "true";
-//
-//         // "전체 선택" 버튼을 클릭하면 개별 버튼들의 aria-pressed 값을 모두 false로 변경
-//         // 전체 버튼이 눌려있니? 눌려있음 끄고 꺼져있으면 키기
-//         selectAllButton.setAttribute(
-//             "checked",
-//             isPressed ? "false" : "true"
-//         );
-//         categoryButtons.forEach((button) => {
-//             button.setAttribute("checked", "false"); // 전체 버튼을 누르면 개별 버튼들은 모두 false로 설정
-//         });
-//     });
-// });
 
 
 
 
 
 
-
-
-// 이 아래 부터 수정함(Kim)
+// 이 아래부터는 스크랩 기능 관련 함수 모음
 const scrapButtons = document.querySelectorAll("button.scrapButton");
 
 document.addEventListener("DOMContentLoaded",() =>{
@@ -238,3 +205,5 @@ function deleteScrap(programId) {
         })
         .catch(error => console.error("Error:", error));
 }
+
+// 여기까지 스크랩 관련 함수 모음.

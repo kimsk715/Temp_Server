@@ -114,10 +114,20 @@ public class ProgramService {
         return mainProgramListDTOS;
     }
 
-    //  카테고리 구분해서 조회
+    //  카테고리 + 키워드 조회
     public ArrayList<MainProgramListDTO> getAllByCategories(SearchInfoDTO searchInfoDTO){
+//      기본적인 프로그램 정보 조회
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllByCategories(searchInfoDTO);
-        log.info("서비스 : {}", mainProgramListDTOS);
+        ScrapVO scrapVO = new ScrapVO();
+//      만약 로그인이 되어 있어서 회원 정보가 저장되어있다면, 그 회원의 스크랩 목록을 가져옴.
+        if(searchInfoDTO.getMemberId() != null){
+            scrapVO.setMemberId(searchInfoDTO.getMemberId());
+            mainProgramListDTOS.forEach(mainProgramListDTO -> {
+                scrapVO.setProgramId(mainProgramListDTO.getId());
+                scrapDAO.findOne(scrapVO).ifPresentOrElse(scrap -> mainProgramListDTO.setScrapStatus("true"), ()-> mainProgramListDTO.setScrapStatus("false"));
+            });
+        }
+//      날짜 표기(D-Day)를 위한 계산
         mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
             mainProgramListDTO.setDDay("day");
         } else if (mainProgramListDTO.getDDay().contains("-")) {
