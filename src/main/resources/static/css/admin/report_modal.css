@@ -4,7 +4,8 @@
    - 반투명 배경의 backdrop
    - 중앙 정렬된 흰색 모달 창
 */
-.report-modal {
+.company-report-modal,
+.program-report-modal {
     position: fixed; /* 현재 보고 있는 컴퓨터 화면의 영역 기준 고정 위치 */
     top: 0;
     left: 0;
@@ -83,7 +84,8 @@
     font-weight: 600;
 }
 
-.report-detail {
+.company-report-detail,
+.program-report-detail {
     margin-top: 30px;
 }
 
@@ -177,10 +179,12 @@
     background-color: rgb(0, 189, 94);
 }
 
-.report-info h4 {
+.company-report-info h4,
+.program-report-info h4 {
     margin-bottom: 4px;
 }
 
-.report-detail h4 {
+.company-report-detail h4,
+.program-report-detail h4 {
     margin-bottom: 4px;
 }
