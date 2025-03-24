@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
 
@@ -73,13 +74,7 @@ public class ProgramController {
     }
 
 /*====================================================================================*/
-    // 검색 키워드를 받아서 리스트 페이지로 전달
-    @GetMapping("/search")
-    public String search(@RequestParam("keyword") String keyword, Model model, HttpSession httpSession) {
-//        model.addAttribute("keyword", keyword); // 검색어 전달
-//        httpSession.setAttribute("keyword", keyword);
-        return "forward:/program/list";
-    }
+
 
     //   각 프로그램으로 이동
     @GetMapping("detail/{id}")

@@ -2,7 +2,25 @@ const selectAllButton = document.querySelector(".allCategory"); // 전체 선택
 const categoryButtons = document.querySelectorAll(".categorySelect"); // 각 카테고리 버튼
 const allCheckboxes = document.querySelectorAll(".listJobBtnWrap label input"); // 전체 버튼 + 카테고리 버튼을 포함한 모든 버튼
 const searchInput = document.querySelector("input[name=keyword]")
-// 버튼 클릭 정보를 저장하는 함수
+const homeButton = document.querySelector(".logo-wrap a");
+const headerButton = document.querySelector(".header4 a");
+
+// 메인페이지로 돌아갈 때 버튼 눌린 상태를 초기화해주는 이벤트리스너
+homeButton.addEventListener("click",(e) => {
+    if(JSON.parse(sessionStorage.getItem("checkboxState")) !== null) {
+        let tempState = JSON.parse(sessionStorage.getItem("checkboxState"));
+        console.log("홈버튼 눌림")
+        console.log(tempState.length)
+        for(let i=0; i<tempState.length; i++) {
+            tempState[i] = false; // 체크 상태 변경
+        }
+        tempState[0] = true;
+        console.log(tempState)
+        sessionStorage.setItem("checkboxState", tempState);
+    }
+})
+// 검색어 정보를 저장하는 함수(기존 키워드 + 현재 키워드를 비교해서 키워드가 같은 상태에서 카테고리가 바뀌는 경우
+// 버튼이 누적되도록 하기 위한 조건,
 searchInput.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
         const currentKeyword = searchInput.value.trim();
@@ -16,9 +34,11 @@ searchInput.addEventListener("keyup", (e) => {
             sessionStorage.setItem("prevKeyword", JSON.stringify(currentKeyword));
         } else {
             console.log("✅ 검색어 동일 -> 업데이트 안함");
+
         }
     }
 });
+// 버튼 클릭 정보를 저장하는 함수
 function saveCheckboxState() {
     const checkboxState = {};
     const prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword"));
@@ -34,18 +54,23 @@ function saveCheckboxState() {
     // 키워드 입력으로 검색 시 카테고리 초기화
     // 위에서 버튼 체크 상태로 체크해도 검색어가 입력되면 그에 맞게 초기화 되도록
     // 좀 더 후순위로 실행되도록 밑에 작성.
+    // console.log(checkboxState);
     sessionStorage.setItem("checkboxState", JSON.stringify(checkboxState));
 }
 
-// - 카테고리로 필터링 된 상태에서 검색을 다시 할 경우, 키워드로만 검색되는데, 버튼의 표시 상태가 초기화되지 않음.
-
-
+// 기존 버튼의 상태를 불러오는 함수. 조건에 따라 추가적으로 버튼 상태를 변경해서 load 함.
 function loadCheckboxState() {
-    const savedState = JSON.parse(sessionStorage.getItem("checkboxState"));
-    let prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword")); // 이전 키워드 가져오기
+    if(JSON.parse(sessionStorage.getItem("checkboxState")) != null) {
+        var savedState = JSON.parse(sessionStorage.getItem("checkboxState"));
+    }
+    if(JSON.parse(sessionStorage.getItem("prevKeyword")) != null) {
+        var prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword"));
+    } // 이전 키워드 가져오기
     const currentKeyword = getQueryParam("keyword")?.[0] || "";
     console.log("이전 키워드:" ,prevKeyword)
     console.log("현재 키워드:" ,currentKeyword)
+    console.log(!currentKeyword)
+
     if (savedState) {
         // 🔥 이전 키워드와 현재 키워드가 다를 때만 초기화!
         if (currentKeyword !== "" && prevKeyword !== currentKeyword) {
@@ -64,25 +89,45 @@ function loadCheckboxState() {
                 checkbox.checked = savedState[index] || false;
             });
         }
+
     }
 }
+const isEmpty = (string) => {
+    return string.replaceAll(" ", "")
+}
 
+// 전체 체크버튼들에 대해서 변화가 감지되었을 때, 그 버튼의 눌린 상태를 반영해서 세션에 저장.
 allCheckboxes.forEach(checkbox => {
     checkbox.addEventListener("change", saveCheckboxState);
 });
 
 // 페이지 로드 시 버튼 정보 불러옴.
 document.addEventListener("DOMContentLoaded", loadCheckboxState);
+headerButton.addEventListener("click",(e) => {
+    let tempAllButton = JSON.parse(sessionStorage.getItem("checkboxState"));
+    for(let i=0; i<tempAllButton.length; i++) {
+        tempAllButton[i] = false; // 체크 상태 변경
+    }
+    tempAllButton[0] = true;
 
+    sessionStorage.setItem("checkboxState", tempAllButton);
+})
 
 // 전체 버튼을 클릭했을 때, 다른 카테고리 필터의 클릭 상태 초기화
 selectAllButton.addEventListener("click",()=>{
     categoryButtons.forEach((checkbox) => {
         checkbox.checked = false;
         })
+    let tempAllButton = JSON.parse(sessionStorage.getItem("checkboxState"));
+    for(let i=0; i<tempAllButton.length; i++) {
+        tempAllButton[i] = false; // 체크 상태 변경
+    }
+    tempAllButton[0] = true;
 
+    sessionStorage.setItem("checkboxState", tempAllButton);
 })
 
+//  버튼 체크 상태를 확인하는 boolean 변수
 const anyButtonChecked = () => {
     let anyChecked = [...categoryButtons].some(
         (btn) => btn.checked);
@@ -108,13 +153,20 @@ function getQueryParam(param) {
 // url 에 카테고리 배열을 쿼리 스트링의 형태로 추가하기
 let text="";
 let searchKeyword = "";
+console.log(searchKeyword)
 let path = "";
 categoryButtons.forEach((categoryButton)=>{
     categoryButton.addEventListener("click",(e)=>{
         // console.log("카테고리 버튼 클릭")
         path = '/program/list'; // 기본 경로값. 이 뒤에 쿼리 스트링 추가됨.
-        if(!(getQueryParam("keyword").length === 0)){
+        if(!!getQueryParam("keyword")[0]){
+            console.log("실행?")
             searchKeyword = "keyword=" + getQueryParam("keyword") + "&";
+            console.log(searchKeyword)
+        }
+        else if(!getQueryParam("keyword")[0]){
+            searchKeyword = "";
+            console.log(searchKeyword)
         }
         // 카테고리를 배열의 형태로 저장.
         const categoryDatas = [];
@@ -126,13 +178,15 @@ categoryButtons.forEach((categoryButton)=>{
                 checkedCount = categoryDatas.length;
             }
         })
-        // 5개까지만 동시에 필터링. 그 이상일 경우에는 버튼의 이벤트를 방지하고, 직전 검색 결과로 이동.
+        // 5개까지만 체크
         // (ex. 1,3,4,6 이 클릭된 상태에 키워드 '감자' 가 있으면, /program/list?keyword=감자&categories=1&categories=3&categories=4&categories=6
+        // 키워드나 카테고리 유무에 따라 쿼리스트링에 알맞게 추가해주는 부분.
         if(checkedCount <= 5){
-            if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
+            if(!!getQueryParam("keyword")[0] || categoryDatas.length > 0){
                 path += "?";
             }
-            if(!(getQueryParam("keyword").length === 0)){
+            if(!!getQueryParam("keyword")[0]){
+                console.log(searchKeyword)
                 path += searchKeyword;
             }
             if(categoryDatas.length > 0) {
@@ -143,10 +197,11 @@ categoryButtons.forEach((categoryButton)=>{
             if(!anyChecked){
                 text="";
             }
-            if(!(getQueryParam("keyword").length === 0) || categoryDatas.length > 0){
+            if(!!getQueryParam("keyword")[0] || categoryDatas.length > 0){
                 path = path.slice(0, -1);
             }
         }
+        // 만약 5개가 이미 눌려있으면 이벤트 방지하고, 기존 검색 결과 링크로 이동.
         else{
             e.preventDefault();
             e.target.checked = false;
@@ -157,11 +212,13 @@ categoryButtons.forEach((categoryButton)=>{
         console.log(checkedCount + "클릭 이후의 카운트 수")
     })
 })
-
+//  전체 버튼 눌렀을 때, 카테고리 초기화
+//  키워드 있으면 키워드는 유지
 selectAllButton.addEventListener('click',() =>{
     path = '/program/list';
-    if(!(getQueryParam("keyword").length === 0)){
+    if(!!getQueryParam("keyword")[0]){
         searchKeyword = "keyword=" + getQueryParam("keyword");
+        console.log(searchKeyword)
         path += "?";
         path += searchKeyword;
     }
@@ -170,19 +227,21 @@ selectAllButton.addEventListener('click',() =>{
     })
     addQuery();
 })
-// 만약 카테고리 버튼의 변화(추가 or 삭제)가 있다면, 실행해서
+// 만약 카테고리 버튼의 변화(추가 or 삭제)가 있다면, 전체 버튼의 상태 변경
 document.addEventListener("change",(anyButtonChecked));
 
 const addQuery = () => {
     console.log(path)
+    console.log(searchKeyword)
     window.location.href = path;
     path=""; // 초기화
     text="";
     searchKeyword="";
+    console.log(searchKeyword)
 }
 
 
-// 버튼 누를 시 쿼리 실행해주는 함수.
+// 버튼 누를 시 쿼리스트링 추가 함수 실행
 categoryButtons.forEach((button) => {
     button.addEventListener("click",() =>{
         addQuery();
@@ -190,14 +249,18 @@ categoryButtons.forEach((button) => {
 })
 
 
-// if(!(getQueryParam("keyword").length === 0)){
-//     allCheckboxes.forEach((checkbox, index) => {
-//         savedState[index] = false; // 체크 상태 변경
-//     });
-//     savedState[0] = true;
-//     console.log("검색어 입력 시 카테고리 초기화")
-// }
-
+document.addEventListener("DOMContentLoaded",()=>{
+    let currentURL = window.location.href;
+    // 나중에 도메인 주소에 맞춰서 변경. 아무런 쿼리스트링이 안들어갔을 때 어디서 접속하더라도
+    // 필터 및 검색어를 초기화
+    if(currentURL === "http://localhost:10000/program/list"){
+        console.log("실행됨")
+        selectAllButton.checked = true;
+        categoryButtons.forEach((button) =>{
+            button.checked = false;
+        })
+    }
+})
 
 
 
