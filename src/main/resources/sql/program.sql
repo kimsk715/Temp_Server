@@ -19,6 +19,13 @@ VALUES (
            SYSDATE
        );
 
+INSERT INTO TBL_PROGRAM (ID, PROGRAM_NAME, PROGRAM_DETAIL, PROGRAM_END_DATE,
+                         PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH,
+                         COMPANY_ID, CATEGORY_C_ID)
+VALUES (SEQ_PROGRAM.NEXTVAL, '백엔드 개발자 체험', '개발자가 되어보세요!',
+        TO_DATE('20240401', 'YYYYMMDD'), 50000, 1, 'C:/upload.t_thumb.jpg',
+        1, 1);
+
 INSERT INTO TBL_COMPANY
 VALUES
     (
