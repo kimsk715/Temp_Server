@@ -4,6 +4,7 @@ import com.app.temp.domain.dto.CompanyDTO;
 import com.app.temp.domain.dto.ProgramInfoDTO;
 import com.app.temp.domain.vo.CompanyVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,4 +27,16 @@ public interface CompanyMapper {
     public List<ProgramInfoDTO> selectProgramWaitByCompanyId(Long id);
 //    마감 공고 목록 조회
     public List<ProgramInfoDTO> selectProgramEndByCompanyId(Long id);
+//    기업 공고 등록 임시저장
+    public void pendingCompanyProgram(ProgramInfoDTO programInfoDTO);
+//    기업 공고 수정
+    public void updateCompanyProgram(ProgramInfoDTO programInfoDTO);
+//    기업 공고 삭제
+    public void deleteCompanyProgram(Long id);
+//    기업 공고 작성중 조회
+    public ProgramInfoDTO selectCompanyProgram(Long id);
+//    기업 공고 조회
+    public ProgramInfoDTO selectCompanyProgramById(Long id);
+//    공고 등록
+    public void insertCompanyProgram(ProgramInfoDTO programInfoDTO);
 }

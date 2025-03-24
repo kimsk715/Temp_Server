@@ -58,10 +58,64 @@ public class EnterpriseController {
     @PostMapping("enterprises/programs-list")
     public CompanyProgramListDTO programList(){
        CompanyMemberDTO companyMember = (CompanyMemberDTO) session.getAttribute("companyMember");
-       log.info("멤버: {}", companyMember);
-       log.info(companyService.selectProgramsByCompanyId(companyMember.getCompanyId()).toString());
 
-        return companyService.selectProgramsByCompanyId(companyMember.getCompanyId());
+        return companyService.selectProgramsByCompanyId(21L);
+    }
+
+//    게시물 등록 페이지 이동
+    @GetMapping("enterprise/program-edit")
+    public String programEdit() {
+        return "enterprise/program-edit";
+    }
+
+//    기업 공고 등록 임시저장
+    @GetMapping("enterprise/program-pending-insert")
+    public String programPendingInsert(ProgramInfoDTO programInfoDTO) {
+        companyService.pendingCompanyProgram(programInfoDTO);
+        return "redirect:/enterprise/program-list";
+    }
+
+//    기업 공고 등록
+    @PostMapping("enterprise/program-edit")
+    public String createPost(@ModelAttribute ProgramInfoDTO programInfoDTO) {
+        // Service를 통해 게시물 등록
+        companyService.insertCompanyProgram(programInfoDTO);
+        return "redirect:/post/list";  // 등록 후 게시물 목록으로 리디렉션
+    }
+
+//    기업 공고 임시저장
+    @GetMapping("enterprise/program-wait")
+    public String programWait() {
+        return "redirect:/enterprise/program-list";
+    }
+
+//    기업 공고 수정페이지로 이동
+    @GetMapping("enterprise/program-edit/{id}")
+    public String programEdit(@PathVariable Long id, Model model) {
+        log.info(id.toString());
+        ProgramInfoDTO programInfoDTO = companyService.selectCompanyProgramById(id);
+        model.addAttribute("programInfoDTO", programInfoDTO);
+        return "redirect:/enterprise/program-list";
+    }
+
+//    기업 공고 수정기능
+    @PostMapping("enterprise/program-edit/{id}")
+    public String updateCompanyProgram(@PathVariable Long id, @ModelAttribute ProgramInfoDTO programInfoDTO) {
+        log.info(id.toString());
+        log.info(programInfoDTO.toString());
+        programInfoDTO.setId(id);
+        companyService.updateCompanyProgram(programInfoDTO);
+
+        return "redirect:/enterprise/list";
+    }
+
+    
+//    기업 공고 삭제
+    @PostMapping("enterpirse/program-delete")
+    public String programDelete(@RequestParam Long id) {
+        log.info("id: {}",id);
+        companyService.deleteCompanyProgram(id);
+        return "redirect:/enterprise/program-list";
     }
 
     @GetMapping("enterprise/applicant-info")
@@ -96,12 +150,6 @@ public class EnterpriseController {
 
     @GetMapping("enterprise/member-manage")
     public void memberManage(){
-
-    }
-
-//    공고목록 등록
-    @GetMapping("enterprise/program-edit")
-    public void programEdit(){
 
     }
 

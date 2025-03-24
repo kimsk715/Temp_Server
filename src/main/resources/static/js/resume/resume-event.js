@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
           console.log(resumeId);
      resumeId.forEach((id)=>{
           id.addEventListener('click', (e)=>{
-               const val = e.target.getAttribute("id");;
+               const val = e.target.getAttribute("id");
 
                 resumeSelectService.remove(val);
           });

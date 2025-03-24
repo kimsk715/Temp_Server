@@ -33,21 +33,22 @@
 
         <div class="main">
             <!-- <div id="position-info" style="display: none;"></div> -->
+            <form action="/enterprise/program-edit" method="post">
             <div class="container">
                 <h1>채용할 포지션의 정보를 입력해주세요</h1>
-                <label for="position">직무</label>
-                <select id="position">
-                    <option>프론트엔드</option>
-                    <option>백엔드</option>
-                    <option>디자이너</option>
-                </select>
+<!--                <label for="position">직무</label>-->
+<!--                <select id="position">-->
+<!--                    <option>프론트엔드</option>-->
+<!--                    <option>백엔드</option>-->
+<!--                    <option>디자이너</option>-->
+<!--                </select>-->
 
-                <label for="title">포지션 제목</label>
-                <input type="text" id="title"
-                    placeholder="예: [사람인 LAB] 백엔드 개발자 채용">
+                <label for="programName">포지션 제목</label>
+                <input type="text" id="programName"
+                    placeholder="예: [사람인 LAB] 백엔드 개발자 채용"  >
 
-                <label for="date">포지션 마감일</label>
-                <input type="date" id="date">
+                <label for="programEndDate">포지션 마감일</label>
+                <input type="date" id="programEndDate" >
 
 <!--                <label for="experience">경력</label>-->
 <!--                <input type="number" id="experience"-->
@@ -57,14 +58,18 @@
                 <input type="text" id="location"
                     placeholder="서울특별시 강남구...">
 
-                <label for="description">서비스 소개</label>
-                <textarea id="description" rows="4"
+                <label for="programPrice">가격</label>
+                <input type="text" id="programPrice"
+                       placeholder="2500" >
+
+                <label for="programDetail">서비스 소개</label>
+                <textarea id="programDetail" rows="4"
                     placeholder="회사 및 서비스 소개를 입력하세요..."></textarea>
 
                 <label for="job_details">주요업무</label>
                 <textarea id="job_details" rows="4" placeholder="사람인 기업서비스, 인적성검사, 채용홈페이지 개발 및 유지보수
     Vue.js 기반의 개발환경
-    FrontEnd 개발 확장을 위한 기술 R&D"></textarea>
+    FrontEnd 개발 확장을 위한 기술 R&D" ></textarea>
 
 <!--                <label for="requirements">자격요건</label>-->
 <!--                <textarea id="requirements" rows="4" placeholder="UI개발 (html, css, javascript) 경력 5년 이상-->
@@ -82,14 +87,28 @@
 <!--                <label for="process">채용절차 및 기타 지원 유의사항</label>-->
 <!--                <textarea id="process" rows="3"-->
 <!--                    placeholder="채용절차 / 지원방법 / 지원 시 주의사항 / 사전질문 / 근무조건 등 채용에 관련된 정보를 상세하게 작성해주세요."></textarea>-->
+
+                    <button class="approve">승인요청</button>
+
             </div>
+            </form>
+
            <div class="sidebar-wrapper">
             <div class="sidebar right">
                 <div class="info">포지션 번호 : 10514</div>
                 <div class="guide">포지션 등록 가이드 확인</div>
-                <button class="approve">승인요청</button>
-                <button class="save">임시저장</button>
-                <button class="delete">포지션 삭제</button>
+
+
+                <a href="/enterprise/program-wait">
+                    <button class="save">임시저장</button>
+                </a>
+                <form action="/enterpirse/program-delete" method="post">
+                <button class="delete" id=delete-btn>
+                    포지션 삭제
+                </button>
+                    <input type="hidden" name="id" >
+                </form>
+
                 <!-- <div class="agreement">
                     <input type="checkbox" id="agreement-checkbox" />
                     <label for="agreement-checkbox">채용 성공 시, <span
