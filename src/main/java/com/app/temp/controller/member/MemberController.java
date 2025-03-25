@@ -64,9 +64,11 @@ public class MemberController {
 //    결제내역 저장하기
     @ResponseBody
     @PostMapping("member/insert-pay-history")
-    public void insertPayHistory(PayDTO data){
+    public void insertPayHistory(@RequestBody PayDTO data){
+        log.info(data.getPaymentStatusLocale());
         MemberVO member = (MemberVO) session.getAttribute("member");
         data.setMemberId(member.getId());
+//        테스트용 멤버 아이디
         log.info(data.toString());
         memberService.insertPayHistory(data);
     }

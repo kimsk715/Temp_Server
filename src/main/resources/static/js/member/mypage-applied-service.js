@@ -12,7 +12,7 @@ const myPageAppliedService = (()=>{
 
             // fetch()의 옵션으로 요청 받법을 설정하는 부분입니다. 여기서는 post 메서드를 사용하여 데이터를 서버로 전송하려고 합니다.
             // post는 주로 서버에 새로운 데이터를 생성 , 전송할때
-            method: "post",
+            method: "POST",
 
             // 3
             // "body"는 요청에 포함될 데이터입니다. reply 객체를 json 문자열로 변환한 후 서버로 전송
@@ -31,7 +31,7 @@ const myPageAppliedService = (()=>{
         console.log(applyMemberStatus)
 
         const response = await fetch(`/mypage/account-applis?applyMemberStatus=${applyMemberStatus}`,{
-            method: "post",
+            method: "POST",
             body: JSON.stringify({page: page}),
             headers: {
                 "Content-Type": "application/json;charset=utf-8"
