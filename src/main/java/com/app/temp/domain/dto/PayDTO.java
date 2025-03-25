@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class PayDTO {
     @EqualsAndHashCode.Include
     private Long id;
-    private int paymentPoint;
+    private int charge; //충전
     private Long memberId;
     private String createdDate;
     private String paymentStatusLocale;
