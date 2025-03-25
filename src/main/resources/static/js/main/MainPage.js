@@ -258,6 +258,13 @@ closeButton.forEach((button) =>{
     })
 })
 
-// document.addEventListener("DOMContentLoaded",()=>{
-//     fetch('/top-list')
-// })
+document.addEventListener("DOMContentLoaded", () => {
+    if(memberData == null){
+        beforeLoginWrap.style.display = "block";
+        afterLoginWrap.style.display = "none";
+    }
+    else{
+        beforeLoginWrap.style.display = "none";
+        afterLoginWrap.style.display = "block";
+    }
+})

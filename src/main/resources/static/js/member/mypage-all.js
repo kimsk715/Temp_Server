@@ -87,14 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if(memberData == null){
         beforeLogin.style.display = "block";
         afterLogin.style.display = "none";
-        beforeLoginWrap.style.display = "block";
-        afterLoginWrap.style.display = "none";
     }
     else{
         beforeLogin.style.display = "none";
         afterLogin.style.display = "block";
-        beforeLoginWrap.style.display = "none";
-        afterLoginWrap.style.display = "block";
     }
 })
 
