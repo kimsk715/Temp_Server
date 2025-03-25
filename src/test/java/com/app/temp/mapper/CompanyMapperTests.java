@@ -7,6 +7,7 @@ import com.app.temp.domain.dto.ProgramInfoDTO;
 import com.app.temp.domain.vo.CompanyVO;
 import com.app.temp.repository.CompanyDAO;
 import com.app.temp.service.CompanyMemberService;
+import com.app.temp.service.CompanyService;
 import com.app.temp.service.ProgramService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,8 @@ public class CompanyMapperTests {
     private CompanyDAO companyDAO;
     @Autowired
     private ProgramService programService;
+    @Autowired
+    private CompanyService companyService;
 
     @Test
 //    기업회원 전용 기업정보 입력하기
@@ -79,5 +82,13 @@ public class CompanyMapperTests {
         companyVO.setCompanyName("test");
 
         programService.getProgramInfoDTOById(companyVO.getId());
+    }
+
+    @Test
+    public void testUpdate() {
+        ProgramInfoDTO programInfoDTO = new ProgramInfoDTO();
+        programInfoDTO.setId(21L);
+        programInfoDTO.setProgramName("잉 기모링리일일ㅇ");
+        companyService.updateCompanyProgram(programInfoDTO);
     }
 }

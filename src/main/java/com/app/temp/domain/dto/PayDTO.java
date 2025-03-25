@@ -14,6 +14,6 @@ public class PayDTO {
     private Long id;
     private int paymentPoint;
     private Long memberId;
-    private String purchasedAt;
+    private String createdDate;
     private String paymentStatusLocale;
 }
