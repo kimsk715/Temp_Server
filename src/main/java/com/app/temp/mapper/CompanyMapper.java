@@ -39,4 +39,6 @@ public interface CompanyMapper {
     public ProgramInfoDTO selectCompanyProgramById(Long id);
 //    공고 등록
     public void insertCompanyProgram(ProgramInfoDTO programInfoDTO);
+//    공고 수정 임시저장
+    public void updatePendingProgram(ProgramInfoDTO programInfoDTO);
 }

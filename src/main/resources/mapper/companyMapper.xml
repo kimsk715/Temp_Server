@@ -82,23 +82,36 @@
     </select>
 <!--    공고 등록 임시저장-->
     <insert id="pendingCompanyProgram">
-        INSERT INTO TBL_PROGRAM (ID, COMPANY_ID)
-        VALUES (SEQ_PROGRAM.NEXTVAL, #{companyId})
+        INSERT INTO TBL_PROGRAM (ID, PROGRAM_NAME, PROGRAM_DETAIL,  PROGRAM_END_DATE, PROGRAM_PRICE, COMPANY_ID, PROGRAM_STATUS)
+        VALUES (SEQ_PROGRAM.NEXTVAL, #{programName}, #{programDetail}, #{programEndDate}, #{programPrice}, #{companyId}, '작성중')
     </insert>
-<!--    공고 등록-->
+<!--    공고 등록 승인요청-->
     <insert id="insertCompanyProgram">
-        INSERT INTO TBL_PROGRAM (ID, PROGRAM_NAME, PROGRAM_DETAIL,  PROGRAM_END_DATE, PROGRAM_PRICE, COMPANY_ID)
-        VALUES (SEQ_PROGRAM.NEXTVAL, #{programName}, #{programDetail}, #{programEndData}, #{programPrice}, #{companyId})
+        INSERT INTO TBL_PROGRAM (ID, PROGRAM_NAME, PROGRAM_DETAIL,  PROGRAM_END_DATE, PROGRAM_PRICE, COMPANY_ID, PROGRAM_STATUS)
+        VALUES (SEQ_PROGRAM.NEXTVAL, #{programName}, #{programDetail}, #{programEndDate}, #{programPrice}, #{companyId}, '승인 요청중')
     </insert>
-<!--    공고 수정-->
+<!--    공고 수정 승인요청-->
     <update id="updateCompanyProgram">
         UPDATE TBL_PROGRAM
         SET PROGRAM_NAME = #{programName},
             PROGRAM_DETAIL = #{programDetail},
             PROGRAM_END_DATE = #{programEndDate},
-                PROGRAM_PRICE = #{programPrice}
-        WHERE ID = ${id}
+                PROGRAM_PRICE = #{programPrice},
+                PROGRAM_STATUS = '승인 요청중'
+        WHERE ID = #{id}
     </update>
+    <!--공고 수정 임시저장-->
+    <update id="updatePendingProgram">
+        UPDATE TBL_PROGRAM
+            SET
+                PROGRAM_NAME = #{programName},
+            PROGRAM_DETAIL = #{programDetail},
+            PROGRAM_END_DATE = #{programEndDate},
+            PROGRAM_PRICE = #{programPrice},
+            PROGRAM_STATUS = '작성중'
+        WHERE ID = #{id}
+    </update>
+
 <!--    공고삭제-->
     <delete id="deleteCompanyProgram">
         DELETE TBL_PROGRAM
@@ -108,11 +121,13 @@
     <select id="selectCompanyProgram" resultType="programInfoDTO">
         SELECT ID, PROGRAM_NAME, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_END_DATE
         FROM TBL_PROGRAM
-        WHERE COMPANY_ID = ${id}
+        WHERE COMPANY_ID = #{id}
     </select>
+
     <select id="selectCompanyProgramById" resultType="programInfoDTO">
         SELECT ID, PROGRAM_NAME, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_STATUS, PROGRAM_END_DATE, PROGRAM_CREATED_DATE, PROGRAM_UPDATE_DATE
         FROM TBL_PROGRAM
         WHERE id = #{id}
     </select>
+
 </mapper>

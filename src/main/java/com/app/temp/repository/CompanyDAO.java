@@ -56,7 +56,7 @@ public class CompanyDAO {
         return companyMapper.selectProgramEndByCompanyId(id);
     };
     
-//    기업 공고 임시저장
+//    기업 공고 등록 임시저장
     public void insertpendingCompanyProgram(ProgramInfoDTO programInfoDTO) {
         companyMapper.pendingCompanyProgram(programInfoDTO);
 
@@ -83,5 +83,10 @@ public class CompanyDAO {
 //    공고 등록
     public void insertCompanyProgram(ProgramInfoDTO programInfoDTO) {
         companyMapper.insertCompanyProgram(programInfoDTO);
+    }
+    
+//    공고 수정 임시저장
+    public void setPendingProgram(ProgramInfoDTO programInfoDTO) {
+        companyMapper.updatePendingProgram(programInfoDTO);
     }
 }

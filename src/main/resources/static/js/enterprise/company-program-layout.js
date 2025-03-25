@@ -13,22 +13,24 @@ const companyProgramLayout = (() => {
         let work = '';
         let write = '';
         await programList.selectProgramWorkByCompanyId.forEach((program) => {
-        wait += `
-                    <div class="card ">
+        work += `
+                    <div class="card">
                         <div>${program.programName}</div>
                         <div>${program.createdDate}</div>
                         <div class="card-bottom">
+                            <input type="hidden" name="${program.id}">
                             <div class="ongoing">진행중</div>
                         </div>
                     </div>
 `
         })
         programList.selectProgramWaitByCompanyId.forEach((program) => {
-            work += `
+            wait += `
                      <div class="card ">
                         <div>${program.programName}</div>
                         <div>${program.createdDate}</div>
                         <div class="card-bottom">
+                        <input type="hidden" name="${program.id}">
                             <div class="pending">승인 요청중</div>
                         </div>
                     </div>
@@ -45,7 +47,7 @@ const companyProgramLayout = (() => {
                                 <path fill="#fff" fill-rule="evenodd" d="M22.221 4.667a2.667 2.667 0 0 0-3.77 0l-11.602 11.6c-.5.501-.781 1.18-.781 1.887v3.18A2.667 2.667 0 0 0 8.734 24h3.18c.707 0 1.386-.281 1.886-.781L25.4 11.617a2.667 2.667 0 0 0 0-3.77l-3.18-3.18ZM8.734 18.153l11.602-11.6 3.18 3.179-11.602 11.601h-3.18v-3.18ZM5.334 26a1.333 1.333 0 1 0 0 2.666h21.333a1.333 1.333 0 0 0 0-2.666H5.333Z" clip-rule="evenodd"></path>
                             </svg>
                             <input type="hidden" value="${program.id}">
-                            <button>수정</button>
+                            <a href="/enterprise/program-edit?id=${program.id}">수정</a>
                         </div>
                     </div>
                     `
@@ -56,7 +58,8 @@ const companyProgramLayout = (() => {
                             <div>2021.07.28</div>
                         <div class="card-bottom">
                             <div class="closed">마감</div>
-
+                            <input type="hidden" name="${program.id}">
+                            
                         </div>
                     </div>
                         
@@ -69,12 +72,20 @@ const companyProgramLayout = (() => {
         columnEnd.innerHTML += end;
 }
 
-    const showEdit = async (programData) => {
+
+    const end = document.querySelector("#end-count");
+    const wait = document.querySelector("#wait-count");
+    const write = document.querySelector("#write-count");
+    const work = document.querySelector("#work-count");
+
+
+    const showCount = (programs) => {
+        end.innerHTML = programs.selectProgramEndByCompanyId.length;
+        wait.innerHTML = programs.selectProgramWaitByCompanyId.length;
+        write.innerHTML = programs.selectProgramWriteByCompanyId.length;
+        work.innerHTML = programs.selectProgramWorkByCompanyId.length;
 
     }
 
-
-
-
-return {showList: showList}
+return {showList: showList, showCount: showCount}
 })();

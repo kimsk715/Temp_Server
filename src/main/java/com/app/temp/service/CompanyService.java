@@ -64,4 +64,9 @@ public class CompanyService {
     public ProgramInfoDTO selectCompanyProgramById(Long id) {
         return companyDAO.findCompanyProgramById(id);
     }
+    
+//    기업 수정 임시저장
+    public void updatePendingProgramupdatePendingProgram(ProgramInfoDTO programInfoDTO) {
+        companyDAO.setPendingProgram(programInfoDTO);
+    }
 }

@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.lang.reflect.Member;
 import java.util.List;
@@ -63,57 +64,67 @@ public class EnterpriseController {
     }
 
 //    게시물 등록 페이지 이동
-    @GetMapping("enterprise/program-edit")
+    @GetMapping("enterprise/program-insert-page")
     public String programEdit() {
-        return "enterprise/program-edit";
+        return "enterprise/program-insert-page";
     }
 
 //    기업 공고 등록 임시저장
-    @GetMapping("enterprise/program-pending-insert")
+    @PostMapping("enterprise/program-pending-insert")
     public String programPendingInsert(ProgramInfoDTO programInfoDTO) {
+        CompanyMemberDTO companyMember = (CompanyMemberDTO) session.getAttribute("companyMember");
+        programInfoDTO.setCompanyId(companyMember.getCompanyId());
         companyService.pendingCompanyProgram(programInfoDTO);
         return "redirect:/enterprise/program-list";
     }
 
-//    기업 공고 등록
-    @PostMapping("enterprise/program-edit")
-    public String createPost(@ModelAttribute ProgramInfoDTO programInfoDTO) {
-        // Service를 통해 게시물 등록
+//    기업 공고 등록 승인요청
+    @PostMapping("enterprise/program-insert")
+    public String createPost(ProgramInfoDTO programInfoDTO) {
+        CompanyMemberDTO companyMember = (CompanyMemberDTO) session.getAttribute("companyMember");
+        programInfoDTO.setCompanyId(companyMember.getCompanyId());
         companyService.insertCompanyProgram(programInfoDTO);
-        return "redirect:/post/list";  // 등록 후 게시물 목록으로 리디렉션
+
+        return "redirect:/enterprise/program-list";  // 등록 후 게시물 목록으로 리디렉션
     }
 
-//    기업 공고 임시저장
-    @GetMapping("enterprise/program-wait")
-    public String programWait() {
-        return "redirect:/enterprise/program-list";
-    }
+
+
+
 
 //    기업 공고 수정페이지로 이동
-    @GetMapping("enterprise/program-edit/{id}")
-    public String programEdit(@PathVariable Long id, Model model) {
-        log.info(id.toString());
-        ProgramInfoDTO programInfoDTO = companyService.selectCompanyProgramById(id);
-        model.addAttribute("programInfoDTO", programInfoDTO);
+    @GetMapping("enterprise/program-edit")
+    public String goProgramEdit(@RequestParam("id") Long id, Model model) {
+        model.addAttribute("program", companyService.selectCompanyProgramById(id));
+        return "enterprise/program-edit";
+    }
+
+
+//    기업 공고 수정 승인요청
+    @PostMapping("enterprise/program-edit")
+    public String updateCompanyProgram(@ModelAttribute ProgramInfoDTO programInfoDTO) {
+        CompanyMemberDTO companyMember = (CompanyMemberDTO) session.getAttribute("companyMember");
+        log.info(programInfoDTO.getId().toString());
+
+        programInfoDTO.setCompanyId(companyMember.getCompanyId());
+
+        companyService.updateCompanyProgram(programInfoDTO);
         return "redirect:/enterprise/program-list";
     }
-
-//    기업 공고 수정기능
-    @PostMapping("enterprise/program-edit/{id}")
-    public String updateCompanyProgram(@PathVariable Long id, @ModelAttribute ProgramInfoDTO programInfoDTO) {
-        log.info(id.toString());
-        log.info(programInfoDTO.toString());
-        programInfoDTO.setId(id);
-        companyService.updateCompanyProgram(programInfoDTO);
-
-        return "redirect:/enterprise/list";
-    }
+    
+//    기업 공고 수정 임시저장
+    @PostMapping("enterprise/program-pending-update")
+    public String programPendingUpdate(@ModelAttribute ProgramInfoDTO programInfoDTO) {
+        CompanyMemberDTO companyMember = (CompanyMemberDTO) session.getAttribute("companyMember");
+        programInfoDTO.setCompanyId(companyMember.getCompanyId());
+        companyService.updatePendingProgramupdatePendingProgram(programInfoDTO);
+        return "redirect:/enterprise/program-list";
+    };
 
     
 //    기업 공고 삭제
     @PostMapping("enterpirse/program-delete")
-    public String programDelete(@RequestParam Long id) {
-        log.info("id: {}",id);
+    public String programDelete(Long id) {
         companyService.deleteCompanyProgram(id);
         return "redirect:/enterprise/program-list";
     }
@@ -129,7 +140,7 @@ public class EnterpriseController {
     }
 
     @GetMapping("enterprise/company-image")
-    public void companyImage(){
+    public void companyImage(List<MultipartFile> files){
 
     }
 
