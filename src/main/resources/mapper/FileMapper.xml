@@ -9,6 +9,8 @@
         INSERT INTO TBL_FILE(ID, FILE_NAME, FILE_PATH)
         VALUES (#{id}, #{fileName}, #{filePath})
     </insert>
+
+    <!--FILE 삭제-->
     <delete id="deleteFile">
         DELETE FROM TBL_FILE
         WHERE ID = #{id}

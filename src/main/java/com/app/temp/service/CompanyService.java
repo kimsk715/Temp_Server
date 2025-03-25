@@ -91,21 +91,43 @@ public class CompanyService {
 // 기업 소개 이미지들 삭제
     public void deleteCompanyImages(Long id) {
         // 특정기업 이미지들 조회
-        List<CompanyFileDTO> foundCompanyFiles = companyFileMapper.selectCompanyImages(id);
+        List<CompanyFileDTO> foundCompanyFiles = companyFileDAO.findCompanyFile(id);
+        log.info(foundCompanyFiles.toString());
         // 서브키 먼저 삭제
         companyFileDAO.deleteFile(id);
         // 슈퍼키 삭제
-
+        foundCompanyFiles.stream().map((foundPrgramFile) -> foundPrgramFile.getId()).forEach(fileDAO::delete);
         // 파일 이름이 맞으면 삭제함
         // 만약 이미지 파일이라면 썸네일도 삭제함
        foundCompanyFiles.forEach((companyFile) -> {
-          File file = new File("C/upload",companyFile.getFilePath() + "/" + companyFile.getFileName());
+          File file = new File("C:/upload",companyFile.getFilePath() + "/" + companyFile.getFileName());
           file.delete();
-          if(companyFile.getType().equals("이미지")) {
-              file = new File("C/upload",companyFile.getFilePath() + "/t_" + companyFile.getFileName());
+          if(companyFile.getCompanyFileType().equals("기업 이미지")) {
+              file = new File("C:/upload",companyFile.getFilePath() + "/t_" + companyFile.getFileName());
+              log.info(file.getAbsolutePath());
               file.delete();
           }
        });
+    }
+    
+    // 기업 로고 삭제
+    public void deleteCompanyLogo(Long id) {
+        // 특정기업 이미지들 조회
+        CompanyFileDTO foundCompanyLogo = companyFileDAO.findCompanyLogoById(id);
+        log.info(foundCompanyLogo.toString());
+        // 서브키 먼저 삭제
+        companyFileDAO.deleteFile(id);
+        // 슈퍼키 삭제
+        fileDAO.delete(id);
+        // 파일 이름이 맞으면 삭제함
+        // 만약 이미지 파일이라면 썸네일도 삭제함
+            File file = new File("C:/upload",foundCompanyLogo.getFilePath() + "/" + foundCompanyLogo.getFileName());
+            file.delete();
+            if(foundCompanyLogo.getCompanyFileType().equals("기업 이미지")) {
+                file = new File("C:/upload",foundCompanyLogo.getFilePath() + "/t_" + foundCompanyLogo.getFileName());
+                log.info(file.getAbsolutePath());
+                file.delete();
+        };
     }
 
 
@@ -172,6 +194,53 @@ public class CompanyService {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    //기업 로고 추가
+    public void insertCompanyLogo(Long id, MultipartFile logo) {
+        String todayPath = getPath();
+        String rootPath = "C:/upload/" + todayPath;
+
+        File directory = new File(rootPath);
+        if(!directory.exists()){
+            directory.mkdirs();
+        }
+
+        if(logo.getOriginalFilename().equals("")){
+            return;
+        }
+
+        UUID uuid = UUID.randomUUID();
+        FileVO fileVO = new FileVO();
+        CompanyFileVO companyFileVO = new CompanyFileVO();
+
+        fileVO.setFileName(uuid.toString() + "_" + logo.getOriginalFilename());
+        fileVO.setFilePath(todayPath);
+        log.info(fileVO.toString());
+
+        fileDAO.save(fileVO);
+
+        companyFileVO.setId(fileVO.getId());
+        companyFileVO.setCompanyId(id);
+
+        log.info(companyFileVO.toString());
+
+        companyFileDAO.saveCompanyLogo(companyFileVO);
+
+        try {
+
+            logo.transferTo(new File(rootPath, uuid.toString() + "_" + logo.getOriginalFilename()));
+
+            if(logo.getContentType().startsWith("image")){
+                FileOutputStream out = new FileOutputStream(new File(rootPath, "t_" + uuid.toString() + "_" + logo.getOriginalFilename()));
+                Thumbnailator.createThumbnail(logo.getInputStream(), out, 100, 100);
+                out.close();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
     
 //    현재 날짜를 yyyy/MM/dd 형식의 문자열로 반환함, 파일 저장을위한 경로

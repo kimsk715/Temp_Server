@@ -144,9 +144,12 @@ public class EnterpriseController {
 
 //    기업 이미지 업로드
     @PostMapping("enterprise/company-post-images")
-    public String getImages(@RequestParam("file") List<MultipartFile> files){
+    public String getImages(@RequestParam("logo") MultipartFile logo, @RequestParam("main-image") List<MultipartFile> files){
 //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
         companyService.uploadCompanyImages(21L, files);
+        companyService.insertCompanyLogo(21L, logo);
+
+
         return "redirect:/enterprise/company-image";
     }
     
@@ -155,8 +158,15 @@ public class EnterpriseController {
     public String deleteImages() {
 //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
           companyService.deleteCompanyImages(21L);
-
+          log.info("컨트롤러 왔음");
           return "redirect:/enterprise/company-image";
+    }
+
+    @PostMapping("enterprise/company-delete-logo")
+    public String deleteLogo() {
+        //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.deleteCompanyLogo(21L);
+        return "redirect:/enterprise/company-image";
     }
 
     @GetMapping("enterprise/main-page")
