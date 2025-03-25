@@ -16,16 +16,16 @@
 //     righttopmenu.style.display = "none";
 // });
 //
-// const topNavigation = document.querySelector("header.header-sc");
-// const topMenu = document.querySelector("nav.nav-sc3");
-//
-// topNavigation.addEventListener("mouseover", function () {
-//     topMenu.style.display = "flex";
-// });
-//
-// topNavigation.addEventListener("mouseout", function () {
-//     topMenu.style.display = "none";
-// });
+const topNavigation = document.querySelector("header.header-sc");
+const topMenu = document.querySelector("nav.nav-sc3");
+
+topNavigation.addEventListener("mouseover", function () {
+    topMenu.style.display = "flex";
+});
+
+topNavigation.addEventListener("mouseout", function () {
+    topMenu.style.display = "none";
+});
 // // 검색창
 // const searchBoxBlink = document.querySelectorAll("div.search-box");
 // const searchBoxHidden = document.querySelectorAll("div.searchbox-hidden");

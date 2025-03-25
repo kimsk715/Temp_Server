@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/member/mypage-scrap1.css">
     <link rel="stylesheet" href="/css/member/mypage-scrap2.css">
     <link rel="stylesheet" href="/css/member/mypage-scrap3.css">
+    <link rel="stylesheet" href="/css/member/header.css">
     <style>
         @font-face {
             font-family: Jumpit;
@@ -22,34 +23,35 @@
 </head>
 
 <body class="__className_f53396" style="">
+<header th:replace="/main/header.html :: .header-sc"></header>
     <main class="main-sc0">
         <div>
             <div class="main-wrapper0">
                 <div class="main-content1">
                     <div>
-                        <h2><a href="/publishing/templates/member/mypage-main.html">마이템프</a>
+                        <h2><a href="/mypage/account-main">마이템프</a>
                         </h2>
                         <div class="mypagemenu-wrapper">
                             <ul class="mypagemenu1">
                                 <li class="mypagemenu2">
-                                    <a target="/mypage/account-applied">입사지원
+                                    <a target="_self" href="/mypage/account-applied">입사지원
                                         현황</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self" style="font-weight: bold;">스크랩
+                                    <!--임시 태그-->
+                                    <a target="_self" href="/mypage/account-main">스크랩
                                         리스트</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self" href="/publishing/templates/member/mypage-payment.html">결제
+                                    <a target="_self" href="/member/account-payment">결제
                                         관리</a>
                                 </li>
                                 <li class="mypagemenu2-1">
-                                    <a target="_self" href="/publishing/templates/member/mypage-accountinfo.html">계정
+                                    <a target="_self" href="/mypage/account-info">계정
                                         정보 설정</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self"
-                                        href="/publishing/templates/member/mypage-accountwithdrawl.html">계정
+                                    <a target="_self" href="/member/account-withdrawal">계정
                                         탈퇴</a>
                                 </li>
                             </ul>

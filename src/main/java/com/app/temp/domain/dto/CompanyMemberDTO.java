@@ -14,7 +14,7 @@ public class CompanyMemberDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long companyId;
-    private String companyBusinessNumber;
+    private Long companyBusinessNumber;
     private String companyMemberPosition;
     private String companyMemberAuthority;
     private String companyMemberDepartment;
