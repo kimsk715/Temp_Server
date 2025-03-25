@@ -1,0 +1,81 @@
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="개발자 채용이 필요한 순간, 점핏으로 충분합니다">
+    <meta name="naver-site-verification"
+        content="1d04e6a7cdb21de79c6f6d0bff593aeb5fdefd70">
+    <title>기업 서비스 | 템프 수정 및 등록</title>
+    <link rel="icon"
+        href="https://cdn.jumpit.co.kr/jumpit/favicon.png">
+    <link rel="stylesheet"
+        href="/css/enterprise/mypage-headerfooter.css">
+    <!-- <link rel="stylesheet"
+        href="/css/enterprise/positionregisterleft.css" /> -->
+    <link rel="stylesheet"
+        href="/css/enterprise/position-edit.css">
+    <link rel="stylesheet"
+        href="/css/enterprise/positionregisterright.css">
+    <style>
+        @font-face {
+            font-family: Jumpit;
+            src: url("/fonts/member/ff840cfebfb63b0c-s.p.woff2");
+        }
+        * {
+            font-family: Jumpit;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="main">
+            <form action="/enterprise/program-insert" method="post" name="program-form">
+                <div class="container">
+                    <h1>채용할 포지션의 정보를 입력해주세요</h1>
+
+                    <input type="hidden" name="id">
+
+                    <label for="programName">포지션 제목</label>
+                    <input type="text" id="programName" name="programName">
+
+                    <label for="programEndDate">포지션 마감일</label>
+                    <input type="date" id="programEndDate" name="programEndDate">
+
+                    <label for="location">근무지</label>
+                    <input type="text" id="location"
+                        placeholder="서울특별시 강남구...">
+
+                    <label for="programPrice">가격</label>
+                    <input type="number" id="programPrice" name="programPrice" placeholder="ex)1234" value="0">
+
+                    <label for="programDetail">서비스 소개</label>
+                    <textarea id="programDetail" rows="4" name="programDetail"
+                        placeholder="ex)회사 및 서비스 소개를 입력하세요..."></textarea>
+
+                    <label for="job_details">주요업무</label>
+                    <textarea id="job_details" rows="4" placeholder="ex)사람인 기업서비스, 인적성검사, 채용홈페이지 개발 및 유지보수
+                    Vue.js 기반의 개발환경
+                    FrontEnd 개발 확장을 위한 기술 R&D"></textarea>
+
+                    <label for="benefits">복지 및 혜택</label>
+                    <textarea id="benefits" rows="2" placeholder="ex)3년 재직시 리프레시 휴가 추가 지원
+                        직무 전문성을 위한 외부 교육비 100% 지원" name="programBenefit"></textarea>
+                        <button  class="approve">승인요청</button>
+                        <button id="submit-wait" type="button" class="save">임시저장</button>
+                </div>
+            </form>
+               <div class="sidebar-wrapper">
+                <div class="sidebar right">
+                    <div class="info">포지션 번호 : 10514</div>
+                    <div class="guide">포지션 등록 가이드 확인</div>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div id="modal"></div>
+</body>
+<script src="/js/enterprise/company-insert-program-event.js"></script>
+<script src="/js/aside/positionregisterright.js"></script>
+<script src="/js/enterprise/position-edit.js"></script>
+</html>

@@ -18,6 +18,7 @@
             font-family: Jumpit;
         }
     </style>
+
 </head>
 
 <body class="__className_f53396" style="">
@@ -95,7 +96,7 @@
                                 </dl>
                             </a></li>
                     </ul> -->
-                    <ul class="applied-list0">
+                    <ul class="applied-list0" id="payHistory" style="list-style-type: none; padding: 0;">
                         <h1>
                             <div>결제관리
                             </div>
@@ -156,8 +157,9 @@
                                 </select>
                             </div>
                         </h1>
-                        <div class="applied-list-blank">
-                            결제정보가 없습니다.</div>
+
+<!--                        <div class="applied-list-blank">-->
+<!--                            결제정보가 없습니다.</div>-->
                     </ul>
                 </div>
             </div>
@@ -170,11 +172,10 @@
 <script th:inline="javascript">
     const member = [[${session.member}]];
 </script>
-<script src="/js/member/mypage-payment-event.js"></script>
 <script src="/js/member/mypage-payment-service.js"></script>
 <script src="/js/member/mypage-payment-layout.js"></script>
-<script src="/js/member/mypage-all.js"></script>
 <script src="/js/member/mypage-payment-event.js"></script>
+<script src="/js/member/mypage-all.js"></script>
 <script src="https://js.bootpay.co.kr/bootpay-5.0.2.min.js" type="application/javascript"></script>
 
 </html>

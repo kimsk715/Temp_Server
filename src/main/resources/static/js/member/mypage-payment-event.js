@@ -44,12 +44,13 @@ const pay = async function () {
         await myPagePaymentService.insertPayHistory(data);
 
 
-        if(response.ok){
-            //     2. 결제 목록 조회 fetch 사용
-            // await myPagePaymentService.selectPayHistory(mypagePaymentLayout.showList);
-        }
     }
+
 };
+
+console.log("ok넘어감")
+//     2. 결제 목록 조회 fetch 사용
+myPagePaymentService.selectPayHistory(mypagePaymentLayout.showList);
 
 const appliedChoice = document.querySelectorAll("button.peer");
 const optSpan = document.querySelector("button.btn-text > span");

@@ -7,6 +7,7 @@ import com.app.temp.mapper.CompanyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import javax.sound.sampled.Port;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,41 @@ public class CompanyDAO {
     public List<ProgramInfoDTO> selectProgramEndByCompanyId(Long id){
         return companyMapper.selectProgramEndByCompanyId(id);
     };
+
+    
+//    기업 공고 등록 임시저장
+    public void insertpendingCompanyProgram(ProgramInfoDTO programInfoDTO) {
+        companyMapper.pendingCompanyProgram(programInfoDTO);
+
+    }
+//    기업 공고 수정
+    public void setCompanyProgram(ProgramInfoDTO programInfoDTO) {
+    companyMapper.updateCompanyProgram(programInfoDTO);
+}
+    
+//    기업 공고 삭제
+    public void deleteCompanyProgram(Long id) {
+        companyMapper.deleteCompanyProgram(id);
+    }
+    
+//    기업 공고 조회
+    public ProgramInfoDTO findCompanyProgram(Long id) {
+        return companyMapper.selectCompanyProgram(id);
+    }
+    
+//    기업 특정 공고 조회
+    public ProgramInfoDTO findCompanyProgramById(Long id) {
+        return companyMapper.selectCompanyProgramById(id);
+    }
+//    공고 등록
+    public void insertCompanyProgram(ProgramInfoDTO programInfoDTO) {
+        companyMapper.insertCompanyProgram(programInfoDTO);
+    }
+    
+//    공고 수정 임시저장
+    public void setPendingProgram(ProgramInfoDTO programInfoDTO) {
+        companyMapper.updatePendingProgram(programInfoDTO);
+    }
 
 }
 

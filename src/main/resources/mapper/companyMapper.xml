@@ -55,7 +55,7 @@
         WHERE ID = #{id}
     </update>
 
-<!--    기업 ID로 공고목록조회-->
+<!--    공고 목록 작성중-->
     <select id="selectProgramWriteByCompanyId" resultType="programInfoDTO">
         SELECT P.ID,
                COMPANY_NAME,
@@ -68,21 +68,74 @@
                PROGRAM_THUMBNAIL_PATH
         FROM TBL_COMPANY C
                  JOIN TBL_PROGRAM P
-                      ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '작성중'
+                      ON C.ID = P.COMPANY_ID AND C.ID = #{id} AND PROGRAM_STATUS = '작성중'
     </select>
+<!--    공고 목록 승인요청중-->
     <select id="selectProgramWaitByCompanyId" resultType="programInfoDTO">
         SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, PROGRAM_END_DATE, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH
         FROM TBL_COMPANY C JOIN TBL_PROGRAM P
-                                ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '승인 요청중'
+                                ON C.ID = P.COMPANY_ID AND C.ID = #{id} AND PROGRAM_STATUS = '승인 요청중'
     </select>
+<!--    공고 목록 진행중-->
     <select id="selectProgramWorkByCompanyId" resultType="programInfoDTO">
         SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, PROGRAM_END_DATE, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH
         FROM TBL_COMPANY C JOIN TBL_PROGRAM P
-                                ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '진행중'
+                                ON C.ID = P.COMPANY_ID AND C.ID = #{id} AND PROGRAM_STATUS = '진행중'
     </select>
+<!--    공고 목록 마감-->
     <select id="selectProgramEndByCompanyId" resultType="programInfoDTO">
         SELECT P.ID, COMPANY_NAME, PROGRAM_NAME, PROGRAM_END_DATE, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_BENEFIT, PROGRAM_THUMBNAIL_PATH
         FROM TBL_COMPANY C JOIN TBL_PROGRAM P
-                                ON C.ID = P.COMPANY_ID AND C.ID = ${id} AND PROGRAM_STATUS = '마감'
+                                ON C.ID = P.COMPANY_ID AND C.ID = #{id} AND PROGRAM_STATUS = '마감'
     </select>
+<!--    공고 등록 임시저장-->
+    <insert id="pendingCompanyProgram">
+        INSERT INTO TBL_PROGRAM (ID, PROGRAM_NAME, PROGRAM_DETAIL,  PROGRAM_END_DATE, PROGRAM_PRICE, COMPANY_ID, PROGRAM_STATUS)
+        VALUES (SEQ_PROGRAM.NEXTVAL, #{programName}, #{programDetail}, #{programEndDate}, #{programPrice}, #{companyId}, '작성중')
+    </insert>
+<!--    공고 등록 승인요청-->
+    <insert id="insertCompanyProgram">
+        INSERT INTO TBL_PROGRAM (ID, PROGRAM_NAME, PROGRAM_DETAIL,  PROGRAM_END_DATE, PROGRAM_PRICE, COMPANY_ID, PROGRAM_STATUS)
+        VALUES (SEQ_PROGRAM.NEXTVAL, #{programName}, #{programDetail}, #{programEndDate}, #{programPrice}, #{companyId}, '승인 요청중')
+    </insert>
+<!--    공고 수정 승인요청-->
+    <update id="updateCompanyProgram">
+        UPDATE TBL_PROGRAM
+        SET PROGRAM_NAME = #{programName},
+            PROGRAM_DETAIL = #{programDetail},
+            PROGRAM_END_DATE = #{programEndDate},
+                PROGRAM_PRICE = #{programPrice},
+                PROGRAM_STATUS = '승인 요청중'
+        WHERE ID = #{id}
+    </update>
+    <!--공고 수정 임시저장-->
+    <update id="updatePendingProgram">
+        UPDATE TBL_PROGRAM
+            SET
+                PROGRAM_NAME = #{programName},
+            PROGRAM_DETAIL = #{programDetail},
+            PROGRAM_END_DATE = #{programEndDate},
+            PROGRAM_PRICE = #{programPrice},
+            PROGRAM_STATUS = '작성중'
+        WHERE ID = #{id}
+    </update>
+
+<!--    공고삭제-->
+    <delete id="deleteCompanyProgram">
+        DELETE TBL_PROGRAM
+        WHERE ID = #{id}
+    </delete>
+<!--    작성중 공고 조회-->
+    <select id="selectCompanyProgram" resultType="programInfoDTO">
+        SELECT ID, PROGRAM_NAME, PROGRAM_STATUS, PROGRAM_DETAIL, PROGRAM_END_DATE
+        FROM TBL_PROGRAM
+        WHERE COMPANY_ID = #{id}
+    </select>
+
+    <select id="selectCompanyProgramById" resultType="programInfoDTO">
+        SELECT ID, PROGRAM_NAME, PROGRAM_DETAIL, PROGRAM_PRICE, PROGRAM_STATUS, PROGRAM_END_DATE, PROGRAM_CREATED_DATE, PROGRAM_UPDATE_DATE
+        FROM TBL_PROGRAM
+        WHERE id = #{id}
+    </select>
+
 </mapper>
