@@ -73,11 +73,29 @@ searchButton.addEventListener("click",(e)=>{
 })
 
 
-
+const beforeLogin = document.querySelector("#beforeLogin")
+const afterLogin = document.querySelector("#afterLogin")
+const beforeLoginWrap = document.querySelector("#beforeLoginWrap")
+const afterLoginWrap = document.querySelector("#afterLoginWrap")
 document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault(); // 기본 제출 방지
     let keyword = this.keyword.value.trim();
     window.location.href = keyword ? `/program/list?keyword=${encodeURIComponent(keyword)}` : `/program/list`;
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    if(memberData == null){
+        beforeLogin.style.display = "block";
+        afterLogin.style.display = "none";
+        beforeLoginWrap.style.display = "block";
+        afterLoginWrap.style.display = "none";
+    }
+    else{
+        beforeLogin.style.display = "none";
+        afterLogin.style.display = "block";
+        beforeLoginWrap.style.display = "none";
+        afterLoginWrap.style.display = "block";
+    }
+})
 
 

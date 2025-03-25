@@ -494,6 +494,36 @@ h3{
     height: 80;
     width: 80;
 }
+.title{
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    color: rgb(34, 34, 34);
+    margin-bottom: 5px;
+}
+
+.title a{
+    font-size: 13px;
+    line-height: 18px;
+    color: rgb(153, 153, 153);
+    margin-left: 10px;
+}
+
+.login-welcome{
+    display: inline-block;
+}
+.email-con{
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(102, 102, 102);
+    margin: 8px 0px 24px;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
 
 .loginButton{
     margin-top: 28px;
@@ -508,7 +538,32 @@ h3{
     line-height: 22px;
     cursor: pointer;
 }
+.login-menu{
+    padding: 20px 0px;
+    height: 50px;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-around;
+    position: relative;
+}
+.login-menu .menu-link{
+    width: 50%;
+    cursor: pointer;
+    position: relative;
+}
+.login-menu .menu-link:first-child {
+    border-right: 1px solid rgb(216, 216, 216);
+}
 
+.login-menu .menu-link p{
+    text-align: center;
+}
+
+.login-menu .menu-link p:first-child{
+    position: relative;
+    top: 2px;
+    margin-bottom: 2px;
+}
 .leftButton{
     display: block;
     z-index: 2;

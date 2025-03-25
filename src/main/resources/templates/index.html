@@ -145,89 +145,7 @@
                 <!-- // 메인 슬라이드 배너 끝 -->
                 <aside class="mainAside">
                     <div class="appDownload">
-                        <ul>
-                            <li class="appTitle">
-                                점핏 앱 다운로드 하고
-                                <br />
-                                편리하게 이용해보세요.
-                            </li>
-                            <li class="appStore">
-                                <button class="appleStore">
-                                            <span style="display: flex">
-                                                <div class="iconButtonWrapper">
-                                                    <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                                fill="#000"
-                                                                d="M19.457 8.819c-.121.09-2.26 1.244-2.26 3.81 0 2.968 2.722 4.019 2.803 4.045-.012.064-.432 1.438-1.435 2.838-.893 1.232-1.827 2.462-3.247 2.462s-1.785-.79-3.424-.79c-1.598 0-2.166.816-3.465.816s-2.205-1.14-3.247-2.54C3.975 17.816 3 15.26 3 12.837c0-3.888 2.64-5.95 5.237-5.95 1.38 0 2.531.868 3.398.868.825 0 2.11-.92 3.681-.92.595 0 2.734.051 4.141 1.984Zm-4.886-3.63c.65-.739 1.109-1.763 1.109-2.787 0-.142-.013-.286-.04-.402-1.057.038-2.314.674-3.072 1.516-.595.648-1.15 1.672-1.15 2.71 0 .156.027.312.04.362.066.012.175.026.283.026.948 0 2.14-.608 2.83-1.426Z"
-                                                        ></path>
-                                                    </svg>
-                                                    <span class="appStoreName">
-                                                        App Store
-                                                    </span>
-                                                </div>
-                                            </span>
-                                </button>
-                                <button class="googlePlay">
-                                            <span style="display: flex">
-                                                <div class="iconButtonWrapper">
-                                                    <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                                fill="#32BBFF"
-                                                                d="M16.814 8.972a28258.82 28258.82 0 0 1-11.08-6.296 1.289 1.289 0 0 0-1.148-.152l9.29 9.432 2.938-2.984Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#32BBFF"
-                                                                d="M4.586 2.523a1.329 1.329 0 0 0-.893 1.265v16.334a1.329 1.329 0 0 0 .892 1.265l9.29-9.432-9.29-9.432Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#32BBFF"
-                                                                d="m13.875 11.955-9.29 9.432c.363.126.783.096 1.149-.152a7736.796 7736.796 0 0 1 11.082-6.294l-2.94-2.986Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#2C9FD9"
-                                                                d="M3.693 11.955v8.167a1.329 1.329 0 0 0 .892 1.265l9.29-9.432H3.693Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#29CC5E"
-                                                                d="M5.733 2.676a1.293 1.293 0 0 0-1.345-.067l9.346 9.49 3.079-3.127c-2.175-1.235-5.666-3.218-11.08-6.296Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#D93F21"
-                                                                d="m13.734 11.812-9.346 9.49c.4.215.912.228 1.345-.067a7803.62 7803.62 0 0 1 10.902-6.19l.18-.104-3.081-3.129Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#FFD500"
-                                                                d="M20.693 11.956c0-.453-.225-.91-.67-1.163 0 0-.834-.472-3.39-1.924l-3.04 3.087 3.043 3.089c2.527-1.441 3.386-1.927 3.386-1.927.446-.253.67-.71.67-1.162Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#FA0"
-                                                                d="M20.022 13.118c.446-.254.67-.71.67-1.163h-7.098l3.042 3.09c2.527-1.442 3.386-1.927 3.386-1.927Z"
-                                                        ></path>
-                                                    </svg>
-                                                    <span class="appStoreName"
-                                                    >Google Play</span
-                                                    >
-                                                </div>
-                                            </span>
-                                </button>
-                            </li>
-                            <li class="qrCode">
-                                <img
-                                        src="https://jumpit.saramin.co.kr/assets/ic_qr_code.svg"
-                                />
-                            </li>
+                        <ul id="beforeLoginWrap">
                             <li class="loginButtonWrap">
                                 <a href="/member/login">
                                     <button class="loginButton">
@@ -235,6 +153,24 @@
                                     </button>
                                 </a>
                             </li>
+                        </ul>
+                        <ul id="afterLoginWrap">
+                            <li class="title">
+                                <p class="login-welcome"></p>
+                                <a href="/kakao/logout">로그아웃</a></li>
+                            <li class="email-con">temp@temp.com</li>
+                            <li class="login-menu">
+                                <a class="menu-link" href="/resume/main">
+                                    <div><p>📝</p>
+                                        <p>이력서 작성</p>
+                                    </div>
+                                </a>
+                                <a class="menu-link" href="/mypage/account-main">
+                                    <div>
+                                        <p>😎</p>
+                                        <p>마이점핏</p>
+                                    </div>
+                                </a>
                         </ul>
                     </div>
                     <div class="noticeLink">
@@ -989,5 +925,6 @@
 <script src="/js/member/mypage-all.js"></script>
 <script th:inline="javascript">
     var memberData = /*[[${session.member}]]*/ null;
+    console.log(memberData)
 </script>
 </html>
