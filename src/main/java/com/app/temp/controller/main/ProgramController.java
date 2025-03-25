@@ -6,13 +6,18 @@ import com.app.temp.domain.vo.ScrapVO;
 import com.app.temp.service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
+
+import static java.awt.SystemColor.window;
 
 @Controller
 @RequestMapping("/program")
@@ -88,7 +93,7 @@ public class ProgramController {
         else{
             model.addAttribute("programInfo", new MainProgramInfoDTO());
         }
-
+        programService.updateReadCount(id);
         return "/main/program-detail";
 
     }
@@ -139,8 +144,13 @@ public class ProgramController {
     }
     // 스크랩 버튼 클릭 시 스크랩의 null 여부 확인.
     @GetMapping("list/exists/{programId}")
-    public ResponseEntity<Map<String, Boolean>> checkScrapExists(@PathVariable Long programId, HttpSession httpSession) {
+    public ResponseEntity<Map<String, Boolean>> checkScrapExists(@PathVariable Long programId, HttpSession httpSession, RedirectAttributes redirectAttributes) {
         ScrapVO scrapVO = new ScrapVO();
+        if(httpSession.getAttribute("member") == null) {
+            return ResponseEntity.status(HttpStatus.FOUND)
+                    .header(HttpHeaders.LOCATION, "/member/login")  // 로그인 페이지로 리다이렉트
+                    .build();
+        }
         MemberVO member = (MemberVO) httpSession.getAttribute("member");
         Long memberId = member.getId();
         MemberDTO newMember = memberService.getMemberById(memberId);
@@ -154,6 +164,7 @@ public class ProgramController {
 //  카테고리 버튼 눌렀을 때 필터링하는 기능.
 //    검색 키워드가 있으면 그 키워드를 유지하고, 거기에 추가로 카테고리까지 쿼리에 적용.
 
+//        조회수
 
 
 }

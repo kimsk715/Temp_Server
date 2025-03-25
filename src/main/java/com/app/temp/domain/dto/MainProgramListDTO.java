@@ -20,6 +20,7 @@ public class MainProgramListDTO {
     private String scrapStatus;
     private Long categoryCId;
     private Long categoryAId;
+
     //    0319 수정
 
 }

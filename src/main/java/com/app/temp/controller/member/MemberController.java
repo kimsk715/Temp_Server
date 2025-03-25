@@ -64,9 +64,11 @@ public class MemberController {
 //    결제내역 저장하기
     @ResponseBody
     @PostMapping("member/insert-pay-history")
-    public void insertPayHistory(PayDTO data){
-        MemberDTO member = (MemberDTO) session.getAttribute("member");
+    public void insertPayHistory(@RequestBody PayDTO data){
+        log.info(data.getPaymentStatusLocale());
+        MemberVO member = (MemberVO) session.getAttribute("member");
         data.setMemberId(member.getId());
+//        테스트용 멤버 아이디
         log.info(data.toString());
         memberService.insertPayHistory(data);
     }
@@ -75,8 +77,8 @@ public class MemberController {
     @ResponseBody
     @GetMapping("member/select-pay-history")
     public List<PayDTO> selectPayHistory(){
-//        MemberDTO member = (MemberDTO) session.getAttribute("member");
-        log.info(memberService.selectPayHistory(41L).toString());
-        return memberService.selectPayHistory(41L);
+        MemberVO member = (MemberVO) session.getAttribute("member");
+//        log.info(memberService.selectPayHistory(member.getId()).toString());
+        return memberService.selectPayHistory(member.getId());
     }
 }

@@ -145,89 +145,11 @@
                 <!-- // 메인 슬라이드 배너 끝 -->
                 <aside class="mainAside">
                     <div class="appDownload">
-                        <ul>
-                            <li class="appTitle">
-                                점핏 앱 다운로드 하고
-                                <br />
-                                편리하게 이용해보세요.
+                        <ul id="beforeLoginWrap">
+                            <li class="loginImageWrap">
+                                <img src="/images/main/member-info.png" alt="">
                             </li>
-                            <li class="appStore">
-                                <button class="appleStore">
-                                            <span style="display: flex">
-                                                <div class="iconButtonWrapper">
-                                                    <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                                fill="#000"
-                                                                d="M19.457 8.819c-.121.09-2.26 1.244-2.26 3.81 0 2.968 2.722 4.019 2.803 4.045-.012.064-.432 1.438-1.435 2.838-.893 1.232-1.827 2.462-3.247 2.462s-1.785-.79-3.424-.79c-1.598 0-2.166.816-3.465.816s-2.205-1.14-3.247-2.54C3.975 17.816 3 15.26 3 12.837c0-3.888 2.64-5.95 5.237-5.95 1.38 0 2.531.868 3.398.868.825 0 2.11-.92 3.681-.92.595 0 2.734.051 4.141 1.984Zm-4.886-3.63c.65-.739 1.109-1.763 1.109-2.787 0-.142-.013-.286-.04-.402-1.057.038-2.314.674-3.072 1.516-.595.648-1.15 1.672-1.15 2.71 0 .156.027.312.04.362.066.012.175.026.283.026.948 0 2.14-.608 2.83-1.426Z"
-                                                        ></path>
-                                                    </svg>
-                                                    <span class="appStoreName">
-                                                        App Store
-                                                    </span>
-                                                </div>
-                                            </span>
-                                </button>
-                                <button class="googlePlay">
-                                            <span style="display: flex">
-                                                <div class="iconButtonWrapper">
-                                                    <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                                fill="#32BBFF"
-                                                                d="M16.814 8.972a28258.82 28258.82 0 0 1-11.08-6.296 1.289 1.289 0 0 0-1.148-.152l9.29 9.432 2.938-2.984Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#32BBFF"
-                                                                d="M4.586 2.523a1.329 1.329 0 0 0-.893 1.265v16.334a1.329 1.329 0 0 0 .892 1.265l9.29-9.432-9.29-9.432Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#32BBFF"
-                                                                d="m13.875 11.955-9.29 9.432c.363.126.783.096 1.149-.152a7736.796 7736.796 0 0 1 11.082-6.294l-2.94-2.986Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#2C9FD9"
-                                                                d="M3.693 11.955v8.167a1.329 1.329 0 0 0 .892 1.265l9.29-9.432H3.693Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#29CC5E"
-                                                                d="M5.733 2.676a1.293 1.293 0 0 0-1.345-.067l9.346 9.49 3.079-3.127c-2.175-1.235-5.666-3.218-11.08-6.296Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#D93F21"
-                                                                d="m13.734 11.812-9.346 9.49c.4.215.912.228 1.345-.067a7803.62 7803.62 0 0 1 10.902-6.19l.18-.104-3.081-3.129Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#FFD500"
-                                                                d="M20.693 11.956c0-.453-.225-.91-.67-1.163 0 0-.834-.472-3.39-1.924l-3.04 3.087 3.043 3.089c2.527-1.441 3.386-1.927 3.386-1.927.446-.253.67-.71.67-1.162Z"
-                                                        ></path>
-                                                        <path
-                                                                fill="#FA0"
-                                                                d="M20.022 13.118c.446-.254.67-.71.67-1.163h-7.098l3.042 3.09c2.527-1.442 3.386-1.927 3.386-1.927Z"
-                                                        ></path>
-                                                    </svg>
-                                                    <span class="appStoreName"
-                                                    >Google Play</span
-                                                    >
-                                                </div>
-                                            </span>
-                                </button>
-                            </li>
-                            <li class="qrCode">
-                                <img
-                                        src="https://jumpit.saramin.co.kr/assets/ic_qr_code.svg"
-                                />
-                            </li>
+                            
                             <li class="loginButtonWrap">
                                 <a href="/member/login">
                                     <button class="loginButton">
@@ -236,16 +158,34 @@
                                 </a>
                             </li>
                         </ul>
+                        <ul id="afterLoginWrap" th:if="${session.member != null}">
+                            <li class="title" th:text="|${session.member.memberName}님 환영합니다.|">
+                                <p class="login-welcome"></p>
+                                <a href="/kakao/logout">로그아웃</a></li>
+                            <li class="email-con" th:text="${session.member.memberEmail}"></li>
+                            <li class="login-menu">
+                                <a class="menu-link" href="/resume/main">
+                                    <div><p>📝</p>
+                                        <p>이력서 작성</p>
+                                    </div>
+                                </a>
+                                <a class="menu-link" href="/mypage/account-main">
+                                    <div>
+                                        <p>😎</p>
+                                        <p>마이점핏</p>
+                                    </div>
+                                </a>
+                        </ul>
                     </div>
-                    <div class="noticeLink">
-                        <h2>Notice</h2>
-                        <div class="noticeList">
-                                    <span class="noticeCon"
-                                    >[안내] 사람인 계정통합 가이드</span
-                                    >
-                            <span class="noticeDate">2025-01</span>
+                    <a href="/notice/list">
+                        <div class="noticeLink">
+                            <h2>Notice</h2>
+                            <div class="noticeList">
+                                <span class="noticeCon">[안내] 사람인 계정통합 가이드</span>
+                                <span class="noticeDate">2025-01</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </aside>
             </div>
             <!-- 취업축하금 배너 삭제 -->
@@ -261,18 +201,20 @@
                     </h3>
                 </div>
                 <div class="mainContentsList">
-                    <div class="mainContentCard">
-                        <a href="/">
+                    <div class="mainContentCard" th:each="topList : ${session.topLists}">
+                        <a th:href="|/program/detail/${topList.id}|">
                             <div class="imgBox">
                                 <img
                                         src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20251014101040302_567_378.webp"
                                         class="img"
                                 />
                                 <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-4</span>
+                                    <span class="dayLeft" th:text="|D-${topList.dDay}|"></span>
                                 </div>
-                                <div class="count">
-                                    <button class="scrapButton">
+                                <div class="count" th:if="${topList.scrapStatus != null}">
+                                    <button class="scrapButton" th:id="|button-${topList.id}|"
+                                            th:aria-pressed="${topList.scrapStatus}"
+                                            th:attr="onclick=|toggleScrap(${topList.id})|, aria-pressed=${isScrapped}">
                                         <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="24"
@@ -292,10 +234,10 @@
                             </div>
                             <div class="contentText">
                                 <div class="companyName">
-                                    <span>아파트아이</span>
+                                    <span th:text="${topList.companyName}"></span>
                                 </div>
-                                <h2 class="positionCardTitle">
-                                    Java 백엔드 개발자(경력: 5년~15년)
+                                <h2 class="positionCardTitle" th:text="${topList.programName}">
+
                                 </h2>
                                 <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
                                 <ul class="requiredSkill">
@@ -311,577 +253,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/dabin_3358/20243708143740292_739_503.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-2</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>디어유</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    Payment 개발 담당자(JAVA 기반)
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Java</li>
-                                    <li>· Spring Boot</li>
-                                    <li>· AWS</li>
-                                    <li>· Python</li>
-                                    <li>· MySQL</li>
-                                    <li>· NoSql</li>
-                                    <li>· Redis</li>
-                                    <li>· Elasticsearch</li>
-                                    <li>· Cassandra</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 강남구</li>
-                                    <li>경력 3~7년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/172418/20232710122756975_1000_731.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-3</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>마카롱팩토리</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    안드로이드 개발 (5년 이상)
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Android OS</li>
-                                    <li>· Java</li>
-                                    <li>· Kotlin</li>
-                                    <li>· Realm</li>
-                                    <li>· Flutter</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>경기 성남시</li>
-                                    <li>경력 5~10년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/dabin_3358/20255820135810672_1500_1000.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-4</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>엠로</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    Java개발자 (Cloud Native) (경력
-                                    3년~5년)
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>AWS</li>
-                                    <li>· AZURE</li>
-                                    <li>· Java</li>
-                                    <li>· JavaScript</li>
-                                    <li>· Oracle</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 영등포구</li>
-                                    <li>경력 3~5년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/support_5470/20214418134424796_1652_1232.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-5</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>퍼즐원스튜디오</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    Game Programmer 경력 채용
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Unity</li>
-                                    <li>· iOS</li>
-                                    <li>· Android OS</li>
-                                    <li>· Google Drive</li>
-                                    <li>· Slack</li>
-                                    <li>· Jenkins</li>
-                                    <li>· Git</li>
-                                    <li>· C#</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>경기 성남시</li>
-                                    <li>경력 5~10년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20252915102949724_567_378.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-9</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>레플리</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    백엔드 엔지니어(3년 이상)
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Kotlin</li>
-                                    <li>· Spring</li>
-                                    <li>· Golang</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 종로구</li>
-                                    <li>경력 3~10년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/170805/20232004102035347_3000_2000.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-10</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>헤렌</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    [공비서] 자바/코틀린 백엔드 개발자
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Java</li>
-                                    <li>· Spring Boot</li>
-                                    <li>· Mybatis</li>
-                                    <li>· MariaDB</li>
-                                    <li>· MySQL</li>
-                                    <li>· DataGrip</li>
-                                    <li>· GitHub</li>
-                                    <li>· Slack</li>
-                                    <li>· Notion</li>
-                                    <li>· Jenkins</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 성동구</li>
-                                    <li>경력 4~25년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20255617145611345_567_378.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-7</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>제로더</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    웹 개발자 (JAVA)
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Java</li>
-                                    <li>· Spring Boot</li>
-                                    <li>· JavaScript</li>
-                                    <li>· CSS 3</li>
-                                    <li>· Linux</li>
-                                    <li>· MySQL</li>
-                                    <li>· Oracle</li>
-                                    <li>· Git</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 성북구</li>
-                                    <li>경력 4~8년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/5233/20234525164525655_2000_1331.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-8</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>웅진</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    AI개발자 채용
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Java</li>
-                                    <li>· AI/인공지능</li>
-                                    <li>· SQL</li>
-                                    <li>· Python</li>
-                                    <li>· R</li>
-                                    <li>· DeepLearning</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 중구</li>
-                                    <li>경력 3~20년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/48/20232516152523038_1080_790.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-20</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>빗썸코리아</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    성능분석
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Java</li>
-                                    <li>· Python</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 강남구</li>
-                                    <li>경력 5~15년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20250114110128540_567_378.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-4</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>오픈엣지테크놀로지</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    [Network-on-Chip] RTL Design
-                                    Engineer
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>Verilong</li>
-                                    <li>· C</li>
-                                    <li>· Python</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>서울 강남구</li>
-                                    <li>경력 8~15년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mainContentCard">
-                        <a href="/">
-                            <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/15037/20233002163009301_1080_720.webp"
-                                        class="img"
-                                />
-                                <div class="imgDdayBadge">
-                                    <span class="dayLeft">D-8</span>
-                                </div>
-                                <div class="count">
-                                    <button class="scrapButton">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                    fill="#222"
-                                                    fill-rule="evenodd"
-                                                    d="M10.725 14.71a2 2 0 0 1 2.55 0l3.975 3.289V5H6.75v12.999l3.975-3.29ZM4.75 20.123V5a2 2 0 0 1 2-2h10.5a2 2 0 0 1 2 2v15.124a1 1 0 0 1-1.638.77L12 16.25l-5.612 4.645a1 1 0 0 1-1.638-.77Z"
-                                                    clip-rule="evenodd"
-                                            ></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="contentText">
-                                <div class="companyName">
-                                    <span>숲</span>
-                                </div>
-                                <h2 class="positionCardTitle">
-                                    [SOOP] LIVE 방송 시스템 개발
-                                </h2>
-                                <!-- 요구 스킬을 포지션 카테고리로 바꿔도? -->
-                                <ul class="requiredSkill">
-                                    <li>C</li>
-                                    <li>· Go</li>
-                                    <li>· Windows</li>
-                                    <li>· Linux</li>
-                                </ul>
-                                <ul class="companyLocation">
-                                    <li>경기 성남시</li>
-                                    <li>경력 3~10년</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -987,7 +359,8 @@
 </body>
 <script src="/js/main/MainPage.js"></script>
 <script src="/js/member/mypage-all.js"></script>
+<script src="/js/main/scrap.js"></script>
 <script th:inline="javascript">
-    var memberData = /*[[${session.member}]]*/ null;
+    const memberData = /*[[${session.member}]]*/ null;
 </script>
 </html>

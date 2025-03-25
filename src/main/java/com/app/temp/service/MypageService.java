@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,11 @@ public class MypageService {
 //    마이페이지 스크랩 리스트 조회
             public List<MypageDTO> mypageDTOList(Long id, HttpSession session) {
                  MemberVO member = (MemberVO) session.getAttribute("member");
-                return scrapMapper.selectMemberScrabByMemberId(member.getId());
+                List<MypageDTO> newList = scrapMapper.selectMemberScrabByMemberId(member.getId());
+                newList.forEach(mypageDTO -> {if(mypageDTO.getDDay().equals("0") || mypageDTO.getDDay().contains("-")) {
+                    mypageDTO.setDDay("day");
+                }
+                });
+                return newList;
     }
 }
