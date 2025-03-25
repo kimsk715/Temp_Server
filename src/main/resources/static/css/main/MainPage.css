@@ -524,7 +524,13 @@ h3{
     text-overflow: ellipsis;
     display: -webkit-box;
 }
-
+.loginImageWrap{
+    display: flex;
+    justify-content: center;
+}
+.loginImageWrap img{
+    width : 90px;
+}
 .loginButton{
     margin-top: 28px;
     width: 100%;

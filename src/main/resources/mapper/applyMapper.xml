@@ -265,4 +265,9 @@ WHERE ROWNUM  <![CDATA[ <=12 ]]>
         WHERE MEMBER_ID = #{id}
     </select>
 
+    <update id="updateReadCount">
+        UPDATE TBL_PROGRAM
+        SET PROGRAM_READ_COUNT = PROGRAM_READ_COUNT + 1
+        WHERE ID = #{id}
+    </update>
 </mapper>

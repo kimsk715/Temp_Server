@@ -273,6 +273,10 @@
 <script src="/js/main/program_list_service.js"></script>
 <script src="/js/main/program_list_event.js"></script>
 <script src="/js/main/program_list_layout.js"></script>
+<script src="/js/main/scrap.js"></script>
+<script th:inline="javascript">
+    const memberData = /*[[${session.member}]]*/ null;
+</script>
 <!--<script th:if="${param.refresh}" th:inline="javascript">-->
 <!--    // window.location.href = window.location.pathname; // 현재 페이지 새로고침-->
 <!--    //-->

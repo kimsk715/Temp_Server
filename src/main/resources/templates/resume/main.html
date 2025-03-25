@@ -81,4 +81,7 @@
 <script src="/js/resume/resume-event.js"></script>
 <script src="/js/resume/resume-layout.js"></script>
 <script src="/js/member/mypage-all.js"></script>
+<script th:inline="javascript">
+    const memberData = /*[[${session.member}]]*/ null;
+</script>
 </html>

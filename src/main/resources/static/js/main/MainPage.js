@@ -258,4 +258,6 @@ closeButton.forEach((button) =>{
     })
 })
 
-
+// document.addEventListener("DOMContentLoaded",()=>{
+//     fetch('/top-list')
+// })

@@ -349,6 +349,8 @@
 </script>
 <script src="/js/member/mypage-all.js"></script>
 <script src="/js/member/mypage-accountinfo1.js"></script>
-
+<script th:inline="javascript">
+    const memberData = /*[[${session.member}]]*/ null;
+</script>
 
 </html>

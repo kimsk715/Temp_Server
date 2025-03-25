@@ -1142,11 +1142,7 @@
 <script src="/js/member/mypage-all.js"></script>
 <script src="/js/admin/reportService.js"></script>
 <script src="/js/main/report-write-event.js"></script>
-<script>
-    // 클릭 체크용
-    //  다 쓰고 지우ㅣㄱ
-    document.addEventListener("click",(e) => {
-        console.log(e.target)
-    })
+<script th:inline="javascript">
+    const memberData = /*[[${session.member}]]*/ null;
 </script>
 </html>

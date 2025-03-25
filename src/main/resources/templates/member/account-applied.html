@@ -216,4 +216,7 @@
 <script src="/js/member/mypage-applied-service.js"></script>
 <script src="/js/member/mypage-applied-layout.js"></script>
 <script src="/js/member/mypage-applied-event.js"></script>
+<script th:inline="javascript">
+    const memberData = /*[[${session.member}]]*/ null;
+</script>
 </html>
