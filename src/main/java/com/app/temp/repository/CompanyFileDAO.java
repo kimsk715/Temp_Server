@@ -20,6 +20,11 @@ public class CompanyFileDAO {
 
     // 삭제하기
     public void deleteFile(Long id) {
-        companyFileMapper.deleteFile(id);
+        companyFileMapper.deleteFile(id);}
+
+    // 기업 이미지들 조회
+    public void findCompanyFile(Long id) {
+        companyFileMapper.selectCompanyImages(id);
     }
+
 }

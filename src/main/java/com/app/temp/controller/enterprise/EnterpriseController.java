@@ -149,6 +149,15 @@ public class EnterpriseController {
         companyService.uploadCompanyImages(21L, files);
         return "redirect:/enterprise/company-image";
     }
+    
+    // 기업 이미지들 삭제 (그냥 전체삭제됨)
+    @PostMapping("enterprise/company-delete-images")
+    public String deleteImages() {
+//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+          companyService.deleteCompanyImages(21L);
+
+          return "redirect:/enterprise/company-image";
+    }
 
     @GetMapping("enterprise/main-page")
     public void mainPage(){

@@ -43,6 +43,10 @@
         <typeAlias type="com.app.temp.domain.dto.ApplyDTO" alias="applyDTO"/>
         <typeAlias type="com.app.temp.domain.dto.ProgramInfoDTO" alias="programInfoDTO"/>
         <typeAlias type="com.app.temp.domain.dto.PayDTO" alias="payDTO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyFileDTO" alias="companyFileDTO"/>
+        <typeAlias type="com.app.temp.domain.vo.CompanyFileVO" alias="CompanyFileVO"/>
+        <typeAlias type="com.app.temp.domain.vo.FileVO" alias="FileVO"/>
+        <typeAlias type="com.app.temp.domain.vo.MemberVO" alias="MemberVO"/>
 
     </typeAliases>
 </configuration>

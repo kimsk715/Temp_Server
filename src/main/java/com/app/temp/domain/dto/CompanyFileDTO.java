@@ -15,6 +15,5 @@ public class CompanyFileDTO {
     private String type;
     private String fileName;
     private String filePath;
-
     }
 
