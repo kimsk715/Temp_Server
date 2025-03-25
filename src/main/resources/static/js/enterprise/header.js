@@ -1,26 +1,29 @@
-const openInquiryModal = (modal) => {
+const openCompanyInquiryModal = (modal) => {
     if(modal){
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     }
 }
 
-const closeInquiryModal = (modal) =>{
+const closeCompanyInquiryModal = (modal) =>{
     if(modal){
         modal.style.display = "none";
         document.body.style.overflow = "";
     }
 }
 
-const openModalButton = document.querySelector("#open-company-inquiry");
+const openModalButton = document.querySelector("button#open-company-inquiry");
 const companyInquiryModal = document.querySelector("#inquiry-modal");
-const submitButton = document.querySelector(".submit-button");
+const submitButton = document.querySelector("button.submit-button");
 
 openModalButton.addEventListener("click",()=>{
-    openInquiryModal(companyInquiryModal)
+    console.log("클릭됨")
+
+    openCompanyInquiryModal(companyInquiryModal)
 })
 
-submitButton.addEventListener("click", async(e)=>{
+
+submitButton.addEventListener("click", async (e)=>{
     const companyInquiryContent = companyInquiryModal.querySelector("textarea#company-inquiry-content").value;
     const companyInquiryType = companyInquiryModal.querySelector("select#inquiryType").value;
 
@@ -36,6 +39,6 @@ const closeButton = document.querySelectorAll(".close-button")
 
 closeButton.forEach((button) =>{
     button.addEventListener("click",()=>{
-        closeInquiryModal(companyInquiryModal)
+        closeCompanyInquiryModal(companyInquiryModal)
     })
 })
