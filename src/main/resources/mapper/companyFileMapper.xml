@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.temp.mapper.CompanyFileMapper">
+
+<!--    &lt;!&ndash;기업 로고 저장&ndash;&gt;-->
+<!--    <insert id="insertMemberFile">-->
+<!--        INSERT INTO TBL_COMPANY_FILE (ID, COMPANY_ID, COMPANY_FILE_TYPE)-->
+<!--        VALUES (#{id}, #{companyId}, '기업로고')-->
+<!--    </insert>-->
+
+    <!--기업 이미지들 저장-->
+    <insert id="insertMemberFile">
+        INSERT INTO TBL_COMPANY_FILE (ID, COMPANY_ID, COMPANY_FILE_TYPE)
+        VALUES (#{id}, #{companyId}, '기업 이미지')
+    </insert>
+
+    <!--기업 이미지들 삭제-->
+    <delete id="deleteMemberFile">
+        DELETE TBL_COMPANY_FILE
+        WHERE ID = #{id}
+    </delete>
+    
+    <!--기업 이미지들 조회-->
+    <select id="selectCompanyFile" resultType="CompanyFileVO">
+        SELECT ID, COMPANY_ID, COMPANY_FILE_TYPE
+        FROM TBL_COMPANY_FILE
+        WHERE COMPANY_ID = #{id}
+    </select>
+
+</mapper>
