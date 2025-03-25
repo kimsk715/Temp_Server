@@ -100,6 +100,7 @@
                 PROGRAM_STATUS = '승인 요청중'
         WHERE ID = #{id}
     </update>
+
     <!--공고 수정 임시저장-->
     <update id="updatePendingProgram">
         UPDATE TBL_PROGRAM
@@ -130,4 +131,5 @@
         WHERE id = #{id}
     </select>
 
+    
 </mapper>

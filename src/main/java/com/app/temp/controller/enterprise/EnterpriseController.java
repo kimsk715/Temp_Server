@@ -89,9 +89,6 @@ public class EnterpriseController {
     }
 
 
-
-
-
 //    기업 공고 수정페이지로 이동
     @GetMapping("enterprise/program-edit")
     public String goProgramEdit(@RequestParam("id") Long id, Model model) {
@@ -111,7 +108,8 @@ public class EnterpriseController {
         companyService.updateCompanyProgram(programInfoDTO);
         return "redirect:/enterprise/program-list";
     }
-    
+
+
 //    기업 공고 수정 임시저장
     @PostMapping("enterprise/program-pending-update")
     public String programPendingUpdate(@ModelAttribute ProgramInfoDTO programInfoDTO) {
@@ -140,8 +138,16 @@ public class EnterpriseController {
     }
 
     @GetMapping("enterprise/company-image")
-    public void companyImage(List<MultipartFile> files){
+    public void companyImage(){
+    }
 
+
+//    기업 이미지 업로드
+    @PostMapping("enterprise/company-post-images")
+    public String getImages(@RequestParam("file") List<MultipartFile> files){
+//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.uploadCompanyImages(21L, files);
+        return "redirect:/enterprise/company-image";
     }
 
     @GetMapping("enterprise/main-page")

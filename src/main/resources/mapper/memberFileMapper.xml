@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.temp.mapper.MemberFileMapper">
+
+    <!--이력서 저장-->
+    <insert id="insertMemberFile">
+        INSERT INTO TBL_MEMBER_FILE (ID, MEMBER_ID, MEMBER_FILE_TYPE)
+        VALUES (#{id}, #{memberId}, #{memberFileType})
+    </insert>
+</mapper>
