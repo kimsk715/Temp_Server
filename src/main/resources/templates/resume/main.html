@@ -2,19 +2,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="preconnect" href="https://cdn.jumpit.co.kr" />
-    <link href="https://cdn.jumpit.co.kr" rel="dns-prefetch" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link href="https://www.googletagmanager.com" rel="dns-prefetch" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="preload" href="https://jumpit.saramin.co.kr/_next/media/ff840cfebfb63b0c-s.p.woff2" as="font"
-        crossorigin="" type="font/woff2" />
-    <link rel="stylesheet" href="https://jumpit.saramin.co.kr/_next/css/cad931bac97f5ecb.css"
-        data-precedence="next" />
     <link rel="stylesheet" href="/css/resume/resume-main1.css" />
     <link rel="stylesheet" href="/css/resume/resume-main3.css" />
     <link rel="stylesheet" href="/css/resume/resume-main2.css" />
+    <link rel="stylesheet" href="/css/member/header.css">
     <title>템프 | 이력서 홈</title>
     <style>
         @font-face {
@@ -29,7 +20,7 @@
 </head>
 
 <body class="__className_f53396">
-
+<header th:replace="/main/header.html :: .header-sc"></header>
     <div class="searchbox-top formedia"></div>
     <div class="searchbox-onclick formedia"></div>
     <main class="resume-main">
@@ -89,5 +80,5 @@
 <script src="/js/resume/resume-service.js"></script>
 <script src="/js/resume/resume-event.js"></script>
 <script src="/js/resume/resume-layout.js"></script>
-
+<script src="/js/member/mypage-all.js"></script>
 </html>

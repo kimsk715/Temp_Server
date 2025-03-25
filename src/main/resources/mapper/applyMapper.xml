@@ -142,7 +142,7 @@
                                                 AND CA.ID IN (
                                                 <trim suffixOverrides=",">
                                                     <foreach item="category" collection="categories">
-                                                        #{category},
+                                                            #{category},
                                                     </foreach>
                                                 </trim>
                                                 )

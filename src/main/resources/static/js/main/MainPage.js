@@ -213,3 +213,49 @@ buttons.forEach((button, i) => {
     });
 });
 
+const modalContainer = document.getElementById("inquiry-modal");
+const openModalButton = document.querySelector("#open-modal-button button");
+openModalButton.addEventListener("click",() =>{
+    openInquiryModal(modalContainer)
+})
+
+
+const openInquiryModal = (modal) => {
+    if(modal){
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+
+    }
+}
+
+const closeInquiryModal = (modal) =>{
+    if(modal){
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+}
+
+const submitButton = document.querySelector(".submit-button");
+const memberInquiryContent= document.getElementById("member-inquiry-content")
+submitButton.addEventListener("click",async (e) => {
+    const inquiryContent = memberInquiryContent.querySelector("textarea#normal-inquiry-content").value;
+    const inquiryType = memberInquiryContent.querySelector("select#inquiryType").value;
+
+    if(inquiryContent == null || inquiryType == null){
+        e.preventDefault();
+        return;
+    }
+    let path = `/enterprise/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
+    await fetch(path);
+
+})
+
+const closeButton = document.querySelectorAll(".close-button")
+
+closeButton.forEach((button) =>{
+    button.addEventListener("click",()=>{
+        closeInquiryModal(modalContainer)
+    })
+})
+
+

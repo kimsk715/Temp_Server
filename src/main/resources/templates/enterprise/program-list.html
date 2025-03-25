@@ -8,6 +8,7 @@
     <link rel="icon" href="https://cdn.jumpit.co.kr/jumpit/favicon.png">
     <link rel="stylesheet" href="/css/enterprise/mypage-positionlist1.css">
     <link rel="stylesheet" href="/css/enterprise/mypage-positionlist2.css">
+    <link rel="stylesheet" href="/css/enterprise/mypage-headerfooter.css">
     <style>
         @font-face {
             font-family: Jumpit;
@@ -20,6 +21,7 @@
     </style>
 </head>
 
+<header th:replace="/enterprise/headerfooteredited.html :: .header"></header>
 <body>
     <div id="root">
         <div id="skipnavigation"><a href="/#content">본문 바로가기</a></div>
@@ -73,7 +75,7 @@
         </div>
         <!-- 채울 내용은 이 태그 안에 작성. -->
     </div>
-
+    <footer th:replace="/enterprise/headerfooteredited.html :: .footer"></footer>
 
     <div id="modal"></div>
 
@@ -81,4 +83,5 @@
 <script src="/js/enterprise/company-program-service.js"></script>
 <script src="/js/enterprise/company-program-layout.js"></script>
 <script src="/js/enterprise/company-program-event.js"></script>
+<script src="/js/enterprise/header.js"></script>
 </html>

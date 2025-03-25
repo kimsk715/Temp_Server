@@ -3,9 +3,11 @@ package com.app.temp.controller.enterprise;
 
 import com.app.temp.controller.exception.MypageSelectExcpetion;
 import com.app.temp.domain.dto.*;
+import com.app.temp.domain.vo.CompanyInquiryVO;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.service.CompanyMemberService;
 import com.app.temp.service.CompanyService;
+import com.app.temp.service.InquiryService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,10 +30,11 @@ public class EnterpriseController {
     private final CompanyMemberService companyMemberService;
     private final HttpSession session;
     private final CompanyMemberInfoAdminDTO companyMemberInfoAdminDTO;
+    private final InquiryService inquiryService;
 
     @GetMapping("enterprise/header-footer")
-    public void headerfooter(){
-
+    public String headerfooter(){
+        return "/enterprise/headerfooteredited";
     }
 
 //
@@ -134,5 +137,21 @@ public class EnterpriseController {
 
     }
 
+    @GetMapping("enterprise/insert-inquiry")
+    public String insert(HttpSession httpSession, @RequestParam("company-inquiry-type") String companyInquiryType, @RequestParam("company-inquiry-content") String companyInquiryContent){
+        CompanyInquiryVO companyInquiryVO = new CompanyInquiryVO();
+//        CompanyMemberDTO companyMember = (CompanyMemberDTO) httpSession.getAttribute("companyMember");
+//        Long memberId = companyMember.getId();
+//        Long companyId = companyMember.getCompanyId();
+        Long memberId = 3L;
+        log.info("memberInquiryType:{}", companyInquiryType);
+        log.info("memberInquiryContent:{}", companyInquiryContent);
+        companyInquiryVO.setMemberId(memberId);
+        companyInquiryVO.setCompanyInquiryType(companyInquiryType);
+        companyInquiryVO.setCompanyInquiryDetail(companyInquiryContent);
+        companyInquiryVO.setCompanyInquiryStatus("처리대기");
+        inquiryService.setCompanyInquiry(companyInquiryVO);
+        return "redirect:/";
+    }
 
 }
