@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/member/mypage-main1.css" data-precedence="next" />
     <link rel="stylesheet" href="/css/member/mypage-main2.css" />
     <link rel="stylesheet" href="/css/member/mypage-main3.css" />
+    <link rel="stylesheet" href="/css/member/header.css">
     <title>템프 | 마이페이지</title>
     <link rel="icon" href="/images/member/favicon.ico" />
 
@@ -26,7 +27,7 @@
 </head>
 
 <body class="__className_f53396">
-
+<header th:replace="/main/header.html :: .header-sc"></header>
     <main class="main-sc0">
         <div>
             <div class="main-wrapper0">
@@ -54,7 +55,7 @@
                                         정보 설정</a>
                                 </li>
                                 <li class="mypagemenu2">
-                                    <a target="_self" href="/member/account-withdrawl">계정
+                                    <a target="_self" href="/member/account-withdrawal">계정
                                         탈퇴</a>
                                 </li>
 

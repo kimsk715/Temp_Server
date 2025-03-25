@@ -1,7 +1,7 @@
 const selectAllButton = document.querySelector(".allCategory"); // 전체 선택 버튼
 const categoryButtons = document.querySelectorAll(".categorySelect"); // 각 카테고리 버튼
 const allCheckboxes = document.querySelectorAll(".listJobBtnWrap label input"); // 전체 버튼 + 카테고리 버튼을 포함한 모든 버튼
-const searchInput = document.querySelector("input[name=keyword]")
+const searchInputs = document.querySelector("input[name=keyword]")
 const homeButton = document.querySelector(".logo-wrap a");
 const headerButton = document.querySelector(".header4 a");
 
@@ -21,9 +21,9 @@ homeButton.addEventListener("click",(e) => {
 })
 // 검색어 정보를 저장하는 함수(기존 키워드 + 현재 키워드를 비교해서 키워드가 같은 상태에서 카테고리가 바뀌는 경우
 // 버튼이 누적되도록 하기 위한 조건,
-searchInput.addEventListener("keyup", (e) => {
+searchInputs.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
-        const currentKeyword = searchInput.value.trim();
+        const currentKeyword = searchInputs.value.trim();
         const prevKeyword = JSON.parse(sessionStorage.getItem("prevKeyword")) || "";
 
         console.log("이전 키워드:", prevKeyword);
@@ -92,9 +92,9 @@ function loadCheckboxState() {
 
     }
 }
-const isEmpty = (string) => {
-    return string.replaceAll(" ", "")
-}
+// const isEmpty = (string) => {
+//     return string.replaceAll(" ", "")
+// }
 
 // 전체 체크버튼들에 대해서 변화가 감지되었을 때, 그 버튼의 눌린 상태를 반영해서 세션에 저장.
 allCheckboxes.forEach(checkbox => {
