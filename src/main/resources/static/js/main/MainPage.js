@@ -1,3 +1,13 @@
+// 탭 상태 감지하여 자동 슬라이드 제어
+// 이거 안 쓰면 다른 탭 갔다 왔을때 배너가 자꾸 탈출함
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+        clearInterval(autoSlideInterval); // 자동 슬라이드 중지
+    } else {
+        autoSlideInterval = setInterval(autoSlide, 4000); // 다시 시작
+    }
+});
+
 // 메인 슬라이드 배너
 const bannerTrack = document.querySelector(".bannerTrack");
 const leftArrow = document.querySelector(".leftButton");
@@ -69,56 +79,53 @@ const updateSlide = () => {
     bannerTrack.style.transform = `translateX(-${slideWidth * count}px)`;
 
     // transitionend 이벤트로 텍스트 표시
-    bannerTrack.addEventListener(
-        "transitionend",
-        function handleTransitionEnd() {
-            // 이벤트 핸들러를 한 번만 실행하도록 제거
-            bannerTrack.removeEventListener(
-                "transitionend",
-                handleTransitionEnd
-            );
+    const transitionEndHandler = () => {
+        // 이벤트 핸들러를 한 번만 실행하도록 제거
+        bannerTrack.removeEventListener("transitionend", transitionEndHandler);
 
-            // 텍스트 숨기기
-            texts.forEach((text) => text.classList.remove("showText"));
+        // 텍스트 숨기기
+        texts.forEach((text) => text.classList.remove("showText"));
 
-            // 현재 슬라이드의 텍스트 보이기
-            const currentSlide = slides[count];
-            if (currentSlide) {
-                // 텍스트 애니메이션 바로 적용
-                currentSlide
-                    .querySelector(".bannerText")
-                    .classList.add("showText");
-            }
-
-            // 마지막 슬라이드에서 첫 번째로 돌아가게 하기기
-            if (count === slides.length - 1) {
-                setTimeout(() => {
-                    bannerTrack.style.transition = "none"; // 트랜지션 없이 위치 리셋
-                    count = 1;
-                    bannerTrack.style.transform = `translateX(-${
-                        slideWidth * count
-                    }px)`; // 첫 번째로 이동
-                    // 텍스트 숨기고 첫 번째 슬라이드 텍스트 보이기
-                    texts.forEach((text) => text.classList.remove("showText"));
-                    texts[count].classList.add("showText");
-                }, 500); // 딜레이 후 슬라이드 이동
-            }
-
-            // 첫 번째 슬라이드에서 마지막으로 돌아가는 처리
-            if (count === 0) {
-                setTimeout(() => {
-                    bannerTrack.style.transition = "none"; // 트랜지션 없이 위치 리셋
-                    count = slides.length - 2;
-                    bannerTrack.style.transform = `translateX(-${
-                        slideWidth * count
-                    }px)`; // 마지막으로 이동
-                    // 텍스트 숨기고 마지막 슬라이드 텍스트 보이기
-                    texts.forEach((text) => text.classList.remove("showText"));
-                    texts[count].classList.add("showText");
-                }, 500); // 딜레이 후 슬라이드 이동
-            }
+        // 현재 슬라이드의 텍스트 보이기
+        const currentSlide = slides[count];
+        if (currentSlide) {
+            // 텍스트 애니메이션 바로 적용
+            currentSlide
+                .querySelector(".bannerText")
+                .classList.add("showText");
         }
-    );
+
+        // 마지막 슬라이드에서 첫 번째로 돌아가게 하기기
+        if (count === slides.length - 1) {
+            setTimeout(() => {
+                bannerTrack.style.transition = "none"; // 트랜지션 없이 위치 리셋
+                count = 1;  // 첫 번째로 돌아가도록 설정
+                bannerTrack.style.transform = `translateX(-${
+                    slideWidth * count
+                }px)`; // 첫 번째 위치로 이동
+                // 텍스트 숨기고 첫 번째 슬라이드 텍스트 보이기
+                texts.forEach((text) => text.classList.remove("showText"));
+                texts[count].classList.add("showText");
+            }, 0); // 딜레이 후 슬라이드 이동
+        }
+
+        // 첫 번째 슬라이드에서 마지막으로 돌아가는 처리
+        if (count === 0) {
+            setTimeout(() => {
+                bannerTrack.style.transition = "none"; // 트랜지션 없이 위치 리셋
+                count = slides.length - 2;
+                bannerTrack.style.transform = `translateX(-${
+                    slideWidth * count
+                }px)`; // 마지막으로 이동
+                // 텍스트 숨기고 마지막 슬라이드 텍스트 보이기
+                texts.forEach((text) => text.classList.remove("showText"));
+                texts[count].classList.add("showText");
+            }, 0); // 딜레이 후 슬라이드 이동
+        }
+    };
+
+    // transitionend 이벤트 리스너 추가
+    bannerTrack.addEventListener("transitionend", transitionEndHandler);
 };
 
 // 자동 슬라이드 주기 설정
