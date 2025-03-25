@@ -236,7 +236,8 @@
     text-overflow: ellipsis;
 }
 
-.header-right6 li button {
+.header-right6 li button,
+.header-right6  li a {
     display: inline-block;
     position: relative;
     padding: 10px 0px;

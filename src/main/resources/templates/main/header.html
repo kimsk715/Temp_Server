@@ -108,7 +108,7 @@
 
             </ul>
             <ul class="header-right6">
-                <li>
+                <li id="afterLogin" style="display: none;">
                     <div class="header-right-user7">
                         <button type="button">김승균님</button><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                 height="16" fill="none" viewBox="0 0 16 16">
@@ -122,9 +122,14 @@
                         <ul>
                             <li><a href="/mypage/account-main">마이템프</a>
                             </li>
-                            <li><button type="button">로그아웃</button>
+                            <li><a href="/kakao/logout"><button type="button">로그아웃</button></a>
                             </li>
                         </ul>
+                    </div>
+                </li>
+                <li id="beforeLogin">
+                    <div class="header-right-user7">
+                        <a href="/member/login">로그인</a>
                     </div>
                 </li>
             </ul>
@@ -136,7 +141,7 @@
 </body>
 
 <script src="/js/member/mypage-all.js"></script>
-<script>
-
+<script th:inline="javascript">
+    const memberData = /*[[${session.member}]]*/ null;
 </script>
 </html>

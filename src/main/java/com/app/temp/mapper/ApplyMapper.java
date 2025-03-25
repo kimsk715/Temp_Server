@@ -44,4 +44,8 @@ public interface ApplyMapper {
     public ArrayList<MainProgramListDTO> searchProgramsByKeyword(String keyword);
 
     public ArrayList<MainProgramListDTO> selectAllByCategories(SearchInfoDTO searchInfoDTO);
+
+    public List<MainProgramListDTO> selectByTopReadCount(SearchInfoDTO searchInfoDTO);
+
+    public void updateReadCount(Long id);
 }

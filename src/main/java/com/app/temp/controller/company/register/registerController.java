@@ -34,8 +34,7 @@ public class registerController {
     public String registerCompanyMember(@RequestParam(required = false) MultipartFile file,
                                         HttpSession session, Model model,
                                         @ModelAttribute CompanyDTO companyDTO,
-                                        @ModelAttribute CompanyMemberDTO companyMemberDTO,
-                                        @RequestParam(value = "next_certification_check", defaultValue = "false") boolean noCertificate) {
+                                        @ModelAttribute CompanyMemberDTO companyMemberDTO) {
         log.info("--------{}", file.getOriginalFilename());
 
 //        log.info("companyDTO: {}", companyDTO);
@@ -47,9 +46,6 @@ public class registerController {
             if (memberDTO == null) {
                 throw new MemberNotFoundException("회원정보 찾을 수 없음");
             }
-
-            // noCertificate 값 확인
-            System.out.println("noCertificate: " + noCertificate);
 
             // companyMemberDTO에 member 정보를 추가
             companyMemberDTO.setMemberEmail(memberDTO.getMemberEmail());

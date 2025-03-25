@@ -87,6 +87,21 @@
     </update>
 
     <!-- 이 위는 모두 관리자용 기능. -->
+<!--메인 화면에서 띄울 인기 목록-->
+<!--    POST_READ_COUNT 필요 -->
+<select id="selectByTopReadCount" resultType="mainProgramListDTO">
+SELECT ROWNUM, ID, PROGRAM_NAME, COMPANY_NAME, CEIL(TO_DATE(PROGRAM_END_DATE)-SYSDATE) AS DDAY, PROGRAM_READ_COUNT
+FROM
+    (
+    SELECT P.ID, PROGRAM_NAME, COMPANY_NAME, PROGRAM_END_DATE, PROGRAM_READ_COUNT
+           FROM TBL_PROGRAM P
+            JOIN TBL_COMPANY C
+                ON P.COMPANY_ID = C.ID
+           ORDER BY PROGRAM_READ_COUNT DESC
+           )
+WHERE ROWNUM  <![CDATA[ <=12 ]]>
+
+</select>
 
     <!--    프로그램 검색 + 필터도 추가해야됨-->
 <!--   상단 검색바 키워드 검색-->
@@ -250,4 +265,9 @@
         WHERE MEMBER_ID = #{id}
     </select>
 
+    <update id="updateReadCount">
+        UPDATE TBL_PROGRAM
+        SET PROGRAM_READ_COUNT = PROGRAM_READ_COUNT + 1
+        WHERE ID = #{id}
+    </update>
 </mapper>

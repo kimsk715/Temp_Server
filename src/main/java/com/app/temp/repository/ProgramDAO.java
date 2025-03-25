@@ -3,18 +3,20 @@ package com.app.temp.repository;
 import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.ProgramVO;
 import com.app.temp.mapper.ApplyMapper;
+import com.app.temp.mapper.ProgramMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
 public class ProgramDAO {
     private final ApplyMapper applyMapper;
-
+    private final ProgramMapper programMapper;
     // 조회(전체)
     public ArrayList<ProgramListDTO> findAll(ProgramPagination programPagination) {
         return applyMapper.selectAll(programPagination);
@@ -74,5 +76,13 @@ public class ProgramDAO {
     public ArrayList<MainProgramListDTO> findAllByCategories(SearchInfoDTO searchInfoDTO) {
         log.info("DAO : {}", applyMapper.selectAllByCategories(searchInfoDTO));
         return applyMapper.selectAllByCategories(searchInfoDTO);
+    }
+//    인기 순으로 검색
+    public List<MainProgramListDTO> findByTopReadCount(SearchInfoDTO searchInfoDTO) {
+        return applyMapper.selectByTopReadCount(searchInfoDTO);
+    }
+//    조회 수
+    public void updateReadCount(Long Id) {
+        applyMapper.updateReadCount(Id);
     }
 }

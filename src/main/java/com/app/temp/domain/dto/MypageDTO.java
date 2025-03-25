@@ -17,4 +17,6 @@ public class MypageDTO {
     private String programName;
     private String programThumbnailPath;
     private String programEndDate;
+    private String dDay;
+    private int programReadCount;
 }

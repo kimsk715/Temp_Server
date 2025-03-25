@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -134,6 +135,30 @@ public class ProgramService {
             mainProgramListDTO.setDDay("day");
         }});
         return mainProgramListDTOS;
+    }
+
+    public List<MainProgramListDTO> getByTopReadCount(SearchInfoDTO searchInfoDTO){
+        List<MainProgramListDTO> topLists = programDAO.findByTopReadCount(searchInfoDTO);
+//        log.info(topLists.toString());
+        ScrapVO scrapVO = new ScrapVO();
+        if(searchInfoDTO.getMemberId() != null){
+            scrapVO.setMemberId(searchInfoDTO.getMemberId());
+            topLists.forEach(mainProgramListDTO -> {
+                scrapVO.setProgramId(mainProgramListDTO.getId());
+                scrapDAO.findOne(scrapVO).ifPresentOrElse(scrap -> mainProgramListDTO.setScrapStatus("true"), ()-> mainProgramListDTO.setScrapStatus("false"));
+            });
+        }
+//      날짜 표기(D-Day)를 위한 계산
+        topLists.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
+            mainProgramListDTO.setDDay("day");
+        } else if (mainProgramListDTO.getDDay().contains("-")) {
+            mainProgramListDTO.setDDay("day");
+        }});
+        return topLists;
+    }
+
+    public void updateReadCount(Long id){
+        programDAO.updateReadCount(id);
     }
 }
 
