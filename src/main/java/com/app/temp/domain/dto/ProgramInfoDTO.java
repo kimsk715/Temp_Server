@@ -22,6 +22,7 @@ public class ProgramInfoDTO {
     private int programPrice;
     private String programBenefit;
     private String programThumbNailPath;
+    private Long companyId;
 
     public ProgramVO toProgramVO() {
         ProgramVO programVO = new ProgramVO();

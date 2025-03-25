@@ -1,8 +1,6 @@
 package com.app.temp.service;
 
-import com.app.temp.controller.exception.MemberNotFoundException;
 import com.app.temp.controller.exception.MypageSelectExcpetion;
-import com.app.temp.domain.dto.ApplicationDTO;
 import com.app.temp.domain.dto.MypageDTO;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.mapper.ApplyMapper;
@@ -15,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +32,7 @@ public class MypageService {
         return memberDAO.findById(id);
     }
 //     마이페이지 회원정보 수정
-    public void accountInfoUpdate(MemberVO memberVO, HttpSession session) {
+    public void accountInfoUpdate(MemberVO memberVO) {
 //     DB 업데이트
         memberDAO.setMember(memberVO);
 //     업데이트 된 정보 찾기
