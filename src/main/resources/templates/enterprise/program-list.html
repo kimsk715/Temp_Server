@@ -40,35 +40,35 @@
         <div class="container">
             <div class="title">
                 <h2>포지션 리스트</h2>
-                <button class="register-btn">포지션 등록</button>
+                <a href="/enterprise/program-insert-page">
+                    <button class="register-btn">포지션 등록</button>
+                </a>
+
             </div>
 <!-- 폰트 굵기는 전체적으로 얇게, 크기도 약간 작게, 3안 정도 제작해서 메일로 보고하기 -->
             <div class="columns">
                 <div class="column" id="work">
                     <div class="card-text-wrapper">
                         <h3>진행중 </h3>
-                        <h3> 5</h3>
+                        <h3 id="work-count"> 5</h3>
                     </div>
-
-
                 </div>
                 <div class="column" id="wait">
                     <div class="card-text-wrapper">
                         <h3>승인 요청중</h3>
-                        <h3>5</h3>
+                        <h3 id="wait-count">5</h3>
                     </div>
-
                 </div>
                 <div class="column" id="write">
                     <div class="card-text-wrapper">
                         <h3>작성중</h3>
-                        <h3>5</h3>
+                        <h3 id="write-count">5</h3>
                     </div>
                 </div>
                 <div class="column" id="end">
                     <div class="card-text-wrapper">
                         <h3>마감</h3>
-                        <h3>5</h3>
+                        <h3 id="end-count">5</h3>
                     </div>
                 </div>
             </div>

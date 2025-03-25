@@ -17,6 +17,7 @@ import java.util.Optional;
 @Transactional(rollbackFor = Exception.class)
 public class CompanyService {
     private final CompanyDAO companyDAO;
+    private final ProgramInfoDTO programInfoDTO;
 
     public Optional<CompanyDTO> getById(Long id) {
         return companyDAO.findById(id);
@@ -32,5 +33,40 @@ public class CompanyService {
         companyProgramListDTO.setSelectProgramWorkByCompanyId(companyDAO.selectProgramWorkByCompanyId(id));
 
         return companyProgramListDTO;
+    }
+
+//    기업 공고 등록 임시저장
+    public void  pendingCompanyProgram(ProgramInfoDTO programInfoDTO) {
+        companyDAO.insertpendingCompanyProgram(programInfoDTO);
+    }
+
+//    기업 공고 등록
+    public void insertCompanyProgram(ProgramInfoDTO programInfoDTO) {
+        companyDAO.insertCompanyProgram(programInfoDTO);
+    }
+
+//    기업 공고 수정
+    public void updateCompanyProgram(ProgramInfoDTO programInfoDTO) {
+    companyDAO.setCompanyProgram(programInfoDTO);
+}
+
+//    기업 공고 삭제
+    public void deleteCompanyProgram(Long id) {
+        companyDAO.deleteCompanyProgram(id);
+    }
+
+//    기업 공고 조회
+    public ProgramInfoDTO selectCompanyProgram(Long id) {
+        return companyDAO.findCompanyProgram(id);
+    }
+
+//    기업 특정 공고 조회
+    public ProgramInfoDTO selectCompanyProgramById(Long id) {
+        return companyDAO.findCompanyProgramById(id);
+    }
+    
+//    기업 수정 임시저장
+    public void updatePendingProgramupdatePendingProgram(ProgramInfoDTO programInfoDTO) {
+        companyDAO.setPendingProgram(programInfoDTO);
     }
 }

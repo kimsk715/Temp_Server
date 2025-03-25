@@ -1,9 +1,10 @@
 package com.app.temp.controller.member;
 
 import com.app.temp.domain.dto.MemberDTO;
-import com.app.temp.domain.dto.PayDTO;
+
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.service.MemberService;
+import com.app.temp.domain.dto.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +26,11 @@ public class MemberController {
     @GetMapping("member/header")
     public void header() {
         log.info("header");
+
     }
-    
+
+
+
 //    지원현황
     @GetMapping("member/account-applied")
     public void accountApplied(){
@@ -51,25 +55,28 @@ public class MemberController {
             memberService.memberDelete(member.getId());
             redirectAttributes.addFlashAttribute("message", "회원 탈퇴가 완료되었습니다.");
             session.invalidate();
+
             return "redirect:/"; // 홈 페이지로 리다이렉트
         }
     }
 
+
 //    결제내역 저장하기
     @ResponseBody
     @PostMapping("member/insert-pay-history")
-    public void insertPayHistory(@RequestBody PayDTO data){
+    public void insertPayHistory(PayDTO data){
         MemberDTO member = (MemberDTO) session.getAttribute("member");
-        data.setMemberId(41L);
+        data.setMemberId(member.getId());
         log.info(data.toString());
         memberService.insertPayHistory(data);
     }
 
 //    결제내역 조회하기
     @ResponseBody
-    @PostMapping("member/select-pay-history")
+    @GetMapping("member/select-pay-history")
     public List<PayDTO> selectPayHistory(){
 //        MemberDTO member = (MemberDTO) session.getAttribute("member");
+        log.info(memberService.selectPayHistory(41L).toString());
         return memberService.selectPayHistory(41L);
     }
 }

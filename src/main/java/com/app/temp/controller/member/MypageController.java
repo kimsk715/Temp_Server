@@ -53,15 +53,12 @@ public class MypageController {
 
 //    마이페이지 수정
     @PostMapping ("account-update")
-    public String accountUpdate(@ModelAttribute MemberVO member, HttpSession session) {
-        MemberVO sessionMember = (MemberVO) session.getAttribute("member");
+    public String accountUpdate(@ModelAttribute MemberVO memberInfo) {
+        MemberVO Member = (MemberVO) session.getAttribute("member");
 
-        log.info(member.toString());
+        Member.setMemberName(memberInfo.getMemberName());
 
-        sessionMember.setMemberName(member.getMemberName());
-
-        mypageService.accountInfoUpdate(sessionMember, session);
-        log.info(sessionMember.toString());
+        mypageService.accountInfoUpdate(Member);
 
         return "redirect:/mypage/account-info";
     }
@@ -109,4 +106,5 @@ public class MypageController {
 //    //    결제 내역 서버에 저장
 //    @PostMapping("pay-history")
 //    public void payHistory (@RequestParam payload) {;};
+
 }

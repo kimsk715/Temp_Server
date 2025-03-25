@@ -1,12 +1,20 @@
 const myPagePaymentService= ( () => {
     // 결제내역 조회
     const selectPayHistory = async (callback) => {
-        await fetch("member/select-pay-history", {
-            method: "POST",
-        })
+        const response = await fetch("/member/select-pay-history", {
+            method: "GET"
+        });
+        
+        console.log("들어옴")
+        const payHistory = await response.json();
+        console.log(payHistory);
+        console.log("들어옴")
         if(callback){
-            callback(selectPayHistory)
+            console.log(payHistory);
+            callback(payHistory)
         }
+        console.log(payHistory);
+        console.log("들어옴")
     }
     // 결제내역 저장
     const insertPayHistory = async (data, callback) => {
@@ -17,6 +25,7 @@ const myPagePaymentService= ( () => {
                 "Content-Type": "application/json;charset=utf-8"
             }
         })
+
         if(callback){
             callback(insertPayHistory)
         }
