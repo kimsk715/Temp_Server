@@ -36,7 +36,7 @@ const pay = async function () {
         //     1. INSERT fetch 사용
         const data = {
 
-            paymentPoint: response.data.price,
+            charge: response.data.price,
             paymentStatusLocale: response.data.status_locale,
             purchasedAt: response.data.purchased_at
         };

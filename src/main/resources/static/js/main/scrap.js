@@ -1,6 +1,21 @@
 // 이 아래부터는 스크랩 기능 관련 함수 모음
 const scrapButtons = document.querySelectorAll("button.scrapButton");
 
+scrapButtons.forEach((button) => {
+    button.addEventListener("click",(e) =>{
+        if(memberData == null){
+            e.preventDefault();
+            alert("로그인이 필요한 서비스입니다.")
+            window.location.href = `/member/login`;
+        }
+        else{
+            e.preventDefault();
+            // e.stopPropagation();
+        }
+    })
+})
+
+
 document.addEventListener("DOMContentLoaded",() =>{
     scrapButtons.forEach(buttons => {
         let check = buttons.getAttribute("aria-pressed") === "true";

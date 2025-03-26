@@ -114,16 +114,27 @@
     </delete>
 <!-- 결제내역 저장 -->
     <insert id="insertPayHistory">
-        INSERT INTO TBL_PAYMENT
-            (ID, MEMBER_ID, PAYMENT_POINT, PAYMENT_STATUS_LOCALE)
-        VALUES (SEQ_PAYMENT.NEXTVAL, #{memberId}, #{paymentPoint}, #{paymentStatusLocale})
+        INSERT INTO TBL_MEMBER_CHARGE
+            (ID, MEMBER_ID, CHARGE, PAYMENT_STATUS_LOCALE)
+        VALUES (SEQ_PAYMENT.NEXTVAL, #{memberId}, #{charge}, #{paymentStatusLocale})
     </insert>
 
+<!--    <insert id="insertPayHistory">-->
+<!--        INSERT INTO TBL_PAYMENT-->
+<!--            (ID, MEMBER_ID, PAYMENT_POINT, PAYMENT_STATUS_LOCALE)-->
+<!--        VALUES (SEQ_PAYMENT.NEXTVAL, #{memberId}, #{paymentPoint}, #{paymentStatusLocale})-->
+<!--    </insert>-->
+<!--    원본-->
 <!--결제내역 조회-->
     <select id="selectPayHistory" resultType="payDTO">
-        SELECT PAYMENT_STATUS_LOCALE, PAYMENT_POINT, CREATED_DATE, UPDATED_DATE, MEMBER_ID
-        FROM TBL_PAYMENT P
-        WHERE P.MEMBER_ID = #{id}
+        SELECT PAYMENT_STATUS_LOCALE, CHARGE, CREATED_DATE, UPDATED_DATE, MEMBER_ID
+        FROM TBL_MEMBER_CHARGE MC
+        WHERE MC.MEMBER_ID = #{id}
     </select>
-
+<!-- 원본-->
+<!--    <select id="selectPayHistory" resultType="payDTO">-->
+<!--        SELECT PAYMENT_STATUS_LOCALE, PAYMENT_POINT, CREATED_DATE, UPDATED_DATE, MEMBER_ID-->
+<!--        FROM TBL_PAYMENT P-->
+<!--        WHERE P.MEMBER_ID = #{id}-->
+<!--    </select>-->
 </mapper>

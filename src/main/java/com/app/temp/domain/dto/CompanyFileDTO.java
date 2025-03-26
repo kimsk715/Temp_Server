@@ -12,7 +12,7 @@ public class CompanyFileDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long companyId;
-    private String type;
+    private String companyFileType;
     private String fileName;
     private String filePath;
     }

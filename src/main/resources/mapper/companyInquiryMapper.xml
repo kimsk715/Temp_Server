@@ -76,7 +76,7 @@
             AND MEMBER_NAME LIKE '%' || #{companyInquiryKeyword} || '%'
         </if>
         <if test="date != 0 and date != 1">
-            AND CEIL(SYSDATE - TO_DATE(M.MEMBER_RECENT_LOGIN)) <![CDATA[ <= #{date}]]>
+            AND CEIL(SYSDATE - TO_DATE(CI.CREATED_DATE)) <![CDATA[ <= #{date}]]>
         </if>
         )
     </select>
