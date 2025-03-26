@@ -90,6 +90,7 @@ public class AdminController {
     @GetMapping("/admin/home/member-inquiries")
     @ResponseBody
     public AdminMemberInquiryDTO getMemberInquiryList(MemberInquiryPagination memberInquiryPagination, Model model) {
+        log.info(inquiryService.getAll(memberInquiryPagination).getMemberInquiryList().toString());
         return inquiryService.getAll(memberInquiryPagination);
     }
 
