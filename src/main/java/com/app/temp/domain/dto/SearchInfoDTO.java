@@ -17,4 +17,5 @@ public class SearchInfoDTO {
     private Long memberId;
     private String keyword;
     private String[] categories;
+    private Long companyId;
 }

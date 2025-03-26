@@ -13,6 +13,7 @@ public class MainProgramListDTO {
     @EqualsAndHashCode.Include
     private Long id;
     private String companyName;
+    private Long companyId;
     private String programName;
     private String programEndDate;
     private String dDay;
@@ -20,7 +21,8 @@ public class MainProgramListDTO {
     private String scrapStatus;
     private Long categoryCId;
     private Long categoryAId;
-
+    private String filePath;
+    private String fileName;
     //    0319 수정
 
 }
