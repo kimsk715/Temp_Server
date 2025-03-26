@@ -9,4 +9,59 @@ SELECT * FROM TBL_PAYMENT;
 
 SELECT PAYMENT_STATUS_LOCALE, PAYMENT_POINT, CREATED_DATE, UPDATED_DATE, MEMBER_ID
 FROM TBL_PAYMENT P
-WHERE P.MEMBER_ID = 41
+WHERE P.MEMBER_ID = 41;
+
+SELECT COUNT(*)
+FROM TBL_MEMBER_INQUIRY
+WHERE CEIL(SYSDATE - TO_DATE(CREATED_DATE))<= 7 AND MEMBER_INQUIRY_STATUS = '처리대기';
+
+CREATE SEQUENCE SEQ_COMPANY_REPORT;
+CREATE TABLE TBL_COMPANY_REPORT(
+                                   ID NUMBER CONSTRAINT PK_COMPANY_REPORT PRIMARY KEY,
+                                   COMPANY_ID NUMBER NOT NULL,
+                                   CONSTRAINT FK_COMPANY_REPORT_REPORT FOREIGN KEY(ID)
+                                       REFERENCES TBL_REPORT(ID),
+                                   CONSTRAINT FK_COMPANY_REPORT_COMPANY FOREIGN KEY(COMPANY_ID)
+                                       REFERENCES TBL_COMPANY(ID)
+);
+CREATE SEQUENCE SEQ_PROGRAM_REPORT;
+CREATE TABLE TBL_PROGRAM_REPORT(
+                                   ID NUMBER CONSTRAINT PK_PROGRAM_REPORT PRIMARY KEY,
+                                   PROGRAM_ID NUMBER NOT NULL,
+                                   CONSTRAINT FK_PROGRAM_REPORT_REPORT FOREIGN KEY(ID)
+                                       REFERENCES TBL_REPORT(ID),
+                                   CONSTRAINT FK_PROGRAM_REPORT_PROGRAM FOREIGN KEY(PROGRAM_ID)
+                                       REFERENCES TBL_PROGRAM(ID)
+);
+
+CREATE SEQUENCE SEQ_FILE;
+CREATE TABLE TBL_FILE(
+                         ID NUMBER CONSTRAINT PK_FILE PRIMARY KEY,
+                         FILE_NAME VARCHAR2(1000) NOT NULL,
+                         FILE_SIZE VARCHAR2(1000) NOT NULL,
+                         FILE_PATH VARCHAR2(1000) NOT NULL,
+                         CREATED_DATE DATE DEFAULT SYSDATE,
+                         UPDATED_DATE DATE DEFAULT SYSDATE
+);
+CREATE SEQUENCE SEQ_COMPANY_FILE;
+CREATE TABLE TBL_COMPANY_FILE(
+                                 ID NUMBER CONSTRAINT PK_COMPANY_FILE PRIMARY KEY,
+                                 COMPANY_ID NUMBER NOT NULL,
+                                 COMPANY_FILE_TYPE NUMBER NOT NULL,
+                                 CONSTRAINT FK_COMPANY_FILE_COMPANY FOREIGN KEY(COMPANY_ID)
+                                     REFERENCES TBL_COMPANY(ID),
+                                 CONSTRAINT FK_COMPANY_FILE_FILE FOREIGN KEY(ID)
+                                     REFERENCES TBL_FILE(ID)
+);
+
+
+CREATE SEQUENCE SEQ_MEMBER_FILE;
+CREATE TABLE TBL_MEMBER_FILE(
+                                ID NUMBER CONSTRAINT PK_MEMBER_FILE PRIMARY KEY,
+                                MEMBER_ID NUMBER NOT NULL,
+                                MEMBER_FILE_TYPE VARCHAR2(1000),
+                                CONSTRAINT FK_MEMBER_FILE_COMPANY FOREIGN KEY(MEMBER_ID)
+                                    REFERENCES TBL_MEMBER(ID),
+                                CONSTRAINT FK_MEMBER_FILE_FILE FOREIGN KEY(ID)
+                                    REFERENCES TBL_FILE(ID)
+);
