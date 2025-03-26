@@ -137,4 +137,16 @@
 <!--        FROM TBL_PAYMENT P-->
 <!--        WHERE P.MEMBER_ID = #{id}-->
 <!--    </select>-->
+<!--    체험비용 지불 -->
+    <update id="charge">
+        UPDATE TBL_MEMBER
+        SET MEMBER_POINT = MEMBER_POINT + #{charge}
+        WHERE ID = #{memberId}
+    </update>
+
+    <update id="pay">
+        UPDATE TBL_MEMBER
+        SET MEMBER_POINT = MEMBER_POINT - #{programPrice}
+        WHERE ID = #{id}
+    </update>
 </mapper>

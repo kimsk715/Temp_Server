@@ -14,6 +14,7 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class ApplyDTO {
     @EqualsAndHashCode.Include
+    private Long id;
     private String programName;
     private String companyName;
     private String programEndDate;

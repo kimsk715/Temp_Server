@@ -81,6 +81,13 @@ public class MemberDAO {
         return memberMapper.selectPayHistory(id);
     }
 
+    public void charge(PayDTO payDTO){
+        memberMapper.charge(payDTO);
+    }
+
+    public void pay(Long id){
+        memberMapper.pay(id);
+    }
 
 }
 

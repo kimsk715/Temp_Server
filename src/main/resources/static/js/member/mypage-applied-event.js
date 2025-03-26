@@ -20,6 +20,8 @@ applyStatus.forEach((status) => {
         const validStatuses = ["지원완료", "최종합격", "불합격"];
 
         if (validStatuses.includes(applyMemberStatus)) {
+            console.log(applyMemberStatus)
+            console.log(validStatuses.includes(applyMemberStatus))
             await myPageAppliedService.apply(applyMemberStatus);
             await myPageAppliedService.getList(applyMemberStatus, appliedLayout.showlist);
         }

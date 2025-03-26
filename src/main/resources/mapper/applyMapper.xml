@@ -225,16 +225,17 @@ WHERE ROWNUM  <![CDATA[ <=12 ]]>
     </select>
 <!--    마이페이지 지원한 리스트 -->
     <select id="selectApplicationById" resultType="applyDTO">
-    SELECT PROGRAM_NAME, programEndDate, COMPANY_NAME
+    SELECT ID, PROGRAM_NAME, PROGRAM_END_DATE, COMPANY_NAME, APPLY_MEMBER_STATUS, PROGRAM_PRICE
     FROM
         (
-            SELECT ROWNUM R, PROGRAM_NAME, programEndDate, COMPANY_NAME
+            SELECT ID, ROWNUM R, PROGRAM_NAME, PROGRAM_END_DATE, COMPANY_NAME, APPLY_MEMBER_STATUS, PROGRAM_PRICE
             FROM
                 (
-                    SELECT P.PROGRAM_NAME,
-                           CEIL(PROGRAM_END_DATE - SYSDATE) AS programEndDate,
+                    SELECT P.ID, P.PROGRAM_NAME,
+                           CEIL(PROGRAM_END_DATE - SYSDATE) AS PROGRAM_END_DATE,
                            C.COMPANY_NAME,
-                           A.APPLY_MEMBER_STATUS
+                           A.APPLY_MEMBER_STATUS,
+                            P.PROGRAM_PRICE
                     FROM TBL_COMPANY C
                     JOIN TBL_PROGRAM P
                     ON C.ID = P.COMPANY_ID
@@ -270,4 +271,6 @@ WHERE ROWNUM  <![CDATA[ <=12 ]]>
         SET PROGRAM_READ_COUNT = PROGRAM_READ_COUNT + 1
         WHERE ID = #{id}
     </update>
+
+
 </mapper>

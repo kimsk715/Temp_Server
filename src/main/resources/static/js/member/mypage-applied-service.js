@@ -12,7 +12,7 @@ const myPageAppliedService = (()=>{
 
             // fetch()의 옵션으로 요청 받법을 설정하는 부분입니다. 여기서는 post 메서드를 사용하여 데이터를 서버로 전송하려고 합니다.
             // post는 주로 서버에 새로운 데이터를 생성 , 전송할때
-            method: "POST",
+            method: "GET",
 
             // 3
             // "body"는 요청에 포함될 데이터입니다. reply 객체를 json 문자열로 변환한 후 서버로 전송
@@ -27,22 +27,23 @@ const myPageAppliedService = (()=>{
 
     }
     // 게시글 목록
-    const getList = async (applyMemberStatus, callback, page = 1) => {
+    const getList = async (applyMemberStatus, callback) => {
         console.log(applyMemberStatus)
 
         const response = await fetch(`/mypage/account-applis?applyMemberStatus=${applyMemberStatus}`,{
-            method: "POST",
-            body: JSON.stringify({page: page}),
+            method: "GET",
+            // body: JSON.stringify({page: page}),
             headers: {
-                "Content-Type": "application/json;charset=utf-8"
+                "Content-Type": "application/json"
             }
         });
 
 
         console.log("이건 리스폰" , response)
-        const list = await response.json();
+        const applyList = await response.json();
+        console.log(applyList,"데이터 들어왔는지 체크용")
         if(callback){
-            callback(list);
+            callback(applyList);
         }
     }
 

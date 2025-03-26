@@ -92,4 +92,12 @@ public class MemberService {
     public List<PayDTO> selectPayHistory(Long id) {
        return memberDAO.selectPayHistory(id);
     }
+
+    public void charge(PayDTO payDTO){
+        memberDAO.charge(payDTO);
+    }
+
+    public void pay(Long id){
+        memberDAO.pay(id);
+    }
 }

@@ -1,28 +1,13 @@
 const mainContentArea = document.querySelectorAll(
     "div.main-content2 ul.applied-list0"
 );
-const writingButton = document.getElementById("writing");
-const appliedButton = document.getElementById("applied");
-const passedButton = document.getElementById("passed");
-const hiredButton = document.getElementById("hired");
-const rejectedButton = document.getElementById("rejected");
+// const writingButton = document.getElementById("writing");
+const appliedButton = document.querySelector("#apply");
+// const passedButton = document.querySelector("passed");
+const hiredButton = document.querySelector("#hired");
+const rejectedButton = document.querySelector("#rejected");
 const lists = document.querySelectorAll("ul.topbox0 li");
 
-// writingButton.addEventListener("click", () => {
-//     mainContentArea.forEach((list) => {
-//         if (list.classList.contains("writing-list")) {
-//             list.classList.remove("hidden");
-//             lists.forEach((li) => {
-//                 li.classList.remove("topbox-content1-1");
-//                 li.classList.add("topbox-content1");
-//             });
-//             writingButton.classList.add("topbox-content1-1");
-//             writingButton.classList.remove("topbox-content1");
-//         } else {
-//             list.classList.add("hidden");
-//         }
-//     });
-// });
 
 appliedButton.addEventListener("click", () => {
     mainContentArea.forEach((list) => {
@@ -40,21 +25,7 @@ appliedButton.addEventListener("click", () => {
     });
 });
 
-// passedButton.addEventListener("click", () => {
-//     mainContentArea.forEach((list) => {
-//         if (list.classList.contains("passed-list")) {
-//             list.classList.remove("hidden");
-//             lists.forEach((li) => {
-//                 li.classList.remove("topbox-content1-1");
-//                 li.classList.add("topbox-content1");
-//             });
-//             passedButton.classList.add("topbox-content1-1");
-//             passedButton.classList.remove("topbox-content1");
-//         } else {
-//             list.classList.add("hidden");
-//         }
-//     });
-// });
+
 
 hiredButton.addEventListener("click", () => {
     mainContentArea.forEach((list) => {
@@ -154,3 +125,15 @@ document.addEventListener("click", function (e) {
         filterBackground.classList.add("hidden");
     }
 });
+const payButtons = document.querySelectorAll(".apply-pay-button")
+
+payButtons.forEach((button) =>{
+    button.addEventListener("click",()=>{
+        if(confirm("결제하시겠습니까? 회원님의 잔여 포인트에서 자동으로 차감됩니다.")){
+            alert("지불이 완료되었습니다.")
+            const programId = button.value;
+            console.log(programId)
+            // fetch('/')
+        }
+    })
+})
