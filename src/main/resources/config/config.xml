@@ -50,5 +50,6 @@
         <typeAlias type="com.app.temp.domain.vo.CompanyFileVO" alias="CompanyFileVO"/>
         <typeAlias type="com.app.temp.domain.vo.FileVO" alias="FileVO"/>
         <typeAlias type="com.app.temp.domain.vo.MemberVO" alias="MemberVO"/>
+        <typeAlias type="com.app.temp.domain.dto.CompanyFileDTO" alias="CompanyFileDTO"/>
     </typeAliases>
 </configuration>

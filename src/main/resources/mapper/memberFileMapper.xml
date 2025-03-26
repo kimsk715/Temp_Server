@@ -7,9 +7,14 @@
         INSERT INTO TBL_MEMBER_FILE (ID, MEMBER_ID, MEMBER_FILE_TYPE)
         VALUES (#{id}, #{memberId}, #{memberFileType})
     </insert>
+
     <!--이미지 삭제-->
     <delete id="deleteMemberFile">
         DELETE TBL_MEMBER_FILE
         WHERE ID = #{id}
     </delete>
+
+
+
+
 </mapper>

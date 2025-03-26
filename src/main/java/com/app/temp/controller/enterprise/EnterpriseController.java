@@ -149,9 +149,12 @@ public class EnterpriseController {
 
 //    기업 이미지 업로드
     @PostMapping("enterprise/company-post-images")
-    public String getImages(@RequestParam("file") List<MultipartFile> files){
+    public String getImages(@RequestParam("logo") MultipartFile logo, @RequestParam("main-image") List<MultipartFile> files){
 //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
         companyService.uploadCompanyImages(21L, files);
+        companyService.insertCompanyLogo(21L, logo);
+
+
         return "redirect:/enterprise/company-image";
     }
     
@@ -160,18 +163,30 @@ public class EnterpriseController {
     public String deleteImages() {
 //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
           companyService.deleteCompanyImages(21L);
-
+          log.info("컨트롤러 왔음");
           return "redirect:/enterprise/company-image";
     }
-
+    
+    // 기업 로고 삭제
+    @PostMapping("enterprise/company-delete-logo")
+    public String deleteLogo() {
+        // CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.deleteCompanyLogo(21L);
+        return "redirect:/enterprise/company-image";
+    }
+    
+    // 기업 로고 조회
     @GetMapping("enterprise/main-page")
-    public void mainPage(){
+    public String mainPage(){
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.selectCompanyThumnail(company.getId());
 
+        return "enterprise/main-page";
     }
 
 
     @GetMapping("master-invite")
-    public String masterInvite(Model model, HttpSession session, @RequestParam(name = "code") String code){
+    public String masterInvite(Model model, HttpSession session, @RequestParam(name = "code") String code) {
 //        log.info("Received code from URL: {}", code);  // code 값 로그 출력
         model.addAttribute("code", code);
 
@@ -180,18 +195,18 @@ public class EnterpriseController {
         MemberVO member = (MemberVO) session.getAttribute("member");
 
 //        로그인 정보가 없으면 로그인 페이지로
-        if(member == null) {
+        if (member == null) {
             return "redirect:/member/login";
         }
 
 //        세션에서 초대자 정보 가져오기
-        String inviterName = (String)session.getAttribute("inviterName");
-        String companyName = (String)session.getAttribute("companyName");
+        String inviterName = (String) session.getAttribute("inviterName");
+        String companyName = (String) session.getAttribute("companyName");
 
         String memberName = member.getMemberName();
 
-        String role = (String)session.getAttribute("role");
-        String token = (String)session.getAttribute("token");
+        String role = (String) session.getAttribute("role");
+        String token = (String) session.getAttribute("token");
 
         model.addAttribute("inviterName", inviterName);
         model.addAttribute("companyName", companyName);
@@ -200,6 +215,13 @@ public class EnterpriseController {
         model.addAttribute("memberName", memberName);
 
         return "/enterprise/master-invite";
+    }
+//     기업 썸네일 조회
+    @GetMapping("enterprise/master-invite")
+    public String masterInvite(){
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+
+        return "enterprise/master-invite";
     }
 
     @GetMapping("enterprise/viewer-invite")
@@ -216,7 +238,7 @@ public class EnterpriseController {
 
 
     @GetMapping("enterprise/insert-inquiry")
-    public String insert(HttpSession httpSession, @RequestParam("company-inquiry-type") String companyInquiryType, @RequestParam("company-inquiry-content") String companyInquiryContent){
+    public String insert(HttpSession httpsession, @RequestParam("company-inquiry-type") String companyInquiryType, @RequestParam("company-inquiry-content") String companyInquiryContent){
         CompanyInquiryVO companyInquiryVO = new CompanyInquiryVO();
 //        CompanyMemberDTO companyMember = (CompanyMemberDTO) httpSession.getAttribute("companyMember");
 //        Long memberId = companyMember.getId();

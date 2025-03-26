@@ -14,17 +14,56 @@
         VALUES (#{id}, #{companyId}, '기업 이미지')
     </insert>
 
-    <!--기업 이미지들 삭제-->
+    <!--기업 로고 저장-->
+    <insert id="insertCompanyLogo">
+        INSERT INTO TBL_COMPANY_FILE (ID, COMPANY_ID, COMPANY_FILE_TYPE)
+        VALUES (#{id}, #{companyId}, '로고')
+    </insert>
+
+    <!--기업 이미지들 삭제하기전 서브키 삭제-->
     <delete id="deleteMemberFile">
         DELETE TBL_COMPANY_FILE
-        WHERE ID = #{id}
+        WHERE COMPANY_ID = #{id}
     </delete>
     
     <!--기업 이미지들 조회-->
-    <select id="selectCompanyFile" resultType="CompanyFileVO">
+    <select id="selectCompanyFile" resultType="CompanyFileDTO">
+        SELECT C.ID, COMPANY_ID, COMPANY_FILE_TYPE, FILE_PATH, FILE_NAME
+        FROM TBL_COMPANY_FILE C JOIN TBL_FILE F
+        ON C.ID = F.ID
+        WHERE C.COMPANY_ID = #{Id} AND COMPANY_FILE_TYPE = '기업 이미지'
+    </select>
+
+<!--    &lt;!&ndash;기업 이미지 로고 조회&ndash;&gt;-->
+<!--    <select id="selectCompanyLogo" resultType="CompanyFileDTO">-->
+<!--        SELECT C.ID, COMPANY_ID, COMPANY_FILE_TYPE, FILE_PATH, FILE_NAME-->
+<!--        FROM TBL_COMPANY_FILE C JOIN TBL_FILE F-->
+<!--                                     ON C.ID = F.ID-->
+<!--        WHERE C.COMPANY_ID = #{Id} AND COMPANY_FILE_TYPE = '로고'-->
+<!--    </select>-->
+    
+    <!--기업 이미지 수정-->
+
+    <!--기업 로고 수정-->
+
+    <!--기업 이미지 첫번째것만 가져옴-->
+    <select id="selectCompanyThumnail" resultType="CompanyFileDTO">
+        SELECT *
+        FROM
+            (
+            SELECT ID, COMPANY_ID, COMPANY_FILE_TYPE
+            FROM TBL_COMPANY_FILE
+            WHERE COMPANY_ID = #{id} AND COMPANY_FILE_TYPE = '기업 이미지'
+            ORDER BY ID
+            )
+        WHERE ROWNUM = 1;
+    </select>
+
+    <!--기업 로고 조회-->
+    <select id="selectCompanyLogo" resultType="CompanyFileDTO">
         SELECT ID, COMPANY_ID, COMPANY_FILE_TYPE
         FROM TBL_COMPANY_FILE
-        WHERE COMPANY_ID = #{id}
+        WHERE COMPANY_ID = #{id} AND COMPANY_FILE_TYPE = '로고'
     </select>
 
 </mapper>
