@@ -48,7 +48,7 @@
 
     <!--기업 이미지 첫번째것만 가져옴-->
     <select id="selectCompanyThumnail" resultType="CompanyFileDTO">
-        SELECT *
+        SELECT FILE_PATH, FILE_NAME
         FROM
             (
             SELECT C.ID, COMPANY_ID, COMPANY_FILE_TYPE, FILE_PATH, FILE_NAME
