@@ -216,13 +216,6 @@ public class EnterpriseController {
 
         return "/enterprise/master-invite";
     }
-//     기업 썸네일 조회
-    @GetMapping("enterprise/master-invite")
-    public String masterInvite(){
-        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-
-        return "enterprise/master-invite";
-    }
 
     @GetMapping("enterprise/viewer-invite")
     public void viewerInvite(){
