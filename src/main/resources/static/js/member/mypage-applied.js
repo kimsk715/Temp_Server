@@ -125,15 +125,26 @@ document.addEventListener("click", function (e) {
         filterBackground.classList.add("hidden");
     }
 });
-const payButtons = document.querySelectorAll(".apply-pay-button")
 
-payButtons.forEach((button) =>{
-    button.addEventListener("click",()=>{
-        if(confirm("결제하시겠습니까? 회원님의 잔여 포인트에서 자동으로 차감됩니다.")){
-            alert("지불이 완료되었습니다.")
-            const programId = button.value;
+const payButtons = document.querySelectorAll("button.apply-pay-button")
+// document.addEventListener("click",(e) =>{
+//     if(e.target.classList.contains("apply-pay-button")){
+//         // e.preventDefault();
+//         programPay();
+//         console.log("결제 버튼 눌림")
+//     }
+// })
+const programPay = (programId) => {
+
             console.log(programId)
-            // fetch('/')
+            let payPath = `/member/pay?program-id=${programId}`;
+            if(confirm("결제하시겠습니까? 회원님의 잔여 포인트에서 자동으로 차감됩니다.")){
+                fetch(payPath);
+                alert("결제가 완료되었습니다.")
+            }
+            else{
+                alert("결제가 취소되었습니다.")
+            }
         }
-    })
-})
+
+

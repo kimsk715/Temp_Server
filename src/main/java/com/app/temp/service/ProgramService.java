@@ -75,6 +75,7 @@ public class ProgramService {
     }
 
 
+
     public ArrayList<CompanyProgramDTO> getAllProgramByCompanyId(Long companyId){
         ArrayList<CompanyProgramDTO> companyProgramDTOS = programDAO.findAllProgramByCompanyId(companyId);
         companyProgramDTOS.forEach(companyProgramDTO -> {

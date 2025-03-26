@@ -1,12 +1,13 @@
 const appliedLayout = (() => {
-    const showlist = async (applyList, page ) => {
+    const showList = async (applyList, page ) => {
         let tbody;
         let text = '';
+        console.log(applyList)
         applyList.forEach((list) => {
             if(list.programEndDate === "0" || list.programEndDate.includes("-") ){
                 list.programEndDate = "day";
             }
-
+            console.log(list)
             if((applyList[0].applyMemberStatus) === "지원완료"){
                 tbody = document.getElementById("appliedList-wrap")
                 text += `
@@ -39,7 +40,7 @@ const appliedLayout = (() => {
                 text += `<li class="contentlist">
                     <div class="applied_item">
                         <div class="applied_item_field">
-                            <a rel="noreferrer" target="_blank" href="/position/42110">
+                            <a rel="noreferrer" target="_blank" href="/program/detail/${list.id}">
                                 <dl>
                                     <dt>
                                         <div>${list.companyName}</div>
@@ -53,7 +54,7 @@ const appliedLayout = (() => {
                         </div>
                         <div class="content-apply-div">
                             <div class="apply-pay-div">
-                                <button class="apply-pay-button" value="${list.id}">결제</button>
+                                <button class="apply-pay-button" onclick="programPay(${list.id})" value="${list.id}">결제</button>                            
                             </div>
                             <div class="apply-delete-div">
                                 <button class="apply-delete-button">삭제</button>
@@ -94,5 +95,5 @@ const appliedLayout = (() => {
         tbody.innerHTML = text;
     };
 
-    return { showlist: showlist };
+    return { showList: showList };
 })();

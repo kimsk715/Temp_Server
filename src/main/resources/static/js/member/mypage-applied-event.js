@@ -23,7 +23,7 @@ applyStatus.forEach((status) => {
             console.log(applyMemberStatus)
             console.log(validStatuses.includes(applyMemberStatus))
             await myPageAppliedService.apply(applyMemberStatus);
-            await myPageAppliedService.getList(applyMemberStatus, appliedLayout.showlist);
+            await myPageAppliedService.getList(applyMemberStatus, appliedLayout.showList);
         }
     })
 })
