@@ -1,16 +1,12 @@
 package com.app.temp.controller.main;
 
-import com.app.temp.domain.dto.MainProgramListDTO;
-import com.app.temp.domain.dto.MemberDTO;
-import com.app.temp.domain.dto.SearchInfoDTO;
+import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.MemberInquiryVO;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.mapper.InquiryAnswerMapper;
-import com.app.temp.service.InquiryService;
-import com.app.temp.service.MemberService;
-import com.app.temp.service.ProgramService;
-import com.app.temp.service.ResumeService;
+import com.app.temp.service.*;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +18,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 @Slf4j
 public class IntroduceController {
     private final InquiryService inquiryService;
@@ -29,14 +26,10 @@ public class IntroduceController {
     private final ProgramService programService;
     private final MemberService memberService;
     private final ResumeService resumeService;
+    private final CompanyService companyService;
+    private final HttpSession session;
 
-    public IntroduceController(InquiryService inquiryService, InquiryAnswerMapper inquiryAnswerMapper, ProgramService programService, MemberService memberService, ResumeService resumeService) {
-        this.inquiryService = inquiryService;
-        this.inquiryAnswerMapper = inquiryAnswerMapper;
-        this.programService = programService;
-        this.memberService = memberService;
-        this.resumeService = resumeService;
-    }
+
 
     @GetMapping("introduce")
     public void introduce() {
@@ -66,10 +59,11 @@ public class IntroduceController {
     }
 
     @GetMapping("/")
-    public String getByTopReadCount(HttpSession httpsession) {
+    public String getByTopReadCount(HttpSession httpsession, Model model) {
         SearchInfoDTO searchInfoDTO = new SearchInfoDTO();
         if(httpsession.getAttribute("member") != null) {
-            MemberVO member = (MemberVO) httpsession.getAttribute("member");
+            // 임시수정(원본: MemberVO)
+            MemberDTO member = (MemberDTO) httpsession.getAttribute("member");
             Long memberId = member.getId();
             MemberDTO newMember = memberService.getMemberById(member.getId());
             newMember.setMemberBirth(member.getMemberBirth()); // 공고 상세보기를 위한 생일 추가
@@ -79,6 +73,17 @@ public class IntroduceController {
             searchInfoDTO.setMemberId(memberId);
 //            log.info(newMember.toString());
         }
+
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        CompanyFileDTO thumbnail = companyService.selectCompanyThumnail(company.getId());
+        CompanyFileDTO logo = companyService.selectCompanyThumnail(company.getId());
+
+        log.info("thumbnail:{}", thumbnail);
+        log.info("logo:{}", logo);
+
+        model.addAttribute("logo", logo);
+        model.addAttribute("thumbnail", thumbnail);
+
         List<MainProgramListDTO> topList = programService.getByTopReadCount(searchInfoDTO);
         log.info(topList.toString());
         httpsession.setAttribute("topLists", topList);
