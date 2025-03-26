@@ -30,7 +30,7 @@ public class InviteService {
     public void sendInviteEmails(String[] emails, String role,
                                  String companyName, HttpServletRequest request,
                                  HttpServletResponse response) throws MessagingException, IOException {
-        String sender = "tofucurry@naver.com";
+        String sender = "temp <contact@temp.com>";
 
         for (String receiver : emails) {
 
