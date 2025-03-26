@@ -51,18 +51,20 @@
         SELECT *
         FROM
             (
-            SELECT ID, COMPANY_ID, COMPANY_FILE_TYPE
-            FROM TBL_COMPANY_FILE
+            SELECT C.ID, COMPANY_ID, COMPANY_FILE_TYPE, FILE_PATH, FILE_NAME
+            FROM TBL_COMPANY_FILE C JOIN TBL_FILE F
+            ON C.ID = F.ID
             WHERE COMPANY_ID = #{id} AND COMPANY_FILE_TYPE = '기업 이미지'
             ORDER BY ID
             )
-        WHERE ROWNUM = 1;
+        WHERE ROWNUM = 1
     </select>
 
     <!--기업 로고 조회-->
     <select id="selectCompanyLogo" resultType="CompanyFileDTO">
-        SELECT ID, COMPANY_ID, COMPANY_FILE_TYPE
-        FROM TBL_COMPANY_FILE
+        SELECT C.ID, COMPANY_ID, COMPANY_FILE_TYPE, F.FILE_NAME, F.FILE_PATH
+        FROM TBL_COMPANY_FILE C JOIN TBL_FILE F
+        ON C.ID = F.ID
         WHERE COMPANY_ID = #{id} AND COMPANY_FILE_TYPE = '로고'
     </select>
 
