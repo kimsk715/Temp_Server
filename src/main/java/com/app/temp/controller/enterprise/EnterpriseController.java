@@ -170,7 +170,7 @@ public class EnterpriseController {
     }
 
 
-    @GetMapping("master-invite")
+    @GetMapping("enterprise/master-invite")
     public String masterInvite(Model model, HttpSession session, @RequestParam(name = "code") String code){
 //        log.info("Received code from URL: {}", code);  // code 값 로그 출력
         model.addAttribute("code", code);
