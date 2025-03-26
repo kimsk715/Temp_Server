@@ -72,58 +72,53 @@ const autoSlide = () => {
     updateSlide();
 };
 
+// 버튼 상태를 제어하는 변수
+let isTransitioning = false
+
 // 슬라이드 이동 및 텍스트 보이기 업데이트 함수
 const updateSlide = () => {
-    // 슬라이드 이동
+    if (isTransitioning) return; // 슬라이드 이동 중일 때 클릭 이벤트 무시
+
+    isTransitioning = true; // 이동 중임을 표시
     bannerTrack.style.transition = "transform 0.5s ease";
     bannerTrack.style.transform = `translateX(-${slideWidth * count}px)`;
 
-    // transitionend 이벤트로 텍스트 표시
     const transitionEndHandler = () => {
-        // 이벤트 핸들러를 한 번만 실행하도록 제거
         bannerTrack.removeEventListener("transitionend", transitionEndHandler);
 
         // 텍스트 숨기기
         texts.forEach((text) => text.classList.remove("showText"));
 
-        // 현재 슬라이드의 텍스트 보이기
+        // 현재 슬라이드 텍스트
         const currentSlide = slides[count];
         if (currentSlide) {
-            // 텍스트 애니메이션 바로 적용
-            currentSlide
-                .querySelector(".bannerText")
-                .classList.add("showText");
+            currentSlide.querySelector(".bannerText").classList.add("showText");
         }
 
-        // 마지막 슬라이드에서 첫 번째로 돌아가게 하기기
+        // 마지막 슬라이드에서 첫 번째로 돌아가기
         if (count === slides.length - 1) {
             setTimeout(() => {
-                bannerTrack.style.transition = "none"; // 트랜지션 없이 위치 리셋
-                count = 1;  // 첫 번째로 돌아가도록 설정
-                bannerTrack.style.transform = `translateX(-${
-                    slideWidth * count
-                }px)`; // 첫 번째 위치로 이동
-                // 텍스트 숨기고 첫 번째 슬라이드 텍스트 보이기
+                bannerTrack.style.transition = "none";
+                count = 1;
+                bannerTrack.style.transform = `translateX(-${slideWidth * count}px)`;
                 texts.forEach((text) => text.classList.remove("showText"));
                 texts[count].classList.add("showText");
-            }, 0); // 딜레이 후 슬라이드 이동
+            }, 0);
         }
 
-        // 첫 번째 슬라이드에서 마지막으로 돌아가는 처리
+        // 첫 번째 슬라이드에서 마지막으로 돌아가기
         if (count === 0) {
             setTimeout(() => {
-                bannerTrack.style.transition = "none"; // 트랜지션 없이 위치 리셋
+                bannerTrack.style.transition = "none";
                 count = slides.length - 2;
-                bannerTrack.style.transform = `translateX(-${
-                    slideWidth * count
-                }px)`; // 마지막으로 이동
-                // 텍스트 숨기고 마지막 슬라이드 텍스트 보이기
+                bannerTrack.style.transform = `translateX(-${slideWidth * count}px)`;
                 texts.forEach((text) => text.classList.remove("showText"));
                 texts[count].classList.add("showText");
-            }, 0); // 딜레이 후 슬라이드 이동
+            }, 0);
         }
+        // 슬라이드 이동이 완료되었음을 표시
+        isTransitioning = false;
     };
-
     // transitionend 이벤트 리스너 추가
     bannerTrack.addEventListener("transitionend", transitionEndHandler);
 };
@@ -133,6 +128,7 @@ let autoSlideInterval = setInterval(autoSlide, 4000);
 
 // 왼쪽 버튼 클릭 이벤트
 leftArrow.addEventListener("click", () => {
+    if (isTransitioning) return; // 이동 중일 때 클릭 이벤트 무시
     clearInterval(autoSlideInterval);
     count--;
     updateSlide();
@@ -141,6 +137,7 @@ leftArrow.addEventListener("click", () => {
 
 // 오른쪽 버튼 클릭 이벤트
 rightArrow.addEventListener("click", () => {
+    if (isTransitioning) return; // 이동 중일 때 클릭 이벤트 무시
     clearInterval(autoSlideInterval);
     count++;
     updateSlide();
