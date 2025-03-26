@@ -93,13 +93,12 @@ public class MypageController {
     }
 
 //
-    @PostMapping("account-applis")
+    @GetMapping("account-applis")
     @ResponseBody
-    public List<ApplicationDTO> getList( @RequestBody Pagination pagination,  String applyMemberStatus) {
+    public List<ApplicationDTO> getList(Pagination pagination,  @RequestParam String applyMemberStatus) {
         MemberVO member = (MemberVO) session.getAttribute("member");
-
         List<ApplicationDTO> applicationDTOList = applyService.selelctApllyById(member.getId(), pagination, applyMemberStatus);
-
+//        log.info(applicationDTOList.toString());
         return applyService.selelctApllyById(member.getId(), pagination, applyMemberStatus);
     }
 
