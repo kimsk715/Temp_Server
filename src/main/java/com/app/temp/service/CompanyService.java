@@ -242,16 +242,31 @@ public class CompanyService {
         }
     }
     
-    // 기업 이미지 조회
+    // 기업 이미지썸네일 조회
     public CompanyFileDTO selectCompanyThumnail(Long id) {
-        CompanyFileDTO firstImage = companyFileMapper.selectCompanyThumnail(id);
+        CompanyFileDTO thumbnail = companyFileMapper.selectCompanyThumnail(id);
 
             // 첫 번째 이미지 썸네일 경로로 이동
-            return firstImage;
+            return thumbnail;
 
 
     }
     // 기업 로고 조회
+    public CompanyFileDTO selectCompanyLogo(Long id) {
+            CompanyFileDTO logo = companyFileMapper.selectCompanyLogoById(id);
+        return companyFileMapper.selectCompanyLogoById(id);
+    };
+
+
+    //기업 로고 썸네일
+    public CompanyFileDTO selectCompanyLogoThumbnail(Long id) {
+        CompanyFileDTO logoThumbnail = companyFileMapper.selectCompanyLogoById(id);
+
+        File file = new File("C:/upload",logoThumbnail.getFilePath() + "/t_" + logoThumbnail.getFileName());
+        logoThumbnail.setFilePath(file.getPath());
+
+        return companyFileMapper.selectCompanyThumnail(id);
+    };
     
 //    현재 날짜를 yyyy/MM/dd 형식의 문자열로 반환함, 파일 저장을위한 경로
     private String getPath() {
