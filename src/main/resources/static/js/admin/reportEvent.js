@@ -97,7 +97,7 @@ companyKeywordInputReport.addEventListener("keyup", (e) => {
         const keyword = e.target.value;
         if (keyword) {
             param.search.keyword = keyword; // 검색어 정보(keyword) param 객체에 담기
-
+            param.page = 1;
             reportService.getCompanyList(reportLayout.showCompanyList, param);
         }
     }
@@ -107,7 +107,7 @@ programKeywordInputReport.addEventListener("keyup", (e) => {
         const keyword = e.target.value;
         if (keyword) {
             param.search.keyword = keyword; // 검색어 정보(keyword) param 객체에 담기
-
+            param.page = 1;
             reportService.getProgramList(reportLayout.showProgramList, param);
         }
     }
@@ -117,13 +117,13 @@ programKeywordInputReport.addEventListener("keyup", (e) => {
 companyKeywordSearchButton.addEventListener("click", () => {
     const keyword = companyKeywordInputReport.value;
     if (keyword) param.search.keyword = keyword;
-
+    param.page = 1;
     reportService.getCompanyList(reportLayout.showCompanyList, param);
 });
 programKeywordSearchButton.addEventListener("click", () => {
     const keyword = programKeywordInputReport.value;
     if (keyword) param.search.keyword = keyword;
-
+    param.page = 1;
     reportService.getProgramList(reportLayout.showProgramList, param);
 });
 
@@ -133,7 +133,7 @@ companyReportDateFilter.addEventListener("change", () => {
     // 계산된 날짜를 이용하여 param에 전달하긔
     const { createdDateStart, createdDateEnd } = calculateDateRange(dateFilterValue);
     updateParam(param, createdDateStart, createdDateEnd);
-
+    param.page = 1;
     reportService.getCompanyList(reportLayout.showCompanyList, param);
 });
 programReportDateFilter.addEventListener("change", () => {
@@ -141,7 +141,7 @@ programReportDateFilter.addEventListener("change", () => {
     // 계산된 날짜를 이용하여 param에 전달하긔
     const { createdDateStart, createdDateEnd } = calculateDateRange(dateFilterValue);
     updateParam(param, createdDateStart, createdDateEnd);
-
+    param.page = 1;
     reportService.getProgramList(reportLayout.showProgramList, param);
 });
 
@@ -194,6 +194,7 @@ function applyCompanyFilters() {
     }
 
     // 리스트 갱신
+    param.page = 1;
     reportService.getCompanyList(reportLayout.showCompanyList, param);
 }
 function applyProgramFilters() {
@@ -212,6 +213,7 @@ function applyProgramFilters() {
     }
 
     // 리스트 갱신
+    param.page = 1;
     reportService.getProgramList(reportLayout.showProgramList, param);
 }
 

@@ -193,9 +193,9 @@ public class EnterpriseController {
 //
 //    }
 
-
-    @GetMapping("master-invite")
-    public String masterInvite(Model model, HttpSession session, @RequestParam(name = "code") String code) {
+    
+    @GetMapping("enterprise/master-invite")
+    public String masterInvite(Model model, HttpSession session, @RequestParam(name = "code") String code){
 //        log.info("Received code from URL: {}", code);  // code 값 로그 출력
         model.addAttribute("code", code);
 
@@ -227,8 +227,6 @@ public class EnterpriseController {
     }
 
 
-
-
     @ResponseBody
     @GetMapping("enterprise/display")
     public byte[] display(@RequestParam String path) throws IOException {
@@ -252,7 +250,6 @@ public class EnterpriseController {
         log.info("file {}", file);
         return file;
     }
-
 
 
     @GetMapping("enterprise/viewer-invite")
