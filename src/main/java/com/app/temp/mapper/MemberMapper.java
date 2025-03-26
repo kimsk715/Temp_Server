@@ -47,5 +47,7 @@ public interface MemberMapper {
 //   결제내역 조회
     public List<PayDTO> selectPayHistory(Long id);
 
+    public void charge(PayDTO payDTO);
 
+    public void pay(Long id);
 }

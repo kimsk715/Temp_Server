@@ -73,16 +73,18 @@ public class IntroduceController {
             searchInfoDTO.setMemberId(memberId);
 //            log.info(newMember.toString());
         }
-
+    if(session.getAttribute("company") != null) {
         CompanyDTO company = (CompanyDTO) session.getAttribute("company");
         CompanyFileDTO thumbnail = companyService.selectCompanyThumnail(company.getId());
         CompanyFileDTO logo = companyService.selectCompanyThumnail(company.getId());
-
         log.info("thumbnail:{}", thumbnail);
         log.info("logo:{}", logo);
 
         model.addAttribute("logo", logo);
         model.addAttribute("thumbnail", thumbnail);
+    }
+
+
 
         List<MainProgramListDTO> topList = programService.getByTopReadCount(searchInfoDTO);
         log.info(topList.toString());

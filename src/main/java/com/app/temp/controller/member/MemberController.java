@@ -68,7 +68,7 @@ public class MemberController {
         log.info(data.getPaymentStatusLocale());
         MemberVO member = (MemberVO) session.getAttribute("member");
         data.setMemberId(member.getId());
-
+        memberService.charge(data);
 //        테스트용 멤버 아이디
         log.info(data.toString());
         memberService.insertPayHistory(data);

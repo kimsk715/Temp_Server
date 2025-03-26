@@ -83,37 +83,6 @@
                                 </dl>
                             </a></li>
                     </ul>
-                    <ul class="applied-list0 writing-list hidden">
-                        <h1>
-                            <div>고민중 총 1건</div>
-                        </h1>
-                        <li class="contentlist" th:each="application : ${applicationDTOList}">
-                            <div class="applied_item">
-                                <div class="applied_item_field"><a rel="noreferrer" target="_blank"
-                                        href="/position/42110">
-                                        <dl>
-                                            <dt>
-                                                <div th></div><span class="datespan">D-3</span>
-                                            </dt>
-                                            <dd class="applications_main_title">
-                                                <span>AI Research
-                                                    Scientist
-                                                    (Computer Vision
-                                                    and
-                                                    Bioinformatics)_병역특례/전문연구요원
-                                                    우대 (2~4년)</span>
-                                            </dd>
-                                        </dl>
-                                    </a></div>
-                                <div class="content-apply-div">
-                                    <button class="apply-button-css apply_button" type="button">지원하기</button>
-                                    <div class="apply-delete-div">
-                                        <button class="apply-delete-button">삭제</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
                     <ul class="applied-list0 applied-list" id="appliedList-wrap">
                         <h1>
                             <div>지원완료 총 0건</div>
@@ -180,15 +149,7 @@
                             지원정보가 없습니다</div>
                     </ul>
 
-                    <ul class="applied-list0 passed-list hidden">
-                        <h1>
-                            <div>서류통과 총 0건</div>
-
-                        </h1>
-                        <div class="applied-list-blank">
-                            지원정보가 없습니다</div>
-                    </ul>
-                    <ul class="applied-list0 hired-list hidden">
+                    <ul class="applied-list0 hired-list hidden" id="hiredList-wrap">
                         <h1>
                             <div>최종합격 총 0건</div>
 
@@ -196,7 +157,7 @@
                         <div class="applied-list-blank">
                             지원정보가 없습니다</div>
                     </ul>
-                    <ul class="applied-list0 rejected-list hidden">
+                    <ul class="applied-list0 rejected-list hidden" id="rejectedList-wrap">
                         <h1>
                             <div>불합격 총 0건</div>
 
