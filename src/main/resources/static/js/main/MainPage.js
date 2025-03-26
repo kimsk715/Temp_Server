@@ -73,7 +73,7 @@ const autoSlide = () => {
 };
 
 // 버튼 상태를 제어하는 변수
-let isTransitioning = false
+let isTransitioning = false;
 
 // 슬라이드 이동 및 텍스트 보이기 업데이트 함수
 const updateSlide = () => {
@@ -89,7 +89,7 @@ const updateSlide = () => {
         // 텍스트 숨기기
         texts.forEach((text) => text.classList.remove("showText"));
 
-        // 현재 슬라이드 텍스트
+        // 현재 슬라이드 텍스트 표시
         const currentSlide = slides[count];
         if (currentSlide) {
             currentSlide.querySelector(".bannerText").classList.add("showText");
@@ -116,9 +116,13 @@ const updateSlide = () => {
                 texts[count].classList.add("showText");
             }, 0);
         }
-        // 슬라이드 이동이 완료되었음을 표시
-        isTransitioning = false;
+
+        // 애니메이션 완료 후 추가 대기 시간 동안 버튼 클릭 제한
+        setTimeout(() => {
+            isTransitioning = false; // 버튼 활성화
+        }, 500); // 애니메이션 종료 후 500ms 대기
     };
+
     // transitionend 이벤트 리스너 추가
     bannerTrack.addEventListener("transitionend", transitionEndHandler);
 };
@@ -143,6 +147,7 @@ rightArrow.addEventListener("click", () => {
     updateSlide();
     autoSlideInterval = setInterval(autoSlide, 4000);
 });
+
 
 // 사이드 배너
 const leftSideBanner = document.createElement("div");
