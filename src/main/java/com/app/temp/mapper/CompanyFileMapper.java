@@ -11,9 +11,22 @@ public interface CompanyFileMapper {
     // 파일 추가
     public void insertMemberFile(CompanyFileVO companyFileVO);
     
+    // 파일 추가 로고
+    public void insertCompanyLogo(CompanyFileVO companyFileVO);
+    
     // 파일 삭제
-    public void deleteFile(Long id);
+    public void deleteMemberFile(Long id);
+
+    // 파일들 조회 기업아이디로
+    public List<CompanyFileDTO> selectCompanyFile(Long id);
 
     // 파일 조회 기업아이디로
-    public List<CompanyFileDTO> selectCompanyImages(Long id);
+    public CompanyFileDTO selectCompanyThumnail(Long id);
+
+    // 로고 조회 기업아이디로
+    public CompanyFileDTO selectCompanyLogoById(Long id);
+
+
+
+
 }
