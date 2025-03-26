@@ -71,7 +71,7 @@ public class AdminController {
     @ResponseBody
     public MemberAdminListDTO getMember(@RequestParam("member-id") Long memberId) {
         Optional<MemberAdminListDTO> member = memberService.getMemberInfoAdmin(memberId);
-        log.info(member.toString());
+//        log.info(member.toString());
         return member.orElse(null);
     }
 
@@ -90,7 +90,7 @@ public class AdminController {
     @GetMapping("/admin/home/member-inquiries")
     @ResponseBody
     public AdminMemberInquiryDTO getMemberInquiryList(MemberInquiryPagination memberInquiryPagination, Model model) {
-        log.info(inquiryService.getAll(memberInquiryPagination).getMemberInquiryList().toString());
+//        log.info(inquiryService.getAll(memberInquiryPagination).getMemberInquiryList().toString());
         return inquiryService.getAll(memberInquiryPagination);
     }
 
@@ -103,6 +103,7 @@ public class AdminController {
     @GetMapping("/admin/home/company-inquiries")
     @ResponseBody
     public AdminCompanyInquiryListDTO getCompanyInquiryList(CompanyInquiryPagination companyInquiryPagination, Model model) {
+//        log.info(companyInquiryPagination.toString());
         return inquiryService.getAllCompany(companyInquiryPagination);
     }
 

@@ -94,4 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 })
 
+const topResumeButton = document.querySelector(".header-element5");
 
+// 비로그인 시 이력서를 누르면
+topResumeButton.addEventListener("click",(e) =>{
+    if(memberData == null){
+        e.preventDefault();
+        alert("로그인이 필요한 서비스입니다.")
+        window.location.href = `/member/login`;
+    }
+})
