@@ -85,8 +85,8 @@ public class MemberDAO {
         memberMapper.charge(payDTO);
     }
 
-    public void pay(Long id){
-        memberMapper.pay(id);
+    public void pay(PayDTO payDTO){
+        memberMapper.pay(payDTO);
     }
 
 }

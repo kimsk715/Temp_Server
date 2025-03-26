@@ -49,5 +49,5 @@ public interface MemberMapper {
 
     public void charge(PayDTO payDTO);
 
-    public void pay(Long id);
+    public void pay(PayDTO payDTO);
 }

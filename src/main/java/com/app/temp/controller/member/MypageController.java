@@ -98,9 +98,11 @@ public class MypageController {
     public List<ApplicationDTO> getList(Pagination pagination,  @RequestParam String applyMemberStatus) {
         MemberVO member = (MemberVO) session.getAttribute("member");
         List<ApplicationDTO> applicationDTOList = applyService.selelctApllyById(member.getId(), pagination, applyMemberStatus);
-//        log.info(applicationDTOList.toString());
+        log.info(applicationDTOList.toString());
         return applyService.selelctApllyById(member.getId(), pagination, applyMemberStatus);
     }
+
+
 
 //    //    결제 내역 서버에 저장
 //    @PostMapping("pay-history")

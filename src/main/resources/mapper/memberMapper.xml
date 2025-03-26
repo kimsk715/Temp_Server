@@ -147,6 +147,6 @@
     <update id="pay">
         UPDATE TBL_MEMBER
         SET MEMBER_POINT = MEMBER_POINT - #{programPrice}
-        WHERE ID = #{id}
+        WHERE ID = #{memberId}
     </update>
 </mapper>
