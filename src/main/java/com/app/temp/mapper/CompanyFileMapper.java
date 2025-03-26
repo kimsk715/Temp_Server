@@ -17,11 +17,16 @@ public interface CompanyFileMapper {
     // 파일 삭제
     public void deleteMemberFile(Long id);
 
-    // 파일 조회 기업아이디로
+    // 파일들 조회 기업아이디로
     public List<CompanyFileDTO> selectCompanyFile(Long id);
-    
+
+    // 파일 조회 기업아이디로
+    public CompanyFileDTO selectCompanyThumnail(Long id);
+
     // 로고 조회 기업아이디로
     public CompanyFileDTO selectCompanyLogoById(Long id);
+
+
 
 
 }

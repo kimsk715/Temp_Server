@@ -161,22 +161,30 @@ public class EnterpriseController {
           log.info("컨트롤러 왔음");
           return "redirect:/enterprise/company-image";
     }
-
+    
+    // 기업 로고 삭제
     @PostMapping("enterprise/company-delete-logo")
     public String deleteLogo() {
-        //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        // CompanyDTO company = (CompanyDTO) session.getAttribute("company");
         companyService.deleteCompanyLogo(21L);
         return "redirect:/enterprise/company-image";
     }
-
+    
+    // 기업 로고 조회
     @GetMapping("enterprise/main-page")
-    public void mainPage(){
+    public String mainPage(){
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.selectCompanyThumnail(company.getId());
 
+        return "enterprise/main-page";
     }
 
+    // 기업 썸네일 조회
     @GetMapping("enterprise/master-invite")
-    public void masterInvite(){
+    public String masterInvite(){
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
 
+        return "enterprise/master-invite";
     }
 
     @GetMapping("enterprise/viewer-invite")

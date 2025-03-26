@@ -33,9 +33,16 @@ public class CompanyFileDAO {
         return companyFileMapper.selectCompanyFile(id);
     }
     
+    // 기업 이미지 조회
+    public CompanyFileDTO findCompanyFileById(Long id) {
+        return companyFileMapper.selectCompanyThumnail(id);
+    }
+    
     // 기업 로고 조회
     public CompanyFileDTO findCompanyLogoById(Long id) {
         return companyFileMapper.selectCompanyLogoById(id);
     }
+    
+    
 
 }

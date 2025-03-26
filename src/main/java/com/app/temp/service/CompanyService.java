@@ -239,9 +239,18 @@ public class CompanyService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
+    
+    // 기업 이미지 조회
+    public String selectCompanyThumnail(Long id) {
+        CompanyFileDTO firstImage = companyFileMapper.selectCompanyThumnail(id);
+        if (firstImage != null && firstImage.getFileName() != null) {
+            // 첫 번째 이미지 썸네일 경로로 이동
+            return "C:/upload" + firstImage.getFilePath() + "/t_" + firstImage.getFileName();
+        }
+        return null;
+    }
+    // 기업 로고 조회
     
 //    현재 날짜를 yyyy/MM/dd 형식의 문자열로 반환함, 파일 저장을위한 경로
     private String getPath() {
