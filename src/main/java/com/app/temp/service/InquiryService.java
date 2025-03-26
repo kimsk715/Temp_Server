@@ -35,6 +35,7 @@ public class InquiryService {
     public AdminCompanyInquiryListDTO getAllCompany(CompanyInquiryPagination companyInquiryPagination) {
         AdminCompanyInquiryListDTO adminCompanyInquiryListDTO = new AdminCompanyInquiryListDTO();
         companyInquiryPagination.create(companyInquiryDAO.countAllAdmin(companyInquiryPagination));
+        log.info(String.valueOf(companyInquiryDAO.countAllAdmin(companyInquiryPagination)));
         adminCompanyInquiryListDTO.setCompanyInquiryList(companyInquiryDAO.findAllAdmin(companyInquiryPagination));
         adminCompanyInquiryListDTO.setCompanyInquiryPagination(companyInquiryPagination);
         return adminCompanyInquiryListDTO;
