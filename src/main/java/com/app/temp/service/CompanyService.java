@@ -243,11 +243,10 @@ public class CompanyService {
     }
     
     // 기업 이미지 조회
-    public CompanyFileDTO selectCompanyThumnail(Long id) {
-        CompanyFileDTO firstImage = companyFileMapper.selectCompanyThumnail(id);
+    public CompanyFileDTO selectCompanyThumbnail(Long id) {
 
-            // 첫 번째 이미지 썸네일 경로로 이동
-            return firstImage;
+        // 첫 번째 이미지 썸네일 경로로 이동
+            return companyFileDAO.findCompanyFileById(id);
 
 
     }
