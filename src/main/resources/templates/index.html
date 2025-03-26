@@ -204,10 +204,11 @@
                     <div class="mainContentCard" th:each="topList : ${session.topLists}">
                         <a th:href="|/program/detail/${topList.id}|">
                             <div class="imgBox">
-                                <img
-                                        src="https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20251014101040302_567_378.webp"
-                                        class="img"
-                                />
+                                    <img
+                                            th:src="@{'/enterprise/display?path=' + ${thumbnail.filePath} + '/' + ${thumbnail.fileName}}"
+                                            class="img"
+                                            id="program-id"
+                                    />
                                 <div class="imgDdayBadge">
                                     <span class="dayLeft" th:text="|D-${topList.dDay}|"></span>
                                 </div>
@@ -357,6 +358,7 @@
 </main>
 <!-- // 메인 끝 -->
 </body>
+<script src="/js/main/main-event.js"></script>
 <script src="/js/main/MainPage.js"></script>
 <script src="/js/member/mypage-all.js"></script>
 <script src="/js/main/scrap.js"></script>

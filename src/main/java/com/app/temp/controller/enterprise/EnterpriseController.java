@@ -13,10 +13,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Member;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -150,9 +156,9 @@ public class EnterpriseController {
 //    기업 이미지 업로드
     @PostMapping("enterprise/company-post-images")
     public String getImages(@RequestParam("logo") MultipartFile logo, @RequestParam("main-image") List<MultipartFile> files){
-//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-        companyService.uploadCompanyImages(21L, files);
-        companyService.insertCompanyLogo(21L, logo);
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.uploadCompanyImages(company.getId(), files);
+        companyService.insertCompanyLogo(company.getId(), logo);
 
 
         return "redirect:/enterprise/company-image";
@@ -161,8 +167,8 @@ public class EnterpriseController {
     // 기업 이미지들 삭제 (그냥 전체삭제됨)
     @PostMapping("enterprise/company-delete-images")
     public String deleteImages() {
-//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-          companyService.deleteCompanyImages(21L);
+        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+          companyService.deleteCompanyImages(company.getId());
           log.info("컨트롤러 왔음");
           return "redirect:/enterprise/company-image";
     }
@@ -170,19 +176,22 @@ public class EnterpriseController {
     // 기업 로고 삭제
     @PostMapping("enterprise/company-delete-logo")
     public String deleteLogo() {
-        // CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-        companyService.deleteCompanyLogo(21L);
+         CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        companyService.deleteCompanyLogo(company.getId());
         return "redirect:/enterprise/company-image";
     }
     
     // 기업 로고 조회
-    @GetMapping("enterprise/main-page")
-    public String mainPage(){
-        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-        companyService.selectCompanyThumnail(company.getId());
-
-        return "enterprise/main-page";
-    }
+//    @GetMapping("/")
+//    public void mainPage(Model model) {
+//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+//        String thumbnail = companyService.selectCompanyThumnail(company.getId());
+//        String logo = companyService.selectCompanyThumnail(company.getId());
+//
+//        model.addAttribute("thumnail", thumbnail);
+//        model.addAttribute("thumnail", companyService.selectCompanyThumnail(company.getId()));
+//
+//    }
 
 
     @GetMapping("master-invite")
@@ -216,13 +225,35 @@ public class EnterpriseController {
 
         return "/enterprise/master-invite";
     }
-//     기업 썸네일 조회
-    @GetMapping("enterprise/master-invite")
-    public String masterInvite(){
-        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
 
-        return "enterprise/master-invite";
+
+
+
+    @ResponseBody
+    @GetMapping("enterprise/display")
+    public byte[] display(@RequestParam String path) throws IOException {
+//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+        log.info("들어옴");
+        log.info("들어옴");
+        log.info("들어옴");
+        log.info("들어옴");
+        log.info("들어옴");
+        log.info("path:{}", path);
+        byte[] file = null;
+
+        try {
+            // 파일을 바이트 배열로 읽어옴
+            file = FileCopyUtils.copyToByteArray(new File("C:/upload/" + path));
+        }catch (NoSuchFileException e){
+            throw new RuntimeException();
+        }
+        // 파일을 바이트 배열로 변환함
+
+        log.info("file {}", file);
+        return file;
     }
+
+
 
     @GetMapping("enterprise/viewer-invite")
     public void viewerInvite(){

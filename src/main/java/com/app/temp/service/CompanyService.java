@@ -122,10 +122,11 @@ public class CompanyService {
         // 파일 이름이 맞으면 삭제함
         // 만약 이미지 파일이라면 썸네일도 삭제함
             File file = new File("C:/upload",foundCompanyLogo.getFilePath() + "/" + foundCompanyLogo.getFileName());
+            log.info(file.getAbsolutePath());
             file.delete();
-            if(foundCompanyLogo.getCompanyFileType().equals("기업 이미지")) {
+            if(foundCompanyLogo.getCompanyFileType().equals("로고")) {
                 file = new File("C:/upload",foundCompanyLogo.getFilePath() + "/t_" + foundCompanyLogo.getFileName());
-                log.info(file.getAbsolutePath());
+
                 file.delete();
         };
     }
@@ -242,13 +243,13 @@ public class CompanyService {
     }
     
     // 기업 이미지 조회
-    public String selectCompanyThumnail(Long id) {
+    public CompanyFileDTO selectCompanyThumnail(Long id) {
         CompanyFileDTO firstImage = companyFileMapper.selectCompanyThumnail(id);
-        if (firstImage != null && firstImage.getFileName() != null) {
+
             // 첫 번째 이미지 썸네일 경로로 이동
-            return "C:/upload" + firstImage.getFilePath() + "/t_" + firstImage.getFileName();
-        }
-        return null;
+            return firstImage;
+
+
     }
     // 기업 로고 조회
     
