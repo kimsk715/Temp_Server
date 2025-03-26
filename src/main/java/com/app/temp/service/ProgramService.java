@@ -141,7 +141,7 @@ public class ProgramService {
         List<MainProgramListDTO> topLists = programDAO.findByTopReadCount(searchInfoDTO);
         topLists.forEach(program -> program.setFileName(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFileName()));
         topLists.forEach(program -> program.setFilePath(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFilePath()));
-//        topLists.forEach(topList -> topList.setFilePath(companyFileDAO.findCompanyFileById(topList.getCompanyId()).getFilePath()));
+
         log.info("topList : {}", topLists);
         ScrapVO scrapVO = new ScrapVO();
         if(searchInfoDTO.getMemberId() != null){
