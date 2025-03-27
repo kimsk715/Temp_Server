@@ -71,25 +71,11 @@ public class IntroduceController {
             // 회원 정보에 이력서 목록 추가 및 사용 가능한 이력서인지 여부도 체크
             httpsession.setAttribute("memberDTO", newMember);
             searchInfoDTO.setMemberId(memberId);
-//            log.info(newMember.toString());
         }
-//    if(session.getAttribute("company") != null) {
-//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-//        CompanyFileDTO thumbnail = companyService.selectCompanyThumnail(company.getId());
-//        CompanyFileDTO logo = companyService.selectCompanyThumnail(company.getId());
-//        log.info("thumbnail:{}", thumbnail);
-//        log.info("logo:{}", logo);
-//
-//        model.addAttribute("logo", logo);
-//        model.addAttribute("thumbnail", thumbnail);
-//    }
-
-
-
         List<MainProgramListDTO> topList = programService.getByTopReadCount(searchInfoDTO);
-        log.info(topList.toString());
+//        log.info(topList.toString());
         httpsession.setAttribute("topLists", topList);
-        log.info(httpsession.getAttribute("topLists").toString());
+//        log.info(httpsession.getAttribute("topLists").toString());
         return "index";
     }
 }

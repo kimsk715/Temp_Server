@@ -224,7 +224,12 @@ buttons.forEach((button, i) => {
 
 const modalContainer = document.getElementById("inquiry-modal");
 const openModalButton = document.querySelector("#open-modal-button button");
-openModalButton.addEventListener("click",() =>{
+openModalButton.addEventListener("click",(e) =>{
+    if(memberData == null){
+        e.preventDefault();
+        alert("로그인이 필요한 서비스입니다.")
+        window.location.href = `/member/login`;
+    }
     openInquiryModal(modalContainer)
 })
 
@@ -246,7 +251,7 @@ const closeInquiryModal = (modal) =>{
 
 const submitButton = document.querySelector(".submit-button");
 const memberInquiryContent= document.getElementById("member-inquiry-content")
-submitButton.addEventListener("click",async (e) => {
+submitButton.addEventListener("click", async (e) => {
     const inquiryContent = memberInquiryContent.querySelector("textarea#normal-inquiry-content").value;
     const inquiryType = memberInquiryContent.querySelector("select#inquiryType").value;
 
@@ -254,7 +259,7 @@ submitButton.addEventListener("click",async (e) => {
         e.preventDefault();
         return;
     }
-    let path = `/enterprise/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
+    let path = `/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
     await fetch(path);
 
 })

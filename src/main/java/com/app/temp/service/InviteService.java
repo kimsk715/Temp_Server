@@ -98,7 +98,7 @@ public class InviteService {
         body.append("<tbody style='background-color: white'>");
         body.append("<tr><td style='height: 30px'></td></tr>");
         body.append("<tr><td style='padding-left: 20px; padding-right: 20px; display: flex; justify-content: center;'>");
-        body.append("<a href=\"http://localhost:10000/enterprise/master-invite?code=" + code + "\" style='display: block; width: 70%; height: 40px; background-color: #00C853; text-align: center; line-height: 40px; color: white; font-weight: 700; text-decoration: none; border-radius: 2px; margin-bottom: 30px; padding: 15px;'>");
+        body.append("<a href=\"http://13.125.14.57:10000/enterprise/master-invite?code=" + code + "\" style='display: block; width: 70%; height: 40px; background-color: #00C853; text-align: center; line-height: 40px; color: white; font-weight: 700; text-decoration: none; border-radius: 2px; margin-bottom: 30px; padding: 15px;'>");
         body.append("기업 초대 받기");
         body.append("</a>");
         body.append("</td></tr>");

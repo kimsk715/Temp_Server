@@ -64,24 +64,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // });
 
     // 기간 필터 변경 이벤트
-    companyInquiryDateFilter.addEventListener("change", function () {
-        const selectedDate = this.value;
-        console.log("신고관리 기간 필터:", selectedDate);
-    });
+    // companyInquiryDateFilter.addEventListener("change", function () {
+    //     const selectedDate = this.value;
+    //     console.log("신고관리 기간 필터:", selectedDate);
+    // });
 
     // 검색 버튼 클릭 이벤트
-    companyInquirySearchBtn.addEventListener("click", function () {
-        const searchText = companyInquirySearchInput.value.trim();
-        companyInquirySearch(searchText);
-    });
+    // companyInquirySearchBtn.addEventListener("click", function () {
+    //     const searchText = companyInquirySearchInput.value.trim();
+    //     companyInquirySearch(searchText);
+    // });
 
     // 검색어 입력창 엔터키 이벤트
-    companyInquirySearchInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-            const searchText = this.value.trim();
-            companyInquirySearch(searchText);
-        }
-    });
+    // companyInquirySearchInput.addEventListener("keypress", function (e) {
+    //     if (e.key === "Enter") {
+    //         const searchText = this.value.trim();
+    //         companyInquirySearch(searchText);
+    //     }
+    // });
 
     // 초기화 실행
     // ----------------------------------------------------
