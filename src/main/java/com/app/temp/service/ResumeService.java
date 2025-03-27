@@ -37,7 +37,7 @@ public class ResumeService {
 
 //    이력서 파일 첨부
     public void uploadFile(MultipartFile file) throws IOException {
-        String rootpath = "C:/upload/";
+        String rootpath = "/upload/";
         file.transferTo(new File(rootpath, file.getOriginalFilename()));
     }
 

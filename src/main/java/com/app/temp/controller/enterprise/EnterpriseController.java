@@ -241,7 +241,7 @@ public class EnterpriseController {
 
         try {
             // 파일을 바이트 배열로 읽어옴
-            file = FileCopyUtils.copyToByteArray(new File("C:/upload/" + path));
+            file = FileCopyUtils.copyToByteArray(new File("/upload/" + path));
         }catch (NoSuchFileException e){
             throw new RuntimeException();
         }
