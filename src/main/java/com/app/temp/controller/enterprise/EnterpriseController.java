@@ -268,10 +268,10 @@ public class EnterpriseController {
     @GetMapping("enterprise/insert-inquiry")
     public String insert(HttpSession httpsession, @RequestParam("company-inquiry-type") String companyInquiryType, @RequestParam("company-inquiry-content") String companyInquiryContent){
         CompanyInquiryVO companyInquiryVO = new CompanyInquiryVO();
-//        CompanyMemberDTO companyMember = (CompanyMemberDTO) httpSession.getAttribute("companyMember");
-//        Long memberId = companyMember.getId();
+        CompanyMemberDTO companyMember = (CompanyMemberDTO) httpsession.getAttribute("companyMember");
+        Long memberId = companyMember.getId();
 //        Long companyId = companyMember.getCompanyId();
-        Long memberId = 3L;
+//        Long memberId = 3L;
         log.info("memberInquiryType:{}", companyInquiryType);
         log.info("memberInquiryContent:{}", companyInquiryContent);
         companyInquiryVO.setMemberId(memberId);

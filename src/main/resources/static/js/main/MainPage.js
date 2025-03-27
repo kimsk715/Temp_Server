@@ -246,7 +246,7 @@ const closeInquiryModal = (modal) =>{
 
 const submitButton = document.querySelector(".submit-button");
 const memberInquiryContent= document.getElementById("member-inquiry-content")
-submitButton.addEventListener("click",async (e) => {
+submitButton.addEventListener("click", async (e) => {
     const inquiryContent = memberInquiryContent.querySelector("textarea#normal-inquiry-content").value;
     const inquiryType = memberInquiryContent.querySelector("select#inquiryType").value;
 
@@ -254,7 +254,7 @@ submitButton.addEventListener("click",async (e) => {
         e.preventDefault();
         return;
     }
-    let path = `/enterprise/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
+    let path = `/insert-inquiry?inquiry-type=${inquiryType}&inquiry-content=${inquiryContent}`;
     await fetch(path);
 
 })
