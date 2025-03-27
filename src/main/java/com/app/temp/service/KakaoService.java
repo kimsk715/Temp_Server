@@ -26,7 +26,7 @@ public class KakaoService {
             StringBuilder stringBuilder = new StringBuilder();
             BufferedWriter bufferedWriter = null;
 
-            String redirectURI = "http://localhost:10000/kakao/login?type=" + type;
+            String redirectURI = "http://43.201.132.41/:10000/kakao/login?type=" + type;
 
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
@@ -111,7 +111,7 @@ public class KakaoService {
     public String getKakaoLogoutURL(){
         String requestURI = "https://kauth.kakao.com/oauth/logout"; // 로그아웃 페이지
         String clientId = "87bef4c36fab14d5714ce773bdd6f030";   // 내 RestApi 키
-        String redirectURI = "http://localhost:10000/"; // 로그아웃 후 넘어갈 창
+        String redirectURI = "http://43.201.132.41/:10000/"; // 로그아웃 후 넘어갈 창
 
         return requestURI + "?client_id=" + clientId + "&logout_redirect_uri=" + redirectURI;
     }

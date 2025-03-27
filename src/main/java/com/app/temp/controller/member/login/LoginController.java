@@ -16,13 +16,13 @@ public class LoginController {
     @GetMapping(value = "login")
     public String loginMain () {
         log.info("로그인 페이지 들어옴");
-        return "/login/member-login";
+        return "login/member-login";
     }
 
     //  관리자 로그인 페이지로 이동
     @GetMapping(value = "admin-login")
     public String admin () {
-        return "/login/admin-login";
+        return "login/admin-login";
     }
 
     //    로그인 여부 검사

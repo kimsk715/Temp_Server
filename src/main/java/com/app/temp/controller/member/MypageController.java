@@ -7,7 +7,7 @@ import com.app.temp.domain.dto.MypageDTO;
 import com.app.temp.domain.dto.Pagination;
 import com.app.temp.domain.vo.MemberVO;
 import com.app.temp.controller.exception.MypageSelectExcpetion;
-import com.app.temp.exception.NotFoundError;
+import com.app.temp.controller.exception.NotFoundError;
 import com.app.temp.mapper.MemberMapper;
 import com.app.temp.repository.MemberDAO;
 import com.app.temp.service.ApplyService;
