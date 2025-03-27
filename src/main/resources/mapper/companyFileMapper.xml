@@ -48,13 +48,13 @@
 
     <!--기업 이미지 첫번째것만 가져옴-->
     <select id="selectCompanyThumnail" resultType="CompanyFileDTO">
-        SELECT FILE_PATH, FILE_NAME
+        SELECT FILE_PATH, FILE_NAME, COMPANY_ID
         FROM
             (
             SELECT C.ID, COMPANY_ID, COMPANY_FILE_TYPE, FILE_PATH, FILE_NAME
             FROM TBL_COMPANY_FILE C JOIN TBL_FILE F
             ON C.ID = F.ID
-            WHERE COMPANY_ID = #{id} AND COMPANY_FILE_TYPE = '기업 이미지'
+            WHERE COMPANY_ID = #{companyId} AND COMPANY_FILE_TYPE = '기업 이미지'
             ORDER BY ID
             )
         WHERE ROWNUM = 1
