@@ -97,7 +97,7 @@ public class MemberService {
         memberDAO.charge(payDTO);
     }
 
-    public void pay(Long id){
-        memberDAO.pay(id);
+    public void pay(PayDTO payDTO){
+        memberDAO.pay(payDTO);
     }
 }

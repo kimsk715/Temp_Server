@@ -3,8 +3,10 @@ package com.app.temp.controller.member;
 import com.app.temp.domain.dto.MemberDTO;
 
 import com.app.temp.domain.vo.MemberVO;
+import com.app.temp.service.ApplyService;
 import com.app.temp.service.MemberService;
 import com.app.temp.domain.dto.*;
+import com.app.temp.service.ProgramService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +24,8 @@ import java.util.Optional;
 public class MemberController {
     final private MemberService memberService;
     final private HttpSession session;
+    private final ApplyService applyService;
+    private final ProgramService programService;
 
     @GetMapping("member/header")
     public void header() {
@@ -81,5 +85,19 @@ public class MemberController {
         MemberVO member = (MemberVO) session.getAttribute("member");
 //        log.info(memberService.selectPayHistory(member.getId()).toString());
         return memberService.selectPayHistory(member.getId());
+    }
+
+    @ResponseBody
+    @GetMapping("/member/pay")
+    public void pay(@RequestParam("program-id") Long programId){
+        MemberVO member = (MemberVO) session.getAttribute("member");
+        log.info(member.getId().toString());
+        PayDTO data = new PayDTO();
+        data.setProgramId(programId);
+        data.setMemberId(member.getId());
+        Optional<MainProgramInfoDTO> foundProgram = programService.getMainProgramInfoDTOById(programId);
+        int programPrice = foundProgram.get().getProgramPrice();
+        data.setProgramPrice(programPrice);
+        memberService.pay(data);
     }
 }

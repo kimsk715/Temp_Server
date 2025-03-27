@@ -3,10 +3,7 @@ package com.app.temp.service;
 import com.app.temp.domain.dto.*;
 import com.app.temp.domain.vo.ProgramVO;
 import com.app.temp.domain.vo.ScrapVO;
-import com.app.temp.repository.CompanyImageDAO;
-import com.app.temp.repository.MemberDAO;
-import com.app.temp.repository.ProgramDAO;
-import com.app.temp.repository.ScrapDAO;
+import com.app.temp.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -25,6 +22,8 @@ public class ProgramService {
     private final MemberDAO memberDAO;
     private final ScrapDAO scrapDAO;
     private final CompanyImageDAO companyImageDAO;
+    private final FileDAO fileDAO;
+    private final CompanyFileDAO companyFileDAO;
 
     //    프로그램 목록 조회(관리자)
     public AdminProgramListDTO getAllProgram(ProgramPagination programPagination) {
@@ -74,6 +73,7 @@ public class ProgramService {
         programInfo.ifPresent(mainProgramInfoDTO -> mainProgramInfoDTO.setImageCount(companyImageDAO.imageCount(id)));
         return programInfo;
     }
+
 
 
     public ArrayList<CompanyProgramDTO> getAllProgramByCompanyId(Long companyId){
@@ -139,7 +139,10 @@ public class ProgramService {
 
     public List<MainProgramListDTO> getByTopReadCount(SearchInfoDTO searchInfoDTO){
         List<MainProgramListDTO> topLists = programDAO.findByTopReadCount(searchInfoDTO);
-//        log.info(topLists.toString());
+        topLists.forEach(program -> program.setFileName(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFileName()));
+        topLists.forEach(program -> program.setFilePath(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFilePath()));
+//        topLists.forEach(topList -> topList.setFilePath(companyFileDAO.findCompanyFileById(topList.getCompanyId()).getFilePath()));
+        log.info("topList : {}", topLists);
         ScrapVO scrapVO = new ScrapVO();
         if(searchInfoDTO.getMemberId() != null){
             scrapVO.setMemberId(searchInfoDTO.getMemberId());

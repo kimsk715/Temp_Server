@@ -63,7 +63,7 @@ public class IntroduceController {
         SearchInfoDTO searchInfoDTO = new SearchInfoDTO();
         if(httpsession.getAttribute("member") != null) {
             // 임시수정(원본: MemberVO)
-            MemberDTO member = (MemberDTO) httpsession.getAttribute("member");
+            MemberVO member = (MemberVO) httpsession.getAttribute("member");
             Long memberId = member.getId();
             MemberDTO newMember = memberService.getMemberById(member.getId());
             newMember.setMemberBirth(member.getMemberBirth()); // 공고 상세보기를 위한 생일 추가
@@ -73,16 +73,16 @@ public class IntroduceController {
             searchInfoDTO.setMemberId(memberId);
 //            log.info(newMember.toString());
         }
-    if(session.getAttribute("company") != null) {
-        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-        CompanyFileDTO thumbnail = companyService.selectCompanyThumnail(company.getId());
-        CompanyFileDTO logo = companyService.selectCompanyThumnail(company.getId());
-        log.info("thumbnail:{}", thumbnail);
-        log.info("logo:{}", logo);
-
-        model.addAttribute("logo", logo);
-        model.addAttribute("thumbnail", thumbnail);
-    }
+//    if(session.getAttribute("company") != null) {
+//        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
+//        CompanyFileDTO thumbnail = companyService.selectCompanyThumnail(company.getId());
+//        CompanyFileDTO logo = companyService.selectCompanyThumnail(company.getId());
+//        log.info("thumbnail:{}", thumbnail);
+//        log.info("logo:{}", logo);
+//
+//        model.addAttribute("logo", logo);
+//        model.addAttribute("thumbnail", thumbnail);
+//    }
 
 
 

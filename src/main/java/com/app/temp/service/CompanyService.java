@@ -248,6 +248,11 @@ public class CompanyService {
 
             // 첫 번째 이미지 썸네일 경로로 이동
             return thumbnail;
+    // 기업 이미지 조회
+    public CompanyFileDTO selectCompanyThumbnail(Long id) {
+
+        // 첫 번째 이미지 썸네일 경로로 이동
+            return companyFileDAO.findCompanyFileById(id);
 
 
     }
