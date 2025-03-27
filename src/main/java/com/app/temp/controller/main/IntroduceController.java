@@ -73,9 +73,9 @@ public class IntroduceController {
             searchInfoDTO.setMemberId(memberId);
         }
         List<MainProgramListDTO> topList = programService.getByTopReadCount(searchInfoDTO);
-        log.info(topList.toString());
+//        log.info(topList.toString());
         httpsession.setAttribute("topLists", topList);
-        log.info(httpsession.getAttribute("topLists").toString());
+//        log.info(httpsession.getAttribute("topLists").toString());
         return "index";
     }
 }

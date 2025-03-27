@@ -231,12 +231,12 @@ public class EnterpriseController {
     @GetMapping("enterprise/display")
     public byte[] display(@RequestParam String path) throws IOException {
 //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("path:{}", path);
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("path:{}", path);
         byte[] file = null;
 
         try {
@@ -247,7 +247,7 @@ public class EnterpriseController {
         }
         // 파일을 바이트 배열로 변환함
 
-        log.info("file {}", file);
+//        log.info("file {}", file);
         return file;
     }
 
