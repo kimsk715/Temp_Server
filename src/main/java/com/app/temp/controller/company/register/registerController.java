@@ -27,7 +27,7 @@ public class registerController {
     @GetMapping(value = "register")
     public String register(Model model) {
         model.addAttribute("companyDTO", new CompanyDTO());
-        return "/login/company-register";
+        return "login/company-register";
     }
 
     @PostMapping("register")

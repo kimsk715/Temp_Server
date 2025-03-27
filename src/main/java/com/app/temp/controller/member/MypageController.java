@@ -47,7 +47,7 @@ public class MypageController {
 
         model.addAttribute("member", foundMember.orElseThrow(()-> new MypageSelectExcpetion("찾지못함")));
 
-        return "/member/account-info";
+        return "member/account-info";
     }
 
 
@@ -74,14 +74,16 @@ public class MypageController {
         if (member == null) {
             return "redirect:/";
         }
+
     //    마이페이지 스크랩 리스트 조회
         List<MypageDTO> scrapList = mypageService.mypageDTOList(member.getId(), session);
         log.info("scrapList 스크랩 리스트 = {}", scrapList);
+
     //    조회된 데이터를 모델에 추가
         model.addAttribute("scrapList", scrapList);
         
     //    account-main 으로 이동
-        return "/member/account-main";
+        return "member/account-main";
     }
 
 

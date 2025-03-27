@@ -75,7 +75,7 @@ public class ProgramController {
         ArrayList<MainProgramListDTO> mainProgramListDTOS = new ArrayList<>();
         mainProgramListDTOS = programService.getAllByCategories(searchInfoDTO);
         model.addAttribute("mainProgramListDTOS", mainProgramListDTOS);
-        return "/main/program-list";
+        return "main/program-list";
     }
 
 /*====================================================================================*/
@@ -94,7 +94,7 @@ public class ProgramController {
             model.addAttribute("programInfo", new MainProgramInfoDTO());
         }
         programService.updateReadCount(id);
-        return "/main/program-detail";
+        return "main/program-detail";
 
     }
     //    지원하기 버튼 누를 시 실행
@@ -115,7 +115,7 @@ public class ProgramController {
         model.addAttribute("companyDTO", companyDTO.get());
         List<CompanyProgramDTO> programDTOList = programService.getAllProgramByCompanyId(id);
         model.addAttribute("programDTOList", programDTOList);
-        return "/main/company-info";
+        return "main/company-info";
     }
 
     // 스크랩 추가

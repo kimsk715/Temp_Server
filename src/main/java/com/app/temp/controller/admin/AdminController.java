@@ -134,7 +134,7 @@ public class AdminController {
         programVO.setId(programId);
         programVO.setProgramStatus(programStatus);
         programService.set(programVO);
-        return "/admin/home";
+        return "admin/home";
     }
 
     @PatchMapping("/admin/home/members")
@@ -143,7 +143,7 @@ public class AdminController {
         memberVO.setId(memberId);
         memberVO.setMemberStatus(memberStatus);
         memberService.set(memberVO);
-        return "/admin/home";
+        return "admin/home";
     }
 
     @PatchMapping("/admin/home/company-members")
@@ -152,7 +152,7 @@ public class AdminController {
         memberVO.setId(companyMemberId);
         memberVO.setMemberStatus(companyMemberStatus);
         memberService.set(memberVO);
-        return "/admin/home";
+        return "admin/home";
     }
     @PatchMapping("/admin/home/member-inquiries")
     public String setMemberInquiryStatus(@RequestParam("inquiry-id") Long inquiryId, @RequestParam("inquiryStatus")  String inquiryStatus, @RequestParam("inquiry-answer") String inquiryAnswer){
@@ -168,7 +168,7 @@ public class AdminController {
         inquiryAnswerVO.setInquiryAnswerDetail(inquiryAnswer);
         inquiryAnswerVO.setMemberInquiryId(inquiryId);
         inquiryService.setMemberInquiryAnswer(inquiryAnswerVO);
-        return "/admin/home";
+        return "admin/home";
     }
 
     @PatchMapping("/admin/home/company-inquiries")
@@ -187,7 +187,7 @@ public class AdminController {
         inquiryService.setCompanyInquiryAnswer(companyInquiryAnswerVO);
 
 
-        return "/admin/home";
+        return "admin/home";
     }
 
     @PatchMapping("/admin/home/notices")
@@ -199,7 +199,7 @@ public class AdminController {
         noticeVO.setNoticeContent(noticeContent);
         noticeVO.setNoticeCategory(noticeCategory);
         noticeService.updateNotice(noticeVO);
-        return "/admin/home";
+        return "admin/home";
     }
 
     @PutMapping("admin/home/notices")
@@ -211,7 +211,7 @@ public class AdminController {
         noticeVO.setNoticeTitle(noticeTitle);
         noticeVO.setNoticeContent(noticeContent);
         noticeService.insertNotice(noticeVO);
-        return "/admin/home";
+        return "admin/home";
 
     }
 
