@@ -21,6 +21,7 @@ spring:
           auth: true
           starttls:
             enable: true
+            
   servlet:
     multipart:
       enabled: true
