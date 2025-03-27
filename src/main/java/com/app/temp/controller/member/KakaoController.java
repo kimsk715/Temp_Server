@@ -32,8 +32,9 @@ public class KakaoController {
     public String login(@RequestParam String code, @RequestParam String type){
         // 카카오 로그인 후 토큰 받기
         String token = kakaoService.getKakaoAccessToken(code, type);
+        log.info("Kakao access token: " + token);
         Optional<MemberDTO> foundInfo = kakaoService.getKakaoInfo(token);
-
+        log.info("found info: {}", foundInfo);
         // 회원 정보 조회 실패 시 예외 처리
         MemberDTO memberDTO = foundInfo.orElseThrow(() -> new LoginFailException("회원 조회 실패"));
 
