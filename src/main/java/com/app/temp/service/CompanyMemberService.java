@@ -66,7 +66,7 @@ public class CompanyMemberService {
 
         // 사업자등록증 저장(다음에 인증할게요 체크하면 '인증 안 함'으로 insert)
 
-        String rootPath= "C:/upload/";
+        String rootPath= "/upload/";
         file.transferTo(new File(rootPath, file.getOriginalFilename()));
 
         companyDTO.setCompanyCertificatePath(rootPath + file.getOriginalFilename());
