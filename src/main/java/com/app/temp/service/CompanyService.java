@@ -100,10 +100,10 @@ public class CompanyService {
         // 파일 이름이 맞으면 삭제함
         // 만약 이미지 파일이라면 썸네일도 삭제함
        foundCompanyFiles.forEach((companyFile) -> {
-          File file = new File("C:/upload",companyFile.getFilePath() + "/" + companyFile.getFileName());
+          File file = new File("/upload",companyFile.getFilePath() + "/" + companyFile.getFileName());
           file.delete();
           if(companyFile.getCompanyFileType().equals("기업 이미지")) {
-              file = new File("C:/upload",companyFile.getFilePath() + "/t_" + companyFile.getFileName());
+              file = new File("/upload",companyFile.getFilePath() + "/t_" + companyFile.getFileName());
               log.info(file.getAbsolutePath());
               file.delete();
           }
@@ -121,11 +121,11 @@ public class CompanyService {
         fileDAO.delete(id);
         // 파일 이름이 맞으면 삭제함
         // 만약 이미지 파일이라면 썸네일도 삭제함
-            File file = new File("C:/upload",foundCompanyLogo.getFilePath() + "/" + foundCompanyLogo.getFileName());
+            File file = new File("/upload",foundCompanyLogo.getFilePath() + "/" + foundCompanyLogo.getFileName());
             log.info(file.getAbsolutePath());
             file.delete();
             if(foundCompanyLogo.getCompanyFileType().equals("로고")) {
-                file = new File("C:/upload",foundCompanyLogo.getFilePath() + "/t_" + foundCompanyLogo.getFileName());
+                file = new File("/upload",foundCompanyLogo.getFilePath() + "/t_" + foundCompanyLogo.getFileName());
 
                 file.delete();
         };
@@ -139,8 +139,8 @@ public class CompanyService {
         // 오늘 날짜 기준으로 저장할 경로를 가져옴 ex) 2025/03/25
         String todayPath = getPath();
         
-        // 저장파일경로 설정 ex) C:/upload/2025/03/25
-        String rootPath = "C:/upload/" + todayPath;
+        // 저장파일경로 설정 ex) /upload/2025/03/25
+        String rootPath = "/upload/" + todayPath;
         
         // 업로드할 폴더가 존재하지 않으면 생성
         File directory = new File(rootPath);
@@ -200,7 +200,7 @@ public class CompanyService {
     //기업 로고 추가
     public void insertCompanyLogo(Long id, MultipartFile logo) {
         String todayPath = getPath();
-        String rootPath = "C:/upload/" + todayPath;
+        String rootPath = "/upload/" + todayPath;
 
         File directory = new File(rootPath);
         if(!directory.exists()){
@@ -242,6 +242,13 @@ public class CompanyService {
         }
     }
     
+    // 기업 이미지썸네일 조회
+    public CompanyFileDTO selectCompanyThumnail(Long id) {
+        CompanyFileDTO thumbnail = companyFileMapper.selectCompanyThumnail(id);
+
+            // 첫 번째 이미지 썸네일 경로로 이동
+            return thumbnail;
+            }
     // 기업 이미지 조회
     public CompanyFileDTO selectCompanyThumbnail(Long id) {
 
@@ -251,6 +258,21 @@ public class CompanyService {
 
     }
     // 기업 로고 조회
+    public CompanyFileDTO selectCompanyLogo(Long id) {
+            CompanyFileDTO logo = companyFileMapper.selectCompanyLogoById(id);
+        return companyFileMapper.selectCompanyLogoById(id);
+    };
+
+
+    //기업 로고 썸네일
+    public CompanyFileDTO selectCompanyLogoThumbnail(Long id) {
+        CompanyFileDTO logoThumbnail = companyFileMapper.selectCompanyLogoById(id);
+
+        File file = new File("/upload",logoThumbnail.getFilePath() + "/t_" + logoThumbnail.getFileName());
+        logoThumbnail.setFilePath(file.getPath());
+
+        return companyFileMapper.selectCompanyThumnail(id);
+    };
     
 //    현재 날짜를 yyyy/MM/dd 형식의 문자열로 반환함, 파일 저장을위한 경로
     private String getPath() {

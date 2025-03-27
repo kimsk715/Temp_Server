@@ -1,4 +1,4 @@
-package com.app.temp.exception;
+package com.app.temp.controller.exception;
 
 
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -11,6 +11,6 @@ public class NotFoundError implements ErrorController {
 
     @GetMapping("/error")
     public String handleError(){
-        return "/error/404";
+        return "error/404";
     }
 }
