@@ -7,7 +7,7 @@ server:
 spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@//43.201.28.194:1521/XE
+    url: jdbc:oracle:thin:@//52.78.1.168:1521/XE
     username: scott
     password: 1234
   mail:
@@ -28,6 +28,7 @@ spring:
       max-request-size: 40MB
       max-file-size: 10MB
       file-size-threshold: 100MB
+      location: ${java.io.tmpdir}
 
 mybatis:
     config-location: classpath:/config/config.xml

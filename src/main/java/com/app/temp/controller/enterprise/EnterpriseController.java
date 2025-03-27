@@ -41,7 +41,7 @@ public class EnterpriseController {
 
     @GetMapping("enterprise/header-footer")
     public String headerfooter(){
-        return "/enterprise/headerfooteredited";
+        return "enterprise/headerfooteredited";
     }
 
 //
@@ -231,12 +231,12 @@ public class EnterpriseController {
     @GetMapping("enterprise/display")
     public byte[] display(@RequestParam String path) throws IOException {
 //        CompanyDTO company = (CompanyDTO) session.getAttribute("company");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("들어옴");
-        log.info("path:{}", path);
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("들어옴");
+//        log.info("path:{}", path);
         byte[] file = null;
 
         try {
@@ -247,7 +247,7 @@ public class EnterpriseController {
         }
         // 파일을 바이트 배열로 변환함
 
-        log.info("file {}", file);
+//        log.info("file {}", file);
         return file;
     }
 
@@ -268,10 +268,10 @@ public class EnterpriseController {
     @GetMapping("enterprise/insert-inquiry")
     public String insert(HttpSession httpsession, @RequestParam("company-inquiry-type") String companyInquiryType, @RequestParam("company-inquiry-content") String companyInquiryContent){
         CompanyInquiryVO companyInquiryVO = new CompanyInquiryVO();
-//        CompanyMemberDTO companyMember = (CompanyMemberDTO) httpSession.getAttribute("companyMember");
-//        Long memberId = companyMember.getId();
+        CompanyMemberDTO companyMember = (CompanyMemberDTO) httpsession.getAttribute("companyMember");
+        Long memberId = companyMember.getId();
 //        Long companyId = companyMember.getCompanyId();
-        Long memberId = 3L;
+//        Long memberId = 3L;
         log.info("memberInquiryType:{}", companyInquiryType);
         log.info("memberInquiryContent:{}", companyInquiryContent);
         companyInquiryVO.setMemberId(memberId);

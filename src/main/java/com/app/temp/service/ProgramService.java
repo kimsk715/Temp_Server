@@ -56,7 +56,7 @@ public class ProgramService {
 //비로그인용 프로그램  전체 목록 조회
     public ArrayList<MainProgramListDTO> getAllMainNonLogin(){
         ArrayList<MainProgramListDTO> mainProgramListDTOS = programDAO.findAllMain();
-        log.info(String.valueOf(mainProgramListDTOS));
+//        log.info(String.valueOf(mainProgramListDTOS));
         mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
             mainProgramListDTO.setDDay("day");
         } else if (mainProgramListDTO.getDDay().contains("-")) {
@@ -139,9 +139,10 @@ public class ProgramService {
 
     public List<MainProgramListDTO> getByTopReadCount(SearchInfoDTO searchInfoDTO){
         List<MainProgramListDTO> topLists = programDAO.findByTopReadCount(searchInfoDTO);
-//        topLists.forEach(program -> program.setFileName(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFileName()));
-//        topLists.forEach(program -> program.setFilePath(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFilePath()));
-        log.info("topList : {}", topLists);
+        topLists.forEach(program -> program.setFileName(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFileName()));
+        topLists.forEach(program -> program.setFilePath(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFilePath()));
+//        log.info("topList : {}", topLists);
+//        topLists.forEach(program -> {log.info(program.getCompanyId().toString());});
         ScrapVO scrapVO = new ScrapVO();
         if(searchInfoDTO.getMemberId() != null){
             scrapVO.setMemberId(searchInfoDTO.getMemberId());

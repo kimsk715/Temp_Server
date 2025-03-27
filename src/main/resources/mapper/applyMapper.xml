@@ -97,9 +97,10 @@ FROM
            FROM TBL_PROGRAM P
             JOIN TBL_COMPANY C
                 ON P.COMPANY_ID = C.ID
+                ORDER BY PROGRAM_READ_COUNT DESC
            )
-    WHERE ROWNUM  <![CDATA[ <=12 ]]>
-ORDER BY PROGRAM_READ_COUNT DESC
+WHERE ROWNUM  <![CDATA[ <=12 ]]>
+
 </select>
 
     <!--    프로그램 검색 + 필터도 추가해야됨-->
