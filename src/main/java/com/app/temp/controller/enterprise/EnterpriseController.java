@@ -41,7 +41,7 @@ public class EnterpriseController {
 
     @GetMapping("enterprise/header-footer")
     public String headerfooter(){
-        return "/enterprise/headerfooteredited";
+        return "enterprise/headerfooteredited";
     }
 
 //
