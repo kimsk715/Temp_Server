@@ -128,6 +128,8 @@ public class ProgramService {
                 scrapDAO.findOne(scrapVO).ifPresentOrElse(scrap -> mainProgramListDTO.setScrapStatus("true"), ()-> mainProgramListDTO.setScrapStatus("false"));
             });
         }
+        mainProgramListDTOS.forEach( program -> program.setFileName(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFileName()));
+        mainProgramListDTOS.forEach( program -> program.setFilePath(companyFileDAO.findCompanyFileById(program.getCompanyId()).getFilePath()));
 //      날짜 표기(D-Day)를 위한 계산
         mainProgramListDTOS.forEach(mainProgramListDTO -> {if (mainProgramListDTO.getDDay().equals("0")) {
             mainProgramListDTO.setDDay("day");
