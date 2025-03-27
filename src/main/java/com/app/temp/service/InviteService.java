@@ -121,7 +121,7 @@ public class InviteService {
         mimeMessageHelper.setText(body.toString(), true);
 
         // 로고 이미지 첨부
-        FileSystemResource fileSystemResource = new FileSystemResource(new File("C:/Users/Jisoo Hahn/Desktop/temp.png"));
+        FileSystemResource fileSystemResource = new FileSystemResource("src/main/resources/static/images/member/temp-logo.png");
         mimeMessageHelper.addInline("logoImage", fileSystemResource);
 
         javaMailSender.send(mimeMessage);
