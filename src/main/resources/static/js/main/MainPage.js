@@ -224,7 +224,12 @@ buttons.forEach((button, i) => {
 
 const modalContainer = document.getElementById("inquiry-modal");
 const openModalButton = document.querySelector("#open-modal-button button");
-openModalButton.addEventListener("click",() =>{
+openModalButton.addEventListener("click",(e) =>{
+    if(memberData == null){
+        e.preventDefault();
+        alert("로그인이 필요한 서비스입니다.")
+        window.location.href = `/member/login`;
+    }
     openInquiryModal(modalContainer)
 })
 

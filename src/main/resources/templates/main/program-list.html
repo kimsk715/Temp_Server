@@ -158,7 +158,7 @@
                     <a th:href="|/program/detail/${mainProgramListDTO.id}|" id="card-wrapper" class="mainContentCardWrapper">
                         <div class="imgBox">
                             <img
-                                    th:src="${mainProgramListDTO.programThumbnailPath}"
+                                    th:src="@{'/enterprise/display?path=' + ${mainProgramListDTO.filePath} + '/' + ${mainProgramListDTO.fileName}}"
                                     class="img"
                             />
                             <div class="imgDdayBadge">
