@@ -15,7 +15,7 @@
 # 3. 프로젝트 사용 Tool
 
 -   Java<br>
--   Java Spring Data<br>
+-   Spring Boot<br>
 -   Java Script<br>
 -   tomcat<br>
 -   ORACLE<br>
